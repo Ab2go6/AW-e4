@@ -37,10 +37,25 @@
 .category-pantry .pantry-intro{width:min(1380px,88%);margin:0 auto 28px}
 .products-hero{background:linear-gradient(90deg,var(--p-cream) 0%,var(--p-cream-2) 58%,#d8c5a8 100%) !important}
 
-/* Restore the approved logo panel inside the dark story box — no photography. */
-.product-story-visual{background:var(--p-ink) !important;display:flex !important;align-items:center !important;justify-content:center !important}
-.product-story-visual img{display:block !important;width:68% !important;height:auto !important;max-height:68% !important;object-fit:contain !important;background:var(--p-cream) !important;padding:22px !important;border:1px solid rgba(199,154,59,.8) !important;border-radius:18px !important;box-shadow:0 0 0 14px rgba(23,21,19,.9),0 20px 45px rgba(0,0,0,.2) !important}
-.product-story-visual .product-story-overlay{display:none !important}
+/* Lower product story panel: full creamy background with the approved high-resolution logo centered inside. */
+.product-story-visual{
+  background:var(--p-cream) !important;
+  display:grid !important;
+  place-items:center !important;
+  border:1px solid rgba(199,154,59,.55) !important;
+  position:relative !important;
+}
+.product-story-visual:before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:var(--p-cream) url("assets/logo-crystal-4k.png") center/48% auto no-repeat !important;
+  z-index:2 !important;
+}
+.product-story-visual img,
+.product-story-visual .product-story-overlay{
+  display:none !important;
+}
 .product-story-label{z-index:3 !important}
 
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
@@ -64,4 +79,5 @@
 .products-page .category-heading{gap:28px !important}
 .products-page .category-heading .category-heading-left{width:100% !important}
 .products-page .category-heading p{flex:1 1 100% !important;width:100% !important;margin-left:0 !important;text-align:left !important}
+.product-story-visual:before{background-size:62% auto !important}
 }
