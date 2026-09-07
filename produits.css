@@ -8,9 +8,8 @@
 .products-main-nav a:hover,.products-main-nav a.active{color:var(--p-gold-light) !important}
 .products-main-nav a:after{height:2px !important;background:var(--p-gold-light) !important}
 .products-header .products-header-actions{order:3 !important;margin-left:0 !important;flex:0 0 auto !important;display:flex !important;align-items:center !important;gap:13px !important}
-.products-icon-button{width:40px !important;height:40px !important;color:var(--p-gold-light) !important;visibility:visible !important;opacity:1 !important}
+.products-icon-button{width:40px !important;height:40px !important;color:var(--p-gold-light) !important;visibility:visible !important;opacity:1 !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;padding:0 !important;display:flex !important;align-items:center !important;justify-content:center !important}
 .products-icon-button svg{width:24px !important;height:24px !important;stroke:currentColor !important}
-.products-header .products-header-actions:after{content:"";width:40px;height:40px;display:block;flex:0 0 40px;background-repeat:no-repeat;background-position:center;background-size:24px 24px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e2bd69' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 4.5h2l2.3 12.2a2 2 0 0 0 2 1.65h7.35a2 2 0 0 0 1.97-1.65L20.5 8.3H6.2'/%3E%3Ccircle cx='10.2' cy='20' r='1.35' fill='%23e2bd69' stroke='none'/%3E%3Ccircle cx='17' cy='20' r='1.35' fill='%23e2bd69' stroke='none'/%3E%3C/svg%3E")}
 .products-header .products-header-actions .cart-badge{display:none !important}
 .products-header-contact{order:4 !important;margin-left:0 !important;border:1px solid rgba(226,189,105,.72) !important;border-radius:30px !important;padding:11px 19px !important;color:#f7eddb !important;font-size:11px !important;font-weight:600 !important}
 .products-header .menu-toggle{order:5 !important}
@@ -45,7 +44,6 @@
 .products-main-nav.open{display:flex !important}
 .products-header .products-header-actions{order:2 !important;margin-left:auto !important;gap:4px !important}
 .products-icon-button{width:40px !important;height:40px !important}
-.products-header .products-header-actions:after{width:40px;height:40px;flex-basis:40px;background-size:24px 24px}
 .products-header-contact{display:none !important}
 .products-header .menu-toggle{order:3 !important;display:flex !important}
 .products-search-panel{top:78px !important}
