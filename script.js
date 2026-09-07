@@ -9,7 +9,7 @@ const nav = $('#mainNav');
 function setMenu(open){
   if(!menu || !nav) return;
   nav.classList.toggle('open', open);
-  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-expanded', open);
   menu.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
 }
 if(menu && nav){
@@ -135,19 +135,19 @@ function makeProductCard(name,label,tag,description,weights=['250 g','500 g','1 
 
 (function addNewProductsUnderAutres(){
   const autres=$('#autres');
-  const grid=autres?.querySelector('.product-items');
-  const nav= $('.product-category-nav');
-  if(!autres || !grid) return;
+  if(!autres) return;
 
   const families=[
     {
-      title:'Huiles', items:[
+      id:'huiles', title:'Huiles', description:'Des huiles emblématiques du terroir marocain, sélectionnées pour leur caractère et leur qualité.',
+      items:[
         ['Huile d’argan alimentaire','HUILE D’ARGAN','Une huile de caractère au goût délicatement torréfié, emblématique du terroir du Souss.'],
         ['Huile d’olive extra vierge','HUILE D’OLIVE','Une huile d’olive fruitée et équilibrée, pensée pour la cuisine quotidienne et les préparations méditerranéennes.']
       ]
     },
     {
-      title:'Amlou', items:[
+      id:'amlou', title:'Amlou', description:'Une collection de pâtes à tartiner inspirées de l’amlou marocain : fruits secs torréfiés, miel et huile, dans un esprit généreux.',
+      items:[
         ['Amlou aux amandes','AMLOU AMANDES','La version traditionnelle, autour de l’amande torréfiée, du miel et de l’huile d’argan.'],
         ['Amlou aux cacahuètes','AMLOU CACAHUÈTES','Une version gourmande et généreuse aux cacahuètes grillées, miel et huile d’argan.'],
         ['Amlou aux noisettes','AMLOU NOISETTES','Une pâte aux notes naturellement pralinées, avec noisettes torréfiées, miel et huile.'],
@@ -157,7 +157,8 @@ function makeProductCard(name,label,tag,description,weights=['250 g','500 g','1 
       ]
     },
     {
-      title:'Miel', items:[
+      id:'miel', title:'Miel', description:'Des miels inspirés de la flore marocaine, avec des profils floraux, boisés ou plus intenses.',
+      items:[
         ['Miel d’oranger','MIEL D’ORANGER','Un miel floral et lumineux aux notes délicates de fleur d’oranger.'],
         ['Miel d’eucalyptus','MIEL D’EUCALYPTUS','Un profil aromatique plus marqué, avec des notes boisées et balsamiques.'],
         ['Miel de thym','MIEL DE THYM','Un miel intense et chaleureux aux notes herbacées caractéristiques du thym sauvage.'],
@@ -168,20 +169,21 @@ function makeProductCard(name,label,tag,description,weights=['250 g','500 g','1 
     }
   ];
 
+  let insertAfter=autres;
   families.forEach(family=>{
-    const title=document.createElement('div');
-    title.className='catalog-family-title';
-    title.textContent=family.title;
-    grid.appendChild(title);
+    const section=document.createElement('section');
+    section.className='product-category-section catalog-family-section';
+    section.id=family.id;
+    section.dataset.section='autres';
+    section.innerHTML=`<div class="category-heading"><div class="category-heading-left"><span class="category-number">${family.id==='huiles'?'08':family.id==='amlou'?'09':'10'}</span><div><span class="product-item-tag">UNIVERS ARAOUAA</span><h2>${family.title}</h2></div></div><p>${family.description}</p></div><div class="product-items catalog-family-grid"></div>`;
+    const grid=section.querySelector('.product-items');
     family.items.forEach(([name,label,description])=>grid.appendChild(makeProductCard(name,label,'AUTRES',description)));
+    insertAfter.insertAdjacentElement('afterend',section);
+    insertAfter=section;
   });
 
-  if(nav){
-    const autresButton=nav.querySelector('[data-category="autres"]');
-    autresButton?.classList.add('active');
-  }
-
-  grid.querySelectorAll('.format-button:not(.custom-format)').forEach(button=>button.addEventListener('click',()=>{
+  const allFormats=autres.parentElement.querySelectorAll('.catalog-family-section .format-button:not(.custom-format)');
+  allFormats.forEach(button=>button.addEventListener('click',()=>{
     button.classList.add('selected');
     setTimeout(()=>button.classList.remove('selected'),650);
   }));
