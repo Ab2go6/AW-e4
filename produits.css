@@ -3,10 +3,10 @@
 /* Shared top strip: match the homepage announcement area instead of leaving a blank white band. */
 .products-page:before{content:"Produits marocains sélectionnés avec soin  •  Qualité premium · Savoir-faire authentique";display:flex;align-items:center;justify-content:center;height:40px;background:var(--p-cream) !important;color:var(--p-ink) !important;border-bottom:1px solid var(--p-line);font-size:10px;letter-spacing:.35px;text-align:center;padding:0 20px}
 
-/* Product-page header: keep the original logo treatment — no oversized cream circle. */
-.products-header{height:116px !important;padding:0 5.8% !important;gap:40px !important;justify-content:flex-start !important;background:rgba(23,21,19,.97) !important;border-bottom:1px solid rgba(226,189,105,.22) !important;color:#f7f0e4 !important}
-.products-logo{width:125px !important;height:auto !important;display:block !important;flex:0 0 auto !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;overflow:visible !important}
-.products-logo img{width:100% !important;height:72px !important;object-fit:contain !important;display:block !important}
+/* Product header: match the homepage header geometry, dark texture and approved logo scale exactly. */
+.products-header{height:116px !important;padding:0 5.8% !important;gap:40px !important;justify-content:flex-start !important;background:rgba(23,21,19,.97) !important;border-bottom:1px solid rgba(226,189,105,.22) !important;color:#f7f0e4 !important;backdrop-filter:blur(14px) !important}
+.products-logo{width:164px !important;height:94px !important;display:flex !important;align-items:center !important;flex:0 0 auto !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;overflow:visible !important}
+.products-logo img{width:100% !important;height:100% !important;object-fit:contain !important;display:block !important}
 
 .products-main-nav{order:2 !important;display:flex !important;align-items:center !important;justify-content:center !important;gap:42px !important;flex:1 !important;font-size:13px !important;text-transform:none !important;letter-spacing:.5px !important}
 .products-main-nav a{color:#f7f0e4 !important;font-size:13px !important;font-weight:500 !important;letter-spacing:.5px !important;padding:10px 0 !important}
@@ -24,9 +24,7 @@
 
 /* Product category headings: the cocoa band now runs edge-to-edge. */
 .products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important;box-shadow:0 0 0 100vmax #171513;clip-path:inset(0 -100vmax)}
-.products-page .category-heading h2,
-.products-page .category-heading h3,
-.products-page .category-heading strong{color:#f7f0e4 !important}
+.products-page .category-heading h2,.products-page .category-heading h3,.products-page .category-heading strong{color:#f7f0e4 !important}
 .products-page .category-heading p{color:#d5cfc4 !important}
 
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
@@ -44,18 +42,18 @@
 
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
 @media(max-width:850px){
-.products-page:before{height:40px;font-size:8px;letter-spacing:.15px;white-space:nowrap;overflow:hidden}
-.products-header{height:116px !important;padding:0 14px !important;gap:4px !important}
-.products-logo{order:1 !important;width:105px !important;height:auto !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important}
-.products-logo img{width:100% !important;height:72px !important}
-.products-main-nav{order:4 !important;display:none !important;position:absolute;top:116px !important;left:0;right:0;background:var(--p-cream);padding:20px 7%;flex-direction:column;gap:12px !important}
+.products-page:before{height:40px}
+.products-header{height:78px !important;padding:0 14px !important;gap:4px !important;background:rgba(23,21,19,.97) !important;backdrop-filter:blur(14px) !important}
+.products-logo{order:1 !important;width:105px !important;height:72px !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important}
+.products-logo img{width:100% !important;height:100% !important}
+.products-main-nav{order:4 !important;display:none !important;position:absolute;top:78px !important;left:0;right:0;background:var(--p-cream);padding:20px 7%;flex-direction:column;gap:12px !important}
 .products-main-nav.open{display:flex !important}
 .products-header .products-header-actions{order:2 !important;margin-left:auto !important;gap:4px !important}
 .products-icon-button{width:40px !important;height:40px !important}
 .products-header .products-header-actions:after{width:40px;height:40px;flex-basis:40px;background-size:24px 24px}
 .products-header-contact{display:none !important}
 .products-header .menu-toggle{order:3 !important;display:flex !important}
-.products-search-panel{top:116px !important}
+.products-search-panel{top:78px !important}
 .category-pantry{padding:60px 0 100px}
 .category-pantry .category-heading{width:min(1380px,88%);align-items:flex-start;flex-direction:column;gap:15px}
 .category-pantry .category-heading p{text-align:left}
