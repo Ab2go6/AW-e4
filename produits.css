@@ -26,6 +26,13 @@
 .products-page .category-heading h2 em,.products-page .category-heading h3 em,.products-page .category-heading strong em{color:var(--p-burgundy) !important;font-style:normal !important}
 .products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;text-align:right !important}
 
+/* Product-section accent typography: replace the red accent only inside the catalogue families. */
+.products-page .product-category-section .category-heading h2 em,
+.products-page .product-category-section .category-heading h3 em,
+.products-page .product-category-section .category-heading strong em,
+.products-page .product-category-section .format-button.custom-format,
+.products-page .category-spices .spice-note strong{color:var(--p-gold-light) !important}
+
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
 .category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
 .category-pantry .category-heading p{text-align:right;color:var(--p-muted)}
