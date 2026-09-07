@@ -29,11 +29,47 @@
   stroke:#fff !important;
 }
 
-.quality-mark:before{background:var(--cream) !important;border-color:rgba(199,154,59,.8);box-shadow:0 0 0 14px rgba(23,21,19,.9)}
-.quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
+/* Both homepage brand boxes use the same clean cream treatment and show only the high-resolution logo. */
+.quality-mark:before{
+  background:var(--cream) !important;
+  border-color:rgba(199,154,59,.8);
+  box-shadow:0 0 0 14px rgba(23,21,19,.9);
+}
+.quality-mark img{
+  filter:drop-shadow(0 12px 22px rgba(23,21,19,.18));
+  width:190px !important;
+  height:190px !important;
+  object-fit:contain !important;
+}
+.partner-card{
+  background:var(--cream) !important;
+  color:var(--ink) !important;
+  border:1px solid rgba(199,154,59,.55) !important;
+  box-shadow:var(--shadow) !important;
+}
+.partner-card:before,
+.partner-card .partner-ring,
+.partner-card strong,
+.partner-card > span,
+.partner-card .partner-tags{display:none !important}
+.partner-card img{
+  width:260px !important;
+  height:260px !important;
+  object-fit:contain !important;
+  display:block !important;
+  position:relative !important;
+  z-index:2 !important;
+  filter:drop-shadow(0 14px 24px rgba(23,21,19,.16));
+}
+
 .footer{background:#11100f !important;background-image:none !important}
 
 /* No photographic hero layer: keep the right side clean and architectural. */
 .hero-visual{background:none !important}
 .hero-visual .hero-arch,
 .hero-visual .visual-frame{display:none !important}
+
+@media(max-width:720px){
+  .partner-card{height:360px !important}
+  .partner-card img{width:210px !important;height:210px !important}
+}
