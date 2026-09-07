@@ -22,10 +22,13 @@
 .products-search-panel{top:94px !important}
 .products-search-inner{background:var(--p-paper);border-color:rgba(199,154,59,.32)}
 
-/* Product category headings: the cocoa band now runs edge-to-edge. */
-.products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important;box-shadow:0 0 0 100vmax #171513;clip-path:inset(0 -100vmax)}
+/* Product category headings: clean cocoa band, no numbered circles, orange accent typography, and stronger left/right balance. */
+.products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important;box-shadow:0 0 0 100vmax #171513;clip-path:inset(0 -100vmax);display:flex !important;align-items:flex-end !important;justify-content:space-between !important;gap:80px !important}
+.products-page .category-heading .category-heading-left{flex:1 1 auto !important;min-width:0 !important;justify-content:flex-start !important}
+.products-page .category-heading .category-number{display:none !important}
 .products-page .category-heading h2,.products-page .category-heading h3,.products-page .category-heading strong{color:#f7f0e4 !important}
-.products-page .category-heading p{color:#d5cfc4 !important}
+.products-page .category-heading h2 em,.products-page .category-heading h3 em,.products-page .category-heading strong em{color:#e07a2d !important;font-style:normal !important}
+.products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;text-align:right !important}
 
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
 .category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
@@ -58,4 +61,7 @@
 .category-pantry .category-heading{width:min(1380px,88%);align-items:flex-start;flex-direction:column;gap:15px}
 .category-pantry .category-heading p{text-align:left}
 .category-pantry .product-items,.category-pantry .pantry-intro{width:min(1380px,88%)}
+.products-page .category-heading{gap:28px !important}
+.products-page .category-heading .category-heading-left{width:100% !important}
+.products-page .category-heading p{flex:1 1 100% !important;width:100% !important;margin-left:0 !important;text-align:left !important}
 }
