@@ -1,62 +1,6 @@
 @import url("style-base.css");
 
-/* Clean final homepage refinements. Keep one source of truth in style-base.css. */
-.hero-visual .hero-arch,
-.hero-visual .visual-frame{display:none !important;}
-.hero-lead{font-size:0;max-width:640px;}
-.hero-lead:before{content:"Café, épices, fruits secs, épicerie et huile d’argan : une sélection inspirée par la richesse du terroir marocain, présentée avec une identité premium.";font-size:15px;line-height:1.9;color:var(--ink-soft);}
-
-/* Accueil logo square: cream, clean, no red visual treatment. */
-.story-visual{background:var(--cream) !important;border:1px solid rgba(199,154,59,.38);}
-.story-visual img{content:url("assets/logo-crystal-4k.png");width:190px;height:190px;object-fit:contain;opacity:1;position:relative;z-index:1;filter:drop-shadow(0 18px 28px rgba(0,0,0,.28));}
-.story-visual:after,.story-badge{display:none !important;}
-
-/* Partner logo square: same clean cream treatment. */
-.partner-card{background:var(--cream) !important;border-color:rgba(199,154,59,.42) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 24px 55px rgba(35,24,17,.10);}
-.partner-card:before,.partner-card:after,.partner-card .partner-ring:before,.partner-card .partner-ring:after{display:none !important;}
-.partner-card .partner-ring{border:0 !important;box-shadow:none !important;background:none !important;}
-.partner-card strong,.partner-card>span,.partner-tags{display:none !important;}
-.partner-card>img{position:relative;z-index:2;width:190px;height:190px;object-fit:contain;opacity:1;filter:drop-shadow(0 18px 28px rgba(0,0,0,.28));}
-
-/* Accueil header: warm black/cocoa, never blue. */
-.site-header,
-.site-header.scrolled{background:linear-gradient(115deg,#24211e 0%,#2d2924 48%,#3a3025 100%) !important;border-bottom:1px solid rgba(226,189,105,.34);box-shadow:0 10px 30px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.035);}
-.site-header:before,.site-header:after{display:none !important;}
-.site-header>*{position:relative;z-index:2;}
-.main-nav a{color:#f7f0e4 !important;text-shadow:none;}
-.main-nav a:hover,.main-nav a.active{color:var(--gold-light) !important;}
-.main-nav a:after{background:var(--gold-light) !important;box-shadow:none;}
-.icon-button{color:var(--gold-light) !important;}
-.header-contact{border-color:rgba(226,189,105,.58) !important;color:#f7eddb !important;background:transparent;box-shadow:none;}
-.header-contact:hover{background:var(--gold-light) !important;color:var(--ink) !important;border-color:var(--gold-light) !important;}
-.cart-badge{background:var(--gold-light) !important;color:var(--burgundy-deep) !important;border-color:#24211e !important;}
-.menu-toggle span{background:#f7eddb !important;}
-.header-actions{position:absolute;right:5.8%;margin-left:0;transform:none;}
-.search-panel{top:94px;right:5.8%;}
-
-/* WhatsApp stays green; it is the only intentional green accent. */
-.announcement-socials a[aria-label="WhatsApp"]{color:#25D366 !important;}
-.whatsapp,
-.whatsapp:hover,
-.whatsapp:focus,
-.whatsapp:focus-visible,
-.whatsapp:active{background:#25D366 !important;color:#fff !important;border-color:#25D366 !important;box-shadow:0 10px 30px rgba(37,211,102,.22) !important;}
-.whatsapp svg{color:#fff !important;fill:none !important;stroke:#fff !important;}
-.whatsapp svg path{stroke:#fff !important;fill:none !important;}
-
-/* Homepage quality band: warm charcoal/cocoa, not blue. */
-.quality-strip{background:linear-gradient(115deg,#29251f 0%,#302b25 52%,#3a3025 100%) !important;color:#fff !important;border:0;box-shadow:inset 0 1px 0 rgba(226,189,105,.07),inset 0 -1px 0 rgba(0,0,0,.12);}
-.quality-item b{color:#fff !important;}
-.quality-item small{color:#d9d1c6 !important;}
-.quality-icon{border-color:rgba(226,189,105,.8) !important;color:var(--gold-light) !important;box-shadow:none !important;}
-.quality-mark:before{background:var(--burgundy-deep) !important;border-color:rgba(226,189,105,.8) !important;box-shadow:0 0 0 14px rgba(41,37,31,.9) !important;}
-
-/* Homepage footer: restore the warm black/cocoa system and remove the old blue/teal layer. */
-.footer{background:#11100f !important;background-image:none !important;border-top:0 !important;}
-.footer-nav strong{color:var(--gold-light) !important;}
-.footer-nav a{color:#bdb5a6 !important;}
-.footer-brand p{color:#d9d0c0 !important;}
-.footer-bottom{border-top:1px solid rgba(226,189,105,.14) !important;color:#9d9588 !important;}
-
-@media(max-width:900px){.header-actions{position:relative;right:auto;transform:none;margin-left:auto;}.search-panel{right:5.8%;}}
-@media(max-width:720px){.story-visual img{width:160px;height:160px;}.partner-card>img{width:160px;height:160px;}}
+/* Final visual corrections: homepage logo medallion stays light and the footer/header remain warm. */
+.quality-mark:before{background:var(--cream);border-color:rgba(199,154,59,.8);box-shadow:0 0 0 14px rgba(23,21,19,.9)}
+.quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
+.footer{background:#11100f !important;background-image:none !important}
