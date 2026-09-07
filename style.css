@@ -1,6 +1,1 @@
 @import url("style-base.css");
-
-/* Final visual corrections: homepage logo medallion stays light and the footer/header remain warm. */
-.quality-mark:before{background:var(--cream);border-color:rgba(199,154,59,.8);box-shadow:0 0 0 14px rgba(23,21,19,.9)}
-.quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
-.footer{background:#11100f !important;background-image:none !important}
