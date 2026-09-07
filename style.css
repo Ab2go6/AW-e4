@@ -1,6 +1,6 @@
 @import url("style-base.css");
 
-/* Final homepage visual corrections — keep the approved warm palette. */
+/* Approved homepage visual state. */
 .announcement{
   background:var(--cream) !important;
   color:var(--ink-soft) !important;
@@ -10,18 +10,14 @@
 .announcement-separator{color:var(--gold) !important}
 .announcement-socials a{color:var(--burgundy) !important}
 
-/* Homepage typography: restore the original burgundy/red accent. */
 .hero h1 em,
 .section-heading h2 em,
 .story-copy h2 em,
 .partner-copy h2 em,
 .story-points span,
 .product-number,
-.product-link{
-  color:var(--burgundy) !important;
-}
+.product-link{color:var(--burgundy) !important}
 
-/* WhatsApp stays green. */
 .whatsapp,
 .whatsapp:hover,
 .whatsapp:focus,
@@ -34,15 +30,8 @@
   box-shadow:0 10px 30px rgba(37,211,102,.22) !important;
 }
 .whatsapp svg,
-.whatsapp svg path{
-  color:#fff !important;
-  fill:none !important;
-  stroke:#fff !important;
-}
+.whatsapp svg path{color:#fff !important;fill:none !important;stroke:#fff !important}
 
-.cart-badge{display:none !important}
-
-/* Both homepage logo boxes use the same clean creamy background. */
 .quality-mark:before{
   background:var(--cream) !important;
   border-color:rgba(199,154,59,.8);
@@ -55,18 +44,12 @@
   object-fit:contain !important;
 }
 
-/* Second logo box: exactly the same clean cream treatment as the box above it. */
 .partner-card{
   background:var(--cream) !important;
   color:var(--ink) !important;
   border:1px solid rgba(199,154,59,.55) !important;
   box-shadow:var(--shadow) !important;
 }
-.partner-card:before,
-.partner-card .partner-ring,
-.partner-card strong,
-.partner-card > span,
-.partner-card .partner-tags{display:none !important}
 .partner-card img{
   width:260px !important;
   height:260px !important;
@@ -77,7 +60,6 @@
   filter:drop-shadow(0 14px 24px rgba(23,21,19,.16));
 }
 
-/* Lower homepage story panel: full creamy background with the approved high-resolution logo centered inside. */
 .story-visual{
   background:var(--cream) !important;
   display:grid !important;
@@ -95,19 +77,30 @@
   box-shadow:0 18px 45px rgba(23,21,19,.14);
   z-index:1;
 }
-.story-visual img,
-.story-visual:after,
-.story-badge{display:none !important}
 
 .footer{background:#11100f !important;background-image:none !important}
 
-/* No photographic hero layer: keep the right side clean and architectural. */
-.hero-visual{background:none !important}
-.hero-visual .hero-arch,
-.hero-visual .visual-frame{display:none !important}
-
+@media(max-width:900px){
+  .site-header{display:flex !important;align-items:center !important;padding-left:14px !important;padding-right:14px !important;gap:6px !important}
+  .site-header .brand-logo{flex:0 0 auto !important}
+  .site-header .main-nav{display:none !important}
+  .site-header .header-actions{position:relative !important;top:auto !important;right:auto !important;transform:none !important;margin-left:auto !important;display:flex !important;align-items:center !important;gap:2px !important;flex:0 0 auto !important;order:2 !important}
+  .site-header .header-actions .search-toggle,
+  .site-header .header-actions .instagram-link{display:grid !important;place-items:center !important;width:34px !important;height:34px !important}
+  .site-header .header-actions .cart-link,
+  .site-header .header-actions .header-contact{display:none !important}
+  .site-header .menu-toggle{display:flex !important;align-items:center !important;justify-content:center !important;flex-direction:column !important;order:3 !important;flex:0 0 38px !important;width:38px !important;height:38px !important;margin:0 !important;padding:0 !important}
+  .site-header .menu-toggle span{display:block !important;width:21px !important;margin:3px 0 !important}
+  .site-header .search-panel{top:78px !important;left:12px !important;right:12px !important;width:auto !important}
+}
 @media(max-width:720px){
   .partner-card{height:360px !important}
   .partner-card img{width:210px !important;height:210px !important}
-  .story-visual:before{width:72%;}
+  .story-visual:before{width:72%}
+}
+@media(max-width:390px){
+  .site-header .brand-logo{width:104px !important}
+  .site-header .header-actions .search-toggle,
+  .site-header .header-actions .instagram-link{width:32px !important;height:32px !important}
+  .site-header .menu-toggle{flex-basis:34px !important;width:34px !important}
 }
