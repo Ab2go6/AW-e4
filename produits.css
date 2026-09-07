@@ -1,13 +1,10 @@
 @import url("produits-base.css");
 
-/* Shared top strip: match the homepage announcement area instead of leaving a blank white band. */
 .products-page:before{content:"Produits marocains sélectionnés avec soin  •  Qualité premium · Savoir-faire authentique";display:flex;align-items:center;justify-content:center;height:40px;background:var(--p-cream) !important;color:var(--p-ink) !important;border-bottom:1px solid var(--p-line);font-size:10px;letter-spacing:.35px;text-align:center;padding:0 20px}
 
-/* Product header: match the homepage header geometry, dark texture and approved logo scale exactly. */
 .products-header{height:116px !important;padding:0 5.8% !important;gap:40px !important;justify-content:flex-start !important;background:rgba(23,21,19,.97) !important;border-bottom:1px solid rgba(226,189,105,.22) !important;color:#f7f0e4 !important;backdrop-filter:blur(14px) !important}
 .products-logo{width:164px !important;height:94px !important;display:flex !important;align-items:center !important;flex:0 0 auto !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;overflow:visible !important}
 .products-logo img{width:100% !important;height:100% !important;object-fit:contain !important;display:block !important}
-
 .products-main-nav{order:2 !important;display:flex !important;align-items:center !important;justify-content:center !important;gap:42px !important;flex:1 !important;font-size:13px !important;text-transform:none !important;letter-spacing:.5px !important}
 .products-main-nav a{color:#f7f0e4 !important;font-size:13px !important;font-weight:500 !important;letter-spacing:.5px !important;padding:10px 0 !important}
 .products-main-nav a:hover,.products-main-nav a.active{color:var(--p-gold-light) !important}
@@ -22,12 +19,11 @@
 .products-search-panel{top:94px !important}
 .products-search-inner{background:var(--p-paper);border-color:rgba(199,154,59,.32)}
 
-/* Product category headings: clean cocoa band, no numbered circles, orange accent typography, and stronger left/right balance. */
-.products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important;box-shadow:0 0 0 100vmax #171513;clip-path:inset(0 -100vmax);display:flex !important;align-items:flex-end !important;justify-content:space-between !important;gap:80px !important}
-.products-page .category-heading .category-heading-left{flex:1 1 auto !important;min-width:0 !important;justify-content:flex-start !important}
-.products-page .category-heading .category-number{display:none !important}
+.products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important;box-shadow:0 0 0 100vmax #171513;clip-path:inset(0 -100vmax);display:flex !important;align-items:center !important;justify-content:space-between !important;gap:80px !important}
+.products-page .category-heading .category-heading-left{flex:1 1 auto !important;min-width:0 !important;display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:17px !important}
+.products-page .category-heading .category-number{display:grid !important;place-items:center !important;flex:0 0 43px !important;width:43px !important;height:43px !important;border-radius:50% !important;background:var(--p-burgundy) !important;color:#f7eddb !important;border:1px solid rgba(226,189,105,.45) !important;font-size:11px !important;font-weight:700 !important;line-height:1 !important}
 .products-page .category-heading h2,.products-page .category-heading h3,.products-page .category-heading strong{color:#f7f0e4 !important}
-.products-page .category-heading h2 em,.products-page .category-heading h3 em,.products-page .category-heading strong em{color:#e07a2d !important;font-style:normal !important}
+.products-page .category-heading h2 em,.products-page .category-heading h3 em,.products-page .category-heading strong em{color:var(--p-burgundy) !important;font-style:normal !important}
 .products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;text-align:right !important}
 
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
@@ -37,25 +33,9 @@
 .category-pantry .pantry-intro{width:min(1380px,88%);margin:0 auto 28px}
 .products-hero{background:linear-gradient(90deg,var(--p-cream) 0%,var(--p-cream-2) 58%,#d8c5a8 100%) !important}
 
-/* Lower product story panel: full creamy background with the approved high-resolution logo centered inside. */
-.product-story-visual{
-  background:var(--p-cream) !important;
-  display:grid !important;
-  place-items:center !important;
-  border:1px solid rgba(199,154,59,.55) !important;
-  position:relative !important;
-}
-.product-story-visual:before{
-  content:"" !important;
-  position:absolute !important;
-  inset:0 !important;
-  background:var(--p-cream) url("assets/logo-crystal-4k.png") center/48% auto no-repeat !important;
-  z-index:2 !important;
-}
-.product-story-visual img,
-.product-story-visual .product-story-overlay{
-  display:none !important;
-}
+.product-story-visual{background:var(--p-cream) !important;display:grid !important;place-items:center !important;border:1px solid rgba(199,154,59,.55) !important;position:relative !important}
+.product-story-visual:before{content:"" !important;position:absolute !important;inset:0 !important;background:var(--p-cream) url("assets/logo-crystal-4k.png") center/48% auto no-repeat !important;z-index:2 !important}
+.product-story-visual img,.product-story-visual .product-story-overlay{display:none !important}
 .product-story-label{z-index:3 !important}
 
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
