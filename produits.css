@@ -1,6 +1,6 @@
 @import url("produits-base.css");
 
-/* Final catalogue alignment: one consistent header, controls, and category treatment. */
+/* Product-page header: keep the navigation in one stable position and keep all controls visible. */
 .products-header{
   justify-content:flex-start;
   background:rgba(23,21,19,.98) !important;
@@ -9,30 +9,82 @@
 }
 .products-logo{order:1;flex:0 0 auto}
 .products-main-nav{
-  order:2;
-  margin-left:auto;
+  order:2 !important;
+  margin-left:0 !important;
+  flex:1;
+  justify-content:center;
+  gap:42px;
 }
-.products-main-nav a{color:#f7f0e4}
-.products-main-nav a:hover,.products-main-nav a.active{color:var(--p-gold-light)}
-.products-header-actions{order:3;margin-left:22px !important}
-.products-header-contact{order:4;margin-left:12px;color:var(--p-gold-light);border-color:rgba(226,189,105,.72)}
-.products-header .menu-toggle{order:5}
-.products-icon-button{color:var(--p-gold-light) !important}
+.products-main-nav a{color:#f7f0e4 !important}
+.products-main-nav a:hover,.products-main-nav a.active{color:var(--p-gold-light) !important}
+.products-header-actions{
+  order:3 !important;
+  margin-left:0 !important;
+  flex:0 0 auto;
+  display:flex !important;
+  align-items:center;
+  gap:2px;
+}
+.products-header-contact{order:4 !important;margin-left:12px;color:var(--p-gold-light) !important;border-color:rgba(226,189,105,.72)}
+.products-header .menu-toggle{order:5 !important}
+.products-icon-button{color:var(--p-gold-light) !important;visibility:visible !important;opacity:1 !important}
+.products-icon-button svg{stroke:currentColor !important}
 .products-search-panel{top:86px}
 .products-search-inner{background:var(--p-paper);border-color:rgba(199,154,59,.32)}
 
-/* Épicerie uses the same heading structure and spacing as every other family. */
-.category-pantry{background:var(--p-cream) !important}
-.category-pantry .category-heading{border-bottom:1px solid var(--p-line);padding-bottom:20px;margin-bottom:32px}
+/* Épicerie follows exactly the same heading geometry as every other category. */
+.category-pantry{
+  background:var(--p-cream) !important;
+  width:100%;
+  padding:60px 0 100px;
+}
+.category-pantry .category-heading{
+  width:min(1380px,88%);
+  margin:0 auto 32px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  border-bottom:1px solid var(--p-line);
+  padding-bottom:20px;
+}
 .category-pantry .category-heading p{text-align:right;color:var(--p-muted)}
-.category-pantry .pantry-intro{margin-bottom:28px}
+.category-pantry .product-items{width:min(1380px,88%);margin:0 auto}
+.category-pantry .pantry-intro{width:min(1380px,88%);margin:0 auto 28px}
+
+/* The old product-hero image was removed. Keep this section CSS-only. */
+.products-hero{
+  background:linear-gradient(90deg,var(--p-cream) 0%,var(--p-cream-2) 58%,#d8c5a8 100%) !important;
+}
+
+@media(max-width:1150px){
+  .products-main-nav{gap:22px}
+}
 
 @media(max-width:850px){
   .products-header{justify-content:flex-start;padding:0 14px !important}
-  .products-main-nav{order:2;margin-left:0}
-  .products-header-actions{order:3;margin-left:auto !important}
-  .products-header .menu-toggle{order:4}
+  .products-logo{order:1 !important}
+  .products-main-nav{
+    order:4 !important;
+    margin-left:0 !important;
+    flex:initial;
+    gap:12px;
+  }
+  .products-header-actions{
+    order:2 !important;
+    margin-left:auto !important;
+  }
+  .products-header-contact{display:none}
+  .products-header .menu-toggle{order:3 !important}
   .products-search-panel{top:78px}
-  .category-pantry .category-heading{padding-bottom:20px;margin-bottom:32px}
+  .category-pantry{padding:60px 0 100px}
+  .category-pantry .category-heading{
+    width:min(1380px,88%);
+    align-items:flex-start;
+    flex-direction:column;
+    gap:15px;
+  }
   .category-pantry .category-heading p{text-align:left}
+  .category-pantry .product-items{width:min(1380px,88%)}
+  .category-pantry .pantry-intro{width:min(1380px,88%)}
 }
