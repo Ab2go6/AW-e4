@@ -17,8 +17,10 @@
 .partner-card{background:var(--cream) !important;color:var(--ink) !important;border:1px solid rgba(199,154,59,.55) !important;box-shadow:var(--shadow) !important}
 .partner-card img{width:260px !important;height:260px !important;object-fit:contain !important;display:block !important;position:relative !important;z-index:2 !important;filter:drop-shadow(0 14px 24px rgba(23,21,19,.16))}
 
-/* Keep one clean logo box: the outer visual is only a cream background. */
+/* Keep the Née du Maroc visual as one clean cream logo box, with no dark overlay layer. */
 .story-visual{background:var(--cream) !important;display:grid !important;place-items:center !important;border:0 !important;box-shadow:none !important}
+.story-visual:after{content:none !important;display:none !important}
+.story-visual img{display:none !important}
 .story-visual:before{content:"";position:absolute;width:min(78%,360px);aspect-ratio:1/1;background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;border:1px solid rgba(199,154,59,.8);border-radius:18px;box-shadow:0 18px 45px rgba(23,21,19,.14);z-index:1}
 
 .footer{background:#11100f !important;background-image:none !important}
