@@ -29,6 +29,9 @@
   stroke:#fff !important;
 }
 
+/* The homepage cart is an icon only: no fake/empty item count. */
+.cart-badge{display:none !important}
+
 /* Both homepage brand boxes use the same clean cream treatment and show only the high-resolution logo. */
 .quality-mark:before{
   background:var(--cream) !important;
@@ -62,6 +65,27 @@
   filter:drop-shadow(0 14px 24px rgba(23,21,19,.16));
 }
 
+/* The lower homepage story panel is also a clean logo panel — no deleted photo and no empty black box. */
+.story-visual{
+  background:var(--ink) !important;
+  display:grid !important;
+  place-items:center !important;
+}
+.story-visual:before{
+  content:"";
+  position:absolute;
+  width:min(78%,360px);
+  aspect-ratio:1/1;
+  background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;
+  border:1px solid rgba(199,154,59,.8);
+  border-radius:18px;
+  box-shadow:0 0 0 14px rgba(23,21,19,.9),0 20px 45px rgba(0,0,0,.2);
+  z-index:1;
+}
+.story-visual img,
+.story-visual:after,
+.story-badge{display:none !important}
+
 .footer{background:#11100f !important;background-image:none !important}
 
 /* No photographic hero layer: keep the right side clean and architectural. */
@@ -72,4 +96,5 @@
 @media(max-width:720px){
   .partner-card{height:360px !important}
   .partner-card img{width:210px !important;height:210px !important}
+  .story-visual:before{width:72%;}
 }
