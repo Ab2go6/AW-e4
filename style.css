@@ -10,6 +10,17 @@
 .announcement-separator{color:var(--gold) !important}
 .announcement-socials a{color:var(--burgundy) !important}
 
+/* Warm orange typography: replace burgundy/red text accents without changing buttons or backgrounds. */
+.hero h1 em,
+.section-heading h2 em,
+.story-copy h2 em,
+.partner-copy h2 em,
+.story-points span,
+.product-number,
+.product-link{
+  color:#d66a1f !important;
+}
+
 /* WhatsApp stays in its original green — never inherit the brand burgundy. */
 .whatsapp,
 .whatsapp:hover,
@@ -44,8 +55,12 @@
   height:190px !important;
   object-fit:contain !important;
 }
+
+/* Second logo box: keep the cream base, but blend in a restrained cocoa-black edge for more depth. */
 .partner-card{
-  background:var(--cream) !important;
+  background:
+    radial-gradient(circle at 78% 18%,rgba(23,21,19,.16),transparent 34%),
+    linear-gradient(135deg,#f7f1e7 0%,#eee1cc 58%,#292521 100%) !important;
   color:var(--ink) !important;
   border:1px solid rgba(199,154,59,.55) !important;
   box-shadow:var(--shadow) !important;
