@@ -1,52 +1,34 @@
 @import url("produits-base.css");
 
-/* Keep the catalogue story visual from the previous polished version. */
-.product-story-visual img{content:url("assets/logo-crystal-4k.png");width:190px;height:190px;object-fit:contain;opacity:1;position:relative;z-index:2;filter:drop-shadow(0 18px 28px rgba(0,0,0,.3));}
+/* Recovered warm catalogue presentation: cream, charcoal, burgundy and gold. */
+.product-story-visual img{
+  content:url("assets/logo-crystal-4k.png");
+  width:190px;
+  height:190px;
+  object-fit:contain;
+  opacity:1;
+  position:relative;
+  z-index:2;
+  filter:drop-shadow(0 18px 28px rgba(0,0,0,.3));
+}
 .product-story-overlay{display:none !important;}
 .product-story-label{display:none !important;}
-.product-story-visual{display:flex;align-items:center;justify-content:center;background:var(--p-cream) !important;border:1px solid rgba(199,154,59,.38);}
+.product-story-visual{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--p-ink) !important;
+  border:1px solid rgba(199,154,59,.38);
+}
 
-/* ONLY the top "Nos produits" hero keeps the new teal/zellij treatment. */
-.products-hero{background-color:#123d43 !important;background-image:radial-gradient(circle at 50% 18%,rgba(223,244,230,.18),transparent 34%),linear-gradient(90deg,rgba(7,34,37,.20),transparent 24%,transparent 76%,rgba(7,34,37,.20)),repeating-conic-gradient(from 22.5deg at 50% 50%,rgba(199,154,59,.24) 0deg 2.5deg,transparent 2.5deg 45deg),repeating-conic-gradient(from 0deg at 50% 50%,transparent 0deg 42deg,rgba(235,211,137,.07) 42deg 45deg) !important;background-size:auto,auto,86px 86px,86px 86px;border-bottom:1px solid rgba(224,193,104,.30);}
-.products-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.06) 28%,rgba(255,255,255,.16) 38%,transparent 48%,transparent 70%,rgba(255,255,255,.05) 80%,transparent 88%);pointer-events:none;mix-blend-mode:screen;}
-.products-hero-copy{position:relative;z-index:2;}
-.products-hero-eyebrow{color:#e3c263 !important;}
-.products-hero h1{color:#f5ead8 !important;}
-.products-hero h1 em{color:#f0d27c !important;}
-.products-hero p{color:#d7ddd8 !important;}
-.products-hero-rule{background:#e3c263 !important;}
-
-/* Restore the product catalogue itself to the previous cream / burgundy / gold look. */
-.category-pantry{width:min(1380px,88%);margin:auto;padding:60px 0 100px;background:var(--p-cream) !important;}
-.category-pantry .category-inner{width:100%;margin:0;}
-.category-pantry .category-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:32px;border-bottom:1px solid var(--p-line);padding-bottom:20px;}
-.category-pantry .product-items{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.category-pantry .product-item{width:100%;}
-.category-pantry .product-item-image{height:220px;display:flex;align-items:center;justify-content:center;}
-
-/* Category navigation strip: same warm cream / dried-pink tone as the main website background. */
-.product-categories{background:var(--p-cream) !important;background-image:none !important;border-top:1px solid rgba(23,21,19,.08);border-bottom:1px solid rgba(23,21,19,.10);}
-.product-category-nav button{border-color:rgba(23,21,19,.16) !important;color:var(--p-ink) !important;background:rgba(255,255,255,.18) !important;}
-.product-category-nav button:hover,.product-category-nav button.active{background:var(--p-burgundy) !important;color:#fff8ed !important;border-color:var(--p-burgundy) !important;}
-
-/* Keep the "Nos univers" intro in the teal family. */
-.products-intro{position:relative;isolation:isolate;color:#f3ead5;background:#123d43 !important;width:100%;max-width:none;padding-left:6%;padding-right:6%;}
-.products-intro:before,.products-intro:after{content:"";position:absolute;top:38px;bottom:18px;width:38%;z-index:-1;opacity:.55;background:repeating-conic-gradient(from 22.5deg at 50% 50%,rgba(199,154,59,.16) 0deg 2.5deg,transparent 2.5deg 45deg);background-size:74px 74px;}
-.products-intro:before{left:0;mask-image:linear-gradient(90deg,#000,transparent);}
-.products-intro:after{right:0;transform:scaleX(-1);mask-image:linear-gradient(90deg,#000,transparent);}
-.products-intro .eyebrow{color:#e3c263 !important;}
-.products-intro h2{color:#f5ead8 !important;}
-.products-intro h2 em{color:#f0d27c !important;}
-.products-intro p{color:#d7ddd8 !important;}
-.products-intro strong{color:#f0d27c !important;}
-
-/* Bottom footer: keep the same blue/teal material beside the logo, navigation and univers links. */
-.footer{background:#0e3338 !important;background-image:radial-gradient(circle at 50% 0%,rgba(223,244,230,.10),transparent 38%),repeating-conic-gradient(from 22.5deg at 50% 50%,rgba(199,154,59,.12) 0deg 2.5deg,transparent 2.5deg 45deg) !important;background-size:auto,88px 88px;border-top:1px solid rgba(224,193,104,.24);}
-.footer-nav strong{color:#e3c263 !important;}
-.footer-nav a{color:#cfd8d4 !important;}
-.footer-brand p{color:#d1d9d5 !important;}
-.footer-bottom{border-top-color:rgba(224,193,104,.20) !important;color:#aebbb6 !important;}
-
-@media(max-width:1150px){.category-pantry .product-items{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:850px){.category-pantry .category-heading{align-items:flex-start;flex-direction:column;gap:15px;}.category-pantry .product-items{grid-template-columns:1fr 1fr;}}
-@media(max-width:560px){.product-story-visual img{width:160px;height:160px;}.category-pantry .product-items{grid-template-columns:1fr;}}
+@media(max-width:1150px){
+  .category-pantry .product-items{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:850px){
+  .category-pantry .category-heading{align-items:flex-start;flex-direction:column;gap:15px;}
+  .category-pantry .product-items{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .product-story-visual img{width:160px;height:160px;}
+  .category-pantry .product-items{grid-template-columns:1fr;}
+}
