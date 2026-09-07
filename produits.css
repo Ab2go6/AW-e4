@@ -1,7 +1,7 @@
 @import url("produits-base.css");
 
-/* Shared top strip: same light/creamy treatment as the homepage. */
-.products-page:before{content:"";display:block;height:40px;background:var(--p-cream) !important;border-bottom:1px solid var(--p-line)}
+/* Shared top strip: match the homepage announcement area instead of leaving a blank white band. */
+.products-page:before{content:"Produits marocains sélectionnés avec soin  •  Qualité premium · Savoir-faire authentique";display:flex;align-items:center;justify-content:center;height:40px;background:var(--p-cream) !important;color:var(--p-ink) !important;border-bottom:1px solid var(--p-line);font-size:10px;letter-spacing:.35px;text-align:center;padding:0 20px}
 
 /* Product-page header: keep the original logo treatment — no oversized cream circle. */
 .products-header{height:116px !important;padding:0 5.8% !important;gap:40px !important;justify-content:flex-start !important;background:rgba(23,21,19,.97) !important;border-bottom:1px solid rgba(226,189,105,.22) !important;color:#f7f0e4 !important}
@@ -44,7 +44,7 @@
 
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
 @media(max-width:850px){
-.products-page:before{height:40px}
+.products-page:before{height:40px;font-size:8px;letter-spacing:.15px;white-space:nowrap;overflow:hidden}
 .products-header{height:116px !important;padding:0 14px !important;gap:4px !important}
 .products-logo{order:1 !important;width:105px !important;height:auto !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important}
 .products-logo img{width:100% !important;height:72px !important}
