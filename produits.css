@@ -24,8 +24,15 @@
 .products-search-panel{top:94px !important}
 .products-search-inner{background:var(--p-paper);border-color:rgba(199,154,59,.32)}
 
+/* Product categories section header: black/cocoa, like the approved homepage dark section. */
+.products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important}
+.products-page .category-heading h2,
+.products-page .category-heading h3,
+.products-page .category-heading strong{color:#f7f0e4 !important}
+.products-page .category-heading p{color:#d5cfc4 !important}
+
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
-.category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;border-bottom:1px solid var(--p-line);padding-bottom:20px}
+.category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
 .category-pantry .category-heading p{text-align:right;color:var(--p-muted)}
 .category-pantry .product-items{width:min(1380px,88%);margin:0 auto}
 .category-pantry .pantry-intro{width:min(1380px,88%);margin:0 auto 28px}
