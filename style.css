@@ -20,6 +20,25 @@
 .story-visual img{display:none !important}
 .story-visual:before{content:"";position:absolute;width:min(78%,360px);aspect-ratio:1/1;background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;border:1px solid rgba(199,154,59,.8);border-radius:18px;box-shadow:0 18px 45px rgba(23,21,19,.14);z-index:1}
 
+/* Unified premium treatment for every homepage product card. */
+.product-card:not(.product-card-more){position:relative;overflow:hidden;background:var(--ink) !important;color:#fff8ed !important;border-color:rgba(199,154,59,.38) !important;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.product-card:not(.product-card-more):hover{transform:translateY(-6px);box-shadow:0 28px 65px rgba(23,21,19,.2);border-color:rgba(199,154,59,.75) !important}
+.product-card:not(.product-card-more) .product-image{background:radial-gradient(circle at 50% 45%,rgba(199,154,59,.16),transparent 38%),linear-gradient(145deg,#1d1916,#100f0e) !important;min-height:280px;height:280px;border-bottom:1px solid rgba(226,189,105,.2)}
+.product-card:not(.product-card-more) .product-image:after{background:linear-gradient(145deg,rgba(255,255,255,.05),transparent 46%,rgba(0,0,0,.22)) !important}
+.product-card:not(.product-card-more) .product-number{background:rgba(23,21,19,.9) !important;color:var(--gold-light) !important;border-color:rgba(226,189,105,.42) !important}
+.product-card:not(.product-card-more) .pantry-art{width:88%;height:82%;background:transparent;border:0;box-shadow:none;border-radius:0;padding:18px}
+.product-card:not(.product-card-more) .pantry-art:before{inset:5%;border-color:rgba(226,189,105,.12);border-radius:50%;transform:scaleX(1.2)}
+.product-card:not(.product-card-more) .pantry-art span{font-size:9px;letter-spacing:4px;color:var(--gold-light)}
+.product-card:not(.product-card-more) .pantry-art strong{font-size:clamp(38px,3.2vw,52px);color:#fff8ed;letter-spacing:-.5px;text-shadow:0 0 35px rgba(226,189,105,.08)}
+.product-card:not(.product-card-more) .pantry-art small{font-size:7px;letter-spacing:2px;color:rgba(255,248,237,.58)}
+.product-card:not(.product-card-more) .pantry-line{width:24%;bottom:25px;background:var(--gold-light)}
+.product-card:not(.product-card-more) .product-content{background:#171513 !important;color:#fff8ed !important;padding:21px 21px 23px}
+.product-card:not(.product-card-more) .product-kicker{color:var(--gold-light) !important}
+.product-card:not(.product-card-more) .product-content h3{color:#fff8ed !important}
+.product-card:not(.product-card-more) .product-content>p:not(.product-kicker){color:rgba(255,248,237,.7) !important}
+.product-card:not(.product-card-more) .product-link{color:var(--gold-light) !important}
+.product-card:not(.product-card-more) .product-link span{color:inherit !important}
+
 /* & More discovery card. */
 .product-card-more{position:relative;overflow:hidden;background:var(--ink) !important;color:#fff8ed !important;border-color:rgba(199,154,59,.38) !important;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
 .product-card-more:hover{transform:translateY(-6px);box-shadow:0 28px 65px rgba(23,21,19,.2);border-color:rgba(199,154,59,.75) !important}
@@ -57,7 +76,7 @@
 }
 @media(max-width:720px){
 .partner-card{height:360px !important}.partner-card img{width:210px !important;height:210px !important}.story-visual:before{width:72%}
-.product-card-more .product-image{min-height:240px}.more-symbol{font-size:118px}.more-caption{left:22px;right:22px;bottom:22px;gap:12px}.more-caption small{font-size:7px;letter-spacing:1.5px}
+.product-card:not(.product-card-more) .product-image,.product-card-more .product-image{min-height:240px}.more-symbol{font-size:118px}.more-caption{left:22px;right:22px;bottom:22px;gap:12px}.more-caption small{font-size:7px;letter-spacing:1.5px}
 }
 @media(max-width:390px){
 .site-header .brand-logo{width:104px !important}.site-header .header-actions .search-toggle,.site-header .header-actions .instagram-link{width:32px !important;height:32px !important}.site-header .menu-toggle{flex-basis:34px !important;width:34px !important}
