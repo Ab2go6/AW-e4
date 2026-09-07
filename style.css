@@ -8,9 +8,9 @@
 }
 .announcement .dot{background:var(--gold) !important}
 .announcement-separator{color:var(--gold) !important}
-.announcement-socials a{color:#d66a1f !important}
+.announcement-socials a{color:var(--burgundy) !important}
 
-/* Warm orange typography across the homepage. */
+/* Homepage typography: restore the original burgundy/red accent. */
 .hero h1 em,
 .section-heading h2 em,
 .story-copy h2 em,
@@ -18,7 +18,7 @@
 .story-points span,
 .product-number,
 .product-link{
-  color:#d66a1f !important;
+  color:var(--burgundy) !important;
 }
 
 /* WhatsApp stays green. */
