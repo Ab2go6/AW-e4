@@ -8,9 +8,9 @@
 }
 .announcement .dot{background:var(--gold) !important}
 .announcement-separator{color:var(--gold) !important}
-.announcement-socials a{color:var(--burgundy) !important}
+.announcement-socials a{color:#d66a1f !important}
 
-/* Warm orange typography: replace burgundy/red text accents without changing buttons or backgrounds. */
+/* Warm orange typography across the homepage. */
 .hero h1 em,
 .section-heading h2 em,
 .story-copy h2 em,
@@ -21,7 +21,7 @@
   color:#d66a1f !important;
 }
 
-/* WhatsApp stays in its original green — never inherit the brand burgundy. */
+/* WhatsApp stays green. */
 .whatsapp,
 .whatsapp:hover,
 .whatsapp:focus,
@@ -40,10 +40,9 @@
   stroke:#fff !important;
 }
 
-/* The homepage cart is an icon only: no fake/empty item count. */
 .cart-badge{display:none !important}
 
-/* Both homepage brand boxes use the same clean cream treatment and show only the high-resolution logo. */
+/* Both homepage logo boxes use the same clean creamy background. */
 .quality-mark:before{
   background:var(--cream) !important;
   border-color:rgba(199,154,59,.8);
@@ -56,11 +55,9 @@
   object-fit:contain !important;
 }
 
-/* Second logo box: keep the cream base, but blend in a restrained cocoa-black edge for more depth. */
+/* Second logo box: exactly the same clean cream treatment as the box above it. */
 .partner-card{
-  background:
-    radial-gradient(circle at 78% 18%,rgba(23,21,19,.16),transparent 34%),
-    linear-gradient(135deg,#f7f1e7 0%,#eee1cc 58%,#292521 100%) !important;
+  background:var(--cream) !important;
   color:var(--ink) !important;
   border:1px solid rgba(199,154,59,.55) !important;
   box-shadow:var(--shadow) !important;
@@ -80,11 +77,12 @@
   filter:drop-shadow(0 14px 24px rgba(23,21,19,.16));
 }
 
-/* The lower homepage story panel is also a clean logo panel — no deleted photo and no empty black box. */
+/* Lower homepage story panel: full creamy background with the approved high-resolution logo centered inside. */
 .story-visual{
-  background:var(--ink) !important;
+  background:var(--cream) !important;
   display:grid !important;
   place-items:center !important;
+  border:1px solid rgba(199,154,59,.55) !important;
 }
 .story-visual:before{
   content:"";
@@ -94,7 +92,7 @@
   background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;
   border:1px solid rgba(199,154,59,.8);
   border-radius:18px;
-  box-shadow:0 0 0 14px rgba(23,21,19,.9),0 20px 45px rgba(0,0,0,.2);
+  box-shadow:0 18px 45px rgba(23,21,19,.14);
   z-index:1;
 }
 .story-visual img,
