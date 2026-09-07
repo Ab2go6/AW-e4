@@ -1,7 +1,5 @@
 @import url("produits-base.css");
 
-.products-page:before{content:"Produits marocains sélectionnés avec soin  •  Qualité premium · Savoir-faire authentique";display:flex;align-items:center;justify-content:center;height:40px;background:var(--p-cream) !important;color:var(--p-ink) !important;border-bottom:1px solid var(--p-line);font-size:10px;letter-spacing:.35px;text-align:center;padding:0 20px}
-
 .products-header{height:116px !important;padding:0 5.8% !important;gap:40px !important;justify-content:flex-start !important;background:rgba(23,21,19,.97) !important;border-bottom:1px solid rgba(226,189,105,.22) !important;color:#f7f0e4 !important;backdrop-filter:blur(14px) !important}
 .products-logo{width:164px !important;height:94px !important;display:flex !important;align-items:center !important;flex:0 0 auto !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;overflow:visible !important}
 .products-logo img{width:100% !important;height:100% !important;object-fit:contain !important;display:block !important}
@@ -40,7 +38,6 @@
 
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
 @media(max-width:850px){
-.products-page:before{height:40px}
 .products-header{height:78px !important;padding:0 14px !important;gap:4px !important;background:rgba(23,21,19,.97) !important;backdrop-filter:blur(14px) !important}
 .products-logo{order:1 !important;width:105px !important;height:72px !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important}
 .products-logo img{width:100% !important;height:100% !important}
