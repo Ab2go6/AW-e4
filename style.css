@@ -9,6 +9,26 @@
 .announcement .dot{background:var(--gold) !important}
 .announcement-separator{color:var(--gold) !important}
 .announcement-socials a{color:var(--burgundy) !important}
+
+/* WhatsApp stays in its original green — never inherit the brand burgundy. */
+.whatsapp,
+.whatsapp:hover,
+.whatsapp:focus,
+.whatsapp:focus-visible,
+.whatsapp:active{
+  background:#25D366 !important;
+  background-color:#25D366 !important;
+  color:#fff !important;
+  border-color:#25D366 !important;
+  box-shadow:0 10px 30px rgba(37,211,102,.22) !important;
+}
+.whatsapp svg,
+.whatsapp svg path{
+  color:#fff !important;
+  fill:none !important;
+  stroke:#fff !important;
+}
+
 .quality-mark:before{background:var(--cream) !important;border-color:rgba(199,154,59,.8);box-shadow:0 0 0 14px rgba(23,21,19,.9)}
 .quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
 .footer{background:#11100f !important;background-image:none !important}
