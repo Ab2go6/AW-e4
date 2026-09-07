@@ -134,57 +134,7 @@ $('#contactForm')?.addEventListener('submit', e => {
   grid.querySelectorAll('.catalog-added-item .format-button:not(.custom-format)').forEach(b=>b.addEventListener('click',()=>{b.classList.add('selected');setTimeout(()=>b.classList.remove('selected'),650);}));
 })();
 
-/* Clean shared mobile header fix. Desktop structure is untouched. */
 (function setupResponsiveHeaders(){
-  const style = document.createElement('style');
-  style.id = 'arraouaa-responsive-header-final';
-  style.textContent = `
-    @media (max-width:900px){
-      .site-header{display:flex!important;align-items:center!important;padding-left:14px!important;padding-right:14px!important;gap:6px!important;}
-      .site-header .brand-logo{flex:0 0 auto!important;}
-      .site-header .main-nav{display:none!important;}
-      .site-header .header-actions{position:relative!important;top:auto!important;right:auto!important;transform:none!important;margin-left:auto!important;display:flex!important;align-items:center!important;gap:2px!important;flex:0 0 auto!important;order:2!important;}
-      .site-header .header-actions .search-toggle,.site-header .header-actions .instagram-link{display:grid!important;place-items:center!important;width:34px!important;height:34px!important;}
-      .site-header .header-actions .cart-link,.site-header .header-actions .header-contact{display:none!important;}
-      .site-header .menu-toggle{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;order:3!important;flex:0 0 38px!important;width:38px!important;height:38px!important;margin:0!important;padding:0!important;}
-      .site-header .menu-toggle span{display:block!important;width:21px!important;margin:3px 0!important;}
-      .site-header .search-panel{top:78px!important;left:12px!important;right:12px!important;width:auto!important;}
-    }
-    @media (max-width:390px){
-      .site-header .brand-logo{width:104px!important;}
-      .site-header .header-actions .search-toggle,.site-header .header-actions .instagram-link{width:32px!important;height:32px!important;}
-      .site-header .menu-toggle{flex-basis:34px!important;width:34px!important;}
-    }
-
-    .products-header-actions{display:flex!important;align-items:center!important;gap:2px!important;margin-left:auto!important;flex:0 0 auto!important;order:2!important;}
-    .products-icon-button{width:38px;height:38px;display:grid;place-items:center;border:0;background:transparent;color:var(--p-gold-light);cursor:pointer;padding:0;}
-    .products-icon-button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;}
-    .products-icon-button svg .fill{fill:currentColor;stroke:none;}
-    .products-search-panel{position:absolute;top:78px;right:5%;width:min(420px,90vw);opacity:0;pointer-events:none;transform:translateY(-8px);transition:.22s ease;z-index:80;}
-    .products-search-panel.open{opacity:1;pointer-events:auto;transform:none;}
-    .products-search-inner{display:flex;align-items:center;gap:9px;background:var(--p-paper);border:1px solid var(--p-line);border-radius:13px;padding:9px 11px;box-shadow:0 18px 50px rgba(0,0,0,.18);}
-    .products-search-inner>svg{width:20px;height:20px;fill:none;stroke:var(--p-gold);stroke-width:1.7;flex:0 0 auto;}
-    .products-search-inner input{width:100%;border:0;outline:0;background:transparent;color:var(--p-ink);font-size:12px;min-width:0;}
-    .products-search-close{border:0;background:none;color:var(--p-muted);font-size:24px;line-height:1;cursor:pointer;padding:0 2px;}
-    @media (max-width:850px){
-      .products-header{height:78px!important;padding:0 14px!important;gap:4px!important;}
-      .products-logo{width:105px!important;flex:0 0 auto!important;}
-      .products-main-nav{top:78px!important;}
-      .products-header-contact{display:none!important;}
-      .products-header-actions{margin-left:auto!important;order:2!important;}
-      .products-icon-button{width:34px;height:34px;}
-      .products-search-panel{top:78px;left:12px;right:12px;width:auto;}
-      .products-header .menu-toggle{display:flex!important;order:3!important;flex:0 0 38px!important;width:38px!important;height:38px!important;margin:0!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;}
-      .products-header .menu-toggle span{width:21px!important;margin:3px 0!important;}
-    }
-    @media (max-width:390px){
-      .products-logo{width:96px!important;}
-      .products-icon-button{width:32px;height:32px;}
-      .products-header .menu-toggle{width:34px!important;flex-basis:34px!important;}
-    }
-  `;
-  document.head.appendChild(style);
-
   const productsHeader = document.querySelector('.products-header');
   if(!productsHeader || productsHeader.dataset.headerFixed === 'true') return;
   productsHeader.dataset.headerFixed = 'true';
@@ -199,7 +149,6 @@ $('#contactForm')?.addEventListener('submit', e => {
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8" class="fill"></circle></svg>
     </a>`;
 
-  /* Put the controls directly between the logo and the mobile menu. */
   const logo = productsHeader.querySelector('.products-logo');
   if(logo) logo.insertAdjacentElement('afterend', actions);
   else productsHeader.prepend(actions);
@@ -234,6 +183,15 @@ $('#contactForm')?.addEventListener('submit', e => {
 })();
 
 document.addEventListener('keydown', e => {
-  if(e.key === 'Escape'){ setSearch(false); closeModal(); setMenu(false); document.querySelector('.products-search-panel')?.classList.remove('open'); }
+  if(e.key === 'Escape'){
+    setSearch(false);
+    closeModal();
+    setMenu(false);
+    const productSearch = document.querySelector('.products-search-panel');
+    const productToggle = document.querySelector('.products-search-toggle');
+    productSearch?.classList.remove('open');
+    productSearch?.setAttribute('aria-hidden','true');
+    productToggle?.setAttribute('aria-expanded','false');
+  }
 });
 })();
