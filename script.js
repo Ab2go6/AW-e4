@@ -134,6 +134,96 @@ $('#contactForm')?.addEventListener('submit', e => {
   grid.querySelectorAll('.catalog-added-item .format-button:not(.custom-format)').forEach(b=>b.addEventListener('click',()=>{b.classList.add('selected');setTimeout(()=>b.classList.remove('selected'),650);}));
 })();
 
+(function addNewProductFamilies(){
+  const main = document.querySelector('.products-page main');
+  if(!main || main.dataset.newFamiliesAdded === 'true') return;
+  main.dataset.newFamiliesAdded = 'true';
+
+  const nav = main.querySelector('.product-category-nav');
+  const families = [
+    {
+      id:'huiles', number:'08', title:'Huiles',
+      description:'Des huiles emblématiques du terroir marocain, sélectionnées pour leur caractère et leur qualité.',
+      items:[
+        ['Huile d’argan alimentaire','HUILE D’ARGAN','Une huile de caractère au goût délicatement torréfié, emblématique du terroir du Souss.'],
+        ['Huile d’olive extra vierge','HUILE D’OLIVE','Une huile d’olive fruitée et équilibrée, pensée pour la cuisine quotidienne et les préparations méditerranéennes.']
+      ]
+    },
+    {
+      id:'amlou', number:'09', title:'Amlou',
+      description:'Une collection de pâtes à tartiner inspirées de l’amlou marocain : fruits secs torréfiés, miel et huile, dans un esprit généreux.',
+      items:[
+        ['Amlou aux amandes','AMLOU AMANDES','La version traditionnelle, autour de l’amande torréfiée, du miel et de l’huile d’argan.'],
+        ['Amlou aux cacahuètes','AMLOU CACAHUÈTES','Une version gourmande et généreuse aux cacahuètes grillées, miel et huile d’argan.'],
+        ['Amlou aux noisettes','AMLOU NOISETTES','Une pâte aux notes naturellement pralinées, avec noisettes torréfiées, miel et huile.'],
+        ['Amlou aux noix','AMLOU NOIX','Une interprétation riche et légèrement boisée autour de la noix, du miel et de l’huile.'],
+        ['Amlou aux noix de cajou','AMLOU CAJOU','Une texture douce et crémeuse aux noix de cajou torréfiées, miel et huile.'],
+        ['Amlou à la pistache','AMLOU PISTACHE','Une version raffinée à la pistache, pensée pour une finition plus délicate et gourmande.']
+      ]
+    },
+    {
+      id:'miel', number:'10', title:'Miel',
+      description:'Des miels inspirés de la flore marocaine, avec des profils floraux, boisés ou plus intenses.',
+      items:[
+        ['Miel d’oranger','MIEL D’ORANGER','Un miel floral et lumineux aux notes délicates de fleur d’oranger.'],
+        ['Miel d’eucalyptus','MIEL D’EUCALYPTUS','Un profil aromatique plus marqué, avec des notes boisées et balsamiques.'],
+        ['Miel de thym','MIEL DE THYM','Un miel intense et chaleureux aux notes herbacées caractéristiques du thym sauvage.'],
+        ['Miel de jujubier','MIEL DE JUJUBIER','Un miel ambré au caractère profond et généreux, inspiré du jujubier marocain.'],
+        ['Miel de romarin','MIEL DE ROMARIN','Un miel floral et herbacé au profil frais et élégant.'],
+        ['Miel toutes fleurs','MIEL TOUTES FLEURS','Une expression plus ronde et variée de la flore, avec un profil naturellement gourmand.']
+      ]
+    }
+  ];
+
+  const makeCard = (name,label,description) => {
+    const article=document.createElement('article');
+    article.className='product-item catalog-added-item';
+    article.dataset.productName=name;
+    article.innerHTML=`<div class="product-item-image"><div class="product-placeholder"><span>ARAOUAA</span><strong>${label}</strong><small>COLLECTION PREMIUM</small></div></div><div class="product-item-content"><span class="product-item-tag">ARAOUAA</span><h3>${name}</h3><p>${description}</p><div class="product-formats"><span class="formats-label">FORMATS DISPONIBLES</span><div class="format-list"><button class="format-button" data-weight="250 g">250 g</button><button class="format-button" data-weight="500 g">500 g</button><button class="format-button" data-weight="1 kg">1 kg</button><button class="format-button custom-format">+ Sur demande</button></div></div></div>`;
+    return article;
+  };
+
+  const makeSection = family => {
+    const section=document.createElement('section');
+    section.className='product-category-section catalog-family-section';
+    section.id=family.id;
+    section.dataset.section=family.id;
+    section.innerHTML=`<div class="category-heading"><div class="category-heading-left"><span class="category-number">${family.number}</span><div><span class="product-item-tag">UNIVERS ARAOUAA</span><h2>${family.title}</h2></div></div><p>${family.description}</p></div><div class="product-items catalog-family-grid"></div>`;
+    const grid=section.querySelector('.product-items');
+    family.items.forEach(item=>grid.appendChild(makeCard(...item)));
+    return section;
+  };
+
+  const anchor = [...main.children].reverse().find(el => el.tagName === 'SECTION' && !el.classList.contains('product-categories'));
+  families.forEach((family,index)=>{
+    const section=makeSection(family);
+    if(anchor) main.appendChild(section); else main.appendChild(section);
+    if(nav){
+      const button=document.createElement('button');
+      button.className='catalog-filter';
+      button.dataset.category=family.id;
+      button.textContent=family.title;
+      nav.appendChild(button);
+    }
+  });
+
+  const allSections = $$('.product-category-section');
+  const filters = $$('.catalog-filter');
+  const setFilter = value => {
+    filters.forEach(button=>button.classList.toggle('active',button.dataset.category===value));
+    allSections.forEach(section=>{
+      section.style.display = value==='all' || section.dataset.section===value ? '' : 'none';
+    });
+  };
+  filters.forEach(button=>button.addEventListener('click',()=>setFilter(button.dataset.category || 'all')));
+  setFilter('all');
+
+  main.querySelectorAll('.catalog-family-section .format-button:not(.custom-format)').forEach(button=>button.addEventListener('click',()=>{
+    button.classList.add('selected');
+    setTimeout(()=>button.classList.remove('selected'),650);
+  }));
+})();
+
 (function setupResponsiveHeaders(){
   const productsHeader = document.querySelector('.products-header');
   if(!productsHeader || productsHeader.dataset.headerFixed === 'true') return;
