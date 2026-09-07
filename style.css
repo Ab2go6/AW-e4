@@ -35,7 +35,7 @@
 .quality-mark:before{
   background:var(--cream) !important;
   border-color:rgba(199,154,59,.8);
-  box-shadow:0 0 0 14px rgba(23,21,19,.9);
+  box-shadow:0 0 0 14px #e67e22;
 }
 .quality-mark img{
   filter:drop-shadow(0 12px 22px rgba(23,21,19,.18));
