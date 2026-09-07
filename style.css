@@ -1,32 +1,26 @@
 @import url("style-base.css");
 
-/* Approved homepage visual state. */
+/* Homepage-only differences from the shared base. */
 .announcement{background:var(--cream) !important;color:var(--ink-soft) !important;border-bottom:1px solid var(--line)}
 .announcement .dot{background:var(--gold) !important}
-.announcement-separator{color:var(--gold) !important}
 .announcement-socials a{color:var(--burgundy) !important}
-
-.hero h1 em,.section-heading h2 em,.story-copy h2 em,.partner-copy h2 em,.story-points span,.product-number,.product-link{color:var(--burgundy) !important}
 .values .section-heading-light h2 em{color:var(--burgundy) !important}
-.button-primary{background:var(--burgundy) !important;color:#fff8ed !important;box-shadow:0 12px 30px rgba(87,7,13,.2)}
-.button-primary:hover{background:var(--burgundy-deep) !important;color:#fff8ed !important}
 
+/* Approved contact and logo treatments. */
 .whatsapp,.whatsapp:hover,.whatsapp:focus,.whatsapp:focus-visible,.whatsapp:active{background:#25D366 !important;background-color:#25D366 !important;color:#fff !important;border-color:#25D366 !important;box-shadow:0 10px 30px rgba(37,211,102,.22) !important}
 .whatsapp svg,.whatsapp svg path{color:#fff !important;fill:none !important;stroke:#fff !important}
-
-.quality-mark:before{background:var(--cream) !important;border-color:rgba(199,154,59,.8);box-shadow:0 0 0 14px rgba(23,21,19,.9)}
-.quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18));width:190px !important;height:190px !important;object-fit:contain !important}
-
+.quality-mark:before{background:var(--cream) !important}
+.quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
 .partner-card{background:var(--cream) !important;color:var(--ink) !important;border:1px solid rgba(199,154,59,.55) !important;box-shadow:var(--shadow) !important}
 .partner-card img{width:260px !important;height:260px !important;object-fit:contain !important;display:block !important;position:relative !important;z-index:2 !important;filter:drop-shadow(0 14px 24px rgba(23,21,19,.16))}
 
-/* Keep the Née du Maroc visual as one clean cream logo box, with no dark overlay layer. */
+/* Single clean logo box for the story section. */
 .story-visual{background:var(--cream) !important;display:grid !important;place-items:center !important;border:0 !important;box-shadow:none !important}
 .story-visual:after{content:none !important;display:none !important}
 .story-visual img{display:none !important}
 .story-visual:before{content:"";position:absolute;width:min(78%,360px);aspect-ratio:1/1;background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;border:1px solid rgba(199,154,59,.8);border-radius:18px;box-shadow:0 18px 45px rgba(23,21,19,.14);z-index:1}
 
-/* & More is a discovery card, not a seventh product. */
+/* & More discovery card. */
 .product-card-more{position:relative;overflow:hidden;background:var(--ink) !important;color:#fff8ed !important;border-color:rgba(199,154,59,.38) !important;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
 .product-card-more:hover{transform:translateY(-6px);box-shadow:0 28px 65px rgba(23,21,19,.2);border-color:rgba(199,154,59,.75) !important}
 .product-more-hit{position:absolute;inset:0;z-index:5;cursor:pointer}
@@ -61,5 +55,10 @@
 .site-header .menu-toggle span{display:block !important;width:21px !important;margin:3px 0 !important}
 .site-header .search-panel{top:78px !important;left:12px !important;right:12px !important;width:auto !important}
 }
-@media(max-width:720px){.partner-card{height:360px !important}.partner-card img{width:210px !important;height:210px !important}.story-visual:before{width:72%}.product-card-more .product-image{min-height:240px}.more-symbol{font-size:118px}.more-caption{left:22px;right:22px;bottom:22px;gap:12px}.more-caption small{font-size:7px;letter-spacing:1.5px}}
-@media(max-width:390px){.site-header .brand-logo{width:104px !important}.site-header .header-actions .search-toggle,.site-header .header-actions .instagram-link{width:32px !important;height:32px !important}.site-header .menu-toggle{flex-basis:34px !important;width:34px !important}}
+@media(max-width:720px){
+.partner-card{height:360px !important}.partner-card img{width:210px !important;height:210px !important}.story-visual:before{width:72%}
+.product-card-more .product-image{min-height:240px}.more-symbol{font-size:118px}.more-caption{left:22px;right:22px;bottom:22px;gap:12px}.more-caption small{font-size:7px;letter-spacing:1.5px}
+}
+@media(max-width:390px){
+.site-header .brand-logo{width:104px !important}.site-header .header-actions .search-toggle,.site-header .header-actions .instagram-link{width:32px !important;height:32px !important}.site-header .menu-toggle{flex-basis:34px !important;width:34px !important}
+}
