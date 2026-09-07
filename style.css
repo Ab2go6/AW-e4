@@ -26,6 +26,28 @@
 .story-visual img{display:none !important}
 .story-visual:before{content:"";position:absolute;width:min(78%,360px);aspect-ratio:1/1;background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;border:1px solid rgba(199,154,59,.8);border-radius:18px;box-shadow:0 18px 45px rgba(23,21,19,.14);z-index:1}
 
+/* & More is a discovery card, not a seventh product. */
+.product-card-more{position:relative;overflow:hidden;background:var(--ink) !important;color:#fff8ed !important;border-color:rgba(199,154,59,.38) !important;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.product-card-more:hover{transform:translateY(-6px);box-shadow:0 28px 65px rgba(23,21,19,.2);border-color:rgba(199,154,59,.75) !important}
+.product-more-hit{position:absolute;inset:0;z-index:5;cursor:pointer}
+.product-card-more .product-image{background:radial-gradient(circle at 50% 45%,rgba(199,154,59,.16),transparent 38%),linear-gradient(145deg,#1d1916,#100f0e) !important;min-height:280px;border-bottom:1px solid rgba(226,189,105,.2)}
+.product-card-more .product-number{color:var(--gold-light) !important}
+.more-symbol{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);font-family:"Cormorant Garamond",serif;font-size:148px;line-height:.75;font-weight:500;color:var(--gold-light);text-shadow:0 0 45px rgba(226,189,105,.12);transition:transform .4s ease,color .4s ease}
+.product-card-more:hover .more-symbol{transform:translate(-50%,-50%) scale(1.06);color:#f0d18a}
+.more-caption{position:absolute;left:30px;right:30px;bottom:26px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;z-index:2}
+.more-caption span{font-size:11px;letter-spacing:3px;font-weight:700;color:#fff8ed}
+.more-caption small{font-size:8px;letter-spacing:2px;color:rgba(255,248,237,.58);text-transform:uppercase;text-align:right}
+.more-orbit{position:absolute;inset:12% 17%;border:1px solid rgba(226,189,105,.12);border-radius:50%;transform:rotate(-18deg);pointer-events:none}
+.more-orbit i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 0 5px rgba(226,189,105,.07)}
+.more-orbit i:nth-child(1){top:-3px;left:34%}.more-orbit i:nth-child(2){right:-3px;top:58%}.more-orbit i:nth-child(3){bottom:8%;left:9%}
+.product-card-more .product-content{background:#171513 !important;color:#fff8ed !important}
+.product-card-more .product-kicker{color:var(--gold-light) !important}
+.product-card-more .product-content h3{color:#fff8ed !important}
+.product-card-more .product-content>p:not(.product-kicker){color:rgba(255,248,237,.7) !important}
+.product-card-more .product-link{position:relative;z-index:6;color:var(--gold-light) !important;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.product-card-more .product-link span{color:inherit !important;transition:transform .25s ease}
+.product-card-more:hover .product-link span{transform:translate(3px,-2px)}
+
 .footer{background:#11100f !important;background-image:none !important}
 
 @media(max-width:900px){
@@ -39,5 +61,5 @@
 .site-header .menu-toggle span{display:block !important;width:21px !important;margin:3px 0 !important}
 .site-header .search-panel{top:78px !important;left:12px !important;right:12px !important;width:auto !important}
 }
-@media(max-width:720px){.partner-card{height:360px !important}.partner-card img{width:210px !important;height:210px !important}.story-visual:before{width:72%}}
+@media(max-width:720px){.partner-card{height:360px !important}.partner-card img{width:210px !important;height:210px !important}.story-visual:before{width:72%}.product-card-more .product-image{min-height:240px}.more-symbol{font-size:118px}.more-caption{left:22px;right:22px;bottom:22px;gap:12px}.more-caption small{font-size:7px;letter-spacing:1.5px}}
 @media(max-width:390px){.site-header .brand-logo{width:104px !important}.site-header .header-actions .search-toggle,.site-header .header-actions .instagram-link{width:32px !important;height:32px !important}.site-header .menu-toggle{flex-basis:34px !important;width:34px !important}}
