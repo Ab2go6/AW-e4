@@ -1,67 +1,62 @@
 @import url("style-base.css");
 
-/* Precision visual corrections — only the requested homepage details. */
+/* Clean final homepage refinements. Keep one source of truth in style-base.css. */
 .hero-visual .hero-arch,
 .hero-visual .visual-frame{display:none !important;}
 .hero-lead{font-size:0;max-width:640px;}
 .hero-lead:before{content:"Café, épices, fruits secs, épicerie et huile d’argan : une sélection inspirée par la richesse du terroir marocain, présentée avec une identité premium.";font-size:15px;line-height:1.9;color:var(--ink-soft);}
 
-/* Story square: let the visual sit naturally in the same warm cream as the page background. */
-.story-visual img{content:url("assets/logo-crystal-4k.png");width:190px;height:190px;object-fit:contain;opacity:1;position:relative;z-index:1;filter:drop-shadow(0 18px 28px rgba(0,0,0,.28));}
-.story-visual:after{display:none !important;}
-.story-badge{display:none !important;}
+/* Accueil logo square: cream, clean, no red visual treatment. */
 .story-visual{background:var(--cream) !important;border:1px solid rgba(199,154,59,.38);}
+.story-visual img{content:url("assets/logo-crystal-4k.png");width:190px;height:190px;object-fit:contain;opacity:1;position:relative;z-index:1;filter:drop-shadow(0 18px 28px rgba(0,0,0,.28));}
+.story-visual:after,.story-badge{display:none !important;}
 
-/* Partner square: same warm website background, keeping only the crystal logo. */
-.partner-card{position:relative;overflow:hidden;background:var(--cream) !important;border-color:rgba(199,154,59,.42) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 24px 55px rgba(35,24,17,.10);}
-.partner-card:before,.partner-card:after{display:none !important;}
+/* Partner logo square: same clean cream treatment. */
+.partner-card{background:var(--cream) !important;border-color:rgba(199,154,59,.42) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 24px 55px rgba(35,24,17,.10);}
+.partner-card:before,.partner-card:after,.partner-card .partner-ring:before,.partner-card .partner-ring:after{display:none !important;}
 .partner-card .partner-ring{border:0 !important;box-shadow:none !important;background:none !important;}
-.partner-card .partner-ring:before,.partner-card .partner-ring:after{display:none !important;}
 .partner-card strong,.partner-card>span,.partner-tags{display:none !important;}
 .partner-card>img{position:relative;z-index:2;width:190px;height:190px;object-fit:contain;opacity:1;filter:drop-shadow(0 18px 28px rgba(0,0,0,.28));}
 
-/* Homepage header: warm charcoal/champagne — understated luxury instead of a saturated block. */
-.site-header{background:linear-gradient(115deg,#24211E 0%,#2D2924 48%,#3A3025 100%) !important;border-bottom:1px solid rgba(226,189,105,.34);box-shadow:0 10px 30px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.035);backdrop-filter:blur(14px);}
+/* Accueil header: warm black/cocoa, never blue. */
+.site-header,
+.site-header.scrolled{background:linear-gradient(115deg,#24211e 0%,#2d2924 48%,#3a3025 100%) !important;border-bottom:1px solid rgba(226,189,105,.34);box-shadow:0 10px 30px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.035);}
 .site-header:before,.site-header:after{display:none !important;}
 .site-header>*{position:relative;z-index:2;}
-.site-header.scrolled{background:linear-gradient(115deg,#24211E 0%,#2D2924 48%,#3A3025 100%) !important;box-shadow:0 14px 38px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.04);}
 .main-nav a{color:#f7f0e4 !important;text-shadow:none;}
 .main-nav a:hover,.main-nav a.active{color:var(--gold-light) !important;}
 .main-nav a:after{background:var(--gold-light) !important;box-shadow:none;}
 .icon-button{color:var(--gold-light) !important;}
 .header-contact{border-color:rgba(226,189,105,.58) !important;color:#f7eddb !important;background:transparent;box-shadow:none;}
 .header-contact:hover{background:var(--gold-light) !important;color:var(--ink) !important;border-color:var(--gold-light) !important;}
-.cart-badge{background:var(--gold-light) !important;color:var(--burgundy-deep) !important;border-color:#24211E !important;}
+.cart-badge{background:var(--gold-light) !important;color:var(--burgundy-deep) !important;border-color:#24211e !important;}
 .menu-toggle span{background:#f7eddb !important;}
-/* Anchor the search / Instagram / cart / contact cluster to the right side of the header. */
 .header-actions{position:absolute;right:5.8%;margin-left:0;transform:none;}
 .search-panel{top:94px;right:5.8%;}
 
-/* Top-bar WhatsApp icon: recognizable WhatsApp logo in its original green. */
-.announcement-socials a[aria-label="WhatsApp"]{color:#25D366 !important;font-size:0;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;background-color:#25D366;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20.52 3.48A11.83 11.83 0 0 0 12.08.01C5.54.01.22 5.33.22 11.87c0 2.09.55 4.13 1.59 5.93L.12 23.88l6.22-1.63a11.8 11.8 0 0 0 5.73 1.46h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.15-3.42-8.37ZM12.08 21.7h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.69.97.99-3.6-.23-.37a9.8 9.8 0 1 1 8.3 4.58Zm5.38-7.35c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.07-.29-.15-1.24-.46-2.36-1.47-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.16-.24-.57-.48-.5-.66-.51h-.56c-.19 0-.49.07-.75.37-.26.29-1 0.98-1 2.4s1.02 2.78 1.16 2.97c.15.19 2 3.05 4.84 4.28.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.97-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34Z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20.52 3.48A11.83 11.83 0 0 0 12.08.01C5.54.01.22 5.33.22 11.87c0 2.09.55 4.13 1.59 5.93L.12 23.88l6.22-1.63a11.8 11.8 0 0 0 5.73 1.46h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.15-3.42-8.37ZM12.08 21.7h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.69.97.99-3.6.23-.37a9.8 9.8 0 1 1 8.3 4.58Zm5.38-7.35c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.07-.29-.15-1.24-.46-2.36-1.47-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.16-.24-.57-.48-.5-.66-.51h-.56c-.19 0-.49.07-.75.37-.26.29-1 0.98-1 2.4s1.02 2.78 1.16 2.97c.15.19 2 3.05 4.84 4.28.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.97-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34Z'/%3E%3C/svg%3E") center/contain no-repeat;}
-
-/* Floating WhatsApp icon: keep the standalone contact button green in every state. */
+/* WhatsApp stays green; it is the only intentional green accent. */
+.announcement-socials a[aria-label="WhatsApp"]{color:#25D366 !important;}
 .whatsapp,
 .whatsapp:hover,
 .whatsapp:focus,
 .whatsapp:focus-visible,
-.whatsapp:active{background:#25D366 !important;background-color:#25D366 !important;color:#fff !important;border-color:#25D366 !important;box-shadow:0 10px 30px rgba(37,211,102,.22) !important;}
+.whatsapp:active{background:#25D366 !important;color:#fff !important;border-color:#25D366 !important;box-shadow:0 10px 30px rgba(37,211,102,.22) !important;}
 .whatsapp svg{color:#fff !important;fill:none !important;stroke:#fff !important;}
 .whatsapp svg path{stroke:#fff !important;fill:none !important;}
 
-/* Quality band: warm charcoal with a subtle champagne-toned gradient. */
-.quality-strip{background:linear-gradient(115deg,#29251F 0%,#302B25 52%,#3A3025 100%) !important;color:#fff !important;border:0;box-shadow:inset 0 1px 0 rgba(226,189,105,.07),inset 0 -1px 0 rgba(0,0,0,.12);}
+/* Homepage quality band: warm charcoal/cocoa, not blue. */
+.quality-strip{background:linear-gradient(115deg,#29251f 0%,#302b25 52%,#3a3025 100%) !important;color:#fff !important;border:0;box-shadow:inset 0 1px 0 rgba(226,189,105,.07),inset 0 -1px 0 rgba(0,0,0,.12);}
 .quality-item b{color:#fff !important;}
 .quality-item small{color:#d9d1c6 !important;}
-.quality-icon{border-color:rgba(226,189,105,.8) !important;color:var(--gold-light) !important;box-shadow:0 0 22px rgba(226,189,105,.06) !important;}
-.quality-mark:before{background:#57070D !important;border-color:rgba(226,189,105,.8) !important;box-shadow:0 0 0 14px rgba(41,37,31,.9) !important;}
+.quality-icon{border-color:rgba(226,189,105,.8) !important;color:var(--gold-light) !important;box-shadow:none !important;}
+.quality-mark:before{background:var(--burgundy-deep) !important;border-color:rgba(226,189,105,.8) !important;box-shadow:0 0 0 14px rgba(41,37,31,.9) !important;}
 
-/* Bottom footer: same blue/teal material as the navigation + univers area. */
-.footer{background:#0e3338 !important;background-image:radial-gradient(circle at 50% 0%,rgba(223,244,230,.10),transparent 38%),repeating-conic-gradient(from 22.5deg at 50% 50%,rgba(199,154,59,.12) 0deg 2.5deg,transparent 2.5deg 45deg) !important;background-size:auto,88px 88px;border-top:1px solid rgba(224,193,104,.24);}
-.footer-nav strong{color:#e3c263 !important;}
-.footer-nav a{color:#cfd8d4 !important;}
-.footer-brand p{color:#d1d9d5 !important;}
-.footer-bottom{border-top-color:rgba(224,193,104,.20) !important;color:#aebbb6 !important;}
+/* Homepage footer: restore the warm black/cocoa system and remove the old blue/teal layer. */
+.footer{background:#11100f !important;background-image:none !important;border-top:0 !important;}
+.footer-nav strong{color:var(--gold-light) !important;}
+.footer-nav a{color:#bdb5a6 !important;}
+.footer-brand p{color:#d9d0c0 !important;}
+.footer-bottom{border-top:1px solid rgba(226,189,105,.14) !important;color:#9d9588 !important;}
 
 @media(max-width:900px){.header-actions{position:relative;right:auto;transform:none;margin-left:auto;}.search-panel{right:5.8%;}}
 @media(max-width:720px){.story-visual img{width:160px;height:160px;}.partner-card>img{width:160px;height:160px;}}
