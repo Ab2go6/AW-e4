@@ -48,9 +48,10 @@
 .products-page .category-spices { background: var(--p-cream); }
 .category-pantry { width: 100%; padding: 60px 0 100px; background: var(--p-cream); }
 .category-pantry .category-heading { width: min(1380px, 88%); margin: 0 auto 32px; }
-.category-pantry .category-heading p { color: #d5cfc4; text-align: right; transform: translateX(1.5cm); }
+.category-pantry .category-heading p { color: #d5cfc4; text-align: right; transform: translateX(5.2cm); }
 .category-pantry .product-items,.category-pantry .pantry-intro { width: min(1380px, 88%); margin-right: auto; margin-left: auto; }
 .category-pantry .pantry-intro { margin-bottom: 28px; }
+#noix-graines .category-heading .category-number { order: -1; }
 .products-hero { background: linear-gradient(90deg, var(--p-cream) 0%, var(--p-cream-2) 58%, #d8c5a8 100%); }
 .product-story-visual { position: relative; display: grid; place-items: center; background: var(--p-cream); border: 1px solid rgba(199, 154, 59, .55); }
 .product-story-visual::before { content: ""; position: absolute; inset: 0; z-index: 2; background: var(--p-cream) url("assets/logo-crystal-4k.png") center / 48% auto no-repeat; }
@@ -71,7 +72,7 @@
   .products-main-nav { gap: 22px; }
   .products-page .category-heading .category-heading-left { transform: translateX(-3cm); }
   .products-page .category-heading p { transform: translateX(3.5cm); }
-  .products-page .category-pantry .category-heading p { transform: none; }
+  .products-page .category-pantry .category-heading p { transform: translateX(3.5cm); }
 }
 @media (max-width: 850px) {
   .products-page { padding-top: 38px; }
@@ -86,7 +87,7 @@
   .products-header .menu-toggle { order: 3; display: flex; }
   .products-search-panel { top: 78px; right: 12px; left: 12px; width: auto; }
   .category-pantry .category-heading { align-items: flex-start; flex-direction: column; gap: 15px; }
-  .category-pantry .category-heading p { text-align: left; }
+  .category-pantry .category-heading p { text-align: left; transform: none; }
   .products-page .category-heading { gap: 28px; }
   .products-page .category-heading .category-heading-left { width: 100%; transform: none; }
   .products-page .category-heading p { flex: 1 1 100%; width: 100%; margin-left: 0; text-align: left; transform: none; }
