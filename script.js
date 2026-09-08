@@ -85,6 +85,11 @@
     });
   }));
 
+  $$('.product-link').forEach(link => link.addEventListener('click', () => {
+    const target = link.dataset.product === 'argan' ? 'huiles' : link.dataset.product;
+    window.location.href = `produits.html#${target}`;
+  }));
+
   $('#contactForm')?.addEventListener('submit', event => {
     event.preventDefault();
     const message = $('.form-message', event.currentTarget);
@@ -209,6 +214,7 @@
       const query = normalize(queryValue.trim());
       const items = productSections.flatMap(section => $$('.product-item', section));
       const exactMatchExists = Boolean(query) && items.some(item => getProductName(item) === query);
+
       productSections.forEach(section => {
         let visible = 0;
         $$('.product-item', section).forEach(item => {
