@@ -183,18 +183,74 @@
       const section = document.createElement('section');
       section.className = 'product-category-section catalog-family-section';
       section.id = family.id;
-      section.dataset.section = 'autres';
+      section.dataset.section = family.id;
       section.innerHTML = `<div class="category-heading"><div class="category-heading-left"><span class="category-number">${family.number}</span><div><span class="product-item-tag">UNIVERS ARAOUAA</span><h2>${family.title}</h2></div></div><p>${family.description}</p></div><div class="product-items catalog-family-grid"></div>`;
       const grid = $('.product-items', section);
-      family.items.forEach(([name, label, description]) => grid.appendChild(makeProductCard(name, label, 'AUTRES', description)));
+      family.items.forEach(([name, label, description]) => grid.appendChild(makeProductCard(name, label, family.title.toUpperCase(), description)));
       insertAfter.insertAdjacentElement('afterend', section);
       insertAfter = section;
     });
   }
   addFamilySections();
 
+  function setupFooterUniverses() {
+    $$('.footer-nav > div:last-child').forEach(universe => {
+      const heading = $('strong', universe);
+      if (!heading || !normalize(heading.textContent).includes('univers')) return;
+
+      const isProductsPage = document.body.classList.contains('products-page');
+      const prefix = isProductsPage ? '#' : 'produits.html#';
+      const existingMore = $$('span', universe).find(item => normalize(item.textContent).includes('more') || normalize(item.textContent).includes('plus'));
+      existingMore?.remove();
+
+      const combined = $$('a', universe).find(link => normalize(link.textContent).includes('huile') && normalize(link.textContent).includes('miel'));
+      combined?.remove();
+
+      const links = [
+        ['Huiles', `${prefix}huiles`],
+        ['Amlou', `${prefix}amlou`],
+        ['Miel', `${prefix}miel`]
+      ];
+
+      links.forEach(([label, href]) => {
+        if ($$('a', universe).some(link => link.getAttribute('href') === href)) return;
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        universe.appendChild(link);
+      });
+
+      const moreHref = isProductsPage ? '#autres' : 'produits.html#autres';
+      const more = document.createElement('a');
+      more.href = moreHref;
+      more.textContent = '+ Plus';
+      universe.appendChild(more);
+    });
+  }
+  setupFooterUniverses();
+
   function setupProductPage() {
     if (!document.body.classList.contains('products-page')) return;
+
+    const categoryNav = $('.product-category-nav');
+    const extraFamilies = [
+      ['huiles', 'Huiles'],
+      ['amlou', 'Amlou'],
+      ['miel', 'Miel']
+    ];
+
+    if (categoryNav && !categoryNav.dataset.extraFamiliesBound) {
+      extraFamilies.forEach(([category, label]) => {
+        if ($$('.catalog-filter', categoryNav).some(button => button.dataset.category === category)) return;
+        const button = document.createElement('button');
+        button.className = 'catalog-filter';
+        button.type = 'button';
+        button.dataset.category = category;
+        button.textContent = label;
+        categoryNav.appendChild(button);
+      });
+      categoryNav.dataset.extraFamiliesBound = 'true';
+    }
 
     const productSections = $$('.product-category-section');
     const filters = $$('.catalog-filter');
@@ -320,6 +376,8 @@
       });
       productNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => productNav.classList.remove('open')));
     }
+
+    renderProducts('');
   }
   setupProductPage();
 
