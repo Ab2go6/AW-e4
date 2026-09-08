@@ -13,10 +13,6 @@
 /* Keep the homepage intro-to-category spacing equal to the category-to-card spacing. */
 .products .section-heading{margin-bottom:34px}
 
-/* Keep + Plus as the final product-page category, after Miel. */
-.product-category-nav{display:flex;flex-wrap:wrap}
-.product-category-nav .catalog-filter[data-category="plus"]{order:999}
-
 /* Approved contact and logo treatments. */
 .whatsapp,.whatsapp:hover,.whatsapp:focus,.whatsapp:focus-visible,.whatsapp:active{background:#25D366 !important;background-color:#25D366 !important;color:#fff !important;border-color:#25D366 !important;box-shadow:0 10px 30px rgba(37,211,102,.22) !important}
 .whatsapp svg,.whatsapp svg path{color:#fff !important;fill:none !important;stroke:#fff !important}
