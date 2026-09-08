@@ -43,6 +43,9 @@
 .products-page #miel [data-product-name="عسل حر"] h3{font-size:0 !important}
 .products-page #miel [data-product-name="عسل حر"] h3:after{content:"Miel حر";font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--p-ink);display:block}
 
+/* EPICES uses the exact page background, including the full-width section behind its header and cards. */
+.products-page .category-spices{background:var(--p-cream) !important}
+
 /* Product search mode: matching cards remain; headings and empty families disappear. */
 .products-page:has(.product-item[style*="display: none"]) .product-category-section .category-heading{display:none !important}
 .products-page:has(.product-item[style*="display: none"]) .product-category-section:not(:has(.product-item:not([style*="display: none"]))) {display:none !important}
