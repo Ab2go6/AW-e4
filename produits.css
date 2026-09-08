@@ -48,7 +48,7 @@
 .products-page .category-spices { background: var(--p-cream); }
 .category-pantry { width: 100%; padding: 60px 0 100px; background: var(--p-cream); }
 .category-pantry .category-heading { width: min(1380px, 88%); margin: 0 auto 32px; }
-.category-pantry .category-heading p { color: var(--p-muted); text-align: right; transform: none; }
+.category-pantry .category-heading p { color: #d5cfc4; text-align: right; transform: none; }
 .category-pantry .product-items,.category-pantry .pantry-intro { width: min(1380px, 88%); margin-right: auto; margin-left: auto; }
 .category-pantry .pantry-intro { margin-bottom: 28px; }
 .products-hero { background: linear-gradient(90deg, var(--p-cream) 0%, var(--p-cream-2) 58%, #d8c5a8 100%); }
