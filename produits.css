@@ -19,7 +19,6 @@
 .products-header .products-header-actions .cart-badge{display:none !important}
 .products-header-contact{order:4 !important;margin-left:0 !important;border:1px solid rgba(226,189,105,.72) !important;border-radius:30px !important;padding:11px 19px !important;color:#f7eddb !important;font-size:11px !important;font-weight:600 !important}
 .products-header .menu-toggle{order:5 !important}
-
 .products-search-panel{position:absolute !important;top:116px !important;right:5.8% !important;left:auto !important;width:min(500px,90vw) !important;opacity:0 !important;pointer-events:none !important;transform:translateY(-8px) !important;transition:.25s !important;z-index:70 !important;background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;padding:0 !important}
 .products-search-panel[hidden]{display:none !important}
 .products-search-panel.open{display:block !important;opacity:1 !important;pointer-events:auto !important;transform:none !important}
@@ -39,15 +38,16 @@
 .products-page .category-heading h2,.products-page .category-heading h3,.products-page .category-heading strong{color:#f7f0e4 !important}
 .products-page .category-heading h2 em,.products-page .category-heading h3 em,.products-page .category-heading strong em{color:var(--p-burgundy) !important;font-style:normal !important}
 .products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;align-self:center !important;text-align:center !important;transform:translateX(5.2cm)}
-
-/* Product-section accent typography */
-.products-page .product-category-section .category-heading h2 em,
-.products-page .product-category-section .category-heading h3 em,
-.products-page .product-category-section .category-heading strong em,
-.products-page .category-spices .spice-note strong{color:var(--p-gold-light) !important}
+.products-page .product-category-section .category-heading h2 em,.products-page .product-category-section .category-heading h3 em,.products-page .product-category-section .category-heading strong em,.products-page .category-spices .spice-note strong{color:var(--p-gold-light) !important}
 .products-page .product-category-section .format-button.custom-format{color:var(--p-burgundy) !important;border-color:rgba(139,16,24,.38) !important}
 .products-page #miel [data-product-name="عسل حر"] h3{font-size:0 !important}
 .products-page #miel [data-product-name="عسل حر"] h3:after{content:"Miel حر";font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--p-ink);display:block}
+
+/* Product search mode: matching cards remain; headings and empty families disappear. */
+.products-page:has(.product-item[style*="display: none"]) .product-category-section .category-heading{display:none !important}
+.products-page:has(.product-item[style*="display: none"]) .product-category-section:not(:has(.product-item:not([style*="display: none"]))) {display:none !important}
+.products-page:has(.product-item[style*="display: none"]) .product-category-section:has(.product-item:not([style*="display: none"])) {padding-top:24px !important;padding-bottom:24px !important}
+.products-page:has(.product-item[style*="display: none"]) .product-category-section:has(.product-item:not([style*="display: none"])) .product-items{width:min(1380px,88%);margin:0 auto;display:grid}
 
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
 .category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
@@ -55,7 +55,6 @@
 .category-pantry .product-items{width:min(1380px,88%);margin:0 auto}
 .category-pantry .pantry-intro{width:min(1380px,88%);margin:0 auto 28px}
 .products-hero{background:linear-gradient(90deg,var(--p-cream) 0%,var(--p-cream-2) 58%,#d8c5a8 100%) !important}
-
 .product-story-visual{background:var(--p-cream) !important;display:grid !important;place-items:center !important;border:1px solid rgba(199,154,59,.55) !important;position:relative !important}
 .product-story-visual:before{content:"" !important;position:absolute !important;inset:0 !important;background:var(--p-cream) url("assets/logo-crystal-4k.png") center/48% auto no-repeat !important;z-index:2 !important}
 .product-story-visual img,.product-story-visual .product-story-overlay{display:none !important}
