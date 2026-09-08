@@ -265,7 +265,7 @@
       categoryNav.dataset.extraFamiliesBound = 'true';
     }
 
-    const productSections = $$('.product-category-section');
+    const productSections = $$('[data-section]');
     const filters = $$('.catalog-filter');
     const formatModal = $('#formatModal');
     const formatInput = $('#customWeight');
@@ -285,8 +285,6 @@
 
     const renderProducts = queryValue => {
       const query = normalize(queryValue.trim());
-      const items = productSections.flatMap(section => $$('.product-item', section));
-      const exactMatchExists = Boolean(query) && items.some(item => getProductName(item) === query);
       const visibleSections = categoryGroups[activeCategory] || [activeCategory];
       const searching = Boolean(query);
 
@@ -295,7 +293,7 @@
         $$('.product-item', section).forEach(item => {
           const name = getProductName(item);
           const inCategory = searching || activeCategory === 'all' || visibleSections.includes(section.dataset.section);
-          const matchesSearch = !query || (exactMatchExists ? name === query : name.includes(query));
+          const matchesSearch = !query || name.includes(query);
           const visibleItem = inCategory && matchesSearch;
           item.hidden = !visibleItem;
           visible += visibleItem ? 1 : 0;
@@ -376,6 +374,15 @@
         toggle.setAttribute('aria-expanded', 'false');
       };
 
+      const search = () => {
+        const query = input.value.trim();
+        if (query) {
+          activeCategory = 'all';
+          filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
+        }
+        renderProducts(query);
+      };
+
       toggle.addEventListener('click', () => {
         const open = panel.classList.toggle('open');
         panel.hidden = !open;
@@ -385,13 +392,11 @@
       });
 
       close.addEventListener('click', closeSearch);
-      input.addEventListener('input', () => {
-        const query = input.value.trim();
-        if (query) {
-          activeCategory = 'all';
-          filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
-        }
-        renderProducts(query);
+      input.addEventListener('input', search);
+      input.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        search();
       });
     }
 
