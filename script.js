@@ -85,6 +85,15 @@
     });
   }));
 
+  const homepageFilters = $('.product-filters');
+  if (homepageFilters && !$('.filter-discover', homepageFilters)) {
+    const discoverLink = document.createElement('a');
+    discoverLink.className = 'filter-discover';
+    discoverLink.href = 'produits.html';
+    discoverLink.textContent = '+ À DÉCOUVRIR';
+    homepageFilters.appendChild(discoverLink);
+  }
+
   $$('.product-link').forEach(link => link.addEventListener('click', () => {
     const target = link.dataset.product === 'argan' ? 'huiles' : link.dataset.product;
     window.location.href = `produits.html#${target}`;
