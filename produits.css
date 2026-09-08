@@ -66,6 +66,14 @@
 .product-category-nav:after{content:"＋  HUILE & MIEL  ·  AMLOU  ·  + MORE";display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:9px 16px;border:1px solid rgba(199,154,59,.55);border-radius:30px;color:var(--p-gold);background:rgba(255,253,248,.06);font-size:10px;font-weight:600;letter-spacing:.35px;white-space:nowrap;transition:.25s}
 .product-category-nav:hover:after{border-color:var(--p-gold-light);color:var(--p-gold-light);background:rgba(226,189,105,.08)}
 
+/* Precision adjustments: move only the black/cocoa section-header contents outward. */
+.products-page .category-heading .category-heading-left{transform:translateX(-45px)}
+.products-page .category-heading>p{transform:translateX(45px)}
+/* Keep every "+ Sur demande" control red/burgundy, including the earlier gold override. */
+.products-page .format-button.custom-format{color:var(--p-burgundy)!important;border-color:rgba(139,16,24,.38)!important}
+/* Miel: keep only the first "حر" in the displayed product title. */
+.products-page #miel [data-product-name="عسل حر"] h3:after{content:"Miel حر"}
+
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
 @media(max-width:850px){
 .products-page:before{min-height:38px;padding:7px 12px;font-size:8px}
@@ -85,7 +93,7 @@
 .category-pantry .category-heading p{text-align:left}
 .category-pantry .product-items,.category-pantry .pantry-intro{width:min(1380px,88%)}
 .products-page .category-heading{gap:28px !important}
-.products-page .category-heading .category-heading-left{width:100% !important}
-.products-page .category-heading p{flex:1 1 100% !important;width:100% !important;margin-left:0 !important;text-align:left !important}
+.products-page .category-heading .category-heading-left{width:100% !important;transform:none}
+.products-page .category-heading p{flex:1 1 100% !important;width:100% !important;margin-left:0 !important;text-align:left !important;transform:none}
 .product-story-visual:before{background-size:62% auto !important}
 }
