@@ -200,8 +200,16 @@
 
       const isProductsPage = document.body.classList.contains('products-page');
       const prefix = isProductsPage ? '#' : 'produits.html#';
-      const existingMore = $$('span', universe).find(item => normalize(item.textContent).includes('more') || normalize(item.textContent).includes('plus'));
-      existingMore?.remove();
+      const existingMore = $$('span, a', universe).find(item => normalize(item.textContent).includes('more') || normalize(item.textContent).includes('plus'));
+      const moreHref = isProductsPage ? '#autres' : 'produits.html#autres';
+      if (existingMore) {
+        existingMore.tagName === 'A' ? existingMore.setAttribute('href', moreHref) : (() => {
+          const link = document.createElement('a');
+          link.href = moreHref;
+          link.textContent = '+ Plus';
+          existingMore.replaceWith(link);
+        })();
+      }
 
       const combined = $$('a', universe).find(link => normalize(link.textContent).includes('huile') && normalize(link.textContent).includes('miel'));
       combined?.remove();
@@ -220,11 +228,12 @@
         universe.appendChild(link);
       });
 
-      const moreHref = isProductsPage ? '#autres' : 'produits.html#autres';
-      const more = document.createElement('a');
-      more.href = moreHref;
-      more.textContent = '+ Plus';
-      universe.appendChild(more);
+      if (!$$('a', universe).some(link => link.getAttribute('href') === moreHref)) {
+        const more = document.createElement('a');
+        more.href = moreHref;
+        more.textContent = '+ Plus';
+        universe.appendChild(more);
+      }
     });
   }
   setupFooterUniverses();
@@ -259,6 +268,10 @@
     const formatConfirmation = $('#formatConfirmation');
     let activeCategory = 'all';
 
+    const categoryGroups = {
+      plus: ['autres', 'huiles', 'amlou', 'miel']
+    };
+
     const closeFormat = () => {
       formatModal?.classList.remove('open');
       formatModal?.setAttribute('aria-hidden', 'true');
@@ -270,12 +283,13 @@
       const query = normalize(queryValue.trim());
       const items = productSections.flatMap(section => $$('.product-item', section));
       const exactMatchExists = Boolean(query) && items.some(item => getProductName(item) === query);
+      const visibleSections = categoryGroups[activeCategory] || [activeCategory];
 
       productSections.forEach(section => {
         let visible = 0;
         $$('.product-item', section).forEach(item => {
           const name = getProductName(item);
-          const inCategory = activeCategory === 'all' || section.dataset.section === activeCategory;
+          const inCategory = activeCategory === 'all' || visibleSections.includes(section.dataset.section);
           const matchesSearch = !query || (exactMatchExists ? name === query : name.includes(query));
           const visibleItem = inCategory && matchesSearch;
           item.hidden = !visibleItem;
@@ -291,7 +305,8 @@
       const searchInput = $('.products-search-panel input');
       renderProducts(searchInput?.value || '');
       if (scroll) {
-        productSections.find(section => section.dataset.section === category)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const targetCategory = categoryGroups[category]?.[0] || category;
+        productSections.find(section => section.dataset.section === targetCategory)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     };
 
