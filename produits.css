@@ -61,6 +61,11 @@
 .product-story-visual img,.product-story-visual .product-story-overlay{display:none !important}
 .product-story-label{z-index:3 !important}
 
+/* Product-page discovery chip: replace the old generic "Autres" entry with the same premium discovery cue used on Accueil. */
+.product-category-nav .catalog-filter[data-category="autres"]{display:none !important}
+.product-category-nav:after{content:"＋  HUILE & MIEL  ·  AMLOU  ·  + MORE";display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:9px 16px;border:1px solid rgba(199,154,59,.55);border-radius:30px;color:var(--p-gold);background:rgba(255,253,248,.06);font-size:10px;font-weight:600;letter-spacing:.35px;white-space:nowrap;transition:.25s}
+.product-category-nav:hover:after{border-color:var(--p-gold-light);color:var(--p-gold-light);background:rgba(226,189,105,.08)}
+
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
 @media(max-width:850px){
 .products-page:before{min-height:38px;padding:7px 12px;font-size:8px}
