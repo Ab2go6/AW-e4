@@ -48,7 +48,7 @@
 .products-page .category-spices { background: var(--p-cream); }
 .category-pantry { width: 100%; padding: 60px 0 100px; background: var(--p-cream); }
 .category-pantry .category-heading { width: min(1380px, 88%); margin: 0 auto 32px; }
-.category-pantry .category-heading p { color: var(--p-muted); text-align: right; }
+.category-pantry .category-heading p { color: var(--p-muted); text-align: right; transform: none; }
 .category-pantry .product-items,.category-pantry .pantry-intro { width: min(1380px, 88%); margin-right: auto; margin-left: auto; }
 .category-pantry .pantry-intro { margin-bottom: 28px; }
 .products-hero { background: linear-gradient(90deg, var(--p-cream) 0%, var(--p-cream-2) 58%, #d8c5a8 100%); }
@@ -67,6 +67,7 @@
   .products-main-nav { gap: 22px; }
   .products-page .category-heading .category-heading-left { transform: translateX(-3cm); }
   .products-page .category-heading p { transform: translateX(3.5cm); }
+  .products-page .category-pantry .category-heading p { transform: none; }
 }
 @media (max-width: 850px) {
   .products-page { padding-top: 38px; }
