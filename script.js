@@ -85,33 +85,6 @@
     });
   }));
 
-  const modal = $('#productModal');
-  const modalTitle = $('#modalTitle');
-  const modalText = $('#modalText');
-  const productData = {
-    cafe: ['Café', 'Un univers autour du café, pensé pour mettre en avant l’arôme, la richesse et le caractère d’une sélection premium.'],
-    epices: ['Épices', 'Des épices aux parfums généreux pour apporter profondeur, couleur et caractère aux recettes du quotidien.'],
-    'fruits-secs': ['Fruits secs', 'Une collection gourmande autour de fruits secs soigneusement présentés, avec une attention particulière portée à la qualité et à la texture.'],
-    argan: ['Huile d’argan', 'Une signature naturelle emblématique du Maroc, mise en valeur dans une présentation sobre, élégante et premium.'],
-    epicerie: ['Épicerie', 'Les essentiels du garde-manger marocain, réunis dans une présentation claire et cohérente.']
-  };
-  const closeModal = () => {
-    modal?.classList.remove('open');
-    modal?.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
-  };
-  $$('.product-link').forEach(button => button.addEventListener('click', () => {
-    const item = productData[button.dataset.product];
-    if (!item || !modal) return;
-    modalTitle.textContent = item[0];
-    modalText.textContent = item[1];
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
-  }));
-  $('.modal-close')?.addEventListener('click', closeModal);
-  $('.modal-backdrop')?.addEventListener('click', closeModal);
-  $('.modal-contact')?.addEventListener('click', closeModal);
   $('#contactForm')?.addEventListener('submit', event => {
     event.preventDefault();
     const message = $('.form-message', event.currentTarget);
@@ -223,17 +196,38 @@
     const formatModal = $('#formatModal');
     const formatInput = $('#customWeight');
     const formatConfirmation = $('#formatConfirmation');
+    let activeCategory = 'all';
 
     const closeFormat = () => {
       formatModal?.classList.remove('open');
       formatModal?.setAttribute('aria-hidden', 'true');
     };
 
-    const applyFilter = (category, scroll = false) => {
-      filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
+    const getProductName = item => normalize(item.dataset.productName || $('h3', item)?.textContent || '');
+
+    const renderProducts = queryValue => {
+      const query = normalize(queryValue.trim());
+      const items = productSections.flatMap(section => $$('.product-item', section));
+      const exactMatchExists = Boolean(query) && items.some(item => getProductName(item) === query);
       productSections.forEach(section => {
-        section.hidden = category !== 'all' && section.dataset.section !== category;
+        let visible = 0;
+        $$('.product-item', section).forEach(item => {
+          const name = getProductName(item);
+          const inCategory = activeCategory === 'all' || section.dataset.section === activeCategory;
+          const matchesSearch = !query || (exactMatchExists ? name === query : name.includes(query));
+          const visibleItem = inCategory && matchesSearch;
+          item.hidden = !visibleItem;
+          visible += visibleItem ? 1 : 0;
+        });
+        section.hidden = visible === 0;
       });
+    };
+
+    const applyFilter = (category, scroll = false) => {
+      activeCategory = category;
+      filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
+      const searchInput = $('.products-search-panel input');
+      renderProducts(searchInput?.value || '');
       if (scroll) {
         productSections.find(section => section.dataset.section === category)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -288,18 +282,14 @@
       const toggle = $('.products-search-toggle', actions);
       const input = $('input', panel);
       const close = $('.products-search-close', panel);
-      const runSearch = () => {
-        const query = normalize(input.value.trim());
-        productSections.forEach(section => {
-          let visible = 0;
-          $$('.product-item', section).forEach(item => {
-            const name = normalize(item.dataset.productName || $('h3', item)?.textContent || '');
-            const match = !query || name.includes(query);
-            item.hidden = !match;
-            if (match) visible++;
-          });
-          section.hidden = Boolean(query) && visible === 0;
-        });
+
+      const closeSearch = () => {
+        input.value = '';
+        renderProducts('');
+        panel.classList.remove('open');
+        panel.hidden = true;
+        panel.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
       };
 
       toggle.addEventListener('click', () => {
@@ -310,16 +300,8 @@
         if (open) window.setTimeout(() => input.focus(), 80);
       });
 
-      close.addEventListener('click', () => {
-        input.value = '';
-        runSearch();
-        panel.classList.remove('open');
-        panel.hidden = true;
-        panel.setAttribute('aria-hidden', 'true');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-
-      input.addEventListener('input', runSearch);
+      close.addEventListener('click', closeSearch);
+      input.addEventListener('input', () => renderProducts(input.value));
     }
 
     const productMenu = $('.products-header .menu-toggle');
@@ -338,7 +320,6 @@
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
     setSearch(false);
-    closeModal();
     setMenu(false);
 
     const productSearch = $('.products-search-panel');
