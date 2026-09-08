@@ -60,7 +60,6 @@
 
 /* Product filtering */
 .product-category-section[hidden],.product-item[hidden] { display: none !important; }
-.product-category-nav { display: flex; flex-wrap: wrap; }
 .product-category-nav .catalog-filter[data-category="plus"] { order: 999; }
 
 /* Search result mode: show the matching product without its category heading */
