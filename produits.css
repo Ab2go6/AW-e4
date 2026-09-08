@@ -33,22 +33,24 @@
 .products-search-inner input[type="search"]::-webkit-search-cancel-button{display:none !important;-webkit-appearance:none !important}
 .products-search-close{border:0 !important;background:transparent !important;color:var(--p-muted) !important;font-size:25px !important;cursor:pointer !important;line-height:1 !important;box-shadow:none !important;padding:0 !important;width:auto !important;height:auto !important}
 
+/* Category header */
 .products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important;box-shadow:0 0 0 100vmax #171513;clip-path:inset(0 -100vmax);display:flex !important;align-items:center !important;justify-content:space-between !important;gap:80px !important}
-.products-page .category-heading .category-heading-left{flex:1 1 auto !important;min-width:0 !important;display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:17px !important}
+.products-page .category-heading .category-heading-left{flex:1 1 auto !important;min-width:0 !important;display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:17px !important;transform:translateX(-45px)}
 .products-page .category-heading .category-number{display:grid !important;place-items:center !important;flex:0 0 43px !important;width:43px !important;height:43px !important;border-radius:50% !important;background:var(--p-burgundy) !important;color:#f7eddb !important;border:1px solid rgba(226,189,105,.45) !important;font-size:11px !important;font-weight:700 !important;line-height:1 !important}
 .products-page .category-heading h2,.products-page .category-heading h3,.products-page .category-heading strong{color:#f7f0e4 !important}
 .products-page .category-heading h2 em,.products-page .category-heading h3 em,.products-page .category-heading strong em{color:var(--p-burgundy) !important;font-style:normal !important}
-.products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;text-align:right !important}
+.products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;text-align:right !important;transform:translateX(45px)}
 
-/* Product-section accent typography: replace the red accent only inside the catalogue families. */
+/* Product-section accent typography */
 .products-page .product-category-section .category-heading h2 em,
 .products-page .product-category-section .category-heading h3 em,
 .products-page .product-category-section .category-heading strong em,
-.products-page .product-category-section .format-button.custom-format,
 .products-page .category-spices .spice-note strong{color:var(--p-gold-light) !important}
+.products-page .product-category-section .format-button.custom-format{color:var(--p-burgundy) !important;border-color:rgba(139,16,24,.38) !important}
 .products-page #miel [data-product-name="عسل حر"] h3{font-size:0 !important}
-.products-page #miel [data-product-name="عسل حر"] h3:after{content:"Miel حر — عسل حر";font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--p-ink);display:block}
+.products-page #miel [data-product-name="عسل حر"] h3:after{content:"Miel حر";font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--p-ink);display:block}
 
+/* pantry */
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
 .category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
 .category-pantry .category-heading p{text-align:right;color:var(--p-muted)}
@@ -56,23 +58,16 @@
 .category-pantry .pantry-intro{width:min(1380px,88%);margin:0 auto 28px}
 .products-hero{background:linear-gradient(90deg,var(--p-cream) 0%,var(--p-cream-2) 58%,#d8c5a8 100%) !important}
 
+/* story visual */
 .product-story-visual{background:var(--p-cream) !important;display:grid !important;place-items:center !important;border:1px solid rgba(199,154,59,.55) !important;position:relative !important}
 .product-story-visual:before{content:"" !important;position:absolute !important;inset:0 !important;background:var(--p-cream) url("assets/logo-crystal-4k.png") center/48% auto no-repeat !important;z-index:2 !important}
 .product-story-visual img,.product-story-visual .product-story-overlay{display:none !important}
 .product-story-label{z-index:3 !important}
 
-/* Product-page discovery chip: replace the old generic "Autres" entry with the same premium discovery cue used on Accueil. */
+/* discovery chip */
 .product-category-nav .catalog-filter[data-category="autres"]{display:none !important}
 .product-category-nav:after{content:"＋  HUILE & MIEL  ·  AMLOU  ·  + MORE";display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:9px 16px;border:1px solid rgba(199,154,59,.55);border-radius:30px;color:var(--p-gold);background:rgba(255,253,248,.06);font-size:10px;font-weight:600;letter-spacing:.35px;white-space:nowrap;transition:.25s}
 .product-category-nav:hover:after{border-color:var(--p-gold-light);color:var(--p-gold-light);background:rgba(226,189,105,.08)}
-
-/* Precision adjustments: move only the black/cocoa section-header contents outward. */
-.products-page .category-heading .category-heading-left{transform:translateX(-45px)}
-.products-page .category-heading>p{transform:translateX(45px)}
-/* Keep every "+ Sur demande" control red/burgundy, including the earlier gold override. */
-.products-page .format-button.custom-format{color:var(--p-burgundy)!important;border-color:rgba(139,16,24,.38)!important}
-/* Miel: keep only the first "حر" in the displayed product title. */
-.products-page #miel [data-product-name="عسل حر"] h3:after{content:"Miel حر"}
 
 @media(max-width:1150px){.products-main-nav{gap:22px !important}}
 @media(max-width:850px){
