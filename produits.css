@@ -20,7 +20,6 @@
 .products-header-contact{order:4 !important;margin-left:0 !important;border:1px solid rgba(226,189,105,.72) !important;border-radius:30px !important;padding:11px 19px !important;color:#f7eddb !important;font-size:11px !important;font-weight:600 !important}
 .products-header .menu-toggle{order:5 !important}
 
-/* Clean search panel: one cream bar, no black circle/background layer. */
 .products-search-panel{position:absolute !important;top:116px !important;right:5.8% !important;left:auto !important;width:min(500px,90vw) !important;opacity:0 !important;pointer-events:none !important;transform:translateY(-8px) !important;transition:.25s !important;z-index:70 !important;background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;padding:0 !important}
 .products-search-panel[hidden]{display:none !important}
 .products-search-panel.open{display:block !important;opacity:1 !important;pointer-events:auto !important;transform:none !important}
@@ -35,11 +34,11 @@
 
 /* Category header */
 .products-page .category-heading{background:#171513 !important;color:#f7f0e4 !important;border-bottom-color:rgba(226,189,105,.22) !important;padding:22px 28px !important;border-radius:0 !important;box-shadow:0 0 0 100vmax #171513;clip-path:inset(0 -100vmax);display:flex !important;align-items:center !important;justify-content:space-between !important;gap:80px !important}
-.products-page .category-heading .category-heading-left{flex:1 1 auto !important;min-width:0 !important;display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:17px !important;transform:translateX(-45px)}
+.products-page .category-heading .category-heading-left{flex:1 1 auto !important;min-width:0 !important;display:flex !important;align-items:center !important;justify-content:flex-start !important;gap:17px !important;transform:translateX(-4.5cm)}
 .products-page .category-heading .category-number{display:grid !important;place-items:center !important;flex:0 0 43px !important;width:43px !important;height:43px !important;border-radius:50% !important;background:var(--p-burgundy) !important;color:#f7eddb !important;border:1px solid rgba(226,189,105,.45) !important;font-size:11px !important;font-weight:700 !important;line-height:1 !important}
 .products-page .category-heading h2,.products-page .category-heading h3,.products-page .category-heading strong{color:#f7f0e4 !important}
 .products-page .category-heading h2 em,.products-page .category-heading h3 em,.products-page .category-heading strong em{color:var(--p-burgundy) !important;font-style:normal !important}
-.products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;text-align:right !important;transform:translateX(45px)}
+.products-page .category-heading p{color:#d5cfc4 !important;flex:0 1 480px !important;margin-left:auto !important;text-align:right !important;transform:translateX(4.5cm)}
 
 /* Product-section accent typography */
 .products-page .product-category-section .category-heading h2 em,
@@ -50,7 +49,6 @@
 .products-page #miel [data-product-name="عسل حر"] h3{font-size:0 !important}
 .products-page #miel [data-product-name="عسل حر"] h3:after{content:"Miel حر";font-family:"Cormorant Garamond",serif;font-size:27px;color:var(--p-ink);display:block}
 
-/* pantry */
 .category-pantry{background:var(--p-cream) !important;width:100%;padding:60px 0 100px}
 .category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
 .category-pantry .category-heading p{text-align:right;color:var(--p-muted)}
@@ -58,18 +56,19 @@
 .category-pantry .pantry-intro{width:min(1380px,88%);margin:0 auto 28px}
 .products-hero{background:linear-gradient(90deg,var(--p-cream) 0%,var(--p-cream-2) 58%,#d8c5a8 100%) !important}
 
-/* story visual */
 .product-story-visual{background:var(--p-cream) !important;display:grid !important;place-items:center !important;border:1px solid rgba(199,154,59,.55) !important;position:relative !important}
 .product-story-visual:before{content:"" !important;position:absolute !important;inset:0 !important;background:var(--p-cream) url("assets/logo-crystal-4k.png") center/48% auto no-repeat !important;z-index:2 !important}
 .product-story-visual img,.product-story-visual .product-story-overlay{display:none !important}
 .product-story-label{z-index:3 !important}
 
-/* discovery chip */
+/* Product family navigation */
 .product-category-nav .catalog-filter[data-category="autres"]{display:none !important}
-.product-category-nav:after{content:"＋  HUILE & MIEL  ·  AMLOU  ·  + MORE";display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:9px 16px;border:1px solid rgba(199,154,59,.55);border-radius:30px;color:var(--p-gold);background:rgba(255,253,248,.06);font-size:10px;font-weight:600;letter-spacing:.35px;white-space:nowrap;transition:.25s}
-.product-category-nav:hover:after{border-color:var(--p-gold-light);color:var(--p-gold-light);background:rgba(226,189,105,.08)}
+.product-category-nav .catalog-family-link{border:1px solid rgba(226,189,105,.3);background:transparent;color:#e9dfcc;border-radius:30px;padding:9px 17px;font-size:10px;cursor:pointer;transition:.25s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.product-category-nav .catalog-family-link:hover,.product-category-nav .catalog-family-link.active{background:var(--p-gold-light);color:var(--p-ink);border-color:var(--p-gold-light)}
+.product-category-nav .catalog-more-link{border:1px solid rgba(199,154,59,.55);background:rgba(255,253,248,.06);color:var(--p-gold);border-radius:30px;padding:9px 16px;font-size:10px;font-weight:600;letter-spacing:.35px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center}
+.product-category-nav .catalog-more-link:hover{border-color:var(--p-gold-light);color:var(--p-gold-light);background:rgba(226,189,105,.08)}
 
-@media(max-width:1150px){.products-main-nav{gap:22px !important}}
+@media(max-width:1150px){.products-main-nav{gap:22px !important}.products-page .category-heading .category-heading-left{transform:translateX(-3cm)}.products-page .category-heading p{transform:translateX(3cm)}}
 @media(max-width:850px){
 .products-page:before{min-height:38px;padding:7px 12px;font-size:8px}
 .products-header{height:78px !important;padding:0 14px !important;gap:4px !important;background:rgba(23,21,19,.97) !important;backdrop-filter:blur(14px) !important}
