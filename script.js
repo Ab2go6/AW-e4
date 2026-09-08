@@ -113,7 +113,8 @@ $('#contactForm')?.addEventListener('submit', event => {
 function makeProductCard(name, label, tag, description, weights = ['250 g', '500 g', '1 kg']) {
   const article = document.createElement('article');
   article.className = 'product-item catalog-added-item';
-  article.dataset.productName = `${name} ${label}`;
+  article.dataset.productName = name;
+  article.dataset.category = tag;
   article.innerHTML = `<div class="product-item-image"><div class="product-placeholder"><span>ARAOUAA</span><strong>${label}</strong><small>${tag}</small></div></div><div class="product-item-content"><span class="product-item-tag">${tag}</span><h3>${name}</h3><p>${description}</p><div class="product-formats"><span class="formats-label">FORMATS DISPONIBLES</span><div class="format-list">${weights.map(weight => `<button class="format-button" data-weight="${weight}">${weight}</button>`).join('')}<button class="format-button custom-format">+ Sur demande</button></div></div></div>`;
   return article;
 }
@@ -121,10 +122,11 @@ function makeProductCard(name, label, tag, description, weights = ['250 g', '500
 function appendProducts(selector, products, defaults) {
   const grid = $(selector);
   if (!grid) return;
-  const existing = new Set($$('[data-product-name], h3', grid).map(element => normalize(element.dataset.productName || element.textContent)));
-  products.forEach(product => {
-    const [name, label, description] = product;
-    if (!existing.has(normalize(name))) grid.appendChild(makeProductCard(name, label, defaults.tag, description || defaults.description, defaults.weights));
+  const existing = new Set($$('h3', grid).map(element => normalize(element.textContent)));
+  products.forEach(([name, label, description]) => {
+    if (existing.has(normalize(name))) return;
+    grid.appendChild(makeProductCard(name, label, defaults.tag, description || defaults.description, defaults.weights));
+    existing.add(normalize(name));
   });
 }
 
@@ -133,6 +135,8 @@ appendProducts('#epices .product-items', [
 ], { tag: 'ÉPICES', description: 'Une référence aromatique sélectionnée pour apporter profondeur, couleur et caractère aux recettes.', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg'] });
 
 appendProducts('#epicerie .product-items', [
+  ['Pois chiches', 'POIS CHICHES', 'Une référence essentielle pour les préparations traditionnelles et du quotidien.'],
+  ['Lentilles', 'LENTILLES', 'Une base polyvalente pour les recettes familiales et professionnelles.'],
   ['Haricots blancs', 'HARICOTS BLANCS', 'Une référence généreuse adaptée à de nombreux usages culinaires.'],
   ['Haricots rouges', 'HARICOTS ROUGES', 'Une référence appréciée pour les préparations salées et professionnelles.'],
   ['Pois cassés', 'POIS CASSÉS', 'Une référence polyvalente pour les soupes, plats et préparations.'],
@@ -144,15 +148,22 @@ appendProducts('#fruits-secs .product-items', [
 ], { tag: 'FRUITS SECS', description: 'Une référence naturellement gourmande, adaptée aux préparations et à la dégustation.', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg', '5 kg'] });
 
 appendProducts('#noix-graines .product-items', [
-  ['Amande grillée', 'AMANDE GRILLÉE'], ['Amande effilée', 'AMANDE EFFILÉE'], ['Amande hachée', 'AMANDE HACHÉE'], ['Amande en poudre', 'AMANDE EN POUDRE'], ['Cacahuètes blanches', 'CACAHUÈTES BLANCHES'], ['Cacahuètes rouges', 'CACAHUÈTES ROUGES'], ['Cacahuètes grillées', 'CACAHUÈTES GRILLÉES'], ['Cacahuètes salées', 'CACAHUÈTES SALÉES'], ['Cacahuètes nature', 'CACAHUÈTES NATURE']
+  ['Amandes', 'AMANDES'], ['Amande grillée', 'AMANDE GRILLÉE'], ['Amande effilée', 'AMANDE EFFILÉE'], ['Amande hachée', 'AMANDE HACHÉE'], ['Amande en poudre', 'AMANDE EN POUDRE'], ['Noix', 'NOIX'], ['Noix de cajou', 'NOIX DE CAJOU'], ['Pistaches', 'PISTACHES'], ['Noisettes', 'NOISETTES'], ['Sésame', 'SÉSAME'], ['Graines de tournesol', 'GRAINES DE TOURNESOL'], ['Graines de courge', 'GRAINES DE COURGE'], ['Graines de chia', 'GRAINES DE CHIA'], ['Pignons de pin', 'PIGNONS DE PIN'], ['Cacahuètes blanches', 'CACAHUÈTES BLANCHES'], ['Cacahuètes rouges', 'CACAHUÈTES ROUGES'], ['Cacahuètes grillées', 'CACAHUÈTES GRILLÉES'], ['Cacahuètes salées', 'CACAHUÈTES SALÉES'], ['Cacahuètes nature', 'CACAHUÈTES NATURE']
 ], { tag: 'NOIX & GRAINES', description: 'Une référence délicate au profil naturellement généreux et raffiné.', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg', '5 kg'] });
 
 appendProducts('#cereales .product-items', [
+  ['Riz', 'RIZ', 'Une référence essentielle, polyvalente et pensée pour différents usages culinaires.'],
   ['Riz blanc', 'RIZ BLANC', 'Un riz polyvalent à la texture légère, adapté aux préparations du quotidien.'],
-  ['Riz jaune', 'RIZ JAUNE', 'Un riz au caractère généreux, apprécié pour sa couleur et sa présence dans l’assiette.']
-], { tag: 'CÉRÉALES · RIZ · PÂTES', weights: ['250 g', '500 g', '1 kg', '5 kg'] });
+  ['Riz jaune', 'RIZ JAUNE', 'Un riz au caractère généreux, apprécié pour sa couleur et sa présence dans l’assiette.'],
+  ['Quinoa', 'QUINOA', 'Une référence essentielle, polyvalente et pensée pour différents usages culinaires.'],
+  ['Pâtes', 'PÂTES', 'Une référence essentielle, polyvalente et pensée pour différents usages culinaires.'],
+  ['Avoine', 'AVOINE', 'Une référence essentielle, polyvalente et pensée pour différents usages culinaires.']
+], { tag: 'CÉRÉALES · RIZ · PÂTES', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg', '5 kg'] });
 
 appendProducts('#autres .product-items', [
+  ['Cacao en poudre', 'CACAO EN POUDRE', 'Une référence destinée aux préparations gourmandes, alimentaires et professionnelles.'],
+  ['Noix de coco en poudre', 'NOIX DE COCO EN POUDRE', 'Une référence destinée aux préparations gourmandes, alimentaires et professionnelles.'],
+  ['Levure', 'LEVURE', 'Une référence destinée aux préparations gourmandes, alimentaires et professionnelles.'],
   ['Couscous fin', 'COUSCOUS FIN', 'Une semoule de couscous fine, légère et adaptée aux préparations traditionnelles.'],
   ['Couscous moyen', 'COUSCOUS MOYEN', 'Une semoule de couscous de granulométrie moyenne, polyvalente et généreuse.'],
   ['Couscous complet', 'COUSCOUS COMPLET', 'Un couscous préparé à partir de blé dur complet, pour une référence plus rustique.'],
@@ -161,7 +172,7 @@ appendProducts('#autres .product-items', [
   ['Coquillettes', 'COQUILLETTES', 'Une pâte courte classique, pratique pour les préparations du quotidien.'],
   ['Spaghetti', 'SPAGHETTI', 'Une pâte longue et fine, adaptée aux recettes traditionnelles et aux sauces.'],
   ['Vermicelles', 'VERMICELLES', 'Des pâtes fines et légères, adaptées aux soupes, préparations et accompagnements.']
-], { tag: 'AUTRES', weights: ['250 g', '500 g', '1 kg', '5 kg'] });
+], { tag: 'AUTRES', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg', '5 kg'] });
 
 appendProducts('#cafe .product-items', [
   ['Café moulu', 'CAFÉ MOULU', 'Un café torréfié puis moulu, pensé pour une préparation régulière et aromatique.'],
@@ -169,7 +180,7 @@ appendProducts('#cafe .product-items', [
   ['Café 100 % Arabica', '100 % ARABICA', 'Un café Arabica au profil aromatique fin, équilibré et naturellement parfumé.'],
   ['Café Arabica & Robusta', 'ARABICA & ROBUSTA', 'Un assemblage équilibré entre rondeur, puissance et caractère.'],
   ['Café décaféiné', 'CAFÉ DÉCAFÉINÉ', 'Un café décaféiné conservant une expression aromatique riche et équilibrée.']
-], { tag: 'CAFÉ', weights: ['250 g', '500 g', '1 kg'] });
+], { tag: 'CAFÉ', weights: ['250 g', '500 g', '1 kg', '5 kg'] });
 
 function addFamilySections() {
   const anchor = $('#autres');
@@ -201,24 +212,26 @@ function setupProductPage() {
   const formatModal = $('#formatModal');
   const formatInput = $('#customWeight');
   const formatConfirmation = $('#formatConfirmation');
-  const closeFormat = () => { formatModal?.classList.remove('open'); formatModal?.setAttribute('aria-hidden', 'true'); };
+  const closeFormat = () => {
+    formatModal?.classList.remove('open');
+    formatModal?.setAttribute('aria-hidden', 'true');
+  };
   const applyFilter = (category, scroll = false) => {
     filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
     productSections.forEach(section => { section.hidden = category !== 'all' && section.dataset.section !== category; });
     if (scroll) productSections.find(section => section.dataset.section === category)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
   filters.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.category || 'all', button.dataset.category !== 'all')));
-  $$('.format-button:not(.custom-format)').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('.format-button:not(.custom-format)').forEach(button => button.addEventListener('click', () => {
     button.classList.add('selected');
     window.setTimeout(() => button.classList.remove('selected'), 650);
   }));
-  $$('.custom-format').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('.custom-format').forEach(button => button.addEventListener('click', () => {
     if (!formatModal) return;
     formatModal.classList.add('open');
     formatModal.setAttribute('aria-hidden', 'false');
-    if (formatInput) formatInput.value = '';
+    if (formatInput) { formatInput.value = ''; window.setTimeout(() => formatInput.focus(), 80); }
     if (formatConfirmation) formatConfirmation.textContent = '';
-    window.setTimeout(() => formatInput?.focus(), 80);
   }));
   $('.format-modal-close')?.addEventListener('click', closeFormat);
   $('.format-modal-backdrop')?.addEventListener('click', closeFormat);
@@ -229,18 +242,6 @@ function setupProductPage() {
   });
 
   const productsHeader = $('.products-header');
-  const productsMenu = $('.products-header .menu-toggle');
-  const productsNav = $('.products-main-nav');
-  productsMenu?.addEventListener('click', () => {
-    const open = productsNav?.classList.toggle('open') || false;
-    productsMenu.setAttribute('aria-expanded', String(open));
-    productsMenu.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-  });
-  productsNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    productsNav.classList.remove('open');
-    productsMenu?.setAttribute('aria-expanded', 'false');
-  }));
-
   if (productsHeader && !productsHeader.dataset.headerFixed) {
     productsHeader.dataset.headerFixed = 'true';
     const actions = document.createElement('div');
@@ -254,35 +255,51 @@ function setupProductPage() {
     panel.setAttribute('aria-hidden', 'true');
     panel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" aria-label="Rechercher un produit" placeholder="Rechercher un produit…" autocomplete="off"><button type="button" class="products-search-close" aria-label="Fermer la recherche">×</button></div>`;
     productsHeader.appendChild(panel);
-    const toggle = actions.querySelector('.products-search-toggle');
-    const input = panel.querySelector('input');
-    const close = panel.querySelector('.products-search-close');
+    const toggle = $('.products-search-toggle', actions);
+    const input = $('input', panel);
+    const close = $('.products-search-close', panel);
     const runSearch = () => {
       const query = normalize(input.value.trim());
       productSections.forEach(section => {
         let visible = 0;
         $$('.product-item', section).forEach(item => {
-          const name = item.dataset.productName || $('.product-item-content h3', item)?.textContent || '';
-          const match = !query || normalize(name).includes(query);
+          const name = normalize(item.dataset.productName || $('h3', item)?.textContent || '');
+          const match = !query || name.includes(query);
           item.hidden = !match;
-          if (match) visible += 1;
+          if (match) visible++;
         });
         section.hidden = Boolean(query) && visible === 0;
       });
     };
-    const setProductSearchOpen = open => {
+    toggle.addEventListener('click', () => {
+      const open = panel.classList.toggle('open');
       panel.hidden = !open;
-      panel.classList.toggle('open', open);
       panel.setAttribute('aria-hidden', String(!open));
       toggle.setAttribute('aria-expanded', String(open));
-      if (open) window.setTimeout(() => input.focus(), 50);
-    };
-    toggle.addEventListener('click', () => setProductSearchOpen(!panel.classList.contains('open')));
-    close.addEventListener('click', () => { input.value = ''; runSearch(); setProductSearchOpen(false); applyFilter('all'); });
+      if (open) window.setTimeout(() => input.focus(), 80);
+    });
+    close.addEventListener('click', () => {
+      input.value = '';
+      runSearch();
+      panel.classList.remove('open');
+      panel.hidden = true;
+      panel.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
     input.addEventListener('input', runSearch);
   }
-}
 
+  const productMenu = $('.products-header .menu-toggle');
+  const productNav = $('.products-main-nav');
+  if (productMenu && productNav && !productMenu.dataset.bound) {
+    productMenu.dataset.bound = 'true';
+    productMenu.addEventListener('click', () => {
+      const open = productNav.classList.toggle('open');
+      productMenu.setAttribute('aria-expanded', String(open));
+    });
+    productNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => productNav.classList.remove('open')));
+  }
+}
 setupProductPage();
 
 document.addEventListener('keydown', event => {
@@ -298,6 +315,5 @@ document.addEventListener('keydown', event => {
     productSearch.setAttribute('aria-hidden', 'true');
   }
   productToggle?.setAttribute('aria-expanded', 'false');
-  $('.format-modal')?.classList.remove('open');
 });
 })();
