@@ -1,59 +1,303 @@
 (() => {
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-const header = $('#siteHeader'); const menu = $('.menu-toggle'); const nav = $('#mainNav');
-function setMenu(open){ if(!menu || !nav) return; nav.classList.toggle('open',open); menu.setAttribute('aria-expanded',open); menu.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu'); }
-if(menu&&nav){ menu.addEventListener('click',()=>setMenu(!nav.classList.contains('open'))); $$('.main-nav a').forEach(link=>link.addEventListener('click',()=>setMenu(false))); }
-function normalize(value){ return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
-const sections=$$('main section[id]'); const navLinks=$$('.main-nav a');
-function updateActiveNav(){ const y=window.scrollY+150; let current='accueil'; sections.forEach(section=>{if(section.offsetTop<=y) current=section.id;}); navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${current}`)); }
-window.addEventListener('scroll',()=>{header?.classList.toggle('scrolled',window.scrollY>25); $('.to-top')?.classList.toggle('show',window.scrollY>650); updateActiveNav();},{passive:true}); updateActiveNav(); $('.to-top')?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12}); $$('.reveal').forEach(el=>observer.observe(el));}
-const searchToggle=$('.search-toggle'); const searchPanel=$('.search-panel'); const searchInput=$('#siteSearch'); const searchClose=$('.search-close'); const cards=$$('.product-card');
-function setSearch(open){if(!searchPanel)return;searchPanel.classList.toggle('open',open);searchPanel.setAttribute('aria-hidden',String(!open));searchToggle?.setAttribute('aria-expanded',String(open));if(open)setTimeout(()=>searchInput?.focus(),80);}
-searchToggle?.addEventListener('click',()=>setSearch(!searchPanel.classList.contains('open'))); searchClose?.addEventListener('click',()=>{if(searchInput)searchInput.value='';cards.forEach(card=>{card.classList.remove('search-hidden');card.style.display='';});setSearch(false);});
-searchInput?.addEventListener('input',()=>{const q=normalize(searchInput.value.trim());cards.forEach(card=>{const hay=normalize(`${card.dataset.search||''} ${card.textContent}`);const match=!q||hay.includes(q);card.classList.toggle('search-hidden',!match);card.style.display=match?'':'none';});});
-const filterChips=$$('.filter-chip'); filterChips.forEach(chip=>chip.addEventListener('click',()=>{const filter=chip.dataset.filter||'all';filterChips.forEach(c=>c.classList.toggle('active',c===chip));cards.forEach(card=>{const match=filter==='all'||card.dataset.category===filter;card.classList.toggle('search-hidden',!match);card.style.display=match?'':'none';});}));
-const modal=$('#productModal'); const modalTitle=$('#modalTitle'); const modalText=$('#modalText');
-const productData={cafe:['Café','Un univers autour du café, pensé pour mettre en avant l’arôme, la richesse et le caractère d’une sélection premium.'],epices:['Épices','Des épices aux parfums généreux pour apporter profondeur, couleur et caractère aux recettes du quotidien.'],'fruits-secs':['Fruits secs','Une collection gourmande autour de fruits secs soigneusement présentés, avec une attention particulière portée à la qualité et à la texture.'],argan:['Huile d’argan','Une signature naturelle emblématique du Maroc, mise en valeur dans une présentation sobre, élégante et premium.'],epicerie:['Épicerie','Riz, semoule, couscous et essentiels du garde-manger marocain, réunis dans une présentation à l’image de la collection ARAOUAA.']};
-function closeModal(){modal?.classList.remove('open');modal?.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
-$$('.product-link').forEach(button=>button.addEventListener('click',()=>{const item=productData[button.dataset.product];if(!item||!modal)return;modalTitle.textContent=item[0];modalText.textContent=item[1];modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');})); $('.modal-close')?.addEventListener('click',closeModal); $('.modal-backdrop')?.addEventListener('click',closeModal); $('.modal-contact')?.addEventListener('click',closeModal);
-$('#contactForm')?.addEventListener('submit',e=>{e.preventDefault();const msg=$('.form-message',e.currentTarget);if(msg)msg.textContent='Merci. Votre demande est prête à être transmise à l’équipe ARAOUAA.';e.currentTarget.reset();});
-function makeProductCard(name,label,tag,description,weights=['250 g','500 g','1 kg']){const article=document.createElement('article');article.className='product-item catalog-added-item';article.dataset.productName=`${name} ${label}`;article.innerHTML=`<div class="product-item-image"><div class="product-placeholder"><span>ARAOUAA</span><strong>${label}</strong><small>${tag}</small></div></div><div class="product-item-content"><span class="product-item-tag">${tag}</span><h3>${name}</h3><p>${description}</p><div class="product-formats"><span class="formats-label">FORMATS DISPONIBLES</span><div class="format-list">${weights.map(weight=>`<button class="format-button" data-weight="${weight}">${weight}</button>`).join('')}<button class="format-button custom-format">+ Sur demande</button></div></div></div>`;return article;}
-(function addRequestedNutProducts(){const grid=$('#noix-graines .product-items');if(!grid)return;const requested=[['Amande grillée','AMANDE GRILLÉE'],['Amande effilée','AMANDE EFFILÉE'],['Amande hachée','AMANDE HACHÉE'],['Amande en poudre','AMANDE EN POUDRE'],['Cacahuètes blanches','CACAHUÈTES BLANCHES'],['Cacahuètes rouges','CACAHUÈTES ROUGES'],['Cacahuètes grillées','CACAHUÈTES GRILLÉES'],['Cacahuètes salées','CACAHUÈTES SALÉES'],['Cacahuètes nature','CACAHUÈTES NATURE']];const existing=new Set($$('[data-product-name], h3',grid).map(el=>normalize(el.dataset.productName||el.textContent)));requested.forEach(([name,label])=>{if(!existing.has(normalize(name)))grid.appendChild(makeProductCard(name,label,'NOIX & GRAINES','Une référence délicate au profil naturellement généreux et raffiné',['50 g','100 g','250 g','500 g','1 kg','5 kg']));});})();
-(function addRiceVariants(){const grid=$('#cereales .product-items');if(!grid)return;const requested=[['Riz blanc','RIZ BLANC','Un riz polyvalent à la texture légère, adapté aux préparations du quotidien.'],['Riz jaune','RIZ JAUNE','Un riz au caractère généreux, apprécié pour sa couleur et sa présence dans l’assiette.']];const existing=new Set($$('[data-product-name], h3',grid).map(el=>normalize(el.dataset.productName||el.textContent)));requested.forEach(([name,label,description])=>{if(!existing.has(normalize(name)))grid.appendChild(makeProductCard(name,label,'CÉRÉALES · RIZ · PÂTES',description,['250 g','500 g','1 kg','5 kg']));});})();
-(function addPastaAndCouscousToAutres(){const grid=$('#autres .product-items');if(!grid)return;const requested=[['Couscous fin','COUSCOUS FIN','Une semoule de couscous fine, légère et adaptée aux préparations traditionnelles.'],['Couscous moyen','COUSCOUS MOYEN','Une semoule de couscous de granulométrie moyenne, polyvalente et généreuse.'],['Couscous complet','COUSCOUS COMPLET','Un couscous préparé à partir de blé dur complet, pour une référence plus rustique.'],['Couscous multi-céréales','COUSCOUS MULTI-CÉRÉALES','Un couscous associant plusieurs céréales pour une texture et un profil plus variés.'],['Torsades','TORSADES','Des pâtes en forme torsadée, idéales pour retenir sauces et préparations généreuses.'],['Coquillettes','COQUILLETTES','Une pâte courte classique, pratique pour les préparations du quotidien.'],['Spaghetti','SPAGHETTI','Une pâte longue et fine, adaptée aux recettes traditionnelles et aux sauces.'],['Vermicelles','VERMICELLES','Des pâtes fines et légères, adaptées aux soupes, préparations et accompagnements.']];const existing=new Set($$('[data-product-name], h3',grid).map(el=>normalize(el.dataset.productName||el.textContent)));requested.forEach(([name,label,description])=>{if(!existing.has(normalize(name)))grid.appendChild(makeProductCard(name,label,'AUTRES',description,['250 g','500 g','1 kg','5 kg']));});})();
-(function addNewProductsUnderAutres(){const autres=$('#autres');if(!autres)return;const families=[{id:'huiles',title:'Huiles',description:'Des huiles emblématiques du terroir marocain, sélectionnées pour leur caractère et leur qualité.',items:[['Huile d’argan','HUILE D’ARGAN','Une huile de caractère au goût délicatement torréfié, emblématique du terroir du Souss.'],['Huile d’olive','HUILE D’OLIVE','Une huile d’olive fruitée et équilibrée, pensée pour la cuisine quotidienne et les préparations méditerranéennes.']]},{id:'amlou',title:'Amlou',description:'Une collection de pâtes à tartiner inspirées de l’amlou marocain : fruits secs torréfiés, miel et huile, dans un esprit généreux.',items:[['Amlou aux amandes','AMLOU AMANDES','La version traditionnelle, autour de l’amande torréfiée, du miel et de l’huile d’argan.'],['Amlou aux cacahuètes','AMLOU CACAHUÈTES','Une version gourmande et généreuse aux cacahuètes grillées, miel et huile d’argan.'],['Amlou aux noisettes','AMLOU NOISETTES','Une pâte aux notes naturellement pralinées, avec noisettes torréfiées, miel et huile.'],['Amlou aux noix','AMLOU NOIX','Une interprétation riche et légèrement boisée autour de la noix, du miel et de l’huile.'],['Amlou aux noix de cajou','AMLOU CAJOU','Une texture douce et crémeuse aux noix de cajou torréfiées, miel et huile.'],['Amlou à la pistache','AMLOU PISTACHE','Une version raffinée à la pistache, pensée pour une finition plus délicate et gourmande.']]},{id:'miel',title:'Miel',description:'Des miels inspirés de la flore marocaine, avec des profils floraux, boisés ou plus intenses.',items:[['عسل حر','MIEL حر · MIEL PUR','Un miel authentique au caractère généreux, en conservant l’appellation traditionnelle حر.'],['Miel d’oranger','MIEL D’ORANGER','Un miel floral et lumineux aux notes délicates de fleur d’oranger.'],['Miel d’eucalyptus','MIEL D’EUCALYPTUS','Un profil aromatique plus marqué, avec des notes boisées et balsamiques.'],['Miel de thym','MIEL DE THYM','Un miel intense et chaleureux aux notes herbacées caractéristiques du thym sauvage.'],['Miel de jujubier','MIEL DE JUJUBIER','Un miel ambré au caractère profond et généreux, inspiré du jujubier marocain.'],['Miel de romarin','MIEL DE ROMARIN','Un miel floral et herbacé au profil frais et élégant.'],['Miel d’herbes','MIEL D’HERBES','Un miel aux notes florales et herbacées, issu d’une diversité de plantes et de fleurs.']]}];let insertAfter=autres;families.forEach(family=>{const section=document.createElement('section');section.className='product-category-section catalog-family-section';section.id=family.id;section.dataset.section='autres';section.innerHTML=`<div class="category-heading"><div class="category-heading-left"><span class="category-number">${family.id==='huiles'?'08':family.id==='amlou'?'09':'10'}</span><div><span class="product-item-tag">UNIVERS ARAOUAA</span><h2>${family.title}</h2></div></div><p>${family.description}</p></div><div class="product-items catalog-family-grid"></div>`;const grid=section.querySelector('.product-items');family.items.forEach(([name,label,description])=>grid.appendChild(makeProductCard(name,label,'AUTRES',description)));insertAfter.insertAdjacentElement('afterend',section);insertAfter=section;});})();
-(function addMoreCoffeeProducts(){const grid=$('#cafe .product-items');if(!grid)return;const requested=[['Café moulu','CAFÉ MOULU','Un café torréfié puis moulu, pensé pour une préparation régulière et aromatique.'],['Café en grains','CAFÉ EN GRAINS','Des grains torréfiés pour préserver la fraîcheur des arômes jusqu’à la mouture.'],['Café 100 % Arabica','100 % ARABICA','Un café Arabica au profil aromatique fin, équilibré et naturellement parfumé.'],['Café Arabica & Robusta','ARABICA & ROBUSTA','Un assemblage équilibré entre rondeur, puissance et caractère.'],['Café décaféiné','CAFÉ DÉCAFÉINÉ','Un café décaféiné conservant une expression aromatique riche et équilibrée.']];const existing=new Set($$('[data-product-name], h3',grid).map(el=>normalize(el.dataset.productName||el.textContent)));requested.forEach(([name,label,description])=>{if(!existing.has(normalize(name)))grid.appendChild(makeProductCard(name,label,'CAFÉ',description,['250 g','500 g','1 kg']));});})();
-(function setupProductFamilyNavigation(){const categoryNav=$('.product-category-nav');if(!categoryNav)return;const old=categoryNav.querySelector('.catalog-filter[data-category="autres"]');if(!old)return;const makeLink=(label,target)=>{const link=document.createElement('a');link.className='catalog-family-link';link.href=target;link.textContent=label;return link;};old.replaceWith(makeLink('Huiles','#huiles'),makeLink('Miel','#miel'),makeLink('Amlou','#amlou'));const more=document.createElement('span');more.className='catalog-more-link';more.textContent='+ MORE';categoryNav.appendChild(more);})();
-(function setupProductPage(){
-  if(!document.body.classList.contains('products-page'))return;
-  const productSections=$$('.product-category-section');
-  const filterButtons=$$('.catalog-filter');
-  const formatModal=$('#formatModal'); const formatInput=$('#customWeight'); const formatConfirmation=$('#formatConfirmation');
-  const closeFormat=()=>{formatModal?.classList.remove('open');formatModal?.setAttribute('aria-hidden','true');};
-  const applyFilter=(category,scroll=false)=>{filterButtons.forEach(button=>button.classList.toggle('active',button.dataset.category===category));productSections.forEach(section=>{section.hidden=category!=='all'&&section.dataset.section!==category;});if(scroll){const target=productSections.find(section=>section.dataset.section===category);target?.scrollIntoView({behavior:'smooth',block:'start'});}};
-  filterButtons.forEach(button=>button.addEventListener('click',()=>applyFilter(button.dataset.category||'all',button.dataset.category!=='all')));
-  document.querySelectorAll('.format-button:not(.custom-format)').forEach(button=>button.addEventListener('click',()=>{button.classList.add('selected');window.setTimeout(()=>button.classList.remove('selected'),650);}));
-  document.querySelectorAll('.custom-format').forEach(button=>button.addEventListener('click',()=>{if(!formatModal)return;formatModal.classList.add('open');formatModal.setAttribute('aria-hidden','false');if(formatInput)formatInput.value='';if(formatConfirmation)formatConfirmation.textContent='';window.setTimeout(()=>formatInput?.focus(),80);}));
-  $('.format-modal-close')?.addEventListener('click',closeFormat); $('.format-modal-backdrop')?.addEventListener('click',closeFormat);
-  $('#customWeightSubmit')?.addEventListener('click',()=>{const value=formatInput?.value.trim();if(!value){formatInput?.focus();return;}if(formatConfirmation)formatConfirmation.textContent='Demande enregistrée : '+value+'. Nous pourrons confirmer ce grammage selon vos besoins.';});
-  const productsHeader=$('.products-header'); const productsMenu=$('.products-header .menu-toggle'); const productsNav=$('.products-main-nav');
-  productsMenu?.addEventListener('click',()=>{const open=productsNav?.classList.toggle('open')||false;productsMenu.setAttribute('aria-expanded',String(open));productsMenu.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');});
-  productsNav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{productsNav.classList.remove('open');productsMenu?.setAttribute('aria-expanded','false');}));
-  if(productsHeader&&!productsHeader.dataset.headerFixed){
-    productsHeader.dataset.headerFixed='true';
-    const actions=document.createElement('div'); actions.className='products-header-actions';
-    actions.innerHTML=`<button class="products-icon-button products-search-toggle" type="button" aria-label="Rechercher" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg></button><a class="products-icon-button products-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8" class="fill"></circle></svg></a>`;
-    const logo=productsHeader.querySelector('.products-logo'); logo?logo.insertAdjacentElement('afterend',actions):productsHeader.prepend(actions);
-    const panel=document.createElement('div'); panel.className='products-search-panel'; panel.setAttribute('aria-hidden','true'); panel.hidden=true;
-    panel.innerHTML=`<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" aria-label="Rechercher un produit" placeholder="Rechercher un produit…" autocomplete="off"><button type="button" class="products-search-close" aria-label="Fermer la recherche">×</button></div>`;
+const normalize = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+const header = $('#siteHeader');
+const menu = $('.menu-toggle');
+const nav = $('#mainNav');
+const setMenu = open => {
+  if (!menu || !nav) return;
+  nav.classList.toggle('open', open);
+  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+};
+if (menu && nav) {
+  menu.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  $$('.main-nav a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+}
+
+const homeSections = $$('main section[id]');
+const homeNavLinks = $$('.main-nav a');
+const updateActiveNav = () => {
+  const y = window.scrollY + 150;
+  let current = 'accueil';
+  homeSections.forEach(section => { if (section.offsetTop <= y) current = section.id; });
+  homeNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${current}`));
+};
+window.addEventListener('scroll', () => {
+  header?.classList.toggle('scrolled', window.scrollY > 25);
+  $('.to-top')?.classList.toggle('show', window.scrollY > 650);
+  updateActiveNav();
+}, { passive: true });
+updateActiveNav();
+$('.to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  }), { threshold: .12 });
+  $$('.reveal').forEach(element => observer.observe(element));
+}
+
+const searchToggle = $('.search-toggle');
+const searchPanel = $('.search-panel');
+const searchInput = $('#siteSearch');
+const searchClose = $('.search-close');
+const cards = $$('.product-card');
+const setSearch = open => {
+  if (!searchPanel) return;
+  searchPanel.classList.toggle('open', open);
+  searchPanel.setAttribute('aria-hidden', String(!open));
+  searchToggle?.setAttribute('aria-expanded', String(open));
+  if (open) window.setTimeout(() => searchInput?.focus(), 80);
+};
+searchToggle?.addEventListener('click', () => setSearch(!searchPanel.classList.contains('open')));
+searchClose?.addEventListener('click', () => {
+  if (searchInput) searchInput.value = '';
+  cards.forEach(card => { card.classList.remove('search-hidden'); card.style.display = ''; });
+  setSearch(false);
+});
+searchInput?.addEventListener('input', () => {
+  const query = normalize(searchInput.value.trim());
+  cards.forEach(card => {
+    const match = !query || normalize(`${card.dataset.search || ''} ${card.textContent}`).includes(query);
+    card.classList.toggle('search-hidden', !match);
+    card.style.display = match ? '' : 'none';
+  });
+});
+$$('.filter-chip').forEach(chip => chip.addEventListener('click', () => {
+  const filter = chip.dataset.filter || 'all';
+  $$('.filter-chip').forEach(item => item.classList.toggle('active', item === chip));
+  cards.forEach(card => {
+    const match = filter === 'all' || card.dataset.category === filter;
+    card.classList.toggle('search-hidden', !match);
+    card.style.display = match ? '' : 'none';
+  });
+}));
+
+const modal = $('#productModal');
+const modalTitle = $('#modalTitle');
+const modalText = $('#modalText');
+const productData = {
+  cafe: ['Café', 'Un univers autour du café, pensé pour mettre en avant l’arôme, la richesse et le caractère d’une sélection premium.'],
+  epices: ['Épices', 'Des épices aux parfums généreux pour apporter profondeur, couleur et caractère aux recettes du quotidien.'],
+  'fruits-secs': ['Fruits secs', 'Une collection gourmande autour de fruits secs soigneusement présentés, avec une attention particulière portée à la qualité et à la texture.'],
+  argan: ['Huile d’argan', 'Une signature naturelle emblématique du Maroc, mise en valeur dans une présentation sobre, élégante et premium.'],
+  epicerie: ['Épicerie', 'Les essentiels du garde-manger marocain, réunis dans une présentation claire et cohérente.']
+};
+const closeModal = () => {
+  modal?.classList.remove('open');
+  modal?.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+};
+$$('.product-link').forEach(button => button.addEventListener('click', () => {
+  const item = productData[button.dataset.product];
+  if (!item || !modal) return;
+  modalTitle.textContent = item[0];
+  modalText.textContent = item[1];
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+}));
+$('.modal-close')?.addEventListener('click', closeModal);
+$('.modal-backdrop')?.addEventListener('click', closeModal);
+$('.modal-contact')?.addEventListener('click', closeModal);
+$('#contactForm')?.addEventListener('submit', event => {
+  event.preventDefault();
+  const message = $('.form-message', event.currentTarget);
+  if (message) message.textContent = 'Merci. Votre demande est prête à être transmise à l’équipe ARAOUAA.';
+  event.currentTarget.reset();
+});
+
+function makeProductCard(name, label, tag, description, weights = ['250 g', '500 g', '1 kg']) {
+  const article = document.createElement('article');
+  article.className = 'product-item catalog-added-item';
+  article.dataset.productName = `${name} ${label}`;
+  article.innerHTML = `<div class="product-item-image"><div class="product-placeholder"><span>ARAOUAA</span><strong>${label}</strong><small>${tag}</small></div></div><div class="product-item-content"><span class="product-item-tag">${tag}</span><h3>${name}</h3><p>${description}</p><div class="product-formats"><span class="formats-label">FORMATS DISPONIBLES</span><div class="format-list">${weights.map(weight => `<button class="format-button" data-weight="${weight}">${weight}</button>`).join('')}<button class="format-button custom-format">+ Sur demande</button></div></div></div>`;
+  return article;
+}
+
+function appendProducts(selector, products, defaults) {
+  const grid = $(selector);
+  if (!grid) return;
+  const existing = new Set($$('[data-product-name], h3', grid).map(element => normalize(element.dataset.productName || element.textContent)));
+  products.forEach(product => {
+    const [name, label, description] = product;
+    if (!existing.has(normalize(name))) grid.appendChild(makeProductCard(name, label, defaults.tag, description || defaults.description, defaults.weights));
+  });
+}
+
+appendProducts('#epices .product-items', [
+  ['Cumin', 'CUMIN'], ['Gingembre', 'GINGEMBRE'], ['Paprika', 'PAPRIKA'], ['Curcuma', 'CURCUMA'], ['Cannelle', 'CANNELLE'], ['Cayenne', 'CAYENNE'], ['Poivre noir', 'POIVRE NOIR'], ['Poivre blanc', 'POIVRE BLANC'], ['Cardamome', 'CARDAMOME'], ['Clous de girofle', 'CLOUS DE GIROFLE'], ['Muscade', 'MUSCADE'], ['Anis étoilé', 'ANIS ÉTOILÉ'], ['Laurier', 'LAURIER'], ['Origan', 'ORIGAN'], ['Thym', 'THYM'], ['Ail en poudre', 'AIL EN POUDRE'], ['Curry', 'CURRY'], ['Safran', 'SAFRAN'], ['Sumac', 'SUMAC'], ['Fenugrec', 'FENUGREC']
+], { tag: 'ÉPICES', description: 'Une référence aromatique sélectionnée pour apporter profondeur, couleur et caractère aux recettes.', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg'] });
+
+appendProducts('#epicerie .product-items', [
+  ['Haricots blancs', 'HARICOTS BLANCS', 'Une référence généreuse adaptée à de nombreux usages culinaires.'],
+  ['Haricots rouges', 'HARICOTS ROUGES', 'Une référence appréciée pour les préparations salées et professionnelles.'],
+  ['Pois cassés', 'POIS CASSÉS', 'Une référence polyvalente pour les soupes, plats et préparations.'],
+  ['Fèves', 'FÈVES', 'Une référence traditionnelle pour une cuisine généreuse et authentique.']
+], { tag: 'ÉPICERIE', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg', '5 kg'] });
+
+appendProducts('#fruits-secs .product-items', [
+  ['Raisins secs', 'RAISINS SECS'], ['Abricots secs', 'ABRICOTS SECS'], ['Dattes', 'DATTES'], ['Figues', 'FIGUES'], ['Pruneaux', 'PRUNEAUX'], ['Cranberries', 'CRANBERRIES'], ['Goji', 'GOJI'], ['Mangue séchée', 'MANGUE SÉCHÉE'], ['Kiwi séché', 'KIWI SÉCHÉ'], ['Ananas séché', 'ANANAS SÉCHÉ'], ['Banane séchée', 'BANANE SÉCHÉE']
+], { tag: 'FRUITS SECS', description: 'Une référence naturellement gourmande, adaptée aux préparations et à la dégustation.', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg', '5 kg'] });
+
+appendProducts('#noix-graines .product-items', [
+  ['Amande grillée', 'AMANDE GRILLÉE'], ['Amande effilée', 'AMANDE EFFILÉE'], ['Amande hachée', 'AMANDE HACHÉE'], ['Amande en poudre', 'AMANDE EN POUDRE'], ['Cacahuètes blanches', 'CACAHUÈTES BLANCHES'], ['Cacahuètes rouges', 'CACAHUÈTES ROUGES'], ['Cacahuètes grillées', 'CACAHUÈTES GRILLÉES'], ['Cacahuètes salées', 'CACAHUÈTES SALÉES'], ['Cacahuètes nature', 'CACAHUÈTES NATURE']
+], { tag: 'NOIX & GRAINES', description: 'Une référence délicate au profil naturellement généreux et raffiné.', weights: ['50 g', '100 g', '250 g', '500 g', '1 kg', '5 kg'] });
+
+appendProducts('#cereales .product-items', [
+  ['Riz blanc', 'RIZ BLANC', 'Un riz polyvalent à la texture légère, adapté aux préparations du quotidien.'],
+  ['Riz jaune', 'RIZ JAUNE', 'Un riz au caractère généreux, apprécié pour sa couleur et sa présence dans l’assiette.']
+], { tag: 'CÉRÉALES · RIZ · PÂTES', weights: ['250 g', '500 g', '1 kg', '5 kg'] });
+
+appendProducts('#autres .product-items', [
+  ['Couscous fin', 'COUSCOUS FIN', 'Une semoule de couscous fine, légère et adaptée aux préparations traditionnelles.'],
+  ['Couscous moyen', 'COUSCOUS MOYEN', 'Une semoule de couscous de granulométrie moyenne, polyvalente et généreuse.'],
+  ['Couscous complet', 'COUSCOUS COMPLET', 'Un couscous préparé à partir de blé dur complet, pour une référence plus rustique.'],
+  ['Couscous multi-céréales', 'COUSCOUS MULTI-CÉRÉALES', 'Un couscous associant plusieurs céréales pour une texture et un profil plus variés.'],
+  ['Torsades', 'TORSADES', 'Des pâtes en forme torsadée, idéales pour retenir sauces et préparations généreuses.'],
+  ['Coquillettes', 'COQUILLETTES', 'Une pâte courte classique, pratique pour les préparations du quotidien.'],
+  ['Spaghetti', 'SPAGHETTI', 'Une pâte longue et fine, adaptée aux recettes traditionnelles et aux sauces.'],
+  ['Vermicelles', 'VERMICELLES', 'Des pâtes fines et légères, adaptées aux soupes, préparations et accompagnements.']
+], { tag: 'AUTRES', weights: ['250 g', '500 g', '1 kg', '5 kg'] });
+
+appendProducts('#cafe .product-items', [
+  ['Café moulu', 'CAFÉ MOULU', 'Un café torréfié puis moulu, pensé pour une préparation régulière et aromatique.'],
+  ['Café en grains', 'CAFÉ EN GRAINS', 'Des grains torréfiés pour préserver la fraîcheur des arômes jusqu’à la mouture.'],
+  ['Café 100 % Arabica', '100 % ARABICA', 'Un café Arabica au profil aromatique fin, équilibré et naturellement parfumé.'],
+  ['Café Arabica & Robusta', 'ARABICA & ROBUSTA', 'Un assemblage équilibré entre rondeur, puissance et caractère.'],
+  ['Café décaféiné', 'CAFÉ DÉCAFÉINÉ', 'Un café décaféiné conservant une expression aromatique riche et équilibrée.']
+], { tag: 'CAFÉ', weights: ['250 g', '500 g', '1 kg'] });
+
+function addFamilySections() {
+  const anchor = $('#autres');
+  if (!anchor || document.querySelector('.catalog-family-section')) return;
+  const families = [
+    { id: 'huiles', number: '08', title: 'Huiles', description: 'Des huiles emblématiques du terroir marocain, sélectionnées pour leur caractère et leur qualité.', items: [['Huile d’argan', 'HUILE D’ARGAN', 'Une huile de caractère au goût délicatement torréfié, emblématique du terroir du Souss.'], ['Huile d’olive', 'HUILE D’OLIVE', 'Une huile d’olive fruitée et équilibrée, pensée pour la cuisine quotidienne et les préparations méditerranéennes.']] },
+    { id: 'amlou', number: '09', title: 'Amlou', description: 'Une collection de pâtes à tartiner inspirées de l’amlou marocain : fruits secs torréfiés, miel et huile, dans un esprit généreux.', items: [['Amlou aux amandes', 'AMLOU AMANDES', 'La version traditionnelle, autour de l’amande torréfiée, du miel et de l’huile d’argan.'], ['Amlou aux cacahuètes', 'AMLOU CACAHUÈTES', 'Une version gourmande et généreuse aux cacahuètes grillées, miel et huile d’argan.'], ['Amlou aux noisettes', 'AMLOU NOISETTES', 'Une pâte aux notes naturellement pralinées, avec noisettes torréfiées, miel et huile.'], ['Amlou aux noix', 'AMLOU NOIX', 'Une interprétation riche et légèrement boisée autour de la noix, du miel et de l’huile.'], ['Amlou aux noix de cajou', 'AMLOU CAJOU', 'Une texture douce et crémeuse aux noix de cajou torréfiées, miel et huile.'], ['Amlou à la pistache', 'AMLOU PISTACHE', 'Une version raffinée à la pistache, pensée pour une finition plus délicate et gourmande.']] },
+    { id: 'miel', number: '10', title: 'Miel', description: 'Des miels inspirés de la flore marocaine, avec des profils floraux, boisés ou plus intenses.', items: [['عسل حر', 'MIEL حر · MIEL PUR', 'Un miel authentique au caractère généreux, en conservant l’appellation traditionnelle حر.'], ['Miel d’oranger', 'MIEL D’ORANGER', 'Un miel floral et lumineux aux notes délicates de fleur d’oranger.'], ['Miel d’eucalyptus', 'MIEL D’EUCALYPTUS', 'Un profil aromatique plus marqué, avec des notes boisées et balsamiques.'], ['Miel de thym', 'MIEL DE THYM', 'Un miel intense et chaleureux aux notes herbacées caractéristiques du thym sauvage.'], ['Miel de jujubier', 'MIEL DE JUJUBIER', 'Un miel ambré au caractère profond et généreux, inspiré du jujubier marocain.'], ['Miel de romarin', 'MIEL DE ROMARIN', 'Un miel floral et herbacé au profil frais et élégant.'], ['Miel d’herbes', 'MIEL D’HERBES', 'Un miel aux notes florales et herbacées, issu d’une diversité de plantes et de fleurs.']] }
+  ];
+  let insertAfter = anchor;
+  families.forEach(family => {
+    const section = document.createElement('section');
+    section.className = 'product-category-section catalog-family-section';
+    section.id = family.id;
+    section.dataset.section = 'autres';
+    section.innerHTML = `<div class="category-heading"><div class="category-heading-left"><span class="category-number">${family.number}</span><div><span class="product-item-tag">UNIVERS ARAOUAA</span><h2>${family.title}</h2></div></div><p>${family.description}</p></div><div class="product-items catalog-family-grid"></div>`;
+    const grid = $('.product-items', section);
+    family.items.forEach(([name, label, description]) => grid.appendChild(makeProductCard(name, label, 'AUTRES', description)));
+    insertAfter.insertAdjacentElement('afterend', section);
+    insertAfter = section;
+  });
+}
+addFamilySections();
+
+function setupProductPage() {
+  if (!document.body.classList.contains('products-page')) return;
+  const productSections = $$('.product-category-section');
+  const filters = $$('.catalog-filter');
+  const formatModal = $('#formatModal');
+  const formatInput = $('#customWeight');
+  const formatConfirmation = $('#formatConfirmation');
+  const closeFormat = () => { formatModal?.classList.remove('open'); formatModal?.setAttribute('aria-hidden', 'true'); };
+  const applyFilter = (category, scroll = false) => {
+    filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
+    productSections.forEach(section => { section.hidden = category !== 'all' && section.dataset.section !== category; });
+    if (scroll) productSections.find(section => section.dataset.section === category)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  filters.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.category || 'all', button.dataset.category !== 'all')));
+  $$('.format-button:not(.custom-format)').forEach(button => button.addEventListener('click', () => {
+    button.classList.add('selected');
+    window.setTimeout(() => button.classList.remove('selected'), 650);
+  }));
+  $$('.custom-format').forEach(button => button.addEventListener('click', () => {
+    if (!formatModal) return;
+    formatModal.classList.add('open');
+    formatModal.setAttribute('aria-hidden', 'false');
+    if (formatInput) formatInput.value = '';
+    if (formatConfirmation) formatConfirmation.textContent = '';
+    window.setTimeout(() => formatInput?.focus(), 80);
+  }));
+  $('.format-modal-close')?.addEventListener('click', closeFormat);
+  $('.format-modal-backdrop')?.addEventListener('click', closeFormat);
+  $('#customWeightSubmit')?.addEventListener('click', () => {
+    const value = formatInput?.value.trim();
+    if (!value) { formatInput?.focus(); return; }
+    if (formatConfirmation) formatConfirmation.textContent = `Demande enregistrée : ${value}. Nous pourrons confirmer ce grammage selon vos besoins.`;
+  });
+
+  const productsHeader = $('.products-header');
+  const productsMenu = $('.products-header .menu-toggle');
+  const productsNav = $('.products-main-nav');
+  productsMenu?.addEventListener('click', () => {
+    const open = productsNav?.classList.toggle('open') || false;
+    productsMenu.setAttribute('aria-expanded', String(open));
+    productsMenu.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  productsNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    productsNav.classList.remove('open');
+    productsMenu?.setAttribute('aria-expanded', 'false');
+  }));
+
+  if (productsHeader && !productsHeader.dataset.headerFixed) {
+    productsHeader.dataset.headerFixed = 'true';
+    const actions = document.createElement('div');
+    actions.className = 'products-header-actions';
+    actions.innerHTML = `<button class="products-icon-button products-search-toggle" type="button" aria-label="Rechercher" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg></button><a class="products-icon-button products-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8"></circle></svg></a>`;
+    const logo = productsHeader.querySelector('.products-logo');
+    logo ? logo.insertAdjacentElement('afterend', actions) : productsHeader.prepend(actions);
+    const panel = document.createElement('div');
+    panel.className = 'products-search-panel';
+    panel.hidden = true;
+    panel.setAttribute('aria-hidden', 'true');
+    panel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" aria-label="Rechercher un produit" placeholder="Rechercher un produit…" autocomplete="off"><button type="button" class="products-search-close" aria-label="Fermer la recherche">×</button></div>`;
     productsHeader.appendChild(panel);
-    const toggle=actions.querySelector('.products-search-toggle'); const input=panel.querySelector('input'); const close=panel.querySelector('.products-search-close');
-    const runSearch=()=>{const query=normalize(input.value.trim());productSections.forEach(section=>{let visibleItems=0;$$('.product-item',section).forEach(item=>{const name=item.dataset.productName||$('.product-item-content h3',item)?.textContent||'';const match=!query||normalize(name).includes(query);item.hidden=!match;if(match)visibleItems++;});section.hidden=Boolean(query)&&visibleItems===0;});};
-    const setOpen=open=>{panel.hidden=!open;panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',String(!open));toggle.setAttribute('aria-expanded',String(open));if(open)window.setTimeout(()=>input.focus(),50);};
-    toggle.addEventListener('click',()=>setOpen(!panel.classList.contains('open'))); close.addEventListener('click',()=>{input.value='';runSearch();setOpen(false);applyFilter('all',false);}); input.addEventListener('input',runSearch);
+    const toggle = actions.querySelector('.products-search-toggle');
+    const input = panel.querySelector('input');
+    const close = panel.querySelector('.products-search-close');
+    const runSearch = () => {
+      const query = normalize(input.value.trim());
+      productSections.forEach(section => {
+        let visible = 0;
+        $$('.product-item', section).forEach(item => {
+          const name = item.dataset.productName || $('.product-item-content h3', item)?.textContent || '';
+          const match = !query || normalize(name).includes(query);
+          item.hidden = !match;
+          if (match) visible += 1;
+        });
+        section.hidden = Boolean(query) && visible === 0;
+      });
+    };
+    const setProductSearchOpen = open => {
+      panel.hidden = !open;
+      panel.classList.toggle('open', open);
+      panel.setAttribute('aria-hidden', String(!open));
+      toggle.setAttribute('aria-expanded', String(open));
+      if (open) window.setTimeout(() => input.focus(), 50);
+    };
+    toggle.addEventListener('click', () => setProductSearchOpen(!panel.classList.contains('open')));
+    close.addEventListener('click', () => { input.value = ''; runSearch(); setProductSearchOpen(false); applyFilter('all'); });
+    input.addEventListener('input', runSearch);
   }
-})();
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;setSearch(false);closeModal();setMenu(false);const productSearch=$('.products-search-panel');const productToggle=$('.products-search-toggle');if(productSearch){productSearch.hidden=true;productSearch.classList.remove('open');productSearch.setAttribute('aria-hidden','true');}productToggle?.setAttribute('aria-expanded','false');document.querySelector('.format-modal')?.classList.remove('open');});
+}
+
+setupProductPage();
+
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  setSearch(false);
+  closeModal();
+  setMenu(false);
+  const productSearch = $('.products-search-panel');
+  const productToggle = $('.products-search-toggle');
+  if (productSearch) {
+    productSearch.hidden = true;
+    productSearch.classList.remove('open');
+    productSearch.setAttribute('aria-hidden', 'true');
+  }
+  productToggle?.setAttribute('aria-expanded', 'false');
+  $('.format-modal')?.classList.remove('open');
+});
 })();
