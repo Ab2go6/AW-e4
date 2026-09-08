@@ -18,10 +18,10 @@
 .partner-card img{width:260px !important;height:260px !important;object-fit:contain !important;display:block !important;position:relative !important;z-index:2 !important;filter:drop-shadow(0 14px 24px rgba(23,21,19,.16))}
 
 /* Single clean logo box for the story section. */
-.story-visual{background:var(--cream) !important;display:grid !important;place-items:center !important;border:0 !important;box-shadow:none !important}
+.story-visual{background:var(--paper) !important;display:grid !important;place-items:center !important;border:0 !important;box-shadow:none !important}
 .story-visual:after{content:none !important;display:none !important}
 .story-visual img{display:none !important}
-.story-visual:before{content:"";position:absolute;width:min(78%,360px);aspect-ratio:1/1;background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;border:1px solid rgba(199,154,59,.8);border-radius:18px;box-shadow:0 18px 45px rgba(23,21,19,.14);z-index:1}
+.story-visual:before{content:"";position:absolute;width:min(78%,360px);aspect-ratio:1/1;background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;border:1px solid rgba(199,154,59,.8);border-radius:18px;box-shadow:0 18px 45px rgba(23,21,19,.14);z-index:1;transform:translateX(18px)}
 
 /* Homepage product cards use the same visual system as the product page. */
 .product-card{position:relative;overflow:hidden;background:var(--paper);color:var(--ink);border:1px solid rgba(23,21,19,.09);border-radius:17px;box-shadow:0 10px 30px rgba(35,24,17,.07);transition:.35s}
@@ -56,7 +56,7 @@
 .site-header .search-panel{top:78px !important;left:12px !important;right:12px !important;width:auto !important}
 }
 @media(max-width:720px){
-.partner-card{height:360px !important}.partner-card img{width:210px !important;height:210px !important}.story-visual:before{width:72%}
+.partner-card{height:360px !important}.partner-card img{width:210px !important;height:210px !important}.story-visual:before{width:72%;transform:translateX(10px)}
 .product-card .product-image{min-height:360px}
 }
 @media(max-width:390px){
