@@ -62,6 +62,10 @@
 .product-category-nav { display: flex; flex-wrap: wrap; }
 .product-category-nav .catalog-filter[data-category="plus"] { order: 999; }
 
+/* Search result mode: show the matching product without its category heading */
+.products-page:has(.products-search-panel.open input:not(:placeholder-shown)) .product-category-section:not([hidden]) .category-heading { display: none; }
+.products-page:has(.products-search-panel.open input:not(:placeholder-shown)) .product-category-section:not([hidden]) { padding-top: 32px; }
+
 /* Responsive */
 @media (max-width: 1150px) {
   .products-main-nav { gap: 22px; }
