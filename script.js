@@ -288,12 +288,13 @@
       const items = productSections.flatMap(section => $$('.product-item', section));
       const exactMatchExists = Boolean(query) && items.some(item => getProductName(item) === query);
       const visibleSections = categoryGroups[activeCategory] || [activeCategory];
+      const searching = Boolean(query);
 
       productSections.forEach(section => {
         let visible = 0;
         $$('.product-item', section).forEach(item => {
           const name = getProductName(item);
-          const inCategory = activeCategory === 'all' || visibleSections.includes(section.dataset.section);
+          const inCategory = searching || activeCategory === 'all' || visibleSections.includes(section.dataset.section);
           const matchesSearch = !query || (exactMatchExists ? name === query : name.includes(query));
           const visibleItem = inCategory && matchesSearch;
           item.hidden = !visibleItem;
@@ -366,6 +367,8 @@
 
       const closeSearch = () => {
         input.value = '';
+        activeCategory = 'all';
+        filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
         renderProducts('');
         panel.classList.remove('open');
         panel.hidden = true;
@@ -382,7 +385,14 @@
       });
 
       close.addEventListener('click', closeSearch);
-      input.addEventListener('input', () => renderProducts(input.value));
+      input.addEventListener('input', () => {
+        const query = input.value.trim();
+        if (query) {
+          activeCategory = 'all';
+          filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
+        }
+        renderProducts(query);
+      });
     }
 
     const productMenu = $('.products-header .menu-toggle');
