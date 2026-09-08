@@ -1,9 +1,9 @@
 @import url("produits-base.css");
 
-/* Product page uses the same announcement-bar geometry as the homepage. */
+/* Product page uses the same announcement-bar geometry and visual language as the homepage. */
 .products-page{position:relative;padding-top:40px}
-.products-page:before{content:"•  Produits marocains sélectionnés avec soin   •   Qualité premium · Savoir-faire authentique";display:flex;align-items:center;justify-content:center;height:40px;padding:0 5%;background:var(--p-cream);color:var(--p-ink);border-bottom:1px solid var(--p-line);font-family:Poppins,sans-serif;font-size:10px;font-weight:400;letter-spacing:.35px;text-align:center;white-space:nowrap}
-.products-page:after{content:"Suivez-nous    ◎   |   ◔";position:absolute;top:0;right:5.8%;height:40px;display:flex;align-items:center;color:var(--p-gold-light);font-family:Poppins,sans-serif;font-size:10px;font-weight:600;letter-spacing:.2px;white-space:nowrap;pointer-events:none}
+.products-page:before{content:"•  Produits marocains sélectionnés avec soin   •   Qualité premium · Savoir-faire authentique";display:flex;align-items:center;justify-content:flex-start;height:40px;padding:0 6%;background:var(--p-cream);color:#302a25;border-bottom:1px solid var(--p-line);font-family:Poppins,Arial,sans-serif;font-size:10px;font-weight:400;letter-spacing:.35px;text-align:left;white-space:nowrap;position:absolute;top:0;left:0;right:0;z-index:61}
+.products-page:after{content:"Suivez-nous    ◎   |   ◔";position:absolute;top:0;right:6%;height:40px;display:flex;align-items:center;color:var(--p-burgundy);font-family:Poppins,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.2px;white-space:nowrap;pointer-events:none;z-index:62}
 .products-header{height:116px !important;padding:0 5.8% !important;gap:40px !important;justify-content:flex-start !important;background:rgba(23,21,19,.97) !important;border-bottom:1px solid rgba(226,189,105,.22) !important;color:#f7f0e4 !important;backdrop-filter:blur(14px) !important}
 .products-logo{width:164px !important;height:94px !important;display:flex !important;align-items:center !important;flex:0 0 auto !important;background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;overflow:visible !important;position:relative !important}
 .products-logo:before,.products-logo:after{content:none !important;display:none !important}
