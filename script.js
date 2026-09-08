@@ -189,7 +189,7 @@
     ];
 
     const autresHeading = $('h2', anchor);
-    if (autresHeading) autresHeading.innerHTML = 'Essentiels <em>du garde-manger</em>';
+    if (autresHeading) autresHeading.innerHTML = 'Essentiels <em>du quotidien</em>';
 
     let insertAfter = anchor;
     families.forEach(family => {
@@ -215,14 +215,7 @@
       const prefix = isProductsPage ? '#' : 'produits.html#';
       const existingMore = $$('span, a', universe).find(item => normalize(item.textContent).includes('more') || normalize(item.textContent).includes('plus'));
       const moreHref = isProductsPage ? '#autres' : 'produits.html#autres';
-      if (existingMore) {
-        existingMore.tagName === 'A' ? existingMore.setAttribute('href', moreHref) : (() => {
-          const link = document.createElement('a');
-          link.href = moreHref;
-          link.textContent = '+ Plus';
-          existingMore.replaceWith(link);
-        })();
-      }
+      existingMore?.remove();
 
       const combined = $$('a', universe).find(link => normalize(link.textContent).includes('huile') && normalize(link.textContent).includes('miel'));
       combined?.remove();
@@ -241,12 +234,10 @@
         universe.appendChild(link);
       });
 
-      if (!$$('a', universe).some(link => link.getAttribute('href') === moreHref)) {
-        const more = document.createElement('a');
-        more.href = moreHref;
-        more.textContent = '+ Plus';
-        universe.appendChild(more);
-      }
+      const more = document.createElement('a');
+      more.href = moreHref;
+      more.textContent = '+ Plus';
+      universe.appendChild(more);
     });
   }
   setupFooterUniverses();
