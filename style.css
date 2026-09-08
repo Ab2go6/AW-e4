@@ -23,24 +23,24 @@
 .story-visual img{display:none !important}
 .story-visual:before{content:"";position:absolute;width:min(78%,360px);aspect-ratio:1/1;background:var(--cream) url("assets/logo-crystal-4k.png") center/78% auto no-repeat;border:1px solid rgba(199,154,59,.8);border-radius:18px;box-shadow:0 18px 45px rgba(23,21,19,.14);z-index:1}
 
-/* Unified premium treatment for every homepage product card. */
-.product-card:not(.product-card-more){position:relative;overflow:hidden;background:var(--ink) !important;color:#fff8ed !important;border-color:rgba(199,154,59,.38) !important;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
-.product-card:not(.product-card-more):hover{transform:translateY(-6px);box-shadow:0 28px 65px rgba(23,21,19,.2);border-color:rgba(199,154,59,.75) !important}
-.product-card:not(.product-card-more) .product-image{background:radial-gradient(circle at 50% 35%,#fffaf0,#e1d1b8) !important;min-height:280px;height:280px;border-bottom:1px solid rgba(226,189,105,.2);position:relative;display:flex;align-items:center;justify-content:center}
-.product-card:not(.product-card-more) .product-image:after{background:linear-gradient(145deg,rgba(255,255,255,.25),transparent 45%,rgba(20,15,12,.08)) !important}
-.product-card:not(.product-card-more) .product-number{background:rgba(23,21,19,.9) !important;color:var(--gold-light) !important;border-color:rgba(226,189,105,.42) !important}
-.product-card:not(.product-card-more) .pantry-art{width:72%;height:76%;background:linear-gradient(155deg,#24201c,#12110f);border:1px solid rgba(226,189,105,.42);box-shadow:0 17px 25px rgba(35,24,17,.2);border-radius:12px;padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:2;text-align:center}
-.product-card:not(.product-card-more) .pantry-art:before{content:"";position:absolute;inset:8px;border:1px solid rgba(226,189,105,.3);border-radius:7px;transform:none}
+/* Homepage product cards use the same visual system as the product page. */
+.product-card:not(.product-card-more){position:relative;overflow:hidden;background:var(--paper);color:var(--ink);border:1px solid rgba(23,21,19,.09);border-radius:17px;box-shadow:0 10px 30px rgba(35,24,17,.07);transition:.35s}
+.product-card:not(.product-card-more):hover{transform:translateY(-7px);border-color:rgba(199,154,59,.45);box-shadow:0 20px 48px rgba(35,24,17,.13)}
+.product-card:not(.product-card-more) .product-image{height:220px;background:radial-gradient(circle at 50% 35%,#fffaf0,#e1d1b8);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-card:not(.product-card-more) .product-image:after{background:linear-gradient(145deg,rgba(255,255,255,.25),transparent 45%,rgba(20,15,12,.08))}
+.product-card:not(.product-card-more) .product-number{left:15px;top:14px;width:34px;height:34px;background:rgba(255,253,248,.95);color:var(--burgundy);border-color:rgba(199,154,59,.4)}
+.product-card:not(.product-card-more) .pantry-art{width:72%;height:76%;border-radius:12px;background:linear-gradient(155deg,#24201c,#12110f);border:1px solid rgba(226,189,105,.42);box-shadow:0 17px 25px rgba(35,24,17,.2);padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:2;text-align:center}
+.product-card:not(.product-card-more) .pantry-art:before{inset:8px;border:1px solid rgba(226,189,105,.3);border-radius:7px;transform:none}
 .product-card:not(.product-card-more) .pantry-art span{font-size:8px;letter-spacing:2px;color:var(--gold-light)}
 .product-card:not(.product-card-more) .pantry-art strong{font-family:"Cormorant Garamond",serif;font-size:25px;line-height:1;margin-top:8px;color:#f8e8d2;letter-spacing:0;text-shadow:none}
 .product-card:not(.product-card-more) .pantry-art small{font-size:6px;letter-spacing:1.4px;color:#eee0c8;margin-top:7px}
 .product-card:not(.product-card-more) .pantry-line{width:24%;bottom:25px;background:var(--gold-light)}
-.product-card:not(.product-card-more) .product-content{background:#171513 !important;color:#fff8ed !important;padding:21px 21px 23px}
-.product-card:not(.product-card-more) .product-kicker{color:var(--gold-light) !important}
-.product-card:not(.product-card-more) .product-content h3{color:#fff8ed !important}
-.product-card:not(.product-card-more) .product-content>p:not(.product-kicker){color:rgba(255,248,237,.7) !important}
-.product-card:not(.product-card-more) .product-link{color:var(--gold-light) !important}
-.product-card:not(.product-card-more) .product-link span{color:inherit !important}
+.product-card:not(.product-card-more) .product-content{background:var(--paper);color:var(--ink);padding:17px}
+.product-card:not(.product-card-more) .product-kicker{color:var(--gold)}
+.product-card:not(.product-card-more) .product-content h3{color:var(--ink)}
+.product-card:not(.product-card-more) .product-content>p:not(.product-kicker){color:var(--muted)}
+.product-card:not(.product-card-more) .product-link{color:var(--burgundy)}
+.product-card:not(.product-card-more) .product-link span{color:inherit}
 
 /* & More is a compact discovery tile, not a sixth product. */
 .product-card-more{position:relative;align-self:start;justify-self:center;width:82%;overflow:hidden;background:var(--ink) !important;color:#fff8ed !important;border-color:rgba(199,154,59,.55) !important;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
