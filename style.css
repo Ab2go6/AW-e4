@@ -17,8 +17,8 @@
 .partner-card{background:var(--cream) !important;color:var(--ink) !important;border:1px solid rgba(199,154,59,.55) !important;box-shadow:var(--shadow) !important}
 .partner-card img{width:260px !important;height:260px !important;object-fit:contain !important;display:block !important;position:relative !important;z-index:2 !important;filter:drop-shadow(0 14px 24px rgba(23,21,19,.16))}
 
-/* The story uses the page background directly; the logo is the only inner box. */
-.story{background:var(--cream) !important}
+/* The story keeps its original warm section layer; the logo is the only inner box. */
+.story{background:#fffaf2 !important}
 .story-visual{background:transparent !important;display:grid !important;place-items:center !important;border:0 !important;box-shadow:none !important}
 .story-visual:after{content:none !important;display:none !important}
 .story-visual img{display:none !important}
