@@ -10,12 +10,13 @@
 .icon-button{color:#fff}
 .icon-button .fill{fill:currentColor;stroke:none}
 
-/* Restore the light story panel: logo on cream, no dark overlay. */
-.story-visual{background:var(--cream);border:1px solid rgba(199,154,59,.45);box-shadow:var(--shadow)}
-.story-visual:after{display:none}
-.story-visual .story-logo{display:block;width:62%;height:62%;object-fit:contain;opacity:1;position:relative;z-index:1;filter:drop-shadow(0 14px 24px rgba(23,21,19,.14))}
-.story-visual .story-badge{color:var(--ink);z-index:2}
-.story-visual .story-badge span{color:var(--burgundy)}
+/* Restore the original NÉE DU MAROC visual: cream panel with centered logo. */
+.story{background:#fffaf2}
+.story-visual{height:510px;background:var(--cream) url("assets/logo-crystal-4k.png") center/260px auto no-repeat;display:grid;place-items:center;border:1px solid rgba(199,154,59,.55);border-radius:28px;box-shadow:var(--shadow)}
+.story-visual:after,.story-visual:before{content:none;display:none}
+.story-visual img{display:none}
+.story-copy h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:62px;line-height:.94;font-style:normal;font-weight:600;letter-spacing:-1.5px;color:var(--ink);margin:14px 0 24px}
+.story-copy h2 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:normal;font-weight:600;color:var(--burgundy)}
 
 /* Keep the discovery cue distinct from the category filters. */
 .product-filters:after{display:none}
@@ -65,7 +66,7 @@
 .site-header .search-panel{top:78px;left:12px;right:12px;width:auto}
 }
 @media(max-width:720px){
-.partner-card{height:360px}.partner-card img{width:210px;height:210px}.story-visual{height:360px;background-size:210px auto}.story-visual .story-logo{width:62%;height:62%}
+.partner-card{height:360px}.partner-card img{width:210px;height:210px}.story-visual{height:360px;background-size:210px auto}
 .product-card .product-image{min-height:360px}
 }
 @media(max-width:390px){
