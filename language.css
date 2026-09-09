@@ -9,3 +9,7 @@
 [dir="rtl"] .language-switcher{margin-left:0;margin-right:8px}
 [dir="rtl"] .announcement-inner,[dir="rtl"] .site-header,[dir="rtl"] .products-header{direction:rtl}
 [dir="rtl"] .language-switcher{direction:ltr}
+
+/* Keep the product header to one search and one Instagram control. */
+.products-page .products-header-actions > .products-icon-button[aria-label="Rechercher"] ~ .products-icon-button[aria-label="Rechercher"],
+.products-page .products-header-actions > .products-icon-button[aria-label="Instagram"] ~ .products-icon-button[aria-label="Instagram"]{display:none}
