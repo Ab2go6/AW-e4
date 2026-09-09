@@ -10,5 +10,6 @@
   load('script-core.js')
     .then(() => load('language.js'))
     .then(() => load('catalog-language.js'))
+    .then(() => load('site-content-language.js'))
     .catch(error => console.error('ARAOUAA scripts failed to load:', error));
 })();
