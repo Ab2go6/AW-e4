@@ -4,12 +4,6 @@
 
 /* Product page shell */
 .products-page { position: relative; }
-.announcement { height: 40px; background: var(--p-cream); color: var(--p-ink); font-family: Poppins, Arial, sans-serif; font-size: 10px; letter-spacing: .35px; border-bottom: 1px solid var(--p-line); }
-.announcement-inner { height: 100%; width: min(1380px, 88%); margin: auto; display: flex; align-items: center; gap: 18px; }
-.announcement .dot { width: 6px; height: 6px; background: var(--p-gold); border-radius: 50%; display: inline-block; margin-right: 7px; }
-.announcement-separator { color: var(--p-gold); }
-.announcement-socials { margin-left: auto; display: flex; align-items: center; gap: 10px; }
-.announcement-socials a { color: var(--p-burgundy); font-weight: 600; }
 
 /* Product search */
 .products-search-panel { position: absolute; top: 116px; right: 5.8%; z-index: 70; width: min(500px, 90vw); padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: .25s; }
