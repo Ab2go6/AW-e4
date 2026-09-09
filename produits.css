@@ -21,16 +21,15 @@
 .products-main-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: #e2bd69; transition: .25s; }
 .products-main-nav a:hover::after,.products-main-nav a.active::after { right: 0; }
 .products-header .products-header-actions { order: 3; display: flex; flex: 0 0 auto; align-items: center; gap: 13px; margin-left: 0; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
-.products-header .products-header-actions::before,.products-header .products-header-actions::after { content: none; }
-.products-icon-button { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; color: #fff; opacity: 1; visibility: visible; }
+.products-header .products-header-actions::before,.products-header .products-header-actions::after { content: none; display: none; }
+.products-icon-button { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; color: #fff; opacity: 1; visibility: visible; position: relative; }
+.products-icon-button::before,.products-icon-button::after { content: none; display: none; }
 .products-icon-button svg { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 .products-icon-button svg circle,.products-icon-button svg path,.products-icon-button svg rect { fill: none; stroke: currentColor; }
 .products-icon-button .fill { fill: currentColor; stroke: none; }
 .products-header .products-header-actions .cart-badge { display: none; }
 .products-header-contact { order: 4; margin-left: 0; padding: 11px 19px; border: 1px solid rgba(226, 189, 105, .72); border-radius: 30px; color: #f7eddb; font-size: 11px; font-weight: 600; }
 .products-header .menu-toggle { order: 5; }
-.menu-toggle { display: none; background: transparent; border: 0; width: 40px; height: 40px; flex-direction: column; justify-content: center; gap: 5px; margin-left: auto; }
-.menu-toggle span { height: 2px; width: 23px; background: #f7eddb; display: block; }
 
 /* Product search */
 .products-search-panel { position: absolute; top: 116px; right: 5.8%; z-index: 70; width: min(500px, 90vw); padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: .25s; }
