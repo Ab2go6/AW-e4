@@ -1,0 +1,44 @@
+/* Shared two-layer header system: creamy announcement + cocoa navigation. */
+.products-page .announcement,
+.products-page .announcement-inner,
+.products-page .announcement-socials,
+.products-page .announcement-separator,
+.products-page .announcement .dot { box-sizing:border-box; }
+
+.products-page .announcement { height:40px; background:#f7f1e7; color:#302a25; font-family:Poppins,Arial,sans-serif; font-size:10px; letter-spacing:.35px; border-bottom:1px solid rgba(23,21,19,.12); }
+.products-page .announcement-inner { height:100%; width:min(1380px,88%); margin:auto; display:flex; align-items:center; gap:18px; }
+.products-page .announcement .dot { width:6px; height:6px; background:#c79a3b; border-radius:50%; display:inline-block; margin-right:7px; }
+.products-page .announcement-separator { color:#c79a3b; }
+.products-page .announcement-socials { margin-left:auto; display:flex; align-items:center; gap:10px; }
+.products-page .announcement-socials a { color:#8b1018; font-weight:600; }
+
+/* Match the homepage cocoa header geometry exactly. */
+.products-page header.products-header { height:116px; padding:0 5.8%; display:flex; align-items:center; justify-content:flex-start; gap:0; background:rgba(23,21,19,.97); border-bottom:1px solid rgba(226,189,105,.22); color:#f7f0e4; backdrop-filter:blur(14px); position:sticky; top:0; z-index:100; }
+.products-page header.products-header .products-logo { position:relative; display:flex; flex:0 0 auto; align-items:center; width:164px; height:94px; margin-right:40px; overflow:visible; background:transparent; border:0; border-radius:0; box-shadow:none; }
+.products-page header.products-header .products-logo img { display:block; width:100%; height:100%; object-fit:contain; }
+.products-page header.products-header .products-main-nav { order:2; display:flex; flex:1; align-items:center; justify-content:center; gap:42px; font-size:13px; letter-spacing:.5px; text-transform:none; }
+.products-page header.products-header .products-main-nav a { padding:10px 0; color:#f7f0e4; font-size:13px; font-weight:500; letter-spacing:.5px; position:relative; }
+.products-page header.products-header .products-main-nav a:hover,
+.products-page header.products-header .products-main-nav a.active { color:#e2bd69; }
+.products-page header.products-header .products-main-nav a::after { content:""; position:absolute; left:0; right:100%; bottom:0; height:2px; background:#e2bd69; transition:.25s; }
+.products-page header.products-header .products-main-nav a:hover::after,
+.products-page header.products-header .products-main-nav a.active::after { right:0; }
+.products-page header.products-header .products-header-actions { order:3; display:flex; flex:0 0 auto; align-items:center; gap:13px; margin-left:auto; padding:0; background:transparent; border:0; border-radius:0; box-shadow:none; }
+.products-page header.products-header .products-icon-button { display:flex; align-items:center; justify-content:center; width:40px; height:40px; padding:0; background:transparent; border:0; border-radius:0; box-shadow:none; color:#fff; opacity:1; visibility:visible; position:relative; }
+.products-page header.products-header .products-icon-button svg { display:block; width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.6; }
+.products-page header.products-header .products-icon-button svg circle,
+.products-page header.products-header .products-icon-button svg path,
+.products-page header.products-header .products-icon-button svg rect { fill:none; stroke:currentColor; }
+.products-page header.products-header .products-icon-button .fill { fill:currentColor; stroke:none; }
+.products-page header.products-header .products-header-contact { order:4; margin-left:13px; padding:11px 19px; border:1px solid rgba(226,189,105,.72); border-radius:30px; color:#f7eddb; font-size:11px; font-weight:600; }
+.products-page header.products-header .menu-toggle { order:5; }
+
+@media(max-width:850px){
+  .products-page header.products-header { height:78px; padding:0 14px; gap:0; }
+  .products-page header.products-header .products-logo { width:105px; height:72px; margin-right:0; }
+  .products-page header.products-header .products-main-nav { display:none; }
+  .products-page header.products-header .products-header-actions { order:2; gap:4px; margin-left:auto; }
+  .products-page header.products-header .products-icon-button { width:40px; height:40px; }
+  .products-page header.products-header .products-header-contact { display:none; }
+  .products-page header.products-header .menu-toggle { order:3; display:flex; }
+}
