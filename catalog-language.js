@@ -38,11 +38,76 @@
     }
   };
 
+  const productCopy = {
+    epicerie: {
+      fr: {
+        'Pois chiches': ['Pois chiches', 'POIS CHICHES', 'Une référence essentielle pour les préparations traditionnelles et du quotidien.'],
+        'Lentilles': ['Lentilles', 'LENTILLES', 'Une base polyvalente pour les recettes familiales et professionnelles.'],
+        'Haricots blancs': ['Haricots blancs', 'HARICOTS BLANCS', 'Une référence généreuse adaptée à de nombreux usages culinaires.'],
+        'Haricots rouges': ['Haricots rouges', 'HARICOTS ROUGES', 'Une référence appréciée pour les préparations salées et professionnelles.'],
+        'Pois cassés': ['Pois cassés', 'POIS CASSÉS', 'Une référence polyvalente pour les soupes, plats et préparations.'],
+        'Fèves': ['Fèves', 'FÈVES', 'Une référence traditionnelle pour une cuisine généreuse et authentique.']
+      },
+      en: {
+        'Pois chiches': ['Chickpeas', 'CHICKPEAS', 'An essential reference for traditional recipes and everyday preparations.'],
+        'Lentilles': ['Lentils', 'LENTILS', 'A versatile staple for family recipes and professional preparations.'],
+        'Haricots blancs': ['White beans', 'WHITE BEANS', 'A generous staple suited to a wide range of culinary uses.'],
+        'Haricots rouges': ['Red kidney beans', 'RED KIDNEY BEANS', 'A popular staple for savoury recipes and professional preparations.'],
+        'Pois cassés': ['Split peas', 'SPLIT PEAS', 'A versatile staple for soups, dishes and everyday preparations.'],
+        'Fèves': ['Fava beans', 'FAVA BEANS', 'A traditional staple for generous and authentic Moroccan cooking.']
+      },
+      ar: {
+        'Pois chiches': ['الحمص', 'الحمص', 'منتج أساسي للتحضيرات التقليدية والاستخدامات اليومية.'],
+        'Lentilles': ['العدس', 'العدس', 'مكوّن متعدد الاستخدامات للوصفات العائلية والتحضيرات المهنية.'],
+        'Haricots blancs': ['الفاصوليا البيضاء', 'الفاصوليا البيضاء', 'منتج غني مناسب لمجموعة واسعة من الاستخدامات في الطبخ.'],
+        'Haricots rouges': ['الفاصوليا الحمراء', 'الفاصوليا الحمراء', 'منتج محبوب للتحضيرات المالحة والاستخدامات المهنية.'],
+        'Pois cassés': ['البازلاء المجروشة', 'البازلاء المجروشة', 'منتج متعدد الاستخدامات للشوربات والأطباق والتحضيرات اليومية.'],
+        'Fèves': ['الفول', 'الفول', 'منتج تقليدي لمطبخ غني وأصيل.']
+      }
+    },
+    miel: {
+      fr: {
+        'عسل حر': ['MIEL حر', 'MIEL حر · MIEL PUR', 'Un miel authentique au caractère généreux, en conservant l’appellation traditionnelle حر.']
+      },
+      en: {
+        'عسل حر': ['Pure traditional honey', 'PURE HONEY · حر', 'An authentic honey with a generous character, while preserving the traditional حر name.']
+      },
+      ar: {
+        'عسل حر': ['عسل حر', 'عسل حر · عسل نقي', 'عسل أصيل بطابع غني مع الحفاظ على التسمية التقليدية حر.']
+      }
+    }
+  };
+
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   if (!document.body.classList.contains('products-page')) return;
 
   const set = (selector, value) => $$(selector).forEach(element => { element.innerHTML = value; });
+
+  const translateProductCards = language => {
+    const translateSection = (sectionId, map) => {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+      $$('.product-item', section).forEach(item => {
+        const key = item.dataset.i18nKey || item.dataset.productName || $('h3', item)?.textContent.trim();
+        if (!item.dataset.i18nKey) item.dataset.i18nKey = key;
+        const data = map[key];
+        if (!data) return;
+        $('.product-item-tag', item)?.replaceChildren(document.createTextNode(data[1]));
+        $('h3', item)?.replaceChildren(document.createTextNode(data[0]));
+        $('.product-item-content > p', item)?.replaceChildren(document.createTextNode(data[2]));
+      });
+    };
+
+    translateSection('epicerie', productCopy.epicerie[language] || productCopy.epicerie.fr);
+    translateSection('miel', productCopy.miel[language] || productCopy.miel.fr);
+
+    $$('.product-item').forEach(item => {
+      $('.formats-label', item)?.replaceChildren(document.createTextNode(language === 'en' ? 'AVAILABLE FORMATS' : language === 'ar' ? 'الأحجام المتاحة' : 'FORMATS DISPONIBLES'));
+      $('.custom-format', item)?.replaceChildren(document.createTextNode(language === 'en' ? '+ On request' : language === 'ar' ? '+ حسب الطلب' : '+ Sur demande'));
+    });
+  };
+
   const translate = language => {
     const t = copy[language] || copy.fr;
     set('.products-hero-eyebrow', t.heroEyebrow);
@@ -71,6 +136,8 @@
     set('.footer-nav>div:first-child a[href="index.html#apropos"]', t.navAbout);
     set('.footer-nav>div:first-child a[href="produits.html"]', t.navProducts);
     set('.footer-nav>div:first-child a[href="index.html#contact"]', t.navContact);
+
+    translateProductCards(language);
   };
 
   const language = localStorage.getItem('arraouaa-language') || 'fr';
