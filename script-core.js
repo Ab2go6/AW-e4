@@ -150,9 +150,6 @@
       { id: 'miel', number: '10', title: 'Miel', header: 'Fleurs du Maroc', description: 'Des miels inspirés de la flore marocaine, avec des profils floraux, boisés ou plus intenses.', items: [['عسل حر', 'MIEL حر · MIEL PUR', 'Un miel authentique au caractère généreux, en conservant l’appellation traditionnelle حر.'], ['Miel d’oranger', 'MIEL D’ORANGER', 'Un miel floral et lumineux aux notes délicates de fleur d’oranger.'], ['Miel d’eucalyptus', 'MIEL D’EUCALYPTUS', 'Un profil aromatique plus marqué, avec des notes boisées et balsamiques.'], ['Miel de thym', 'MIEL DE THYM', 'Un miel intense et chaleureux aux notes herbacées caractéristiques du thym sauvage.'], ['Miel de jujubier', 'MIEL DE JUJUBIER', 'Un miel ambré au caractère profond et généreux, inspiré du jujubier marocain.'], ['Miel de romarin', 'MIEL DE ROMARIN', 'Un miel floral et herbacé au profil frais et élégant.'], ['Miel d’herbes', 'MIEL D’HERBES', 'Un miel aux notes florales et herbacées, issu d’une diversité de plantes et de fleurs.']] }
     ];
 
-    const autresHeading = $('h2', anchor);
-    if (autresHeading) autresHeading.innerHTML = 'Essentiels <em>du quotidien</em>';
-
     let insertAfter = anchor;
     families.forEach(family => {
       const section = document.createElement('section');
