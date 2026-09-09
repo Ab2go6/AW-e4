@@ -10,6 +10,13 @@
 .icon-button{color:#fff}
 .icon-button .fill{fill:currentColor;stroke:none}
 
+/* Restore the light story panel: logo on cream, no dark overlay. */
+.story-visual{background:var(--cream);border:1px solid rgba(199,154,59,.45);box-shadow:var(--shadow)}
+.story-visual:after{display:none}
+.story-visual .story-logo{display:block;width:62%;height:62%;object-fit:contain;opacity:1;position:relative;z-index:1;filter:drop-shadow(0 14px 24px rgba(23,21,19,.14))}
+.story-visual .story-badge{color:var(--ink);z-index:2}
+.story-visual .story-badge span{color:var(--burgundy)}
+
 /* Keep the discovery cue distinct from the category filters. */
 .product-filters:after{display:none}
 .filter-discover{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(199,154,59,.62);background:rgba(199,154,59,.06);color:var(--gold);border-radius:30px;padding:9px 16px;font-size:9px;font-weight:700;letter-spacing:1.4px;white-space:nowrap;transition:.25s;text-decoration:none;cursor:pointer}
@@ -58,7 +65,7 @@
 .site-header .search-panel{top:78px;left:12px;right:12px;width:auto}
 }
 @media(max-width:720px){
-.partner-card{height:360px}.partner-card img{width:210px;height:210px}.story-visual{height:360px;background-size:210px auto}
+.partner-card{height:360px}.partner-card img{width:210px;height:210px}.story-visual{height:360px;background-size:210px auto}.story-visual .story-logo{width:62%;height:62%}
 .product-card .product-image{min-height:360px}
 }
 @media(max-width:390px){
