@@ -1,9 +1,9 @@
 @import url("style-base.css");
 
 /* Homepage-only differences from the shared base. */
-.announcement{background:var(--cream) !important;color:var(--ink-soft) !important;border-bottom:1px solid var(--line)}
-.announcement .dot{background:var(--gold) !important}
-.announcement-socials a{color:var(--burgundy) !important}
+.announcement{background:var(--cream);color:var(--ink-soft);border-bottom:1px solid var(--line)}
+.announcement .dot{background:var(--gold)}
+.announcement-socials a{color:var(--burgundy)}
 
 /* Keep the discovery cue distinct from the category filters. */
 .product-filters:after{display:none !important}
