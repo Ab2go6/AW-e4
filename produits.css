@@ -1,4 +1,5 @@
 @import url("produits-base.css");
+@import url("footer.css");
 
 /* Product page shell */
 .products-page { position: relative; }
