@@ -67,13 +67,13 @@
     },
     miel: {
       fr: {
-        'عسل حر': ['MIEL حر', 'MIEL حر · MIEL PUR', 'Un miel authentique au caractère généreux, en conservant l’appellation traditionnelle حر.']
+        'عسل حر': ['Miel pur', 'MIEL PUR', 'Un miel authentique au caractère généreux, issu de la richesse florale marocaine.']
       },
       en: {
-        'عسل حر': ['Pure traditional honey', 'PURE HONEY · حر', 'An authentic honey with a generous character, while preserving the traditional حر name.']
+        'عسل حر': ['Pure honey', 'PURE HONEY', 'An authentic honey with a generous character, inspired by Morocco’s rich floral heritage.']
       },
       ar: {
-        'عسل حر': ['عسل حر', 'عسل حر · عسل نقي', 'عسل أصيل بطابع غني مع الحفاظ على التسمية التقليدية حر.']
+        'عسل حر': ['عسل نقي', 'عسل نقي', 'عسل أصيل بطابع غني مستوحى من تنوع الأزهار المغربية.']
       }
     }
   };
