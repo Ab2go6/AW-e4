@@ -11,6 +11,7 @@
 .story-visual{height:510px;background:var(--cream) url("assets/logo-crystal-4k.png") center/260px auto no-repeat;display:grid;place-items:center;border:1px solid rgba(199,154,59,.55);border-radius:28px;box-shadow:var(--shadow)}
 .story-visual:after,.story-visual:before{content:none;display:none}
 .story-visual img{display:none}
+.story-copy > .eyebrow{font-family:Poppins,Arial,sans-serif;font-size:10px;line-height:1;letter-spacing:4px;font-weight:700;text-transform:uppercase;color:var(--gold)}
 .story-copy h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:62px;line-height:.94;font-style:normal;font-weight:600;letter-spacing:-1.5px;color:var(--ink);margin:14px 0 24px}
 .story-copy h2 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:normal;font-weight:600;color:var(--burgundy)}
 
