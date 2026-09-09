@@ -6,6 +6,10 @@
 .announcement .dot{background:var(--gold)}
 .announcement-socials a{color:var(--burgundy)}
 
+/* Header icons use the original white treatment. */
+.icon-button{color:#fff}
+.icon-button .fill{fill:currentColor;stroke:none}
+
 /* Keep the discovery cue distinct from the category filters. */
 .product-filters:after{display:none}
 .filter-discover{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(199,154,59,.62);background:rgba(199,154,59,.06);color:var(--gold);border-radius:30px;padding:9px 16px;font-size:9px;font-weight:700;letter-spacing:1.4px;white-space:nowrap;transition:.25s;text-decoration:none;cursor:pointer}
@@ -20,14 +24,6 @@
 .quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
 .partner-card{background:var(--cream);color:var(--ink);border:1px solid rgba(199,154,59,.55);box-shadow:var(--shadow)}
 .partner-card img{width:260px;height:260px;object-fit:contain;display:block;position:relative;z-index:2;filter:drop-shadow(0 14px 24px rgba(23,21,19,.16))}
-
-/* NÉE DU MAROC — explicit display typography, independent of inherited heading rules. */
-.story{background:#fffaf2}
-.story-visual{height:510px;background:var(--cream) url("assets/logo-crystal-4k.png") center/260px auto no-repeat;display:grid;place-items:center;border:1px solid rgba(199,154,59,.55);border-radius:28px;box-shadow:var(--shadow)}
-.story-visual:after,.story-visual:before{content:none;display:none}
-.story-visual img{display:none}
-.story-copy h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:62px;line-height:.94;font-style:normal;font-weight:600;letter-spacing:-1.5px;color:var(--ink);margin:14px 0 24px}
-.story-copy h2 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:normal;font-weight:600;color:var(--burgundy)}
 
 /* Homepage product cards use the same visual system as the product page. */
 .product-card{position:relative;overflow:hidden;background:var(--paper);color:var(--ink);border:1px solid rgba(23,21,19,.09);border-radius:17px;box-shadow:0 10px 30px rgba(35,24,17,.07);transition:.35s}
