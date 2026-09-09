@@ -1,4 +1,5 @@
 @import url("style-base.css");
+@import url("footer.css");
 
 /* Homepage-only differences from the shared base. */
 .announcement{background:var(--cream);color:var(--ink-soft);border-bottom:1px solid var(--line)}
