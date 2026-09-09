@@ -1,8 +1,13 @@
 @import url("produits-base.css");
 
 /* Product page shell */
-.products-page { position: relative; padding-top: 40px; }
-.products-page::before { content: "•  Produits marocains sélectionnés avec soin   •   Qualité premium · Savoir-faire authentique"; position: absolute; top: 0; right: 0; left: 0; z-index: 61; display: flex; align-items: center; height: 40px; padding: 0 6%; background: var(--p-cream); border-bottom: 1px solid var(--p-line); color: #302a25; font-family: Poppins, Arial, sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .35px; white-space: nowrap; }
+.products-page { position: relative; }
+.announcement { height: 40px; background: var(--p-cream); color: #302a25; font-family: Poppins, Arial, sans-serif; font-size: 10px; letter-spacing: .35px; border-bottom: 1px solid var(--p-line); }
+.announcement-inner { height: 100%; width: min(1380px, 88%); margin: auto; display: flex; align-items: center; gap: 18px; }
+.announcement .dot { width: 6px; height: 6px; background: var(--p-gold-light); border-radius: 50%; display: inline-block; margin-right: 7px; }
+.announcement-separator { color: var(--p-gold); }
+.announcement-socials { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.announcement-socials a { color: var(--p-burgundy); font-weight: 600; }
 
 /* Header */
 .products-header { height: 116px; padding: 0 5.8%; gap: 40px; justify-content: flex-start; background: rgba(23, 21, 19, .97); border-bottom: 1px solid rgba(226, 189, 105, .22); color: #f7f0e4; backdrop-filter: blur(14px); }
@@ -74,8 +79,6 @@
   .products-page .category-pantry .category-heading p { transform: translateX(3.5cm); }
 }
 @media (max-width: 850px) {
-  .products-page { padding-top: 38px; }
-  .products-page::before { height: 38px; padding: 0 12px; font-size: 8px; }
   .products-header { height: 78px; padding: 0 14px; gap: 4px; background: rgba(23, 21, 19, .97); backdrop-filter: blur(14px); }
   .products-logo { order: 1; width: 105px; height: 72px; }
   .products-header .products-header-actions { order: 2; gap: 4px; margin-left: auto; }
