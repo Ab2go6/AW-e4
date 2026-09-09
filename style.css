@@ -1,10 +1,6 @@
 @import url("style-base.css");
 @import url("footer.css");
-
-/* Homepage-only differences from the shared base. */
-.announcement{background:var(--cream);color:var(--ink-soft);border-bottom:1px solid var(--line)}
-.announcement .dot{background:var(--gold)}
-.announcement-socials a{color:var(--burgundy)}
+@import url("header.css");
 
 /* Header icons use the original white treatment. */
 .icon-button{color:#fff}
