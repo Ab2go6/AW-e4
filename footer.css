@@ -4,40 +4,24 @@
 .footer-brand{flex:0 0 250px}
 .footer-logo{display:block;width:130px;height:115px}
 .footer-logo img{width:100%;height:100%;object-fit:contain}
-.footer-brand>p{margin-top:10px;max-width:300px;font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.15;letter-spacing:1.8px;font-weight:600;color:#e2bd69}
-.footer-brand>p::after{content:'POUR PARFUMER VOS PLATS'}
-.footer-brand>p{font-size:0}
-.footer-brand>p::after{font-size:18px}
-.footer-socials{display:none}
+.footer-brand>p{margin:10px 0 0;max-width:300px;font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.15;letter-spacing:1.8px;font-weight:600;color:#e2bd69}
 .footer-nav{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:75px;align-items:start;flex:1}
 .footer-nav>div{display:flex;flex-direction:column;gap:10px;min-width:120px}
 .footer-nav strong{font-size:9px;color:#e2bd69;letter-spacing:2px;margin-bottom:4px}
 .footer-nav a{font-size:9px;color:#c9c1b5}
 .footer-nav a:hover{color:#fff}
-.footer-nav>div:nth-child(2)>strong{font-size:0}
-.footer-nav>div:nth-child(2)>strong::after{content:'Nos univers';font-size:9px}
-.footer:not(.sf-footer-shared) .footer-nav::after{content:'Contact\A\A⌖  Localisation\A☎  Téléphone\A✉  E-mail';white-space:pre;display:block;min-width:120px;font-size:9px;line-height:1.75;color:#c9c1b5}
-.footer:not(.sf-footer-shared) .footer-nav::first-line{color:#e2bd69}
-.sf-footer-shared{background:#11100f;color:#e8e0d4;padding:55px 6% 24px;display:block;min-height:0}
-.sf-footer-shared .footer-main{width:min(1380px,100%);margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:70px}
-.sf-footer-shared .footer-brand{flex:0 0 250px}
-.sf-footer-shared .footer-nav{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:75px;align-items:start;flex:1}
-.sf-footer-shared .footer-nav>div{display:flex;flex-direction:column;gap:10px;min-width:120px}
-.sf-footer-shared .footer-nav strong{font-size:9px;color:#e2bd69;letter-spacing:2px;margin-bottom:4px}
-.sf-footer-shared .footer-nav a{font-size:9px;color:#c9c1b5}
-.sf-footer-shared .footer-nav a:hover{color:#fff}
-.sf-footer-contact>div{display:flex;align-items:center;gap:9px;min-height:22px;color:#c9c1b5;font-size:9px}
-.sf-footer-contact svg{width:17px;height:17px;flex:0 0 17px;fill:none;stroke:#e2bd69;stroke-width:1.5}
-.sf-footer-contact span{color:#c9c1b5}
+.footer-contact>div{display:flex;align-items:center;gap:9px;min-height:22px;color:#c9c1b5;font-size:9px}
+.footer-contact svg{width:17px;height:17px;flex:0 0 17px;fill:none;stroke:#e2bd69;stroke-width:1.5}
+.footer-contact span{color:#c9c1b5}
 .footer-bottom{width:min(1380px,100%);margin:42px auto 0;border-top:1px solid rgba(226,189,105,.17);padding-top:18px;display:flex;justify-content:space-between;color:#8f887f;font-size:8px;letter-spacing:.3px}
 @media(max-width:850px){
   .footer{padding:45px 6% 20px}
   .footer-main{flex-direction:column;gap:45px}
   .footer-brand{flex-basis:auto}
-  .footer-nav,.sf-footer-shared .footer-nav{gap:35px}
+  .footer-nav{gap:35px}
 }
 @media(max-width:520px){
-  .footer-nav,.sf-footer-shared .footer-nav{grid-template-columns:1fr 1fr;gap:32px 28px;width:100%}
-  .footer:not(.sf-footer-shared) .footer-nav::after{grid-column:1/-1}
+  .footer-nav{grid-template-columns:1fr 1fr;gap:32px 28px;width:100%}
+  .footer-contact{grid-column:1/-1}
   .footer-bottom{flex-direction:column;gap:8px}
 }
