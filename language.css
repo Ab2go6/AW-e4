@@ -9,3 +9,10 @@
 [dir="rtl"] .language-switcher{margin-left:0;margin-right:8px}
 [dir="rtl"] .announcement-inner,[dir="rtl"] .site-header,[dir="rtl"] .products-header{direction:rtl}
 [dir="rtl"] .language-switcher{direction:ltr}
+
+/* One search control and one Instagram control in the cocoa product header. */
+.products-page .products-header-actions > .products-icon-button[aria-label="Rechercher"] ~ .products-icon-button[aria-label="Rechercher"],
+.products-page .products-header-actions > .products-icon-button[aria-label="Instagram"] ~ .products-icon-button[aria-label="Instagram"]{display:none}
+
+/* Keep the original story eyebrow treatment above “Née du Maroc.” */
+body:not(.is-arabic) .story-copy > .eyebrow{font-family:Poppins,Arial,sans-serif;font-size:10px;line-height:1;letter-spacing:4px;font-weight:700;text-transform:uppercase;color:var(--gold);}
