@@ -1,20 +1,20 @@
 /* Shared footer system for all ARAOUAA pages. */
-.footer{background:#11100f;color:#e8e0d4;padding:55px 6% 24px}
-.footer-main{width:min(1380px,100%);margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:70px}
+.footer{background:#11100f;color:#e8e0d4;padding:55px 4% 24px}
+.footer-main{width:100%;margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
 .footer-brand{flex:0 0 250px}
 .footer-logo{display:block;width:130px;height:115px}
 .footer-logo img{width:100%;height:100%;object-fit:contain}
-.footer-brand>p{margin:8px 0 0;max-width:300px;font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;line-height:1.15;letter-spacing:1.8px;font-weight:600;color:#fff}
+.footer-brand>p{margin:6px 0 0;max-width:300px;font-family:Poppins,Arial,sans-serif;font-size:10px;line-height:1.4;letter-spacing:1.6px;font-weight:500;color:#fff}
 .footer-socials{display:none}
-.footer-nav{display:flex;gap:75px;align-items:flex-start;margin-left:auto}
-.footer-nav>div{display:flex;flex-direction:column;gap:10px;min-width:120px}
+.footer-nav{display:flex;gap:42px;align-items:flex-start;margin-left:auto}
+.footer-nav>div{display:flex;flex-direction:column;gap:10px;min-width:110px}
 .footer-nav strong{font-size:9px;color:#e2bd69;letter-spacing:2px;margin-bottom:4px}
 .footer-nav a{font-size:9px;color:#c9c1b5}
 .footer-nav a:hover{color:#fff}
 .footer-contact>div{display:flex;align-items:center;gap:9px;min-height:22px;color:#c9c1b5;font-size:9px}
 .footer-contact svg{width:17px;height:17px;flex:0 0 17px;fill:none;stroke:#e2bd69;stroke-width:1.5}
 .footer-contact span{color:#c9c1b5}
-.footer-bottom{width:min(1380px,100%);margin:42px auto 0;border-top:1px solid rgba(226,189,105,.17);padding-top:18px;display:flex;justify-content:space-between;color:#8f887f;font-size:8px;letter-spacing:.3px}
+.footer-bottom{width:100%;margin:42px auto 0;border-top:1px solid rgba(226,189,105,.17);padding-top:18px;display:flex;justify-content:space-between;color:#8f887f;font-size:8px;letter-spacing:.3px}
 @media(max-width:850px){
   .footer{padding:45px 6% 20px}
   .footer-main{flex-direction:column;gap:45px}
