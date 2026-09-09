@@ -9,6 +9,14 @@
     document.head.appendChild(script);
   });
 
+  const markSharedProductHeader = () => {
+    if (!document.body.classList.contains('products-page')) return;
+    const header = document.querySelector('.products-header');
+    if (header) header.dataset.headerFixed = 'true';
+  };
+
+  markSharedProductHeader();
+
   load('script-core.js')
     .then(() => load('language.js'))
     .then(() => load('catalog-language.js'))
