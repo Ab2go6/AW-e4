@@ -3,12 +3,12 @@
 
 /* Product page shell */
 .products-page { position: relative; }
-.announcement { height: 40px; background: var(--p-cream); color: #302a25; font-family: Poppins, Arial, sans-serif; font-size: 10px; letter-spacing: .35px; border-bottom: 1px solid var(--p-line); }
+.announcement { height: 40px; background: #57070d; color: #f4eadb; font-family: Poppins, Arial, sans-serif; font-size: 10px; letter-spacing: .35px; border-bottom: 1px solid rgba(226,189,105,.22); }
 .announcement-inner { height: 100%; width: min(1380px, 88%); margin: auto; display: flex; align-items: center; gap: 18px; }
-.announcement .dot { width: 6px; height: 6px; background: var(--p-gold-light); border-radius: 50%; display: inline-block; margin-right: 7px; }
-.announcement-separator { color: var(--p-gold); }
+.announcement .dot { width: 6px; height: 6px; background: #e2bd69; border-radius: 50%; display: inline-block; margin-right: 7px; }
+.announcement-separator { color: #e2bd69; }
 .announcement-socials { margin-left: auto; display: flex; align-items: center; gap: 10px; }
-.announcement-socials a { color: var(--p-burgundy); font-weight: 600; }
+.announcement-socials a { color: #e2bd69; font-weight: 600; }
 
 /* Header */
 .products-header { height: 116px; padding: 0 5.8%; gap: 40px; justify-content: flex-start; background: rgba(23, 21, 19, .97); border-bottom: 1px solid rgba(226, 189, 105, .22); color: #f7f0e4; backdrop-filter: blur(14px); }
@@ -17,13 +17,14 @@
 .products-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .products-main-nav { order: 2; display: flex; flex: 1; align-items: center; justify-content: center; gap: 42px; font-size: 13px; letter-spacing: .5px; text-transform: none; }
 .products-main-nav a { padding: 10px 0; color: #f7f0e4; font-size: 13px; font-weight: 500; letter-spacing: .5px; }
-.products-main-nav a:hover,.products-main-nav a.active { color: var(--p-gold-light); }
-.products-main-nav a::after { height: 2px; background: var(--p-gold-light); }
+.products-main-nav a:hover,.products-main-nav a.active { color: #e2bd69; }
+.products-main-nav a::after { height: 2px; background: #e2bd69; }
 .products-header .products-header-actions { order: 3; display: flex; flex: 0 0 auto; align-items: center; gap: 13px; margin-left: 0; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 .products-header .products-header-actions::before,.products-header .products-header-actions::after { content: none; }
-.products-icon-button { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; color: var(--p-gold-light); opacity: 1; visibility: visible; }
-.products-icon-button svg { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; }
+.products-icon-button { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; color: #e2bd69; opacity: 1; visibility: visible; }
+.products-icon-button svg { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 .products-icon-button svg circle,.products-icon-button svg path,.products-icon-button svg rect { fill: none; stroke: currentColor; }
+.products-icon-button .fill { fill: currentColor; stroke: none; }
 .products-header .products-header-actions .cart-badge { display: none; }
 .products-header-contact { order: 4; margin-left: 0; padding: 11px 19px; border: 1px solid rgba(226, 189, 105, .72); border-radius: 30px; color: #f7eddb; font-size: 11px; font-weight: 600; }
 .products-header .menu-toggle { order: 5; }
@@ -65,8 +66,6 @@
 /* Product filtering */
 .product-category-section[hidden],.product-item[hidden] { display: none !important; }
 .product-category-nav .catalog-filter[data-category="plus"] { order: 999; }
-
-/* Search result mode: show the matching product without its category heading */
 .products-page:has(.products-search-panel.open input:not(:placeholder-shown)) .product-category-section:not([hidden]) .category-heading { display: none; }
 .products-page:has(.products-search-panel.open input:not(:placeholder-shown)) .product-category-section:not([hidden]) { padding-top: 32px; }
 
