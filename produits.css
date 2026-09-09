@@ -22,7 +22,7 @@
 .products-main-nav a:hover::after,.products-main-nav a.active::after { right: 0; }
 .products-header .products-header-actions { order: 3; display: flex; flex: 0 0 auto; align-items: center; gap: 13px; margin-left: 0; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 .products-header .products-header-actions::before,.products-header .products-header-actions::after { content: none; }
-.products-icon-button { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; color: #e2bd69; opacity: 1; visibility: visible; }
+.products-icon-button { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; color: #fff; opacity: 1; visibility: visible; }
 .products-icon-button svg { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 .products-icon-button svg circle,.products-icon-button svg path,.products-icon-button svg rect { fill: none; stroke: currentColor; }
 .products-icon-button .fill { fill: currentColor; stroke: none; }
