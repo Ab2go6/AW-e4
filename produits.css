@@ -46,8 +46,6 @@
 .products-page .category-heading p { flex: 0 1 480px; align-self: center; margin-left: auto; color: #d5cfc4; text-align: center; transform: translateX(5.2cm); }
 .products-page .product-category-section .category-heading h2 em { color: var(--p-gold-light); font-style: normal; }
 .products-page .product-category-section .format-button.custom-format { border-color: rgba(139, 16, 24, .38); color: var(--p-burgundy); }
-.products-page #miel [data-product-name="عسل حر"] h3 { font-size: 0; }
-.products-page #miel [data-product-name="عسل حر"] h3::after { content: "Miel حر"; display: block; color: var(--p-ink); font-family: "Cormorant Garamond", serif; font-size: 27px; }
 
 /* Category-specific surfaces */
 .products-page .category-spices { background: var(--p-cream); }
