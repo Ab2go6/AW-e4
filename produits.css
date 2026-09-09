@@ -49,6 +49,26 @@
 .products-page #miel [data-product-name="عسل حر"] h3 { font-size: 0; }
 .products-page #miel [data-product-name="عسل حر"] h3::after { content: "Miel حر"; display: block; color: var(--p-ink); font-family: "Cormorant Garamond", serif; font-size: 27px; }
 
+/* Restored family-header typography */
+.products-page #huiles .category-heading h2::after,
+.products-page #amlou .category-heading h2::after,
+.products-page #miel .category-heading h2::after { margin-left: .22em; font-style: normal; font-weight: inherit; }
+html[lang="fr"] .products-page #huiles .category-heading h2::after { content: "L’or du terroir"; color: var(--p-gold-light); }
+html[lang="fr"] .products-page #amlou .category-heading h2::after { content: "Trésors du Souss"; color: var(--p-gold-light); }
+html[lang="fr"] .products-page #miel .category-heading h2::after { content: "Fleurs du Maroc"; color: var(--p-gold-light); }
+html[lang="en"] .products-page #huiles .category-heading h2::after { content: "Terroir gold"; color: var(--p-gold-light); }
+html[lang="en"] .products-page #amlou .category-heading h2::after { content: "Treasures of the Souss"; color: var(--p-gold-light); }
+html[lang="en"] .products-page #miel .category-heading h2::after { content: "Moroccan flowers"; color: var(--p-gold-light); }
+html[lang="ar"] .products-page #huiles .category-heading h2::after { content: "ذهب التراب المغربي"; color: var(--p-gold-light); }
+html[lang="ar"] .products-page #amlou .category-heading h2::after { content: "كنوز سوس"; color: var(--p-gold-light); }
+html[lang="ar"] .products-page #miel .category-heading h2::after { content: "زهور المغرب"; color: var(--p-gold-light); }
+html[lang="fr"] .products-page #autres .category-heading h2,
+html[lang="en"] .products-page #autres .category-heading h2,
+html[lang="ar"] .products-page #autres .category-heading h2 { font-size: 0; }
+html[lang="fr"] .products-page #autres .category-heading h2::before { content: "Essentiels du garde-manger"; color: #f7f0e4; font-size: clamp(30px, 3vw, 40px); }
+html[lang="en"] .products-page #autres .category-heading h2::before { content: "Pantry essentials"; color: #f7f0e4; font-size: clamp(30px, 3vw, 40px); }
+html[lang="ar"] .products-page #autres .category-heading h2::before { content: "أساسيات المؤن"; color: #f7f0e4; font-size: clamp(30px, 3vw, 40px); }
+
 /* Category-specific surfaces */
 .products-page .category-spices { background: var(--p-cream); }
 .category-pantry { width: 100%; padding: 60px 0 100px; background: var(--p-cream); }
