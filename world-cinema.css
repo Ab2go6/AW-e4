@@ -26,10 +26,10 @@
 .world-page--origin .world-hero,.world-page--collections .world-hero,.world-page--atelier .world-hero,.world-page--journal .world-hero{background:#30483d}
 
 /* Savoir-faire uses the exact shared cinematic hero treatment; only its image/content remain page-specific. */
-.world-page--savoir-faire .sf-hero{background:#171513;isolation:isolate}
+.world-page--savoir-faire .sf-hero{background:#30483d;isolation:isolate}
 .world-page--savoir-faire .sf-hero-image{opacity:.58;transform:scale(1.035);filter:saturate(.78) contrast(1.05);animation:world-cinema-media 18s ease-in-out infinite alternate}
-.world-page--savoir-faire .sf-hero-image::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.18),transparent 35%,rgba(11,10,9,.38) 100%),radial-gradient(circle at 72% 48%,rgba(210,176,104,.14),transparent 30%)}
-.world-page--savoir-faire .sf-hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,16,14,.98) 0%,rgba(18,16,14,.79) 34%,rgba(18,16,14,.38) 65%,rgba(18,16,14,.12) 100%)}
+.world-page--savoir-faire .sf-hero-image::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(48,72,61,.12),transparent 35%,rgba(23,31,26,.30) 100%),radial-gradient(circle at 72% 48%,rgba(210,176,104,.14),transparent 30%)}
+.world-page--savoir-faire .sf-hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(48,72,61,.96) 0%,rgba(48,72,61,.78) 34%,rgba(48,72,61,.38) 65%,rgba(48,72,61,.12) 100%)}
 .world-page--savoir-faire .sf-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(226,189,105,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(226,189,105,.025) 1px,transparent 1px);background-size:84px 84px;mask-image:radial-gradient(ellipse at 72% 48%,black 0%,rgba(0,0,0,.72) 34%,transparent 70%);opacity:.7;animation:world-cinema-grid 14s ease-in-out infinite alternate}
 .world-page--savoir-faire .sf-hero-content{animation:world-cinema-copy 1.25s cubic-bezier(.22,.7,.2,1) both}
 .world-page--savoir-faire .sf-eyebrow{animation:world-cinema-eyebrow 1s .12s ease-out both}
