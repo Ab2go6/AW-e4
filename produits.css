@@ -114,3 +114,4 @@
 .products-page .product-story-visual{background:#f5efe4;border-color:rgba(208,170,96,.5)}
 .products-page .product-story-visual::before{background-color:#f5efe4}
 .products-page .product-story-label{display:none}
+.products-page .product-category-nav .catalog-filter:hover,.products-page .product-category-nav .catalog-filter.active{background:#d0aa60;border-color:#d0aa60;color:#241f1b}
