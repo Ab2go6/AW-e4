@@ -40,25 +40,11 @@
     if (!document.body.classList.contains('products-page')) return;
 
     const button = document.querySelector('.products-header .products-icon-button[aria-label="Rechercher"]');
-    if (!button) return;
+    const panel = document.querySelector('.products-header .products-search-panel');
+    const input = panel?.querySelector('#productsSearch');
+    const close = panel?.querySelector('.products-search-close');
+    if (!button || !panel || !input) return;
 
-    let originalPanel = document.querySelector('.products-search-panel');
-    if (!originalPanel) {
-      originalPanel = document.createElement('div');
-      originalPanel.className = 'products-search-panel';
-      originalPanel.hidden = true;
-      originalPanel.setAttribute('aria-hidden', 'true');
-      originalPanel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input id="productsSearch" type="search" placeholder="Rechercher un produit…" autocomplete="off"><button class="products-search-close" type="button" aria-label="Fermer">×</button></div>`;
-      button.closest('.products-header')?.insertAdjacentElement('afterend', originalPanel);
-    }
-
-    const cleanButton = button.cloneNode(true);
-    button.replaceWith(cleanButton);
-    const panel = originalPanel.cloneNode(true);
-    originalPanel.replaceWith(panel);
-
-    const input = panel.querySelector('input');
-    const close = panel.querySelector('.products-search-close');
     const normalize = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const sections = [...document.querySelectorAll('.products-page [data-section]')];
     const filters = [...document.querySelectorAll('.catalog-filter')];
@@ -89,21 +75,20 @@
 
     const setOpen = open => {
       panel.classList.toggle('open', open);
-      panel.hidden = !open;
       panel.setAttribute('aria-hidden', String(!open));
-      cleanButton.setAttribute('aria-expanded', String(open));
-      if (open) window.setTimeout(() => input?.focus(), 80);
+      button.setAttribute('aria-expanded', String(open));
+      if (open) window.setTimeout(() => input.focus(), 80);
     };
 
-    cleanButton.setAttribute('aria-expanded', 'false');
-    cleanButton.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
+    button.setAttribute('aria-expanded', 'false');
+    button.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
     close?.addEventListener('click', () => {
-      if (input) input.value = '';
+      input.value = '';
       renderSearch('');
       setOpen(false);
     });
-    input?.addEventListener('input', () => renderSearch(input.value));
-    input?.addEventListener('keydown', event => {
+    input.addEventListener('input', () => renderSearch(input.value));
+    input.addEventListener('keydown', event => {
       if (event.key !== 'Enter') return;
       event.preventDefault();
       renderSearch(input.value);
