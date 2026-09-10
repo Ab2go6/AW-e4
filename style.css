@@ -78,3 +78,9 @@ body:not(.world-page) .partner-card{background:var(--ara-world-paper);border-col
 body:not(.world-page) .values{background:var(--ara-world-green)}
 body:not(.world-page) .values .section-heading-light h2 em{color:#dfbd7a}
 body:not(.world-page) .footer{background:var(--ara-world-cocoa)}
+
+/* Surgical homepage color test: only the requested three areas. */
+body:not(.world-page) .quality-mark:before{background:var(--ara-world-cream)}
+body:not(.world-page) .story-visual{background-color:var(--ara-world-cream)}
+body:not(.world-page) .values .section-heading-light h2{color:#fff}
+body:not(.world-page) .values .section-heading-light h2 em{color:#fff}
