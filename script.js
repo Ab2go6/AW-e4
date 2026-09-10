@@ -9,19 +9,11 @@
     document.head.appendChild(script);
   });
 
-  const markSharedProductHeader = () => {
-    if (!document.body.classList.contains('products-page')) return;
-    const header = document.querySelector('.products-header');
-    if (header) header.dataset.headerFixed = 'true';
-  };
-
   const restoreProductHashPosition = () => {
     if (!document.body.classList.contains('products-page') || !window.location.hash) return;
     const target = document.querySelector(window.location.hash);
     target?.scrollIntoView({ block: 'start' });
   };
-
-  markSharedProductHeader();
 
   load('script-core.js')
     .then(() => load('language.js'))
