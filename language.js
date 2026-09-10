@@ -133,7 +133,6 @@
   }
 
   function initProductHeaderSearch() {
-    if (document.body.classList.contains('world-page')) return;
     const toggle = $('.products-icon-button[aria-label="Rechercher"]');
     if (!toggle || toggle.dataset.searchBound === 'true') return;
     toggle.dataset.searchBound = 'true';
