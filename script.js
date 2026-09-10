@@ -20,7 +20,8 @@
       ['L’univers', 'origine.html', 'origine.html'],
       ['Les Collections', 'collections.html', 'collections.html'],
       ['Le Journal', 'journal.html', 'journal.html'],
-      ['Notre savoir-faire', 'savoir-faire.html', 'savoir-faire.html']
+      ['Notre savoir-faire', 'savoir-faire.html', 'savoir-faire.html'],
+      ['L’Atelier', 'atelier.html', 'atelier.html']
     ];
 
     nav.innerHTML = links.map(([label, href, page]) => {
