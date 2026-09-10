@@ -28,7 +28,15 @@
   if (actions) {
     actions.querySelector('.products-icon-button[aria-label="Rechercher"]')?.remove();
   }
-  header.querySelector('.products-header-contact')?.remove();
+
+  let contact = header.querySelector('.products-header-contact');
+  if (!contact) {
+    contact = document.createElement('a');
+    contact.className = 'products-header-contact';
+    header.appendChild(contact);
+  }
+  contact.href = 'index.html#contact';
+  contact.textContent = 'Nous contacter';
 
   const footer = document.querySelector('.world-page .footer');
   if (footer) {
