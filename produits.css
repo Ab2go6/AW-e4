@@ -23,7 +23,6 @@
 .products-page .category-heading h2 { color: #f7f0e4; }
 .products-page .category-heading p { flex: 0 1 480px; align-self: center; margin-left: auto; color: #d5cfc4; text-align: center; transform: translateX(5.2cm); }
 .products-page .product-category-section .category-heading h2 em { color: var(--p-gold-light); font-style: normal; }
-.products-page .product-category-section .format-button.custom-format { border-color: rgba(139, 16, 24, .38); color: var(--p-burgundy); }
 
 /* Category-specific surfaces */
 .products-page .category-spices { background: var(--p-cream); }
@@ -86,7 +85,7 @@
 .products-page .products-hero h1 em{color:#d0aa60}
 .products-page .products-intro h2 em{color:#d0aa60}
 .products-page .products-intro strong{color:#d0aa60}
-.products-page .product-category-section .format-button.custom-format{border-color:rgba(48,72,61,.38);color:#30483d}
+.products-page .product-category-section .format-button.custom-format{border-color:rgba(208,170,96,.55);color:#d0aa60}
 .products-page .product-story{background:#30483d}
 .products-page .product-story-visual{background:#f5efe4;border-color:rgba(208,170,96,.5)}
 .products-page .product-story-visual::before{background-color:#f5efe4}
