@@ -75,7 +75,6 @@ body:not(.world-page) .product-link{color:var(--ara-world-green)}
 body:not(.world-page) .quality-strip{background:var(--ara-world-cocoa)}
 body:not(.world-page) .quality-mark:before{background:var(--ara-world-cream);border-color:rgba(208,170,96,.8)}
 body:not(.world-page) .partner-card{background:var(--ara-world-cream)}
-body:not(.world-page) .partners{background:#8b1018}
 body:not(.world-page) .values{background:var(--ara-world-green)}
 body:not(.world-page) .values .section-heading-light h2{color:#fff}
 body:not(.world-page) .values .section-heading-light h2 em{color:var(--ara-world-gold)}
