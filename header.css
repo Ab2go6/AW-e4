@@ -33,6 +33,26 @@ header.products-header .products-icon-button .fill { fill:currentColor; stroke:n
 header.products-header .products-header-contact { order:4; margin-left:13px; padding:11px 19px; border:1px solid rgba(226,189,105,.72); border-radius:30px; color:#f7eddb; font-size:11px; font-weight:600; }
 header.products-header .menu-toggle { order:5; display:none; }
 
+/* Compact world menu keeps the three new brand chapters accessible without crowding the header. */
+header.products-header .world-nav-group { position:relative; display:flex; align-items:center; }
+header.products-header .world-nav-trigger { border:0; padding:10px 0; background:none; color:#f7f0e4; font:500 13px Poppins,Arial,sans-serif; letter-spacing:.5px; cursor:pointer; }
+header.products-header .world-nav-trigger::after { content:""; display:inline-block; width:6px; height:6px; margin:0 0 3px 7px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; transform:rotate(45deg); transition:transform .2s ease; }
+header.products-header .world-nav-group:hover .world-nav-trigger,
+header.products-header .world-nav-group:focus-within .world-nav-trigger { color:#e2bd69; }
+header.products-header .world-nav-group:hover .world-nav-trigger::after,
+header.products-header .world-nav-group:focus-within .world-nav-trigger::after { transform:rotate(225deg); margin-bottom:-1px; }
+header.products-header .world-nav-menu { position:absolute; top:calc(100% + 14px); left:50%; transform:translate(-50%, -6px); min-width:210px; padding:10px; background:rgba(23,21,19,.98); border:1px solid rgba(226,189,105,.2); box-shadow:0 18px 40px rgba(0,0,0,.28); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s ease, transform .2s ease, visibility .2s ease; z-index:120; }
+header.products-header .world-nav-group:hover .world-nav-menu,
+header.products-header .world-nav-group:focus-within .world-nav-menu { opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0); }
+header.products-header .world-nav-menu a { display:block; padding:11px 12px; color:#f7f0e4; font-size:11px; letter-spacing:.45px; white-space:nowrap; }
+header.products-header .world-nav-menu a:hover { color:#e2bd69; background:rgba(226,189,105,.06); }
+
+@media(max-width:1150px){
+  header.products-header .products-main-nav { gap:25px; }
+  header.products-header .products-main-nav a,
+  header.products-header .world-nav-trigger { font-size:12px; }
+}
+
 @media(max-width:850px){
   header.products-header { height:78px; padding:0 14px; gap:0; }
   header.products-header .products-logo { width:105px; height:72px; margin-right:0; }
