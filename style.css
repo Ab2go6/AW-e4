@@ -22,7 +22,6 @@
 .whatsapp svg,.whatsapp svg path{color:#fff;fill:none;stroke:#fff}
 .quality-mark:before{background:var(--cream)}
 .quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
-.partner-card{background:var(--cream);color:var(--ink);border:1px solid rgba(199,154,59,.55);box-shadow:var(--shadow)}
 .partner-card:before,.partner-card:after{content:none!important;display:none!important}
 .partner-card img{width:260px;height:260px;object-fit:contain;display:block;position:relative;z-index:2;filter:drop-shadow(0 14px 24px rgba(23,21,19,.16))}
 
