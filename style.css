@@ -83,4 +83,4 @@ body:not(.world-page) .footer{background:var(--ara-world-cocoa)}
 body:not(.world-page) .quality-mark:before{background:var(--ara-world-cream)}
 body:not(.world-page) .story-visual{background-color:var(--ara-world-cream)}
 body:not(.world-page) .values .section-heading-light h2{color:#fff}
-body:not(.world-page) .values .section-heading-light h2 em{color:#fff}
+body:not(.world-page) .values .section-heading-light h2 em{color:var(--ara-world-gold)}
