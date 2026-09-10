@@ -55,7 +55,7 @@ a{color:inherit;text-decoration:none}
 .sf-closing .sf-eyebrow::before{background:var(--sf-gold-light)}
 .sf-closing h2{margin-bottom:35px;color:#fff}
 .sf-closing h2 em{color:var(--sf-gold-light)}
-.sf-closing .sf-button{color:var(--sf-ink);border-color:var(--sf-gold-light)}
+.sf-closing .sf-button{color:#fff;border-color:var(--sf-gold-light)}
 .sf-closing .sf-button:hover{background:var(--sf-gold-light);color:var(--sf-ink);border-color:var(--sf-gold-light)}
 @media(max-width:850px){
   .sf-topbar{height:64px;padding:0 5%}
