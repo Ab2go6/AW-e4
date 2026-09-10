@@ -54,3 +54,27 @@
 @media(max-width:390px){
 .site-header .brand-logo{width:104px}.site-header .header-actions .search-toggle,.site-header .header-actions .instagram-link{width:32px;height:32px}.site-header .menu-toggle{flex-basis:34px;width:34px}
 }
+
+/* ARAOUAA luxury visual direction — shared DNA with the newer world pages. */
+:root{--ara-world-cream:#f5efe4;--ara-world-paper:#eee5d7;--ara-world-ink:#241f1b;--ara-world-muted:#746b61;--ara-world-cocoa:#171513;--ara-world-gold:#d0aa60;--ara-world-green:#30483d}
+body:not(.world-page){background:var(--ara-world-cream);color:var(--ara-world-ink)}
+body:not(.world-page) .hero{background:radial-gradient(circle at 15% 10%,#fffdf8 0,var(--ara-world-cream) 42%,#dfd2bf 100%)}
+body:not(.world-page) .hero-backdrop{background:linear-gradient(90deg,rgba(245,239,228,.94),rgba(245,239,228,.16) 58%,transparent 100%)}
+body:not(.world-page) .button-primary{background:var(--ara-world-green);box-shadow:0 12px 30px rgba(48,72,61,.22)}
+body:not(.world-page) .button-primary:hover{background:#1e3028}
+body:not(.world-page) .hero h1 em,body:not(.world-page) .section-heading h2 em,body:not(.world-page) .story-copy h2 em,body:not(.world-page) .partner-copy h2 em{color:var(--ara-world-gold)}
+body:not(.world-page) .products{background:var(--ara-world-cream)}
+body:not(.world-page) .story{background:var(--ara-world-paper)}
+body:not(.world-page) .story-visual{background-color:var(--ara-world-cocoa);border-color:rgba(208,170,96,.5)}
+body:not(.world-page) .story-copy h2,body:not(.world-page) .partner-copy h2,body:not(.world-page) .section-heading h2{color:var(--ara-world-ink)}
+body:not(.world-page) .filter-chip:hover,body:not(.world-page) .filter-chip.active{background:var(--ara-world-green);border-color:var(--ara-world-green)}
+body:not(.world-page) .product-card{background:var(--ara-world-paper);border-color:rgba(36,31,27,.1);box-shadow:0 12px 38px rgba(35,24,17,.09)}
+body:not(.world-page) .product-card:hover{border-color:rgba(208,170,96,.55);box-shadow:0 24px 55px rgba(35,24,17,.14)}
+body:not(.world-page) .product-card .product-content{background:var(--ara-world-paper)}
+body:not(.world-page) .product-link{color:var(--ara-world-green)}
+body:not(.world-page) .quality-strip{background:var(--ara-world-cocoa)}
+body:not(.world-page) .quality-mark:before{background:var(--ara-world-green);border-color:rgba(208,170,96,.8)}
+body:not(.world-page) .partner-card{background:var(--ara-world-paper);border-color:rgba(208,170,96,.5)}
+body:not(.world-page) .values{background:var(--ara-world-green)}
+body:not(.world-page) .values .section-heading-light h2 em{color:#dfbd7a}
+body:not(.world-page) .footer{background:var(--ara-world-cocoa)}
