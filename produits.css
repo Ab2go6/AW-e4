@@ -105,3 +105,12 @@
 .world-page--savoir-faire .sf-origin{background:#eee5d7}
 .world-page--savoir-faire .sf-closing{background:#30483d}
 .world-page--savoir-faire .sf-closing h2{color:#f7f0e4}
+
+/* Surgical product-page color refinements. */
+.products-page .products-hero h1 em{color:#d0aa60}
+.products-page .products-intro h2 em{color:#d0aa60}
+.products-page .products-intro strong{color:#d0aa60}
+.products-page .product-story{background:#30483d}
+.products-page .product-story-visual{background:#f5efe4;border-color:rgba(208,170,96,.5)}
+.products-page .product-story-visual::before{background-color:#f5efe4}
+.products-page .product-story-label{display:none}
