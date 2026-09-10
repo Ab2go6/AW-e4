@@ -49,10 +49,9 @@
         });
 
         section.hidden = matches === 0;
-        section.classList.toggle('search-results-section', searching && matches > 0);
-        section.querySelector('.category-heading')?.classList.toggle('search-results-hidden', searching && matches > 0);
-        section.querySelector('.spice-note')?.classList.toggle('search-results-hidden', searching && matches > 0);
-        section.querySelector('.pantry-intro')?.classList.toggle('search-results-hidden', searching && matches > 0);
+        section.querySelector('.category-heading')?.toggleAttribute('hidden', searching && matches > 0);
+        section.querySelector('.spice-note')?.toggleAttribute('hidden', searching && matches > 0);
+        section.querySelector('.pantry-intro')?.toggleAttribute('hidden', searching && matches > 0);
       });
 
       filters.forEach(filter => filter.classList.toggle('active', !query && filter.dataset.category === 'all'));
