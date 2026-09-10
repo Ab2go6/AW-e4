@@ -9,3 +9,14 @@
 [dir="rtl"] .language-switcher{margin-left:0;margin-right:8px}
 [dir="rtl"] .announcement-inner,[dir="rtl"] .site-header,[dir="rtl"] .products-header{direction:rtl}
 [dir="rtl"] .language-switcher{direction:ltr}
+
+/* Canonical search panel shared by the product and world headers. */
+header.products-header .products-search-panel{position:absolute;top:calc(100% + 10px);right:5.8%;width:min(380px,calc(100vw - 28px));padding:10px 12px;box-sizing:border-box;background:#171513;border:1px solid rgba(226,189,105,.35);border-radius:12px;box-shadow:0 18px 45px rgba(0,0,0,.24);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,visibility .2s ease,transform .2s ease;z-index:120}
+header.products-header .products-search-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
+header.products-header .products-search-inner{display:flex;align-items:center;gap:10px;min-height:38px}
+header.products-header .products-search-inner>svg{flex:0 0 auto;width:20px;height:20px;fill:none;stroke:#e2bd69;stroke-width:1.6}
+header.products-header .products-search-inner input{flex:1 1 auto;min-width:0;height:38px;padding:0;border:0;outline:0;background:transparent;color:#f7f0e4;font:400 12px/1 Poppins,Arial,sans-serif}
+header.products-header .products-search-inner input::placeholder{color:rgba(247,240,228,.58)}
+header.products-header .products-search-close{flex:0 0 auto;width:28px;height:28px;padding:0;border:0;background:transparent;color:#e2bd69;font:400 24px/1 Arial,sans-serif;cursor:pointer}
+@media(max-width:850px){header.products-header .products-search-panel{top:calc(100% + 8px);right:14px;width:min(380px,calc(100vw - 28px))}
+}
