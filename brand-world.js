@@ -64,16 +64,6 @@
 
   const nav = header.querySelector('.products-main-nav');
   const toggle = header.querySelector('.menu-toggle');
-  const searchButton = header.querySelector('[data-world-search="true"]');
-
-  // World pages keep the search icon visually consistent with the shared header,
-  // but it must not open the catalogue search overlay or navigate away.
-  if (searchButton) {
-    searchButton.addEventListener('click', event => {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-    }, true);
-  }
 
   let footer = page.querySelector('.footer');
   if (!footer) {
