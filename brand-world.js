@@ -47,9 +47,9 @@
       }).join('')}
     </nav>
     <div class="products-header-actions">
-      <a class="products-icon-button" href="produits.html" aria-label="Rechercher">
+      <button class="products-icon-button" type="button" aria-label="Rechercher" data-world-search="true">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg>
-      </a>
+      </button>
       <a class="products-icon-button" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8" class="fill"></circle></svg>
       </a>
@@ -64,6 +64,16 @@
 
   const nav = header.querySelector('.products-main-nav');
   const toggle = header.querySelector('.menu-toggle');
+  const searchButton = header.querySelector('[data-world-search="true"]');
+
+  // World pages keep the search icon visually consistent with the shared header,
+  // but it must not open the catalogue search overlay or navigate away.
+  if (searchButton) {
+    searchButton.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }, true);
+  }
 
   let footer = page.querySelector('.footer');
   if (!footer) {
@@ -102,7 +112,7 @@
         <div class="footer-contact">
           <strong>Contact</strong>
           <div aria-label="Localisation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.4"></circle></svg><span>Localisation</span></div>
-          <div aria-label="Téléphone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.8 10 6.6l2.8 2.8-1.7 2.6a14.5 14.5 0 0 0 6.5 6.5l-1.7 2.6 2.8 2.8-1.8 2.7c-.5.8-1.5 1.2-2.4.9C9.6 17.9 6.1 14.4 4.6 8c-.2-.9-.1-1.9.9-2.4l1.7-1.8Z"></path></svg><span>Téléphone</span></div>
+          <div aria-label="Téléphone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.8 10 6.6l2.8 2.8-1.7 2.6a14.5 14.5 0 0 0 6.5 6.5l-1.7 2.6 1.8 2.7c.5.8 1.5 1.2 2.4.9C9.6 17.9 6.1 14.4 4.6 8c-.2-.9-.1-1.9.9-2.4l1.7-1.8Z"></path></svg><span>Téléphone</span></div>
           <div aria-label="E-mail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect><path d="m5 7 7 5.5L19 7"></path></svg><span>E-mail</span></div>
         </div>
       </div>
