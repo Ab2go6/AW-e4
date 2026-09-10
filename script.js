@@ -40,8 +40,17 @@
     if (!document.body.classList.contains('products-page')) return;
 
     const button = document.querySelector('.products-header .products-icon-button[aria-label="Rechercher"]');
-    const originalPanel = document.querySelector('.products-search-panel');
-    if (!button || !originalPanel) return;
+    if (!button) return;
+
+    let originalPanel = document.querySelector('.products-search-panel');
+    if (!originalPanel) {
+      originalPanel = document.createElement('div');
+      originalPanel.className = 'products-search-panel';
+      originalPanel.hidden = true;
+      originalPanel.setAttribute('aria-hidden', 'true');
+      originalPanel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input id="productsSearch" type="search" placeholder="Rechercher un produit…" autocomplete="off"><button class="products-search-close" type="button" aria-label="Fermer">×</button></div>`;
+      button.closest('.products-header')?.insertAdjacentElement('afterend', originalPanel);
+    }
 
     const cleanButton = button.cloneNode(true);
     button.replaceWith(cleanButton);
