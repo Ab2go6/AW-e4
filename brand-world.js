@@ -7,16 +7,22 @@
   // World pages use one static navigation. Remove the catalogue-only search control.
   header.querySelector('.products-icon-button[aria-label="Rechercher"]')?.remove();
 
-  // Language controls remain shared, but the translation script must not own navigation.
-  const loadLanguage = () => {
-    if (document.querySelector('script[data-arraouaa-language]')) return;
+  const removeGeneratedSavoirLink = () => {
+    if (!nav) return;
+    const generated = nav.querySelectorAll('[data-savoir-faire="true"]');
+    generated.forEach(link => link.remove());
+  };
+
+  // Keep language controls shared while leaving navigation and header structure static.
+  if (!document.querySelector('script[data-arraouaa-language]')) {
     const script = document.createElement('script');
     script.src = 'language.js';
     script.dataset.arraouaaLanguage = 'true';
+    script.addEventListener('load', removeGeneratedSavoirLink, { once: true });
     document.body.appendChild(script);
-  };
-
-  loadLanguage();
+  } else {
+    removeGeneratedSavoirLink();
+  }
 
   if (!nav || !toggle) return;
 
