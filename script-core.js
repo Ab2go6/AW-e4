@@ -259,24 +259,53 @@
       if (!value) { formatInput?.focus(); return; }
       if (formatConfirmation) formatConfirmation.textContent = `Demande enregistrée : ${value}. Nous pourrons confirmer ce grammage selon vos besoins.`;
     });
+
     const productsHeader = $('.products-header');
-    if (productsHeader && !productsHeader.dataset.headerFixed) {
-      productsHeader.dataset.headerFixed = 'true';
-      const actions = document.createElement('div');
-      actions.className = 'products-header-actions';
-      actions.innerHTML = `<button class="products-icon-button products-search-toggle" type="button" aria-label="Rechercher" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg></button><a class="products-icon-button products-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8"></circle></svg></a>`;
-      const logo = productsHeader.querySelector('.products-logo');
-      logo ? logo.insertAdjacentElement('afterend', actions) : productsHeader.prepend(actions);
+    const productSearchToggle = $('.products-header .products-icon-button[aria-label="Rechercher"]');
+    if (productsHeader && productSearchToggle) {
       const panel = document.createElement('div');
-      panel.className = 'products-search-panel'; panel.hidden = true; panel.setAttribute('aria-hidden', 'true');
+      panel.className = 'products-search-panel';
+      panel.hidden = true;
+      panel.setAttribute('aria-hidden', 'true');
       panel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" aria-label="Rechercher un produit" placeholder="Rechercher un produit…" autocomplete="off"><button type="button" class="products-search-close" aria-label="Fermer la recherche">×</button></div>`;
       productsHeader.appendChild(panel);
-      const toggle = $('.products-search-toggle', actions), input = $('input', panel), close = $('.products-search-close', panel);
-      const closeSearch = () => { input.value = ''; activeCategory = 'all'; filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all')); renderProducts(''); panel.classList.remove('open'); panel.hidden = true; panel.setAttribute('aria-hidden', 'true'); toggle.setAttribute('aria-expanded', 'false'); };
-      const search = () => { const query = input.value.trim(); if (query) { activeCategory = 'all'; filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all')); } renderProducts(query); };
-      toggle.addEventListener('click', () => { const open = panel.classList.toggle('open'); panel.hidden = !open; panel.setAttribute('aria-hidden', String(!open)); toggle.setAttribute('aria-expanded', String(open)); if (open) window.setTimeout(() => input.focus(), 80); });
-      close.addEventListener('click', closeSearch); input.addEventListener('input', search); input.addEventListener('keydown', event => { if (event.key !== 'Enter') return; event.preventDefault(); search(); });
+      const input = $('input', panel);
+      const close = $('.products-search-close', panel);
+      const closeSearch = () => {
+        input.value = '';
+        activeCategory = 'all';
+        filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
+        renderProducts('');
+        panel.classList.remove('open');
+        panel.hidden = true;
+        panel.setAttribute('aria-hidden', 'true');
+        productSearchToggle.setAttribute('aria-expanded', 'false');
+      };
+      const search = () => {
+        const query = input.value.trim();
+        if (query) {
+          activeCategory = 'all';
+          filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
+        }
+        renderProducts(query);
+      };
+      productSearchToggle.setAttribute('aria-expanded', 'false');
+      productSearchToggle.addEventListener('click', () => {
+        const open = panel.classList.toggle('open');
+        panel.hidden = !open;
+        panel.setAttribute('aria-hidden', String(!open));
+        productSearchToggle.setAttribute('aria-expanded', String(open));
+        if (open) window.setTimeout(() => input.focus(), 80);
+      });
+      close.addEventListener('click', closeSearch);
+      input.addEventListener('input', search);
+      input.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        search();
+      });
     }
+
     const productMenu = $('.products-header .menu-toggle');
     const productNav = $('.products-main-nav');
     if (productMenu && productNav && !productMenu.dataset.bound) {
