@@ -15,6 +15,49 @@
     target?.scrollIntoView({ block: 'start' });
   };
 
+  const setupBrandWorldNav = () => {
+    const nav = document.querySelector('.main-nav, .products-main-nav');
+    if (!nav || nav.querySelector('.world-nav-group')) return;
+
+    const productsLink = [...nav.querySelectorAll('a')].find(link => link.getAttribute('href') === 'produits.html');
+    if (!productsLink) return;
+
+    const group = document.createElement('div');
+    group.className = 'world-nav-group';
+    group.innerHTML = `
+      <button class="world-nav-trigger" type="button" aria-expanded="false">L’univers</button>
+      <div class="world-nav-menu" aria-hidden="true">
+        <a href="origine.html">L’Origine</a>
+        <a href="collections.html">Les Collections</a>
+        <a href="journal.html">Le Journal</a>
+      </div>
+    `;
+
+    productsLink.insertAdjacentElement('afterend', group);
+
+    const trigger = group.querySelector('.world-nav-trigger');
+    const menu = group.querySelector('.world-nav-menu');
+    const closeMenu = () => {
+      group.classList.remove('world-nav-open');
+      trigger?.setAttribute('aria-expanded', 'false');
+      menu?.setAttribute('aria-hidden', 'true');
+    };
+
+    trigger?.addEventListener('click', () => {
+      const open = group.classList.toggle('world-nav-open');
+      trigger.setAttribute('aria-expanded', String(open));
+      menu?.setAttribute('aria-hidden', String(!open));
+    });
+
+    menu?.addEventListener('click', event => {
+      if (event.target.closest('a')) closeMenu();
+    });
+
+    document.addEventListener('click', event => {
+      if (!group.contains(event.target)) closeMenu();
+    });
+  };
+
   const setupProductSearch = () => {
     if (!document.body.classList.contains('products-page')) return;
 
@@ -88,6 +131,7 @@
     .then(() => load('catalog-language.js'))
     .then(() => load('site-content-language.js'))
     .then(() => {
+      setupBrandWorldNav();
       setupProductSearch();
       window.requestAnimationFrame(restoreProductHashPosition);
     })
