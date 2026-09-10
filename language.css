@@ -1,8 +1,8 @@
 .language-switcher{display:inline-flex;align-items:center;gap:2px;margin-left:14px;padding:2px;border:1px solid rgba(226,189,105,.28);border-radius:999px;background:rgba(23,21,19,.16);white-space:nowrap}
 .language-switcher button{appearance:none;border:0;background:transparent;color:inherit;font:600 9px/1 Poppins,sans-serif;letter-spacing:1.2px;padding:6px 7px;border-radius:999px;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease}
 .language-switcher button:hover{color:var(--gold-light,var(--p-gold-light))}
-.language-switcher button.active{background:var(--gold,var(--p-gold));color:var(--ink,var(--p-ink))}
-.language-switcher button:focus-visible{outline:1px solid var(--gold-light,var(--p-gold-light));outline-offset:2px}
+.language-switcher button.active{background:#d0aa60;color:#241f1b}
+.language-switcher button:focus-visible{outline:1px solid #d0aa60;outline-offset:2px}
 .language-switcher.is-rtl{direction:ltr}
 @media(max-width:850px){.language-switcher{margin-left:8px}.language-switcher button{padding:6px 6px;font-size:8px}}
 [dir="rtl"] body{font-family:Poppins,"Noto Sans Arabic",Tahoma,sans-serif}
