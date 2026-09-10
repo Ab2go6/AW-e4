@@ -78,6 +78,9 @@
       event.preventDefault();
       renderSearch(input.value);
     });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && panel.classList.contains('open')) setOpen(false);
+    });
   };
 
   load('script-core.js')
