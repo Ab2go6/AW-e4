@@ -16,24 +16,10 @@
 
   let header = page.querySelector('.products-header');
   if (!header) { header = document.createElement('header'); header.className = 'products-header'; announcement.insertAdjacentElement('afterend', header); }
-  header.innerHTML = `<a href="index.html" class="products-logo"><img src="assets/logo-crystal-4k.png" alt="ARAOUAA Premium"></a><nav class="products-main-nav">${links.map(([label, href]) => `<a href="${href}" class="${href === current ? 'active' : ''}"${href === 'savoir-faire.html' ? ' data-savoir-faire="true"' : ''}>${label}</a>`).join('')}</nav><div class="products-header-actions"><button class="products-icon-button" type="button" aria-label="Rechercher" data-world-search="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg></button><a class="products-icon-button" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8" class="fill"></circle></svg></a><a class="products-icon-button" href="produits.html" aria-label="Voir les produits"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4.5h2l2.3 12.2a2 2 0 0 0 2 1.65h7.35a2 2 0 0 0 1.97-1.65L20.5 8.3H6.2"></path><circle cx="10.2" cy="20" r="1.35" class="fill"></circle><circle cx="17" cy="20" r="1.35" class="fill"></circle></svg></a></div><a class="products-header-contact" href="index.html#contact">Nous contacter</a><button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>`;
+  header.innerHTML = `<a href="index.html" class="products-logo"><img src="assets/logo-crystal-4k.png" alt="ARAOUAA Premium"></a><nav class="products-main-nav">${links.map(([label, href]) => `<a href="${href}" class="${href === current ? 'active' : ''}"${href === 'savoir-faire.html' ? ' data-savoir-faire="true"' : ''}>${label}</a>`).join('')}</nav><div class="products-header-actions"><button class="products-icon-button" type="button" aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg></button><a class="products-icon-button" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8" class="fill"></circle></svg></a><a class="products-icon-button" href="produits.html" aria-label="Voir les produits"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4.5h2l2.3 12.2a2 2 0 0 0 2 1.65h7.35a2 2 0 0 0 1.97-1.65L20.5 8.3H6.2"></path><circle cx="10.2" cy="20" r="1.35" class="fill"></circle><circle cx="17" cy="20" r="1.35" class="fill"></circle></svg></a></div><a class="products-header-contact" href="index.html#contact">Nous contacter</a><button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>`;
 
   const nav = header.querySelector('.products-main-nav');
   const toggle = header.querySelector('.menu-toggle');
-  const search = header.querySelector('[data-world-search="true"]');
-  if (search) {
-    search.addEventListener('click', () => {
-      let panel = header.querySelector('.world-search-panel');
-      if (panel) { panel.remove(); return; }
-      panel = document.createElement('div');
-      panel.className = 'world-search-panel';
-      panel.innerHTML = '<input type="search" placeholder="Rechercher…" aria-label="Rechercher"><button type="button" aria-label="Fermer">×</button>';
-      Object.assign(panel.style,{position:'absolute',top:'calc(100% + 10px)',right:'5.8%',display:'flex',alignItems:'center',gap:'8px',width:'min(380px,calc(100vw - 28px))',padding:'10px 12px',background:'#171513',border:'1px solid rgba(226,189,105,.35)',borderRadius:'12px',boxShadow:'0 18px 45px rgba(0,0,0,.24)',zIndex:'120'});
-      const input=panel.querySelector('input'); Object.assign(input.style,{flex:'1',minWidth:'0',height:'38px',border:'0',outline:'0',background:'transparent',color:'#f7f0e4',font:'400 12px/1 Poppins,Arial,sans-serif'});
-      const close=panel.querySelector('button'); Object.assign(close.style,{border:'0',background:'transparent',color:'#e2bd69',font:'24px/1 Arial,sans-serif',cursor:'pointer'}); close.addEventListener('click',e=>{e.stopPropagation();panel.remove()});
-      header.appendChild(panel); input.focus();
-    });
-  }
 
   let footer = page.querySelector('.footer');
   if (!footer) { footer = document.createElement('footer'); footer.className = 'footer'; page.appendChild(footer); }
