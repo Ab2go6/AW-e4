@@ -1,5 +1,4 @@
 /* ARAOUAA cinematic hero direction: depth, material, light and restrained motion. */
-.world-page .world-hero{background:#171513}
 .world-page .world-hero-media{opacity:.58;transform:scale(1.035);filter:saturate(.78) contrast(1.05);animation:world-cinema-media 18s ease-in-out infinite alternate}
 .world-page .world-hero-media::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.18),transparent 35%,rgba(11,10,9,.38) 100%),radial-gradient(circle at 72% 48%,rgba(210,176,104,.14),transparent 30%)}
 .world-page .world-hero-media::after{background:linear-gradient(90deg,rgba(18,16,14,.96) 0%,rgba(18,16,14,.80) 22%,rgba(48,72,61,.66) 45%,rgba(48,72,61,.32) 68%,rgba(48,72,61,.08) 100%)}
@@ -48,9 +47,7 @@
 @keyframes world-cinema-orbit{from{transform:rotate(-17deg) scaleX(.76)}to{transform:rotate(343deg) scaleX(.76)}}
 @keyframes world-cinema-glint{0%,18%{opacity:0;transform:translateX(-22%) rotate(-13deg)}42%{opacity:.85}64%,100%{opacity:0;transform:translateX(22%) rotate(-13deg)}}
 @keyframes world-cinema-particles{from{transform:translate3d(0,0,0)}to{transform:translate3d(-55px,-90px,0)}}
-@keyframes savoir-cinema-drift{from{transform:scale(1.055) translate3d(0,0,0)}to{transform:scale(1.10) translate3d(-1.1%,.7%,0)}}
-@keyframes savoir-cinema-light{from{opacity:.82;transform:translateX(-1.5%)}to{opacity:1;transform:translateX(1.5%)}}
-@keyframes savoir-cinema-grid{from{opacity:.42;transform:translate3d(0,0,0)}to{opacity:.78;transform:translate3d(-18px,-10px,0)}}
+@keyframes world-cinema-grid{from{opacity:.42;transform:translate3d(0,0,0)}to{opacity:.78;transform:translate3d(-18px,-10px,0)}}
 @media(max-width:900px){.world-page .world-stage{right:-3%;width:62vw;opacity:.58}.world-page .world-stage-art img{max-height:500px}}
 @media(max-width:600px){.world-page .world-stage{right:-20%;width:94vw;height:430px;opacity:.34}.world-page .world-stage::before{inset:12% 3%}.world-page .world-stage-art img{width:94%!important;max-height:410px}.world-page .world-hero-media{transform:scale(1.02)}}
 @media(prefers-reduced-motion:reduce){.world-page .world-hero-media,.world-page .world-hero-content,.world-page .world-eyebrow,.world-page .world-hero-lead,.world-page .world-hero-meta,.world-page .world-stage::before,.world-page .world-stage-art,.world-page .world-stage-art::before,.world-page .world-stage-art::after,.world-page .world-stage-art img,.world-page .world-stage-particles,.world-page--savoir-faire .sf-hero-image,.world-page--savoir-faire .sf-hero-content,.world-page--savoir-faire .sf-eyebrow,.world-page--savoir-faire .sf-hero-content>p:last-child{animation:none!important}}
