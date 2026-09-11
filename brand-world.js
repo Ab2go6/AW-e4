@@ -49,7 +49,8 @@
     .then(() => loadScript('world-language.js', 'world-language'))
     .catch(error => console.error('ARAOUAA world language scripts failed to load:', error));
 
-  loadScript('site-search.js?v=20260911f', 'site-search')
-    .then(() => loadScript('araouaa-motion.js', 'motion'))
-    .catch(error => console.error('ARAOUAA world search failed to load:', error));
+  Promise.all([
+    loadScript('site-search.js?v=20260911f', 'site-search').catch(error => console.error('ARAOUAA world search failed to load:', error)),
+    loadScript('araouaa-motion.js', 'motion').catch(error => console.error('ARAOUAA motion failed to load:', error))
+  ]);
 })();
