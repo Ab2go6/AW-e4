@@ -234,6 +234,7 @@
         section.hidden = visible === 0;
       });
     };
+    window.__ARAOUAA_PRODUCT_SEARCH__ = renderProducts;
     const applyFilter = (category, scroll = false) => {
       activeCategory = category;
       filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
