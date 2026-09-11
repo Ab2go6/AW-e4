@@ -35,12 +35,14 @@
     try { document.querySelector(window.location.hash)?.scrollIntoView({ block: 'start' }); } catch {}
   };
 
+  const isHomepage = () => !document.body.classList.contains('products-page') && !!document.querySelector('#siteHeader.search-toggle, #siteHeader .search-toggle');
+
   load('script-core.js')
     .then(() => load('language.js'))
     .then(() => load('catalog-language.js'))
     .then(() => load('site-content-language.js'))
-    .then(() => load('catalog-search-index.js'))
-    .then(() => load('site-search.js'))
+    .then(() => isHomepage() ? null : load('catalog-search-index.js'))
+    .then(() => isHomepage() ? null : load('site-search.js'))
     .then(() => {
       setupPrimaryNav();
       window.requestAnimationFrame(restoreProductHashPosition);
