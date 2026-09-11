@@ -36,12 +36,10 @@
   };
 
   load('script-core.js')
-    .then(() => Promise.allSettled([
-      load('language.js'),
-      load('catalog-language.js'),
-      load('site-content-language.js'),
-      load('catalog-search-index.js')
-    ]))
+    .then(() => load('language.js'))
+    .then(() => load('catalog-language.js'))
+    .then(() => load('site-content-language.js'))
+    .then(() => load('catalog-search-index.js'))
     .then(() => load('site-search.js'))
     .then(() => {
       setupPrimaryNav();
