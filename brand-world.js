@@ -51,6 +51,6 @@
 
   Promise.all([
     loadScript('site-search.js?v=20260911f', 'site-search').catch(error => console.error('ARAOUAA world search failed to load:', error)),
-    loadScript('araouaa-motion.js', 'motion').catch(error => console.error('ARAOUAA motion failed to load:', error))
+    loadScript('araouaa-motion.js?v=20260911g', 'motion').catch(error => console.error('ARAOUAA motion failed to load:', error))
   ]);
 })();
