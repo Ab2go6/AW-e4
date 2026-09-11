@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260910';
+  const VERSION = '20260911';
 
   const load = src => new Promise((resolve, reject) => {
     const script = document.createElement('script');
@@ -36,70 +36,13 @@
     target?.scrollIntoView({ block: 'start' });
   };
 
-  const setupProductSearch = () => {
-    if (!document.body.classList.contains('products-page')) return;
-
-    const button = document.querySelector('.products-header .products-icon-button[aria-label="Rechercher"]');
-    const panel = document.querySelector('.products-header .products-search-panel');
-    const input = panel?.querySelector('#productsSearch');
-    const close = panel?.querySelector('.products-search-close');
-    if (!button || !panel || !input) return;
-
-    const normalize = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const sections = [...document.querySelectorAll('.products-page [data-section]')];
-    const filters = [...document.querySelectorAll('.catalog-filter')];
-
-    const renderSearch = value => {
-      const query = normalize(value.trim());
-      const searching = Boolean(query);
-
-      sections.forEach(section => {
-        const items = [...section.querySelectorAll('.product-item')];
-        let matches = 0;
-
-        items.forEach(item => {
-          const name = normalize(item.dataset.productName || item.querySelector('h3')?.textContent || '');
-          const visible = !query || name.includes(query);
-          item.hidden = !visible;
-          matches += visible ? 1 : 0;
-        });
-
-        section.hidden = matches === 0;
-        section.querySelector('.category-heading')?.toggleAttribute('hidden', searching && matches > 0);
-        section.querySelector('.spice-note')?.toggleAttribute('hidden', searching && matches > 0);
-        section.querySelector('.pantry-intro')?.toggleAttribute('hidden', searching && matches > 0);
-      });
-
-      filters.forEach(filter => filter.classList.toggle('active', !query && filter.dataset.category === 'all'));
-    };
-
-    const setOpen = open => {
-      panel.classList.toggle('open', open);
-      panel.setAttribute('aria-hidden', String(!open));
-      button.setAttribute('aria-expanded', String(open));
-      if (open) window.setTimeout(() => input.focus(), 80);
-    };
-
-    button.setAttribute('aria-expanded', 'false');
-    button.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
-    close?.addEventListener('click', () => {
-      input.value = '';
-      renderSearch('');
-      setOpen(false);
-    });
-    input.addEventListener('input', () => renderSearch(input.value));
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && panel.classList.contains('open')) setOpen(false);
-    });
-  };
-
   load('script-core.js')
     .then(() => load('language.js'))
     .then(() => load('catalog-language.js'))
     .then(() => load('site-content-language.js'))
+    .then(() => load('site-search.js'))
     .then(() => {
       setupPrimaryNav();
-      setupProductSearch();
       window.requestAnimationFrame(restoreProductHashPosition);
     })
     .catch(error => console.error('ARAOUAA scripts failed to load:', error));
