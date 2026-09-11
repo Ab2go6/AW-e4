@@ -9,7 +9,7 @@
     if (document.querySelector('link[data-arraouaa-site-search-style]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'site-search.css?v=20260911';
+    link.href = 'site-search.css?v=20260911b';
     link.dataset.arraouaaSiteSearchStyle = 'true';
     document.head.appendChild(link);
   };
@@ -47,6 +47,8 @@
 
     return new Promise(resolve => {
       let settled = false;
+      let frame;
+      let timeout;
       const finish = items => {
         if (settled) return;
         settled = true;
@@ -65,11 +67,11 @@
         finish(event.data.items);
       };
 
-      const frame = document.createElement('iframe');
+      frame = document.createElement('iframe');
       frame.dataset.arraouaaSearchIndex = 'true';
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
-      const timeout = window.setTimeout(() => finish([]), 15000);
+      timeout = window.setTimeout(() => finish([]), 15000);
 
       window.addEventListener('message', onMessage);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
