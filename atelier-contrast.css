@@ -1,0 +1,23 @@
+/* Final Atelier manifesto contrast — keeps the closing statement crisp over the cinematic green. */
+.world-page--atelier .atelier-manifesto{
+  color:#f7f0e4!important;
+  background:linear-gradient(135deg,#263b32 0%,#30483d 58%,#3e594b 100%)!important;
+  opacity:1!important;
+}
+.world-page--atelier .atelier-manifesto::before{
+  background:linear-gradient(120deg,rgba(255,255,255,.028),transparent 45%,rgba(0,0,0,.10))!important;
+  opacity:1!important;
+}
+.world-page--atelier .atelier-manifesto .world-kicker{
+  color:#dfbd7a!important;
+  opacity:1!important;
+}
+.world-page--atelier .atelier-manifesto h2{
+  color:#fffaf0!important;
+  opacity:1!important;
+  text-shadow:0 16px 36px rgba(0,0,0,.28)!important;
+}
+.world-page--atelier .atelier-manifesto h2 em{
+  color:#dfbd7a!important;
+  opacity:1!important;
+}
