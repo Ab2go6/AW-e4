@@ -32,13 +32,14 @@
   }
 
   const loadScript = (src, marker) => new Promise((resolve, reject) => {
-    const selector = marker === 'language' ? 'script[data-arraouaa-language]' : marker === 'world-language' ? 'script[data-arraouaa-world-language]' : 'script[data-arraouaa-site-search]';
+    const selector = marker === 'language' ? 'script[data-arraouaa-language]' : marker === 'world-language' ? 'script[data-arraouaa-world-language]' : marker === 'site-search' ? 'script[data-arraouaa-site-search]' : 'script[data-arraouaa-motion]';
     if (document.querySelector(selector)) { resolve(); return; }
     const script=document.createElement('script');
     script.src=src;
     if (marker === 'language') script.dataset.arraouaaLanguage='true';
     if (marker === 'world-language') script.dataset.arraouaaWorldLanguage='true';
     if (marker === 'site-search') script.dataset.arraouaaSiteSearch='true';
+    if (marker === 'motion') script.dataset.arraouaaMotion='true';
     script.onload=resolve;
     script.onerror=reject;
     document.body.appendChild(script);
@@ -49,5 +50,6 @@
     .catch(error => console.error('ARAOUAA world language scripts failed to load:', error));
 
   loadScript('site-search.js?v=20260911f', 'site-search')
+    .then(() => loadScript('araouaa-motion.js', 'motion'))
     .catch(error => console.error('ARAOUAA world search failed to load:', error));
 })();
