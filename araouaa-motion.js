@@ -2,16 +2,22 @@
   'use strict';
 
   const STYLE_ID = 'araouaa-visual-enhancements';
-  const VERSION = '20260911e';
+  const LIGHT_STYLE_ID = 'araouaa-light-engine';
+  const VERSION = '20260911f';
 
-  const loadStyles = () => {
-    if (document.getElementById(STYLE_ID)) return Promise.resolve();
+  const loadStyle = (id, href) => {
+    if (document.getElementById(id)) return Promise.resolve();
     const link = document.createElement('link');
-    link.id = STYLE_ID;
+    link.id = id;
     link.rel = 'stylesheet';
-    link.href = `araouaa-visual-enhancements.css?v=${VERSION}`;
+    link.href = href;
     document.head.appendChild(link);
     return Promise.resolve();
+  };
+
+  const loadStyles = () => {
+    loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`);
+    return loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`);
   };
 
   const setupThemeColor = () => {
@@ -36,6 +42,7 @@
       const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const ratio = Math.min(1, Math.max(0, window.scrollY / max));
       document.documentElement.style.setProperty('--ara-scroll-p', ratio.toFixed(4));
+      document.documentElement.style.setProperty('--ara-scroll-y', `${Math.round(window.scrollY)}px`);
       ticking = false;
     };
 
@@ -46,6 +53,27 @@
     }, { passive: true });
     window.addEventListener('resize', update, { passive: true });
     update();
+  };
+
+  const setupLightField = () => {
+    if (!window.matchMedia('(pointer:fine)').matches) return;
+    let ticking = false;
+    let x = 72;
+    let y = 18;
+
+    const paint = () => {
+      document.documentElement.style.setProperty('--ara-light-x', `${x}%`);
+      document.documentElement.style.setProperty('--ara-light-y', `${y}%`);
+      ticking = false;
+    };
+
+    window.addEventListener('pointermove', event => {
+      x = (event.clientX / Math.max(1, window.innerWidth)) * 100;
+      y = (event.clientY / Math.max(1, window.innerHeight)) * 100;
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(paint);
+    }, { passive: true });
   };
 
   const setupExternalPageLinks = () => {
@@ -65,6 +93,7 @@
     loadStyles();
     setupThemeColor();
     setupProgress();
+    setupLightField();
     setupExternalPageLinks();
   };
 
