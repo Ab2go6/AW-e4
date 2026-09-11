@@ -42,10 +42,17 @@
 
   const collectIndex = root => [...root.querySelectorAll('.product-item')].map(item => {
     const name = item.dataset.productName || item.querySelector('h3')?.textContent?.trim() || '';
-    const category = item.dataset.category || item.querySelector('.product-item-tag')?.textContent?.trim() || '';
-    const text = item.textContent || '';
-    return { name, category, key: normalize(`${name} ${category} ${text}`) };
+    return { name };
   }).filter(item => item.name);
+
+  const fetchStaticIndex = () => fetch(new URL('produits.html', document.baseURI).href, { cache: 'no-store' })
+    .then(response => response.ok ? response.text() : '')
+    .then(html => {
+      if (!html) return [];
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return collectIndex(doc);
+    })
+    .catch(() => []);
 
   const createIndex = () => {
     if (document.body.classList.contains('products-page')) return Promise.resolve(collectIndex(document));
@@ -58,11 +65,7 @@
 
       const finish = items => {
         if (settled) return;
-        const normalizedItems = Array.isArray(items) ? items.map(item => ({
-          name: item.name || '',
-          category: item.category || '',
-          key: normalize(`${item.name || ''} ${item.category || ''} ${item.text || ''}`)
-        })).filter(item => item.name) : [];
+        const normalizedItems = Array.isArray(items) ? items.map(item => ({ name: item.name || '' })).filter(item => item.name) : [];
         if (!normalizedItems.length) return;
         settled = true;
         window.clearTimeout(timeout);
@@ -104,6 +107,10 @@
       }, 20000);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
       document.body.appendChild(frame);
+
+      fetchStaticIndex().then(items => {
+        if (items.length) finish(items);
+      });
     });
   };
 
@@ -154,7 +161,8 @@
         results.hidden = false;
         return;
       }
-      const matches = items.filter(item => item.key.includes(normalize(clean))).slice(0, 8);
+      const normalizedQuery = normalize(clean);
+      const matches = items.filter(item => normalize(item.name).includes(normalizedQuery)).slice(0, 8);
       results.innerHTML = matches.length
         ? matches.map(item => `<a class="site-search-result" href="produits.html#search=${encodeURIComponent(item.name)}"><span>${item.name}</span></a>`).join('')
         : '<div class="site-search-empty">Aucun produit correspondant.</div>';
