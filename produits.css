@@ -11,7 +11,6 @@
 .products-search-panel.open { display: block; opacity: 1; pointer-events: auto; transform: none; }
 .products-search-inner { position: relative; display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: var(--p-paper); border: 1px solid var(--p-line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0, 0, 0, .2); }
 .products-search-inner > svg { display: block; flex: 0 0 21px; width: 21px; height: 21px; fill: none; stroke: var(--p-gold); stroke-width: 1.7; }
-.products-search-inner > svg circle,.products-search-inner > svg path { fill: none; stroke: var(--p-gold); stroke-width: 1.7; }
 .products-search-inner input[type="search"] { width: 100%; border: 0; outline: 0; background: transparent; box-shadow: none; color: var(--p-ink) !important; -webkit-text-fill-color: var(--p-ink); font-size: 13px; }
 .products-search-inner input[type="search"]::placeholder { color: var(--p-ink) !important; opacity: 1; -webkit-text-fill-color: var(--p-ink); }
 .products-search-inner input[type="search"]::-webkit-search-cancel-button { display: none; -webkit-appearance: none; }
@@ -47,7 +46,6 @@
 
 /* Responsive */
 @media (max-width: 1150px) {
-  .product-items { grid-template-columns: repeat(3,1fr); }
   .products-page .category-heading .category-heading-left { transform: translateX(-3cm); }
   .products-page .category-heading p { transform: translateX(3.5cm); }
   .products-page .category-pantry .category-heading p { transform: translateX(3.5cm); }
@@ -90,22 +88,8 @@
 .products-page .product-story{background:#30483d}
 .products-page .product-story-visual{background:#f5efe4;border-color:rgba(208,170,96,.5)}
 .products-page .product-story-visual::before{background-color:#f5efe4}
-.products-page .product-category-nav .catalog-filter:hover,.products-page .product-category-nav .catalog-filter.active{background:#d0aa60;border-color:#d0aa60;color:#241f1b}
 .products-page .product-item{background:#eee5d7;border-color:rgba(36,31,27,.1);box-shadow:0 12px 38px rgba(35,24,17,.09)}
 .products-page .product-item:hover{border-color:rgba(208,170,96,.55);box-shadow:0 24px 55px rgba(35,24,17,.14)}
 .products-page .product-item-content{background:#eee5d7;color:#241f1b}
 .products-page .product-item-content h3{color:#241f1b}
 .products-page .product-item-content .product-link,.products-page .product-item-content a{color:#30483d}
-
-/* Savoir-faire keeps its own structure, but now speaks the same luxury palette. */
-.world-page--savoir-faire .sf-topbar{background:#f5efe4;border-bottom-color:rgba(36,31,27,.1)}
-.world-page--savoir-faire .sf-back:hover,.world-page--savoir-faire .sf-products:hover{color:#30483d}
-.world-page--savoir-faire .sf-hero{background:#30483d}
-.world-page--savoir-faire .sf-hero-overlay{background:linear-gradient(90deg,rgba(18,16,14,.84),rgba(18,16,14,.28) 58%,rgba(18,16,14,.46))}
-.world-page--savoir-faire .sf-eyebrow{color:#d0aa60}
-.world-page--savoir-faire .sf-hero h1 em,.world-page--savoir-faire .sf-intro h2 em,.world-page--savoir-faire .sf-process h2 em,.world-page--savoir-faire .sf-origin h2 em,.world-page--savoir-faire .sf-closing h2 em{color:#dfbd7a}
-.world-page--savoir-faire .sf-process{background:#171513}
-.world-page--savoir-faire .sf-process-grid article>span,.world-page--savoir-faire .sf-icon{color:#d0aa60}
-.world-page--savoir-faire .sf-origin{background:#eee5d7}
-.world-page--savoir-faire .sf-closing{background:#30483d}
-.world-page--savoir-faire .sf-closing h2{color:#f7f0e4}
