@@ -7,8 +7,7 @@
 
 /* Product search — matches the homepage header search */
 .products-search-panel { position: absolute; top: 116px; right: 5.8%; z-index: 70; width: min(500px, 90vw); padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: .25s; }
-.products-search-panel[hidden] { display: none; }
-.products-search-panel.open { display: block; opacity: 1; pointer-events: auto; transform: none; }
+.products-search-panel.open { opacity: 1; pointer-events: auto; transform: none; }
 .products-search-inner { position: relative; display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: var(--p-paper); border: 1px solid var(--p-line); border-radius: 14px; box-shadow: 0 18px 50px rgba(0, 0, 0, .2); }
 .products-search-inner > svg { display: block; flex: 0 0 21px; width: 21px; height: 21px; fill: none; stroke: var(--p-gold); stroke-width: 1.7; }
 .products-search-inner input[type="search"] { width: 100%; border: 0; outline: 0; background: transparent; box-shadow: none; color: var(--p-ink) !important; -webkit-text-fill-color: var(--p-ink); font-size: 13px; }
