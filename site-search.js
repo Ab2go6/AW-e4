@@ -47,19 +47,31 @@
 
     return new Promise(resolve => {
       let settled = false;
-      let frame;
       let timeout;
+      let poll;
+      let frame;
+
       const finish = items => {
         if (settled) return;
         settled = true;
         window.clearTimeout(timeout);
+        window.clearInterval(poll);
         window.removeEventListener('message', onMessage);
-        resolve(Array.isArray(items) ? items.map(item => ({
+        const normalizedItems = Array.isArray(items) ? items.map(item => ({
           name: item.name || '',
           category: item.category || '',
           key: normalize(`${item.name || ''} ${item.category || ''} ${item.text || ''}`)
-        })).filter(item => item.name) : []);
+        })).filter(item => item.name) : [];
+        resolve(normalizedItems);
       };
+
+      const readFrame = () => {
+        try {
+          const items = collectIndex(frame.contentDocument || frame.contentWindow.document);
+          if (items.length) finish(items);
+        } catch {}
+      };
+
       const onMessage = event => {
         if (event.source !== frame.contentWindow) return;
         if (event.origin !== window.location.origin) return;
@@ -71,7 +83,9 @@
       frame.dataset.arraouaaSearchIndex = 'true';
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
+      frame.addEventListener('load', readFrame, { once: false });
       timeout = window.setTimeout(() => finish([]), 15000);
+      poll = window.setInterval(readFrame, 150);
       window.addEventListener('message', onMessage);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
       document.body.appendChild(frame);
