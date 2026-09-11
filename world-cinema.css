@@ -33,47 +33,6 @@
 .world-page--collections .world-stage-art::before{background:radial-gradient(circle,rgba(224,192,128,.21),rgba(76,91,67,.09) 46%,transparent 73%)}
 .world-page--journal .world-stage-art::before{background:radial-gradient(circle,rgba(224,198,151,.18),rgba(74,76,64,.09) 46%,transparent 73%)}
 
-/* Hard-lock the closing branded panel across every world page. */
-.world-page main > section:last-of-type{
-  position:relative;
-  isolation:isolate;
-  background:
-    radial-gradient(circle at 50% 0,rgba(208,170,96,.13),transparent 30%),
-    linear-gradient(135deg,#263b32,#30483d) !important;
-  color:#f7f0e4 !important;
-}
-.world-page main > section:last-of-type .world-kicker,
-.world-page main > section:last-of-type .sf-eyebrow{
-  color:#dfbd7a !important;
-}
-.world-page main > section:last-of-type .world-kicker::before,
-.world-page main > section:last-of-type .sf-eyebrow::before{
-  background:#dfbd7a !important;
-}
-.world-page main > section:last-of-type .world-title,
-.world-page main > section:last-of-type h2{
-  color:#f7f0e4 !important;
-}
-.world-page main > section:last-of-type .world-title em,
-.world-page main > section:last-of-type h2 em{
-  color:#dfbd7a !important;
-}
-.world-page main > section:last-of-type .world-cta p,
-.world-page main > section:last-of-type .sf-hero-content > p:last-child{
-  color:rgba(247,240,228,.78) !important;
-}
-.world-page main > section:last-of-type .world-button,
-.world-page main > section:last-of-type .sf-button{
-  color:#f7f0e4 !important;
-  border-color:#dfbd7a !important;
-}
-.world-page main > section:last-of-type .world-button:hover,
-.world-page main > section:last-of-type .sf-button:hover{
-  background:#dfbd7a !important;
-  color:#171513 !important;
-  border-color:#dfbd7a !important;
-}
-
 @keyframes world-cinema-media{from{transform:scale(1.035) translate3d(0,0,0)}to{transform:scale(1.075) translate3d(-.6%,.4%,0)}}
 @keyframes world-cinema-copy{from{opacity:0;transform:translate3d(-24px,18px,0)}to{opacity:1;transform:none}}
 @keyframes world-cinema-eyebrow{from{opacity:0;letter-spacing:5px;transform:translateX(-10px)}to{opacity:1;letter-spacing:2.5px;transform:none}}
