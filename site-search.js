@@ -9,7 +9,7 @@
     if (document.querySelector('link[data-arraouaa-site-search-style]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'site-search.css?v=20260911c';
+    link.href = 'site-search.css?v=20260911d';
     link.dataset.arraouaaSiteSearchStyle = 'true';
     document.head.appendChild(link);
   };
@@ -31,7 +31,6 @@
     let panel = header?.querySelector('.site-search-panel');
     if (panel) return panel;
     if (!header) return null;
-
     panel = document.createElement('div');
     panel.className = 'search-panel site-search-panel';
     panel.setAttribute('aria-hidden', 'true');
@@ -60,16 +59,13 @@
     return new Promise(resolve => {
       let settled = false;
       let timeout;
-      let pollTimer;
-      let stableTimer;
+      let observer;
       let frame;
-      let lastSignature = '';
       let fallback = [];
 
       const cleanup = () => {
         window.clearTimeout(timeout);
-        window.clearInterval(pollTimer);
-        window.clearTimeout(stableTimer);
+        observer?.disconnect();
         frame?.remove();
       };
 
@@ -78,35 +74,40 @@
         const normalizedItems = Array.isArray(items)
           ? items.map(item => ({ name: String(item?.name || '').trim() })).filter(item => item.name)
           : [];
-        if (!normalizedItems.length) return;
+        if (!normalizedItems.length) return false;
         settled = true;
         cleanup();
         resolve(normalizedItems);
+        return true;
       };
 
-      const scanFrame = () => {
-        if (settled) return;
-        const doc = frame?.contentDocument;
-        if (!doc?.body) return;
-        const items = collectIndex(doc);
-        if (!items.length) return;
+      const inspectFrame = () => {
+        if (settled || !frame?.contentDocument) return false;
+        return finish(collectIndex(frame.contentDocument));
+      };
 
-        const signature = items.map(item => item.name).join('\u001f');
-        if (signature === lastSignature) return;
-        lastSignature = signature;
-        window.clearTimeout(stableTimer);
-        stableTimer = window.setTimeout(() => finish(items), 600);
+      const startObserver = () => {
+        if (settled || !frame?.contentDocument?.body) return;
+        if (inspectFrame()) return;
+        observer = new MutationObserver(() => inspectFrame());
+        observer.observe(frame.contentDocument.body, { childList: true, subtree: true });
       };
 
       frame = document.createElement('iframe');
       frame.dataset.arraouaaSearchIndex = 'true';
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
+      frame.addEventListener('load', startObserver, { once: true });
+      timeout = window.setTimeout(() => {
+        if (settled) return;
+        if (!finish(fallback)) {
+          settled = true;
+          cleanup();
+          resolve([]);
+        }
+      }, 20000);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
-      frame.addEventListener('load', scanFrame);
       document.body.appendChild(frame);
-      pollTimer = window.setInterval(scanFrame, 150);
-      timeout = window.setTimeout(() => finish(fallback), 15000);
 
       fetchStaticIndex().then(items => {
         if (items.length) fallback = items;
@@ -117,7 +118,6 @@
   const setup = () => {
     loadStyle();
     cleanupLegacyProductSearch();
-
     const header = getHeader();
     const button = getButton(header);
     cleanupLegacyHomeSearch(header);
