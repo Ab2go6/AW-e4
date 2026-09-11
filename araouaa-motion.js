@@ -15,10 +15,9 @@
     return Promise.resolve();
   };
 
-  const loadStyles = () => {
-    loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`);
-    return loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`);
-  };
+  const loadStyles = () =>
+    loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`)
+      .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`));
 
   const setupThemeColor = () => {
     let meta = document.querySelector('meta[name="theme-color"]');
