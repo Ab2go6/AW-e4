@@ -46,6 +46,8 @@
 
   loadScript('language.js', 'language')
     .then(() => loadScript('world-language.js', 'world-language'))
-    .then(() => loadScript('site-search.js?v=20260911e', 'site-search'))
-    .catch(error => console.error('ARAOUAA world scripts failed to load:', error));
+    .catch(error => console.error('ARAOUAA world language scripts failed to load:', error));
+
+  loadScript('site-search.js?v=20260911f', 'site-search')
+    .catch(error => console.error('ARAOUAA world search failed to load:', error));
 })();
