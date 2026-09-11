@@ -17,8 +17,13 @@
   const getHeader = () => document.querySelector('.site-header, .products-header');
   const getButton = header => header?.querySelector('.search-toggle, .products-icon-button[aria-label="Rechercher"]');
 
+  const cleanupLegacyProductSearch = () => {
+    if (!document.body.classList.contains('products-page')) return;
+    document.querySelectorAll('.products-search-panel').forEach(panel => panel.remove());
+  };
+
   const createPanel = header => {
-    let panel = header?.querySelector('.search-panel');
+    let panel = header?.querySelector('.site-search-panel');
     if (panel) return panel;
     if (!header) return null;
 
@@ -30,70 +35,57 @@
     return panel;
   };
 
-  const collectIndex = frame => [...frame.contentDocument.querySelectorAll('.product-item')].map(item => {
+  const collectIndex = root => [...root.querySelectorAll('.product-item')].map(item => {
     const name = item.dataset.productName || item.querySelector('h3')?.textContent?.trim() || '';
     const category = item.dataset.category || item.querySelector('.product-item-tag')?.textContent?.trim() || '';
     const text = item.textContent || '';
     return { name, category, key: normalize(`${name} ${category} ${text}`) };
   }).filter(item => item.name);
 
-  const waitForCatalogue = frame => new Promise(resolve => {
-    let lastCount = -1;
-    let stableChecks = 0;
-    let checks = 0;
+  const createIndex = () => {
+    if (document.body.classList.contains('products-page')) return Promise.resolve(collectIndex(document));
 
-    const check = () => {
-      try {
-        const count = frame.contentDocument.querySelectorAll('.product-item').length;
-        if (count > 0 && count === lastCount) stableChecks += 1;
-        else stableChecks = 0;
-        lastCount = count;
+    return new Promise(resolve => {
+      let settled = false;
+      const finish = items => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(timeout);
+        window.removeEventListener('message', onMessage);
+        resolve(Array.isArray(items) ? items.map(item => ({
+          name: item.name || '',
+          category: item.category || '',
+          key: normalize(`${item.name || ''} ${item.category || ''} ${item.text || ''}`)
+        })).filter(item => item.name) : []);
+      };
+      const onMessage = event => {
+        if (event.source !== frame.contentWindow) return;
+        if (event.origin !== window.location.origin) return;
+        if (event.data?.type !== 'ARAOUAA_SEARCH_INDEX') return;
+        finish(event.data.items);
+      };
 
-        if (count > 0 && stableChecks >= 3) {
-          resolve(collectIndex(frame));
-          return;
-        }
-      } catch {}
+      const frame = document.createElement('iframe');
+      frame.dataset.arraouaaSearchIndex = 'true';
+      frame.setAttribute('aria-hidden', 'true');
+      frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
+      const timeout = window.setTimeout(() => finish([]), 15000);
 
-      checks += 1;
-      if (checks >= 100) {
-        try { resolve(collectIndex(frame)); } catch { resolve([]); }
-        return;
-      }
-      window.setTimeout(check, 100);
-    };
-
-    check();
-  });
-
-  const createIndex = () => new Promise(resolve => {
-    const existing = document.querySelector('iframe[data-arraouaa-search-index]');
-    const frame = existing || document.createElement('iframe');
-    frame.dataset.arraouaaSearchIndex = 'true';
-    frame.setAttribute('aria-hidden', 'true');
-    frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
-
-    const ready = () => waitForCatalogue(frame).then(resolve);
-
-    if (!existing) {
-      frame.src = 'produits.html?search-index=1';
-      frame.addEventListener('load', ready, { once: true });
+      window.addEventListener('message', onMessage);
+      frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
       document.body.appendChild(frame);
-      return;
-    }
+    });
+  };
 
-    if (frame.contentDocument?.readyState === 'complete') ready();
-    else frame.addEventListener('load', ready, { once: true });
-  });
-
-  const setup = async () => {
+  const setup = () => {
     loadStyle();
+    cleanupLegacyProductSearch();
+
     const header = getHeader();
     const button = getButton(header);
     const panel = createPanel(header);
     if (!header || !button || !panel) return;
 
-    panel.classList.add('site-search-panel');
     const inner = panel.querySelector('.search-inner');
     const input = panel.querySelector('input[type="search"]');
     const close = panel.querySelector('.search-close');
@@ -121,23 +113,20 @@
         results.hidden = true;
         return;
       }
-
       if (!items.length) {
-        results.hidden = false;
         results.innerHTML = '<div class="site-search-empty">Recherche en cours…</div>';
+        results.hidden = false;
         return;
       }
-
       const matches = items.filter(item => item.key.includes(normalize(clean))).slice(0, 8);
-      results.hidden = false;
       results.innerHTML = matches.length
         ? matches.map(item => `<a class="site-search-result" href="produits.html#search=${encodeURIComponent(item.name)}"><span>${item.name}</span><small>${item.category}</small></a>`).join('')
         : '<div class="site-search-empty">Aucun produit correspondant.</div>';
+      results.hidden = false;
     };
 
-    const indexPromise = createIndex();
     let index = [];
-    indexPromise.then(items => {
+    createIndex().then(items => {
       index = items;
       if (input.value.trim()) render(index, input.value);
     });
@@ -170,13 +159,11 @@
       const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
       const name = params.get('search');
       if (!name || !document.body.classList.contains('products-page')) return;
-
       const target = [...document.querySelectorAll('.product-item')].find(item => normalize(item.dataset.productName || item.querySelector('h3')?.textContent || '') === normalize(name));
       if (!target) {
         window.setTimeout(resolveTarget, 150);
         return;
       }
-
       window.requestAnimationFrame(() => {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
         target.classList.add('site-search-target');
