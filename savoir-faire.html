@@ -16,5 +16,116 @@
 </main>
 <footer class="footer"></footer>
 <script src="brand-world.js"></script>
+<script>
+(() => {
+  const page = document.querySelector('.world-page--savoir-faire');
+  if (!page) return;
+
+  const translations = {
+    en: {
+      title: 'Our know-how | ARAOUAA Premium',
+      values: [
+        ['.sf-hero-content .sf-eyebrow','ARAOUAA KNOW-HOW · MOROCCO'],
+        ['.sf-hero-content h1','Excellence<br><em>begins at the source.</em>'],
+        ['.sf-hero-content > p','Careful selection, a strong Moroccan identity and a constant commitment to how every product is presented.'],
+        ['.sf-intro-heading .sf-eyebrow','OUR APPROACH'],
+        ['.sf-intro-heading h2','From raw product to a<br><em>recognizable signature.</em>'],
+        ['.sf-intro-copy .savoir-intro','At ARAOUAA, know-how is not limited to a transformation step. It begins with the choice of the material and continues through the final presentation.'],
+        ['.sf-intro-copy > p:nth-child(2)','Our ambition is to bring the richness of Moroccan terroir into dialogue with a contemporary, understated and premium approach.'],
+        ['.sf-process-heading .sf-eyebrow','THE 4 STEPS'],
+        ['.sf-process-heading h2','A commitment at<br><em>every step.</em>'],
+        ['.sf-process-grid article:nth-child(1) h3','Selection'],
+        ['.sf-process-grid article:nth-child(1) p','We place the raw material at the heart of our approach, with particular attention to the character and quality we seek.'],
+        ['.sf-process-grid article:nth-child(2) h3','Preparation'],
+        ['.sf-process-grid article:nth-child(2) p','Each universe has its own characteristics. Our approach seeks to preserve the identity and authenticity of the product.'],
+        ['.sf-process-grid article:nth-child(3) h3','Excellence'],
+        ['.sf-process-grid article:nth-child(3) p','Consistency, care and coherence in presentation are an integral part of the experience we want to offer.'],
+        ['.sf-process-grid article:nth-child(4) h3','Presentation'],
+        ['.sf-process-grid article:nth-child(4) p','A product deserves an identity worthy of it: clear, elegant and immediately recognizable, in Morocco and beyond.'],
+        ['.sf-origin-copy .sf-eyebrow','A MOROCCAN IDENTITY'],
+        ['.sf-origin-copy h2','Morocco in<br><em>every detail.</em>'],
+        ['.sf-origin-copy > p:not(.sf-eyebrow)','Colours, materials, flavours and know-how: ARAOUAA draws its identity from the richness of Morocco without seeking to freeze it in the past.'],
+        ['.sf-origin-copy .sf-button','Discover our universes <span>→</span>'],
+        ['.sf-origin-visual > span','SELECTION · AUTHENTICITY · EXCELLENCE'],
+        ['.sf-closing .sf-eyebrow','ARAOUAA PREMIUM'],
+        ['.sf-closing h2','Preserve character.<br><em>Elevate the experience.</em>'],
+        ['.sf-closing .sf-button','Explore the products <span>→</span>']
+      ]
+    },
+    ar: {
+      title: 'خبرتنا | أراوَا بريميوم',
+      values: [
+        ['.sf-hero-content .sf-eyebrow','حِرفة أراوَا · المغرب'],
+        ['.sf-hero-content h1','التميّز<br><em>يبدأ من المصدر.</em>'],
+        ['.sf-hero-content > p','اختيار دقيق، وهوية مغربية راسخة، وحرص دائم على طريقة تقديم كل منتج.'],
+        ['.sf-intro-heading .sf-eyebrow','منهجنا'],
+        ['.sf-intro-heading h2','من المنتج الخام إلى<br><em>بصمة مميزة.</em>'],
+        ['.sf-intro-copy .savoir-intro','في أراوَا، لا تقتصر الخبرة على مرحلة من مراحل التحويل. بل تبدأ باختيار المادة وتمتد حتى التقديم النهائي.'],
+        ['.sf-intro-copy > p:nth-child(2)','طموحنا هو الجمع بين غنى التراب المغربي ونهج معاصر، رصين وراقي.'],
+        ['.sf-process-heading .sf-eyebrow','المراحل الأربع'],
+        ['.sf-process-heading h2','حرص في<br><em>كل مرحلة.</em>'],
+        ['.sf-process-grid article:nth-child(1) h3','الاختيار'],
+        ['.sf-process-grid article:nth-child(1) p','نضع المادة الخام في صميم نهجنا، مع اهتمام خاص بخصائصها والجودة التي نبحث عنها.'],
+        ['.sf-process-grid article:nth-child(2) h3','التحضير'],
+        ['.sf-process-grid article:nth-child(2) p','لكل عالم خصائصه. ونهجنا يهدف إلى الحفاظ على هوية المنتج وأصالته.'],
+        ['.sf-process-grid article:nth-child(3) h3','التميّز'],
+        ['.sf-process-grid article:nth-child(3) p','الاستمرارية والعناية والانسجام في التقديم جزء أساسي من التجربة التي نريد تقديمها.'],
+        ['.sf-process-grid article:nth-child(4) h3','التقديم'],
+        ['.sf-process-grid article:nth-child(4) p','يستحق كل منتج هوية تليق به: واضحة وأنيقة وسهلة التمييز، في المغرب وخارجه.'],
+        ['.sf-origin-copy .sf-eyebrow','هوية مغربية'],
+        ['.sf-origin-copy h2','المغرب في<br><em>كل تفصيل.</em>'],
+        ['.sf-origin-copy > p:not(.sf-eyebrow)','الألوان والمواد والنكهات والخبرة: تستمد أراوَا هويتها من غنى المغرب دون أن تحصره في الماضي.'],
+        ['.sf-origin-copy .sf-button','اكتشف عوالمنا <span>←</span>'],
+        ['.sf-origin-visual > span','اختيار · أصالة · تميّز'],
+        ['.sf-closing .sf-eyebrow','أراوَا بريميوم'],
+        ['.sf-closing h2','نحافظ على الطابع.<br><em>نرتقي بالتجربة.</em>'],
+        ['.sf-closing .sf-button','اكتشف المنتجات <span>←</span>']
+      ]
+    },
+    fr: {
+      title: 'Notre savoir-faire | ARAOUAA Premium',
+      values: [
+        ['.sf-hero-content .sf-eyebrow','LE SAVOIR-FAIRE ARAOUAA · MAROC'],
+        ['.sf-hero-content h1',"L'excellence<br><em>commence à la source.</em>"],
+        ['.sf-hero-content > p','Une sélection attentive, une identité marocaine affirmée et une exigence constante dans la manière de présenter chaque produit.'],
+        ['.sf-intro-heading .sf-eyebrow','NOTRE APPROCHE'],
+        ['.sf-intro-heading h2','Du produit brut à une<br><em>signature reconnaissable.</em>'],
+        ['.sf-intro-copy .savoir-intro','Chez ARAOUAA, le savoir-faire ne se résume pas à une étape de transformation. Il commence par le choix de la matière et se poursuit jusque dans la présentation finale.'],
+        ['.sf-intro-copy > p:nth-child(2)','Notre ambition est de faire dialoguer la richesse du terroir marocain avec une approche contemporaine, sobre et premium.'],
+        ['.sf-process-heading .sf-eyebrow','LES 4 ÉTAPES'],
+        ['.sf-process-heading h2','Une exigence à<br><em>chaque étape.</em>'],
+        ['.sf-process-grid article:nth-child(1) h3','Sélection'],
+        ['.sf-process-grid article:nth-child(1) p','Nous plaçons la matière première au centre de notre démarche, avec une attention particulière portée au caractère et à la qualité recherchée.'],
+        ['.sf-process-grid article:nth-child(2) h3','Préparation'],
+        ['.sf-process-grid article:nth-child(2) p',"Chaque univers possède ses propres caractéristiques. Notre approche cherche à préserver l'identité du produit et son authenticité."],
+        ['.sf-process-grid article:nth-child(3) h3','Exigence'],
+        ['.sf-process-grid article:nth-child(3) p',"La régularité, le soin et la cohérence de présentation font partie intégrante de l'expérience que nous voulons offrir."],
+        ['.sf-process-grid article:nth-child(4) h3','Présentation'],
+        ['.sf-process-grid article:nth-child(4) p','Un produit mérite une identité à sa hauteur : claire, élégante et immédiatement reconnaissable, au Maroc comme au-delà.'],
+        ['.sf-origin-copy .sf-eyebrow','UNE IDENTITÉ MAROCAINE'],
+        ['.sf-origin-copy h2','Le Maroc dans<br><em>chaque détail.</em>'],
+        ['.sf-origin-copy > p:not(.sf-eyebrow)','Couleurs, matières, saveurs et savoir-faire : ARAOUAA puise son identité dans la richesse du Maroc sans chercher à la figer dans le passé.'],
+        ['.sf-origin-copy .sf-button','Découvrir nos univers <span>→</span>'],
+        ['.sf-origin-visual > span','SÉLECTION · AUTHENTICITÉ · EXIGENCE'],
+        ['.sf-closing .sf-eyebrow','ARAOUAA PREMIUM'],
+        ['.sf-closing h2',"Préserver le caractère.<br><em>Élever l'expérience.</em>"],
+        ['.sf-closing .sf-button','Explorer les produits <span>→</span>']
+      ]
+    }
+  };
+
+  function apply(lang) {
+    const data = translations[lang] || translations.fr;
+    data.values.forEach(([selector, value]) => page.querySelectorAll(selector).forEach(el => { el.innerHTML = value; }));
+    document.title = data.title;
+    document.documentElement.lang = lang || 'fr';
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('is-arabic', lang === 'ar');
+  }
+
+  window.addEventListener('arraouaa:languagechange', event => apply(event.detail?.language || 'fr'));
+  setTimeout(() => apply(localStorage.getItem('arraouaa-language') || 'fr'), 0);
+})();
+</script>
 </body>
 </html>
