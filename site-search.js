@@ -60,12 +60,16 @@
     return new Promise(resolve => {
       let settled = false;
       let timeout;
+      let pollTimer;
+      let stableTimer;
       let frame;
-      const fallback = [];
+      let lastSignature = '';
+      let fallback = [];
 
       const cleanup = () => {
         window.clearTimeout(timeout);
-        window.removeEventListener('message', onMessage);
+        window.clearInterval(pollTimer);
+        window.clearTimeout(stableTimer);
         frame?.remove();
       };
 
@@ -80,38 +84,32 @@
         resolve(normalizedItems);
       };
 
-      const onMessage = event => {
-        if (!frame || event.source !== frame.contentWindow) return;
-        if (event.origin !== window.location.origin) return;
-        if (event.data?.type !== 'ARAOUAA_SEARCH_INDEX') return;
-        finish(event.data.items);
+      const scanFrame = () => {
+        if (settled) return;
+        const doc = frame?.contentDocument;
+        if (!doc?.body) return;
+        const items = collectIndex(doc);
+        if (!items.length) return;
+
+        const signature = items.map(item => item.name).join('\u001f');
+        if (signature === lastSignature) return;
+        lastSignature = signature;
+        window.clearTimeout(stableTimer);
+        stableTimer = window.setTimeout(() => finish(items), 600);
       };
 
       frame = document.createElement('iframe');
       frame.dataset.arraouaaSearchIndex = 'true';
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
-      window.addEventListener('message', onMessage);
-      frame.addEventListener('load', () => {
-        if (settled) return;
-        if (frame.contentDocument?.querySelector('script[data-arraouaa-search-index-bootstrap]')) return;
-        const script = frame.contentDocument?.createElement('script');
-        if (!script) return;
-        script.src = new URL('catalog-search-index.js?v=20260911c', frame.src).href;
-        script.dataset.arraouaaSearchIndexBootstrap = 'true';
-        frame.contentDocument.body.appendChild(script);
-      }, { once: true });
-      timeout = window.setTimeout(() => {
-        if (settled) return;
-        settled = true;
-        cleanup();
-        resolve(fallback);
-      }, 20000);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
+      frame.addEventListener('load', scanFrame);
       document.body.appendChild(frame);
+      pollTimer = window.setInterval(scanFrame, 150);
+      timeout = window.setTimeout(() => finish(fallback), 15000);
 
       fetchStaticIndex().then(items => {
-        if (items.length) fallback.push(...items);
+        if (items.length) fallback = items;
       });
     });
   };
