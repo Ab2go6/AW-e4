@@ -9,7 +9,7 @@
     if (document.querySelector('link[data-arraouaa-site-search-style]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'site-search.css?v=20260911b';
+    link.href = 'site-search.css?v=20260911c';
     link.dataset.arraouaaSiteSearchStyle = 'true';
     document.head.appendChild(link);
   };
@@ -72,7 +72,6 @@
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
       timeout = window.setTimeout(() => finish([]), 15000);
-
       window.addEventListener('message', onMessage);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
       document.body.appendChild(frame);
@@ -115,14 +114,9 @@
         results.hidden = true;
         return;
       }
-      if (!items.length) {
-        results.innerHTML = '<div class="site-search-empty">Recherche en cours…</div>';
-        results.hidden = false;
-        return;
-      }
       const matches = items.filter(item => item.key.includes(normalize(clean))).slice(0, 8);
       results.innerHTML = matches.length
-        ? matches.map(item => `<a class="site-search-result" href="produits.html#search=${encodeURIComponent(item.name)}"><span>${item.name}</span><small>${item.category}</small></a>`).join('')
+        ? matches.map(item => `<a class="site-search-result" href="produits.html#search=${encodeURIComponent(item.name)}"><span>${item.name}</span></a>`).join('')
         : '<div class="site-search-empty">Aucun produit correspondant.</div>';
       results.hidden = false;
     };
