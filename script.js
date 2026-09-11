@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260911c';
+  const VERSION = '20260911e';
 
   const load = src => new Promise((resolve, reject) => {
     const script = document.createElement('script');
@@ -43,6 +43,7 @@
     .then(() => load('site-content-language.js'))
     .then(() => isHomepage() ? null : load('catalog-search-index.js'))
     .then(() => isHomepage() ? null : load('site-search.js'))
+    .then(() => load('araouaa-motion.js'))
     .then(() => {
       setupPrimaryNav();
       window.requestAnimationFrame(restoreProductHashPosition);
