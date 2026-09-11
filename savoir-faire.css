@@ -49,7 +49,7 @@ a{color:inherit;text-decoration:none}
 .sf-button span{font-size:15px;line-height:0}
 .sf-button:hover{background:var(--sf-green);color:#fff;border-color:var(--sf-green)}
 .sf-origin-copy .sf-button{margin-top:2px}
-.sf-closing{text-align:center;padding:115px 5%;background:#8b1018;color:#fff}
+.sf-closing{text-align:center;padding:115px 5%;background:linear-gradient(135deg,#263b32 0%,#30483d 58%,#3e594b 100%);color:#fff}
 .sf-closing .sf-eyebrow{color:var(--sf-gold-light)}
 .sf-closing .sf-eyebrow::before{background:var(--sf-gold-light)}
 .sf-closing h2{margin-bottom:35px;color:#fff}
