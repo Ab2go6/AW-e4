@@ -31,9 +31,8 @@
   };
 
   const restoreProductHashPosition = () => {
-    if (!document.body.classList.contains('products-page') || !window.location.hash) return;
-    const target = document.querySelector(window.location.hash);
-    target?.scrollIntoView({ block: 'start' });
+    if (!document.body.classList.contains('products-page') || !window.location.hash || window.location.hash.startsWith('#search=')) return;
+    try { document.querySelector(window.location.hash)?.scrollIntoView({ block: 'start' }); } catch {}
   };
 
   load('script-core.js')
