@@ -30,5 +30,17 @@
     toggle.addEventListener('click', () => { const open=toggle.getAttribute('aria-expanded')==='true'; toggle.setAttribute('aria-expanded',String(!open)); nav.classList.toggle('world-nav-open',!open); });
     nav.addEventListener('click', event => { if (!event.target.closest('a')) return; toggle.setAttribute('aria-expanded','false'); nav.classList.remove('world-nav-open'); });
   }
-  if (!document.querySelector('script[data-arraouaa-language]')) { const script=document.createElement('script'); script.src='language.js'; script.dataset.arraouaaLanguage='true'; document.body.appendChild(script); }
+  if (!document.querySelector('script[data-arraouaa-language]')) {
+    const script=document.createElement('script');
+    script.src='language.js';
+    script.dataset.arraouaaLanguage='true';
+    script.onload=()=>{
+      if(document.querySelector('script[data-arraouaa-world-language]')) return;
+      const worldScript=document.createElement('script');
+      worldScript.src='world-language.js';
+      worldScript.dataset.arraouaaWorldLanguage='true';
+      document.body.appendChild(worldScript);
+    };
+    document.body.appendChild(script);
+  }
 })();
