@@ -92,6 +92,15 @@
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
       window.addEventListener('message', onMessage);
+      frame.addEventListener('load', () => {
+        if (settled) return;
+        if (frame.contentDocument?.querySelector('script[data-arraouaa-search-index-bootstrap]')) return;
+        const script = frame.contentDocument?.createElement('script');
+        if (!script) return;
+        script.src = new URL('catalog-search-index.js?v=20260911c', frame.src).href;
+        script.dataset.arraouaaSearchIndexBootstrap = 'true';
+        frame.contentDocument.body.appendChild(script);
+      }, { once: true });
       timeout = window.setTimeout(() => {
         if (settled) return;
         settled = true;
