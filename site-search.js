@@ -60,31 +60,28 @@
     return new Promise(resolve => {
       let settled = false;
       let timeout;
-      let poll;
       let frame;
       const fallback = [];
 
-      const finish = items => {
-        if (settled) return;
-        const normalizedItems = Array.isArray(items) ? items.map(item => ({ name: item.name || '' })).filter(item => item.name) : [];
-        if (!normalizedItems.length) return;
-        settled = true;
+      const cleanup = () => {
         window.clearTimeout(timeout);
-        window.clearInterval(poll);
         window.removeEventListener('message', onMessage);
         frame?.remove();
+      };
+
+      const finish = items => {
+        if (settled) return;
+        const normalizedItems = Array.isArray(items)
+          ? items.map(item => ({ name: String(item?.name || '').trim() })).filter(item => item.name)
+          : [];
+        if (!normalizedItems.length) return;
+        settled = true;
+        cleanup();
         resolve(normalizedItems);
       };
 
-      const readFrame = () => {
-        try {
-          const items = collectIndex(frame.contentDocument || frame.contentWindow.document);
-          if (items.length) finish(items);
-        } catch {}
-      };
-
       const onMessage = event => {
-        if (event.source !== frame.contentWindow) return;
+        if (!frame || event.source !== frame.contentWindow) return;
         if (event.origin !== window.location.origin) return;
         if (event.data?.type !== 'ARAOUAA_SEARCH_INDEX') return;
         finish(event.data.items);
@@ -94,23 +91,18 @@
       frame.dataset.arraouaaSearchIndex = 'true';
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
-      frame.addEventListener('load', readFrame);
       window.addEventListener('message', onMessage);
-      poll = window.setInterval(readFrame, 150);
       timeout = window.setTimeout(() => {
         if (settled) return;
         settled = true;
-        window.clearInterval(poll);
-        window.removeEventListener('message', onMessage);
-        frame?.remove();
+        cleanup();
         resolve(fallback);
       }, 20000);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
       document.body.appendChild(frame);
 
       fetchStaticIndex().then(items => {
-        if (!items.length) return;
-        fallback.push(...items);
+        if (items.length) fallback.push(...items);
       });
     });
   };
@@ -171,9 +163,7 @@
     };
 
     const filterCatalogue = query => {
-      if (typeof window.__ARAOUAA_PRODUCT_SEARCH__ === 'function') {
-        window.__ARAOUAA_PRODUCT_SEARCH__(query);
-      }
+      if (typeof window.__ARAOUAA_PRODUCT_SEARCH__ === 'function') window.__ARAOUAA_PRODUCT_SEARCH__(query);
     };
 
     let index = [];
