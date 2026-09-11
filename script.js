@@ -39,6 +39,7 @@
     .then(() => load('language.js'))
     .then(() => load('catalog-language.js'))
     .then(() => load('site-content-language.js'))
+    .then(() => load('catalog-search-index.js'))
     .then(() => load('site-search.js'))
     .then(() => {
       setupPrimaryNav();
