@@ -4,7 +4,6 @@
   window.__ARAOUAA_SITE_SEARCH__ = true;
 
   const normalize = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  const slug = value => normalize(value).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   const loadStyle = () => {
     if (document.querySelector('link[data-arraouaa-site-search-style]')) return;
@@ -35,7 +34,7 @@
     const name = item.dataset.productName || item.querySelector('h3')?.textContent?.trim() || '';
     const category = item.dataset.category || item.querySelector('.product-item-tag')?.textContent?.trim() || '';
     const text = item.textContent || '';
-    return { name, category, text, key: normalize(`${name} ${category} ${text}`) };
+    return { name, category, key: normalize(`${name} ${category} ${text}`) };
   }).filter(item => item.name);
 
   const createIndex = () => new Promise(resolve => {
@@ -103,9 +102,20 @@
     indexPromise.then(items => { index = items; if (input.value.trim()) render(index, input.value); });
 
     button.setAttribute('aria-expanded', 'false');
-    button.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
-    close.addEventListener('click', () => { input.value = ''; render(index, ''); setOpen(false); });
-    input.addEventListener('input', () => render(index, input.value));
+    button.addEventListener('click', event => {
+      event.stopImmediatePropagation();
+      setOpen(!panel.classList.contains('open'));
+    }, true);
+    close.addEventListener('click', event => {
+      event.stopImmediatePropagation();
+      input.value = '';
+      render(index, '');
+      setOpen(false);
+    }, true);
+    input.addEventListener('input', event => {
+      event.stopImmediatePropagation();
+      render(index, input.value);
+    }, true);
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && panel.classList.contains('open')) setOpen(false);
     });
