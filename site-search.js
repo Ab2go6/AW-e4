@@ -92,12 +92,16 @@
     const close = panel.querySelector('.search-close');
     if (!inner || !input || !close) return;
 
-    let results = panel.querySelector('.site-search-results');
-    if (!results) {
-      results = document.createElement('div');
-      results.className = 'site-search-results';
-      results.hidden = true;
-      inner.insertAdjacentElement('afterend', results);
+    const isProductsPage = document.body.classList.contains('products-page');
+    let results = null;
+    if (!isProductsPage) {
+      results = panel.querySelector('.site-search-results');
+      if (!results) {
+        results = document.createElement('div');
+        results.className = 'site-search-results';
+        results.hidden = true;
+        inner.insertAdjacentElement('afterend', results);
+      }
     }
 
     const setOpen = open => {
@@ -108,6 +112,7 @@
     };
 
     const render = (items, query) => {
+      if (!results) return;
       const clean = query.trim();
       if (!clean) {
         results.innerHTML = '';
@@ -121,10 +126,19 @@
       results.hidden = false;
     };
 
+    const filterCatalogue = query => {
+      if (typeof window.__ARAOUAA_PRODUCT_SEARCH__ === 'function') {
+        window.__ARAOUAA_PRODUCT_SEARCH__(query);
+      }
+    };
+
     let index = [];
     createIndex().then(items => {
       index = items;
-      if (input.value.trim()) render(index, input.value);
+      if (input.value.trim()) {
+        if (isProductsPage) filterCatalogue(input.value);
+        else render(index, input.value);
+      }
     });
 
     button.setAttribute('aria-expanded', 'false');
@@ -135,12 +149,14 @@
     close.addEventListener('click', event => {
       event.stopImmediatePropagation();
       input.value = '';
-      render(index, '');
+      if (isProductsPage) filterCatalogue('');
+      else render(index, '');
       setOpen(false);
     }, true);
     input.addEventListener('input', event => {
       event.stopImmediatePropagation();
-      render(index, input.value);
+      if (isProductsPage) filterCatalogue(input.value);
+      else render(index, input.value);
     }, true);
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && panel.classList.contains('open')) setOpen(false);
