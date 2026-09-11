@@ -62,6 +62,7 @@
       let timeout;
       let poll;
       let frame;
+      const fallback = [];
 
       const finish = items => {
         if (settled) return;
@@ -97,19 +98,19 @@
       window.addEventListener('message', onMessage);
       poll = window.setInterval(readFrame, 150);
       timeout = window.setTimeout(() => {
+        if (settled) return;
+        settled = true;
         window.clearInterval(poll);
         window.removeEventListener('message', onMessage);
         frame?.remove();
-        if (!settled) {
-          settled = true;
-          resolve([]);
-        }
+        resolve(fallback);
       }, 20000);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
       document.body.appendChild(frame);
 
       fetchStaticIndex().then(items => {
-        if (items.length) finish(items);
+        if (!items.length) return;
+        fallback.push(...items);
       });
     });
   };
