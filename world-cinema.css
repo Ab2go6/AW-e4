@@ -33,6 +33,22 @@
 .world-page--collections .world-stage-art::before{background:radial-gradient(circle,rgba(224,192,128,.21),rgba(76,91,67,.09) 46%,transparent 73%)}
 .world-page--journal .world-stage-art::before{background:radial-gradient(circle,rgba(224,198,151,.18),rgba(74,76,64,.09) 46%,transparent 73%)}
 
+/* Closing-panel typography: keep the green panel, restore the intended layered ink/shadow treatment. */
+.world-page main .world-cta .world-title,
+.world-page main .sf-closing h2,
+.world-page main .atelier-manifesto h2{color:#f7f0e4;text-shadow:0 2px 0 rgba(255,255,255,.05),0 14px 30px rgba(0,0,0,.24),0 0 22px rgba(223,189,122,.08)}
+.world-page main .world-cta .world-title em,
+.world-page main .sf-closing h2 em,
+.world-page main .atelier-manifesto h2 em{color:#dfbd7a;text-shadow:0 1px 0 rgba(255,244,210,.22),0 8px 20px rgba(0,0,0,.24),0 0 18px rgba(223,189,122,.2)}
+.world-page main .world-cta .world-kicker,
+.world-page main .sf-closing .sf-eyebrow,
+.world-page main .atelier-manifesto .world-kicker{color:#dfbd7a;text-shadow:0 0 12px rgba(223,189,122,.2)}
+.world-page main .world-cta p:not(.world-kicker),
+.world-page main .sf-closing p:not(.sf-eyebrow),
+.world-page main .atelier-manifesto p{color:#d8ddd7;text-shadow:0 1px 0 rgba(255,255,255,.035),0 5px 16px rgba(0,0,0,.18)}
+.world-page main .world-cta .world-button,
+.world-page main .sf-closing .sf-button{color:#f7f0e4;border-color:#dfbd7a;box-shadow:0 8px 24px rgba(0,0,0,.16),0 0 16px rgba(223,189,122,.07)}
+
 @keyframes world-cinema-media{from{transform:scale(1.035) translate3d(0,0,0)}to{transform:scale(1.075) translate3d(-.6%,.4%,0)}}
 @keyframes world-cinema-copy{from{opacity:0;transform:translate3d(-24px,18px,0)}to{opacity:1;transform:none}}
 @keyframes world-cinema-eyebrow{from{opacity:0;letter-spacing:5px;transform:translateX(-10px)}to{opacity:1;letter-spacing:2.5px;transform:none}}
