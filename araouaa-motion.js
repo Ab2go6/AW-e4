@@ -3,7 +3,7 @@
 
   const STYLE_ID = 'araouaa-visual-enhancements';
   const LIGHT_STYLE_ID = 'araouaa-light-engine';
-  const VERSION = '20260911f';
+  const VERSION = '20260911g';
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
