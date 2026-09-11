@@ -24,8 +24,9 @@
 .world-page--journal .world-stage-art::before{background:radial-gradient(circle,rgba(224,198,151,.18),rgba(74,76,64,.09) 46%,transparent 73%)}
 .world-page--origin .world-hero,.world-page--collections .world-hero,.world-page--atelier .world-hero,.world-page--journal .world-hero{background:#30483d}
 
-/* Four world pages now use the same deep-left black shade over the green base as Savoir-faire. */
-.world-page--origin .world-hero-media::after,.world-page--collections .world-hero-media::after,.world-page--atelier .world-hero-media::after,.world-page--journal .world-hero-media::after{background:linear-gradient(90deg,rgba(18,16,14,.96) 0%,rgba(18,16,14,.76) 40%,rgba(18,16,14,.28) 72%,rgba(18,16,14,.08) 100%)}
+/* Match the Savoir-faire hero: the same green base, with the same deep black-left cinematic treatment. */
+.world-page--origin .world-hero-media::before,.world-page--collections .world-hero-media::before,.world-page--atelier .world-hero-media::before,.world-page--journal .world-hero-media::before{background:linear-gradient(90deg,rgba(18,16,14,.96) 0%,rgba(18,16,14,.76) 40%,rgba(18,16,14,.28) 72%,rgba(18,16,14,.08) 100%)}
+.world-page--origin .world-hero-media::after,.world-page--collections .world-hero-media::after,.world-page--atelier .world-hero-media::after,.world-page--journal .world-hero-media::after{background:linear-gradient(90deg,rgba(48,72,61,.96) 0%,rgba(48,72,61,.78) 34%,rgba(48,72,61,.38) 65%,rgba(48,72,61,.12) 100%)}
 
 /* Savoir-faire uses the exact shared cinematic hero treatment; only its image/content remain page-specific. */
 .world-page--savoir-faire .sf-hero{background:#30483d;isolation:isolate}
