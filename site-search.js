@@ -22,6 +22,11 @@
     document.querySelectorAll('.products-search-panel').forEach(panel => panel.remove());
   };
 
+  const cleanupLegacyHomeSearch = header => {
+    if (document.body.classList.contains('products-page') || !header) return;
+    header.querySelectorAll('.search-panel:not(.site-search-panel)').forEach(panel => panel.remove());
+  };
+
   const createPanel = header => {
     let panel = header?.querySelector('.site-search-panel');
     if (panel) return panel;
@@ -53,15 +58,17 @@
 
       const finish = items => {
         if (settled) return;
-        settled = true;
-        window.clearTimeout(timeout);
-        window.clearInterval(poll);
-        window.removeEventListener('message', onMessage);
         const normalizedItems = Array.isArray(items) ? items.map(item => ({
           name: item.name || '',
           category: item.category || '',
           key: normalize(`${item.name || ''} ${item.category || ''} ${item.text || ''}`)
         })).filter(item => item.name) : [];
+        if (!normalizedItems.length) return;
+        settled = true;
+        window.clearTimeout(timeout);
+        window.clearInterval(poll);
+        window.removeEventListener('message', onMessage);
+        frame?.remove();
         resolve(normalizedItems);
       };
 
@@ -83,10 +90,18 @@
       frame.dataset.arraouaaSearchIndex = 'true';
       frame.setAttribute('aria-hidden', 'true');
       frame.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;border:0;';
-      frame.addEventListener('load', readFrame, { once: false });
-      timeout = window.setTimeout(() => finish([]), 15000);
-      poll = window.setInterval(readFrame, 150);
+      frame.addEventListener('load', readFrame);
       window.addEventListener('message', onMessage);
+      poll = window.setInterval(readFrame, 150);
+      timeout = window.setTimeout(() => {
+        window.clearInterval(poll);
+        window.removeEventListener('message', onMessage);
+        frame?.remove();
+        if (!settled) {
+          settled = true;
+          resolve([]);
+        }
+      }, 20000);
       frame.src = new URL('produits.html?search-index=1', document.baseURI).href;
       document.body.appendChild(frame);
     });
@@ -98,6 +113,7 @@
 
     const header = getHeader();
     const button = getButton(header);
+    cleanupLegacyHomeSearch(header);
     const panel = createPanel(header);
     if (!header || !button || !panel) return;
 
@@ -133,6 +149,11 @@
         results.hidden = true;
         return;
       }
+      if (!items.length) {
+        results.innerHTML = '<div class="site-search-empty">Recherche en cours…</div>';
+        results.hidden = false;
+        return;
+      }
       const matches = items.filter(item => item.key.includes(normalize(clean))).slice(0, 8);
       results.innerHTML = matches.length
         ? matches.map(item => `<a class="site-search-result" href="produits.html#search=${encodeURIComponent(item.name)}"><span>${item.name}</span></a>`).join('')
@@ -147,12 +168,13 @@
     };
 
     let index = [];
-    createIndex().then(items => {
+    const indexReady = createIndex().then(items => {
       index = items;
       if (input.value.trim()) {
         if (isProductsPage) filterCatalogue(input.value);
         else render(index, input.value);
       }
+      return index;
     });
 
     button.setAttribute('aria-expanded', 'false');
@@ -169,8 +191,12 @@
     }, true);
     input.addEventListener('input', event => {
       event.stopImmediatePropagation();
-      if (isProductsPage) filterCatalogue(input.value);
-      else render(index, input.value);
+      if (isProductsPage) {
+        filterCatalogue(input.value);
+        return;
+      }
+      render(index, input.value);
+      if (input.value.trim() && !index.length) indexReady.then(() => render(index, input.value));
     }, true);
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && panel.classList.contains('open')) setOpen(false);
