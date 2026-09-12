@@ -1,0 +1,19 @@
+/* Final Journal quote-band override. Loaded after the Light Engine so this page-specific color wins the cascade. */
+.world-page--journal main .world-quote{
+  background:#A65A3A !important;
+  background-image:none !important;
+  color:#fffaf0 !important;
+  opacity:1 !important;
+  filter:none !important;
+  transform:none !important;
+}
+.world-page--journal main .world-quote p{
+  color:#fffaf0 !important;
+  opacity:1 !important;
+  text-shadow:0 12px 28px rgba(35,24,17,.18) !important;
+}
+.world-page--journal main .world-quote span{
+  color:#dfbd7a !important;
+  opacity:1 !important;
+  text-shadow:0 0 12px rgba(223,189,122,.18) !important;
+}
