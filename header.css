@@ -65,13 +65,16 @@ header.products-header .menu-toggle { order:5; display:none; }
 .site-header .brand-logo:hover::after,.products-header .products-logo:hover::after{transform:translateX(145%)}
 .site-header .brand-logo img,.products-header .products-logo img{position:relative;z-index:1}
 
-/* The centered homepage quality logo keeps its original geometry and rolls in place on hover. */
+/* Homepage quality medallion: the face disappears on the back half so no mirrored logo is ever shown. */
 .quality-mark{position:relative;overflow:visible;perspective:900px}
-.quality-mark img{position:relative;z-index:2;transform-origin:center center;transform-style:preserve-3d;backface-visibility:visible}
+.quality-mark img{position:relative;z-index:2;transform-origin:center center;transform-style:preserve-3d;backface-visibility:hidden}
 .quality-mark:hover img{animation:qualityLogoRoll 1.15s cubic-bezier(.2,.75,.2,1) both}
 @keyframes qualityLogoRoll{
-  0%{transform:rotateY(0deg) rotateZ(0deg) scale(1)}
-  45%{transform:rotateY(185deg) rotateZ(-2deg) scale(1.02)}
-  75%{transform:rotateY(305deg) rotateZ(1deg) scale(1.01)}
-  100%{transform:rotateY(360deg) rotateZ(0deg) scale(1)}
+  0%{transform:rotateY(0deg) rotateZ(0deg) scale(1);opacity:1}
+  40%{transform:rotateY(144deg) rotateZ(-1deg) scale(1.02);opacity:1}
+  49%{transform:rotateY(176deg) rotateZ(-1deg) scale(1.01);opacity:0}
+  51%{transform:rotateY(184deg) rotateZ(1deg) scale(1.01);opacity:0}
+  60%{transform:rotateY(216deg) rotateZ(1deg) scale(1.02);opacity:1}
+  75%{transform:rotateY(270deg) rotateZ(0deg) scale(1.01);opacity:1}
+  100%{transform:rotateY(360deg) rotateZ(0deg) scale(1);opacity:1}
 }
