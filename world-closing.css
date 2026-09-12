@@ -1,0 +1,9 @@
+/* Shared closing-panel atmosphere: warm mineral cocoa separates the callout from the green footer. */
+.world-page main .world-cta,
+.world-page main .sf-closing,
+.world-page main .atelier-manifesto{
+  background-color:#2b211b!important;
+  background-image:
+    radial-gradient(circle at 50% 0,rgba(223,189,122,.16),transparent 30%),
+    linear-gradient(135deg,#241c18 0%,#382a22 58%,#4a372b 100%)!important;
+}
