@@ -65,27 +65,13 @@ header.products-header .menu-toggle { order:5; display:none; }
 .site-header .brand-logo:hover::after,.products-header .products-logo:hover::after{transform:translateX(145%)}
 .site-header .brand-logo img,.products-header .products-logo img{position:relative;z-index:1}
 
-/* Homepage quality medallion: outer burgundy disc stays fixed; only its inner cream face rolls as a 3D object. */
+/* Homepage quality logo: use the original face/background only; no added disc or replacement artwork. */
 .quality-mark{position:relative;overflow:visible;perspective:1000px}
-.quality-mark img{position:relative;z-index:2;display:block;width:190px;height:190px;object-fit:contain;transform-origin:center center;transform-style:preserve-3d;backface-visibility:hidden}
-.quality-mark::after{content:"";position:absolute;width:190px;height:190px;left:50%;top:50%;z-index:1;pointer-events:none;border-radius:50%;border:1px solid rgba(226,189,105,.45);background:#f7f1e7;transform:translate(-50%,-50%) rotateY(0deg);transform-origin:center center;transform-style:preserve-3d;backface-visibility:visible}
-.quality-mark:hover img{animation:qualityFaceLogoRoll 1.15s cubic-bezier(.2,.75,.2,1) both}
-.quality-mark:hover::after{animation:qualityFaceRoll 1.15s cubic-bezier(.2,.75,.2,1) both}
-@keyframes qualityFaceLogoRoll{
-  0%{transform:rotateY(0deg) scale(1);opacity:1}
-  43%{transform:rotateY(155deg) scale(1.02);opacity:1}
-  49%{transform:rotateY(176deg) scale(1);opacity:0}
-  51%{transform:rotateY(184deg) scale(1);opacity:0}
-  57%{transform:rotateY(205deg) scale(1.02);opacity:1}
-  76%{transform:rotateY(286deg) scale(1.01);opacity:1}
-  100%{transform:rotateY(360deg) scale(1);opacity:1}
-}
-@keyframes qualityFaceRoll{
-  0%{transform:translate(-50%,-50%) rotateY(0deg);background:#f7f1e7}
-  46%{transform:translate(-50%,-50%) rotateY(166deg);background:#f7f1e7}
-  49%{transform:translate(-50%,-50%) rotateY(176deg);background:#263b32}
-  51%{transform:translate(-50%,-50%) rotateY(184deg);background:#263b32}
-  54%{transform:translate(-50%,-50%) rotateY(194deg);background:#263b32}
-  60%{transform:translate(-50%,-50%) rotateY(216deg);background:#f7f1e7}
-  100%{transform:translate(-50%,-50%) rotateY(360deg);background:#f7f1e7}
+.quality-mark img{position:relative;z-index:2;transform-origin:center center;transform-style:preserve-3d;backface-visibility:hidden}
+.quality-mark:hover img{animation:qualityLogoRoll 1.15s cubic-bezier(.2,.75,.2,1) both}
+@keyframes qualityLogoRoll{
+  0%{transform:rotateY(0deg) rotateZ(0deg) scale(1)}
+  45%{transform:rotateY(185deg) rotateZ(-2deg) scale(1.02)}
+  75%{transform:rotateY(305deg) rotateZ(1deg) scale(1.01)}
+  100%{transform:rotateY(360deg) rotateZ(0deg) scale(1)}
 }
