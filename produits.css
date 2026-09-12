@@ -94,7 +94,7 @@
 .products-page .product-item-content .product-link,.products-page .product-item-content a{color:#30483d}
 
 /* Shared category rail direction. */
-.products-page .product-categories{background:#30483d}
+.products-page .product-categories{background:linear-gradient(100deg,#121b16,#263b32 50%,#1c2a23 100%)}
 
 /* Reuse the homepage's existing moving light sweep on catalogue cards. */
 .products-page .product-item{position:relative;overflow:hidden}
