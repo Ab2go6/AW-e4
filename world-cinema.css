@@ -52,61 +52,28 @@
 /* The closing callout is one visual system across every World page. */
 .world-page main .world-cta,
 .world-page main .sf-closing,
-.world-page main .atelier-manifesto{
-  position:relative;
-  isolation:isolate;
-  opacity:1!important;
-  filter:none!important;
-  transform:none!important;
-  animation:none!important;
-  background-color:#263b32!important;
-  background-image:
-    radial-gradient(circle at 50% 0,rgba(223,189,122,.14),transparent 30%),
-    linear-gradient(135deg,#263b32 0%,#30483d 58%,#3e594b 100%)!important;
-  color:#f7f0e4!important;
-}
+.world-page main .atelier-manifesto{position:relative;isolation:isolate;opacity:1!important;filter:none!important;transform:none!important;animation:none!important;background-color:#263b32!important;background-image:radial-gradient(circle at 50% 0,rgba(223,189,122,.14),transparent 30%),linear-gradient(135deg,#263b32 0%,#30483d 58%,#3e594b 100%)!important;color:#f7f0e4!important}
 .world-page main .world-cta .world-title,
 .world-page main .sf-closing h2,
-.world-page main .atelier-manifesto h2{
-  color:#f7f0e4!important;
-  opacity:1!important;
-  filter:none!important;
-  transform:none!important;
-  animation:none!important;
-  text-shadow:0 2px 0 rgba(255,255,255,.05),0 14px 30px rgba(0,0,0,.24),0 0 22px rgba(223,189,122,.08)!important;
-}
+.world-page main .atelier-manifesto h2{color:#f7f0e4!important;opacity:1!important;filter:none!important;transform:none!important;animation:none!important;text-shadow:0 2px 0 rgba(255,255,255,.05),0 14px 30px rgba(0,0,0,.24),0 0 22px rgba(223,189,122,.08)!important}
 .world-page main .world-cta .world-title em,
 .world-page main .sf-closing h2 em,
-.world-page main .atelier-manifesto h2 em{
-  color:#dfbd7a!important;
-  opacity:1!important;
-  filter:none!important;
-}
+.world-page main .atelier-manifesto h2 em{color:#dfbd7a!important;opacity:1!important;filter:none!important}
 .world-page main .world-cta .world-kicker,
 .world-page main .sf-closing .sf-eyebrow,
-.world-page main .atelier-manifesto .world-kicker{
-  color:#dfbd7a!important;
-  opacity:1!important;
-  filter:none!important;
-  animation:none!important;
-}
+.world-page main .atelier-manifesto .world-kicker{color:#dfbd7a!important;opacity:1!important;filter:none!important;animation:none!important}
 .world-page main .world-cta p:not(.world-kicker),
 .world-page main .sf-closing p:not(.sf-eyebrow),
-.world-page main .atelier-manifesto p{
-  color:#d8ddd7!important;
-  opacity:1!important;
-  filter:none!important;
-  animation:none!important;
-}
+.world-page main .atelier-manifesto p{color:#d8ddd7!important;opacity:1!important;filter:none!important;animation:none!important}
 .world-page main .world-cta .world-button,
-.world-page main .sf-closing .sf-button{
-  color:#f7f0e4!important;
-  border-color:#dfbd7a!important;
-  opacity:1!important;
-  filter:none!important;
-  animation:none!important;
-}
+.world-page main .sf-closing .sf-button{color:#f7f0e4!important;border-color:#dfbd7a!important;opacity:1!important;filter:none!important;animation:none!important}
 .world-page main .sf-closing .sf-eyebrow::before{background:#dfbd7a!important;box-shadow:0 0 10px rgba(223,189,122,.28)}
+
+/* Savoir-faire hero: match the same green base, media opacity and color wash used by the other World heroes. */
+.world-page.world-page--savoir-faire main .sf-hero{background:#30483d!important}
+.world-page.world-page--savoir-faire main .sf-hero-image{opacity:.58!important;filter:saturate(.78) contrast(1.05)!important}
+.world-page.world-page--savoir-faire main .sf-hero-image::before{background:linear-gradient(90deg,rgba(18,16,14,.96) 0%,rgba(18,16,14,.76) 40%,rgba(18,16,14,.28) 72%,rgba(18,16,14,.08) 100%)!important}
+.world-page.world-page--savoir-faire main .sf-hero-image::after{background:linear-gradient(90deg,rgba(48,72,61,.96) 0%,rgba(48,72,61,.78) 34%,rgba(48,72,61,.38) 65%,rgba(48,72,61,.12) 100%)!important}
 
 @keyframes world-cinema-media{from{transform:scale(1.035) translate3d(0,0,0)}to{transform:scale(1.075) translate3d(-.6%,.4%,0)}}
 @keyframes world-cinema-copy{from{opacity:0;transform:translate3d(-24px,18px,0)}to{opacity:1;transform:none}}
