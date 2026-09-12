@@ -1,7 +1,9 @@
-/* Final Atelier manifesto contrast — keeps the closing statement crisp over the cinematic green. */
+/* Final Atelier manifesto contrast — keeps the original green/black closing mood above the burgundy CTA. */
 .world-page--atelier .atelier-manifesto{
   color:#f7f0e4!important;
-  background:linear-gradient(135deg,#263b32 0%,#30483d 58%,#3e594b 100%)!important;
+  background:
+    radial-gradient(circle at 72% 8%,rgba(208,170,96,.08),transparent 24%),
+    linear-gradient(100deg,#121b16,#263b32 50%,#1c2a23 100%)!important;
   opacity:1!important;
 }
 .world-page--atelier .atelier-manifesto::before{
