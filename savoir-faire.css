@@ -17,7 +17,7 @@ a{color:inherit;text-decoration:none}
 .sf-products{text-align:right}
 .sf-back:hover,.sf-products:hover{color:var(--sf-green)}
 .sf-hero{min-height:720px;position:relative;display:grid;align-items:end;overflow:hidden;background:var(--world-cocoa);isolation:isolate}
-.sf-hero-image{position:absolute;inset:0;background:linear-gradient(rgba(48,72,61,.24),rgba(48,72,61,.24)),url('assets/story-morocco.jpg') center/cover no-repeat}
+.sf-hero-image{position:absolute;inset:0;background:url('assets/story-morocco.jpg') center/cover no-repeat}
 .sf-hero-content{position:relative;z-index:3;width:min(1280px,88%);margin:0 auto;padding:120px 0 110px;color:#f7f0e4}
 .sf-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:2.5px;color:var(--sf-gold);font-weight:600}
 .sf-eyebrow::before{content:"";width:28px;height:1px;background:var(--sf-gold)}
