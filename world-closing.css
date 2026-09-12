@@ -8,3 +8,116 @@
 .world-page main .world-cta>*,
 .world-page main .sf-closing>*,
 .world-page main .atelier-manifesto>*{position:relative;z-index:1}
+
+/* Typography sync — Home + Produits only. The five World pages remain the reference system. */
+body:not(.world-page){
+  --ara-type-kicker:10px;
+  --ara-type-kicker-spacing:2.5px;
+  --ara-type-title:clamp(45px,5.5vw,78px);
+  --ara-type-title-line:.95;
+}
+
+body:not(.world-page) .eyebrow,
+body:not(.world-page) .story-copy>.eyebrow,
+body:not(.world-page) .partner-copy>.eyebrow,
+.products-page .products-hero-eyebrow{
+  font-family:Poppins,Arial,sans-serif;
+  font-size:var(--ara-type-kicker);
+  line-height:1;
+  letter-spacing:var(--ara-type-kicker-spacing);
+  font-weight:600;
+  text-transform:uppercase;
+}
+
+body:not(.world-page) .hero h1,
+.products-page .products-hero h1{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(64px,8vw,118px);
+  line-height:.83;
+  letter-spacing:-2px;
+  font-weight:600;
+}
+body:not(.world-page) .hero-lead,
+.products-page .products-hero p{
+  font-size:15px;
+  line-height:1.9;
+}
+body:not(.world-page) .hero-signature{font-size:9px;line-height:1.5;letter-spacing:1.4px}
+
+body:not(.world-page) .section-heading h2,
+body:not(.world-page) .story-copy h2,
+body:not(.world-page) .partner-copy h2,
+body:not(.world-page) .contact .section-heading h2,
+.products-page .products-intro h2,
+.products-page .product-story-copy h2,
+.products-page .origin-inner h2,
+.products-page .products-cta h2{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:var(--ara-type-title);
+  line-height:var(--ara-type-title-line);
+  font-weight:600;
+  letter-spacing:-1px;
+}
+
+body:not(.world-page) .section-heading>p:last-child,
+body:not(.world-page) .story-copy>p:not(.eyebrow),
+body:not(.world-page) .partner-copy>p:not(.eyebrow),
+body:not(.world-page) .contact .section-heading>p:last-child,
+.products-page .products-intro p,
+.products-page .origin-inner>p,
+.products-page .product-story-copy>p{
+  font-size:13px;
+  line-height:1.9;
+}
+body:not(.world-page) .values .section-heading-light h2{font-size:var(--ara-type-title);line-height:var(--ara-type-title-line);font-weight:600;letter-spacing:-1px}
+
+body:not(.world-page) .product-card .product-kicker,
+.products-page .product-item-tag{
+  font-size:8px;
+  line-height:1.2;
+  letter-spacing:2px;
+  font-weight:700;
+}
+body:not(.world-page) .product-content h3,
+.products-page .product-item h3{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:29px;
+  line-height:.95;
+  font-weight:600;
+  letter-spacing:-.3px;
+}
+body:not(.world-page) .product-content>p:not(.product-kicker),
+.products-page .product-item p{
+  font-size:10px;
+  line-height:1.7;
+}
+
+body:not(.world-page) .value-card h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:28px;line-height:1;font-weight:600;letter-spacing:-.2px}
+body:not(.world-page) .value-card p{font-size:10px;line-height:1.7}
+body:not(.world-page) .story-points span{font-size:11px;line-height:1.3}
+body:not(.world-page) .story-points small{font-size:9px;line-height:1.5}
+
+.products-page .category-heading h2{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(40px,4vw,56px);
+  line-height:.9;
+  font-weight:600;
+  letter-spacing:-.8px;
+}
+.products-page .category-heading p{font-size:11px;line-height:1.7}
+.products-page .product-story-copy .eyebrow{font-size:10px;letter-spacing:2.5px;font-weight:600}
+.products-page .process-step strong{font-size:12px;line-height:1.2}
+.products-page .process-step span{font-size:9px;line-height:1.7}
+.products-page .formats-label{font-size:7px;line-height:1.2;letter-spacing:1.2px}
+.products-page .format-button{font-size:8px}
+.products-page .products-cta p{font-size:12px;line-height:1.8}
+.products-page .cta-button{font-size:10px;font-weight:600;letter-spacing:.7px;padding:13px 22px}
+
+body:not(.world-page) .button{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.7px;
+  padding:13px 22px;
+}
+body:not(.world-page) .filter-chip,
+body:not(.world-page) .filter-discover{font-size:9px;letter-spacing:1.4px}
