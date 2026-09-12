@@ -1,0 +1,6 @@
+/* Journal-only quote band: switch only this section to the site's night/dark green atmosphere. */
+.world-page--journal main .world-quote{
+  background:
+    radial-gradient(circle at 72% 0,rgba(208,170,96,.08),transparent 24%),
+    linear-gradient(100deg,#121b16,#263b32 50%,#1c2a23 100%);
+}
