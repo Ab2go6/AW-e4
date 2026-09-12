@@ -1,10 +1,10 @@
-/* Shared closing-panel atmosphere: dusty burgundy separates the callout from the green footer. */
+/* Shared closing-panel atmosphere: exact Products CTA burgundy, separating the callout from the green footer. */
 .world-page main .world-cta,
 .world-page main .sf-closing,
-.world-page main .atelier-manifesto{position:relative;isolation:isolate}
+.world-page main .atelier-manifesto{position:relative;isolation:isolate;background:#8b1018!important;background-image:none!important}
 .world-page main .world-cta::after,
 .world-page main .sf-closing::after,
-.world-page main .atelier-manifesto::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 50% 0,rgba(223,189,122,.16),transparent 30%),linear-gradient(135deg,#382127 0%,#452b2f 58%,#5a3438 100%)}
+.world-page main .atelier-manifesto::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:#8b1018}
 .world-page main .world-cta>*,
 .world-page main .sf-closing>*,
 .world-page main .atelier-manifesto>*{position:relative;z-index:1}
