@@ -59,20 +59,18 @@
 .world-page main .sf-closing .sf-button{color:#f7f0e4!important;border-color:#dfbd7a!important;opacity:1!important;filter:none!important;animation:none!important}
 .world-page main .sf-closing .sf-eyebrow::before{background:#dfbd7a!important;box-shadow:0 0 10px rgba(223,189,122,.28)}
 
-/* Journal quote band — exact night-green atmosphere, with high-contrast quote typography. */
+/* Journal quote band — flat Terracotta Clay, with high-contrast quote typography. */
 .world-page--journal main .world-quote{
-  background:
-    radial-gradient(circle at 72% 0,rgba(208,170,96,.08),transparent 24%),
-    linear-gradient(100deg,#121b16,#263b32 50%,#1c2a23 100%) !important;
-  color:#f7f0e4 !important;
+  background:#A65A3A !important;
+  color:#fffaf0 !important;
 }
 .world-page--journal main .world-quote p{
   color:#fffaf0 !important;
-  text-shadow:0 12px 28px rgba(0,0,0,.24) !important;
+  text-shadow:0 10px 24px rgba(0,0,0,.16) !important;
 }
 .world-page--journal main .world-quote span{
   color:#dfbd7a !important;
-  text-shadow:0 0 12px rgba(223,189,122,.18) !important;
+  text-shadow:none !important;
 }
 
 @keyframes world-cinema-media{from{transform:scale(1.035) translate3d(0,0,0)}to{transform:scale(1.075) translate3d(-.6%,.4%,0)}}
