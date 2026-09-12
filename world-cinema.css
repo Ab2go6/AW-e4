@@ -58,6 +58,7 @@
   opacity:1!important;
   filter:none!important;
   transform:none!important;
+  animation:none!important;
   background-color:#263b32!important;
   background-image:
     radial-gradient(circle at 50% 0,rgba(223,189,122,.14),transparent 30%),
@@ -71,6 +72,7 @@
   opacity:1!important;
   filter:none!important;
   transform:none!important;
+  animation:none!important;
   text-shadow:0 2px 0 rgba(255,255,255,.05),0 14px 30px rgba(0,0,0,.24),0 0 22px rgba(223,189,122,.08)!important;
 }
 .world-page main .world-cta .world-title em,
@@ -86,6 +88,7 @@
   color:#dfbd7a!important;
   opacity:1!important;
   filter:none!important;
+  animation:none!important;
 }
 .world-page main .world-cta p:not(.world-kicker),
 .world-page main .sf-closing p:not(.sf-eyebrow),
@@ -93,6 +96,7 @@
   color:#d8ddd7!important;
   opacity:1!important;
   filter:none!important;
+  animation:none!important;
 }
 .world-page main .world-cta .world-button,
 .world-page main .sf-closing .sf-button{
@@ -100,6 +104,7 @@
   border-color:#dfbd7a!important;
   opacity:1!important;
   filter:none!important;
+  animation:none!important;
 }
 .world-page main .sf-closing .sf-eyebrow::before{background:#dfbd7a!important;box-shadow:0 0 10px rgba(223,189,122,.28)}
 
