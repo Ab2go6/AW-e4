@@ -65,8 +65,13 @@ header.products-header .menu-toggle { order:5; display:none; }
 .site-header .brand-logo:hover::after,.products-header .products-logo:hover::after{transform:translateX(145%)}
 .site-header .brand-logo img,.products-header .products-logo img{position:relative;z-index:1}
 
-/* The same shine treatment on the centered homepage quality mark below the hero. */
-.quality-mark{position:relative;overflow:visible}
-.quality-mark::after{content:"";position:absolute;width:210px;height:210px;left:50%;top:50%;z-index:3;pointer-events:none;border-radius:50%;background:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.42) 47%,transparent 64%);transform:translate(-160%,-50%);transition:transform .8s cubic-bezier(.2,.75,.2,1)}
-.quality-mark:hover::after{transform:translate(60%,-50%)}
-.quality-mark img{position:relative;z-index:2}
+/* The centered homepage quality logo keeps its original geometry and rolls in place on hover. */
+.quality-mark{position:relative;overflow:visible;perspective:900px}
+.quality-mark img{position:relative;z-index:2;transform-origin:center center;transform-style:preserve-3d;backface-visibility:visible}
+.quality-mark:hover img{animation:qualityLogoRoll 1.15s cubic-bezier(.2,.75,.2,1) both}
+@keyframes qualityLogoRoll{
+  0%{transform:rotateY(0deg) rotateZ(0deg) scale(1)}
+  45%{transform:rotateY(185deg) rotateZ(-2deg) scale(1.02)}
+  75%{transform:rotateY(305deg) rotateZ(1deg) scale(1.01)}
+  100%{transform:rotateY(360deg) rotateZ(0deg) scale(1)}
+}
