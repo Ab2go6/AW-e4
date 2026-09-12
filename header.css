@@ -55,3 +55,18 @@ header.products-header .menu-toggle { order:5; display:none; }
   header.products-header .products-header-contact { display:none; }
   header.products-header .menu-toggle { order:3; display:flex; }
 }
+
+/* Shared moving light sweep: hover the navigation header to trigger one refined pass. */
+.site-header,.products-header{overflow:visible}
+.site-header::before,.products-header::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.15) 46%,transparent 58%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
+.site-header:hover::before,.products-header:hover::before{transform:translateX(120%)}
+.site-header .brand-logo,.products-header .products-logo{position:relative;overflow:hidden;isolation:isolate}
+.site-header .brand-logo::after,.products-header .products-logo::after{content:"";position:absolute;inset:-12%;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.38) 48%,transparent 62%);transform:translateX(-145%);transition:transform .75s cubic-bezier(.2,.75,.2,1)}
+.site-header .brand-logo:hover::after,.products-header .products-logo:hover::after{transform:translateX(145%)}
+.site-header .brand-logo img,.products-header .products-logo img{position:relative;z-index:1}
+
+/* The same shine treatment on the centered homepage quality mark below the hero. */
+.quality-mark{position:relative;overflow:hidden;isolation:isolate}
+.quality-mark::after{content:"";position:absolute;inset:-18%;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.42) 47%,transparent 62%);transform:translateX(-145%);transition:transform .8s cubic-bezier(.2,.75,.2,1)}
+.quality-mark:hover::after{transform:translateX(145%)}
+.quality-mark img{position:relative;z-index:2}
