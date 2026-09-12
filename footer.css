@@ -1,4 +1,5 @@
 @import url("world-closing.css");
+@import url("home-products-typography.css");
 
 /* Shared footer system for all ARAOUAA pages. */
 .footer{background:radial-gradient(circle at 72% 0,rgba(208,170,96,.08),transparent 24%),linear-gradient(100deg,#121b16,#263b32 50%,#1c2a23 100%) !important;color:#e8e0d4;padding:55px 4% 24px}
