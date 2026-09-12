@@ -60,22 +60,18 @@ header.products-header .menu-toggle { order:5; display:none; }
 .site-header,.products-header{overflow:visible}
 .site-header::before,.products-header::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.15) 46%,transparent 58%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
 .site-header:hover::before,.products-header:hover::before{transform:translateX(120%)}
-.site-header .brand-logo,.products-header .products-logo{position:relative;isolation:isolate}
+.site-header .brand-logo,.products-header .products-logo{position:relative;overflow:hidden;isolation:isolate}
 .site-header .brand-logo::after,.products-header .products-logo::after{content:"";position:absolute;inset:-12%;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.38) 48%,transparent 62%);transform:translateX(-145%);transition:transform .75s cubic-bezier(.2,.75,.2,1);overflow:hidden}
 .site-header .brand-logo:hover::after,.products-header .products-logo:hover::after{transform:translateX(145%)}
 .site-header .brand-logo img,.products-header .products-logo img{position:relative;z-index:1}
 
-/* Homepage quality medallion: only the existing cream face turns; the original burgundy frame remains fixed. */
-.quality-mark{position:relative;overflow:visible;perspective:1000px;transform-style:preserve-3d}
-.quality-mark::before{transform-origin:center center;transform-style:preserve-3d;backface-visibility:hidden}
-.quality-mark img{position:relative;z-index:1;transform-origin:center center;transform-style:preserve-3d;backface-visibility:hidden}
-.quality-mark:hover::before,.quality-mark:hover img{animation:qualityInnerRoll 1.15s cubic-bezier(.2,.75,.2,1) both}
-@keyframes qualityInnerRoll{
-  0%{transform:rotateY(0deg) scale(1)}
-  42%{transform:rotateY(150deg) scale(1.02)}
-  49%{transform:rotateY(176deg) scale(1)}
-  51%{transform:rotateY(184deg) scale(1)}
-  58%{transform:rotateY(210deg) scale(1.02)}
-  76%{transform:rotateY(286deg) scale(1.01)}
-  100%{transform:rotateY(360deg) scale(1)}
+/* Homepage quality logo: preserve the exact preferred checkpoint. */
+.quality-mark{position:relative;overflow:visible;perspective:1000px}
+.quality-mark img{position:relative;z-index:2;transform-origin:center center;transform-style:preserve-3d;backface-visibility:hidden}
+.quality-mark:hover img{animation:qualityLogoRoll 1.15s cubic-bezier(.2,.75,.2,1) both}
+@keyframes qualityLogoRoll{
+  0%{transform:rotateY(0deg) rotateZ(0deg) scale(1)}
+  45%{transform:rotateY(185deg) rotateZ(-2deg) scale(1.02)}
+  75%{transform:rotateY(305deg) rotateZ(1deg) scale(1.01)}
+  100%{transform:rotateY(360deg) rotateZ(0deg) scale(1)}
 }
