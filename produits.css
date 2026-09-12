@@ -92,3 +92,11 @@
 .products-page .product-item-content{background:#eee5d7;color:#241f1b}
 .products-page .product-item-content h3{color:#241f1b}
 .products-page .product-item-content .product-link,.products-page .product-item-content a{color:#30483d}
+
+/* Shared category rail direction. */
+.products-page .product-categories{background:#30483d}
+
+/* Reuse the homepage's existing moving light sweep on catalogue cards. */
+.products-page .product-item{position:relative;overflow:hidden}
+.products-page .product-item::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 46%,transparent 58%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
+.products-page .product-item:hover::before{transform:translateX(120%)}
