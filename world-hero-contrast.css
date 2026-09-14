@@ -1,0 +1,43 @@
+/* ARAOUAA World Hero — warm smoked mineral direction. Contrasts the green header while keeping the hero cinematic. */
+.world-page .world-hero{
+  background:
+    radial-gradient(ellipse at 78% 54%,rgba(196,151,83,.18) 0%,rgba(196,151,83,.07) 24%,transparent 48%),
+    radial-gradient(ellipse at 18% 24%,rgba(112,78,47,.18) 0%,transparent 38%),
+    linear-gradient(118deg,#201c19 0%,#332b25 46%,#241f1b 100%) !important;
+}
+.world-page .world-hero-media::before{
+  background:linear-gradient(90deg,rgba(18,15,13,.97) 0%,rgba(18,15,13,.78) 38%,rgba(18,15,13,.26) 72%,rgba(18,15,13,.06) 100%) !important;
+}
+.world-page .world-hero-media::after{
+  background:
+    linear-gradient(90deg,rgba(42,35,29,.94) 0%,rgba(61,48,38,.76) 35%,rgba(91,68,47,.34) 66%,rgba(42,35,29,.10) 100%) !important;
+}
+.world-page .world-hero::before{
+  background-image:
+    linear-gradient(rgba(226,189,105,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(226,189,105,.028) 1px,transparent 1px),
+    radial-gradient(ellipse at 74% 52%,rgba(226,189,105,.09),transparent 44%) !important;
+  background-size:84px 84px,84px 84px,auto !important;
+  opacity:.72 !important;
+}
+.world-page .world-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(240,212,165,.05) 55%,rgba(196,151,83,.16) 68%,rgba(196,151,83,.04) 79%,transparent 91%) !important;
+  mix-blend-mode:screen;
+}
+.world-page .world-hero h1,
+.world-page .world-hero-lead,
+.world-page .world-hero-meta,
+.world-page .world-eyebrow{position:relative;z-index:3}
+.world-page .world-hero h1{color:#f7f0e4 !important}
+.world-page .world-hero h1 em,.world-page .world-eyebrow{color:#dfbd7a !important}
+.world-page .world-hero-lead{color:#ddd4c8 !important}
+.world-page .world-hero-meta{color:#bfb4a6 !important;border-top-color:rgba(223,189,122,.24) !important}
+.world-page .world-eyebrow::before{background:#c49a57 !important}
+@media(max-width:600px){
+  .world-page .world-hero::after{background:linear-gradient(90deg,transparent 0%,rgba(196,151,83,.10) 60%,transparent 100%) !important}
+}
