@@ -64,7 +64,7 @@ body:not(.world-page) .button-primary{background:var(--ara-world-green);box-shad
 body:not(.world-page) .button-primary:hover{background:#1e3028}
 body:not(.world-page) .hero h1 em,body:not(.world-page) .section-heading h2 em,body:not(.world-page) .story-copy h2 em,body:not(.world-page) .partner-copy h2 em{color:var(--ara-world-gold)}
 body:not(.world-page) .products{background:var(--ara-world-cream)}
-body:not(.world-page) .story{background:var(--ara-world-paper)}
+body:not(.world-page) .story{background:linear-gradient(135deg,#7a0d14 0%,#8b1018 52%,#6a0a11 100%)!important;color:#fff8ed}
 body:not(.world-page) .story-visual{background-color:var(--ara-world-cream);border-color:rgba(208,170,96,.5)}
 body:not(.world-page) .story-copy h2,body:not(.world-page) .partner-copy h2,body:not(.world-page) .section-heading h2{color:var(--ara-world-ink)}
 body:not(.world-page) .filter-chip:hover,body:not(.world-page) .filter-chip.active{background:var(--ara-world-green);border-color:var(--ara-world-green)}
