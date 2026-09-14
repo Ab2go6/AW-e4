@@ -45,8 +45,9 @@
     document.body.appendChild(script);
   });
 
+  const isSavoirFaire = page.classList.contains('world-page--savoir-faire');
   loadScript('language.js', 'language')
-    .then(() => loadScript('world-language.js', 'world-language'))
+    .then(() => isSavoirFaire ? Promise.resolve() : loadScript('world-language.js', 'world-language'))
     .catch(error => console.error('ARAOUAA world language scripts failed to load:', error));
 
   Promise.all([
