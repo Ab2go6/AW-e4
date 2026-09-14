@@ -18,8 +18,8 @@
       ['Accueil', 'index.html#accueil', 'index.html'],
       ['Produits', 'produits.html', 'produits.html'],
       ['L’univers', 'origine.html', 'origine.html'],
-      ['Les Collections', 'collections.html', 'collections.html'],
-      ['Le Journal', 'journal.html', 'journal.html'],
+      ['Collection', 'collections.html', 'collections.html'],
+      ['Journal', 'journal.html', 'journal.html'],
       ['Notre savoir-faire', 'savoir-faire.html', 'savoir-faire.html'],
       ['L’Atelier', 'atelier.html', 'atelier.html']
     ];
