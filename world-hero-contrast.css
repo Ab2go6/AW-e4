@@ -1,70 +1,93 @@
-/* ARAOUAA World Hero — reflective pearl/chrome direction. A neutral mirrored surface, deliberately separated from the green header and prior warm-color experiments. */
+/* ARAOUAA World Hero — architectural mirror plane. The hero image becomes the environment and a polished floor reflects it below. */
 .world-page .world-hero{
   background:
-    radial-gradient(ellipse at 74% 50%,rgba(255,255,255,.92) 0%,rgba(255,255,255,.48) 19%,transparent 43%),
-    radial-gradient(ellipse at 16% 18%,rgba(255,255,255,.62) 0%,transparent 34%),
-    linear-gradient(112deg,#b8bbb6 0%,#e9eae6 28%,#f7f7f3 48%,#c9ccc7 63%,#eef0eb 79%,#aeb2ad 100%) !important;
+    linear-gradient(180deg,#eeeae2 0%,#e5e0d7 50%,#d4d0c7 54%,#8d908b 55%,#50544f 72%,#292d2a 100%) !important;
   color:#202522 !important;
 }
 
-/* Treat the supplied architectural/product image as a reflected environment rather than a flat backdrop. */
+/* Keep the original scene visible above the reflective plane. */
 .world-page .world-hero-media{
   opacity:.42 !important;
+  filter:saturate(.68) contrast(1.05) brightness(1.02) !important;
   mix-blend-mode:multiply;
-  filter:saturate(.55) contrast(1.08) brightness(1.06) !important;
 }
 .world-page .world-hero-media::before{
-  background:
-    linear-gradient(90deg,rgba(239,240,236,.88) 0%,rgba(239,240,236,.64) 30%,rgba(239,240,236,.28) 57%,rgba(214,216,211,.10) 77%,transparent 100%) !important;
+  background:linear-gradient(90deg,rgba(238,234,226,.86) 0%,rgba(238,234,226,.58) 34%,rgba(238,234,226,.18) 63%,rgba(238,234,226,.03) 100%) !important;
 }
 .world-page .world-hero-media::after{
-  background:
-    linear-gradient(106deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.22) 42%,rgba(120,125,120,.13) 55%,rgba(255,255,255,.04) 68%,rgba(120,125,120,.14) 100%) !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.02) 48%,rgba(22,25,23,.16) 58%,rgba(22,25,23,.58) 100%) !important;
 }
 
-/* Mirrored-plane sweep: a restrained vertical reflection with soft horizontal glass depth. */
+/* A precise architectural horizon separates the matte wall from the polished reflective floor. */
 .world-page .world-hero::before{
-  background-image:
-    linear-gradient(106deg,transparent 0%,transparent 45%,rgba(255,255,255,.76) 49%,rgba(255,255,255,.24) 51%,rgba(109,116,111,.16) 53%,transparent 60%),
-    repeating-linear-gradient(0deg,rgba(75,82,77,.035) 0 1px,transparent 1px 6px),
-    radial-gradient(ellipse at 76% 48%,rgba(255,255,255,.48) 0%,rgba(255,255,255,.10) 25%,transparent 50%) !important;
-  background-size:auto,auto,auto !important;
-  mask-image:none !important;
-  opacity:.82 !important;
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,transparent 0%,transparent 53.8%,rgba(255,255,255,.42) 54.1%,rgba(62,66,63,.14) 54.6%,transparent 55.5%),
+    repeating-linear-gradient(90deg,rgba(46,52,48,.022) 0 1px,transparent 1px 96px),
+    radial-gradient(ellipse at 76% 45%,rgba(255,255,255,.45) 0%,transparent 31%);
+  opacity:.9 !important;
 }
+
+/* Actual mirrored environment: same background image, inverted and softly faded into the floor. */
+.world-page .world-hero-reflection{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-2%;
+  height:47%;
+  z-index:1;
+  pointer-events:none;
+  background-image:var(--arraouaa-hero-image);
+  background-size:cover;
+  background-position:center bottom;
+  transform:scaleY(-1);
+  transform-origin:center;
+  opacity:.15;
+  filter:blur(1.7px) saturate(.58) contrast(.9);
+  mix-blend-mode:screen;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 22%,rgba(0,0,0,.12) 58%,transparent 100%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 22%,rgba(0,0,0,.12) 58%,transparent 100%);
+}
+
+/* Soft surface sheen crossing the polished plane. */
 .world-page .world-hero::after{
   content:"";
   position:absolute;
   inset:0;
-  z-index:0;
+  z-index:2;
   pointer-events:none;
   background:
-    linear-gradient(106deg,transparent 0%,transparent 48%,rgba(255,255,255,.62) 50%,rgba(255,255,255,.10) 53%,transparent 58%),
-    radial-gradient(ellipse at 74% 58%,rgba(161,166,161,.18),transparent 38%) !important;
+    linear-gradient(104deg,transparent 0%,transparent 42%,rgba(255,255,255,.05) 47%,rgba(255,255,255,.48) 50%,rgba(255,255,255,.06) 54%,transparent 59%),
+    linear-gradient(180deg,transparent 0%,transparent 54%,rgba(255,255,255,.03) 64%,rgba(255,255,255,.12) 100%);
   mix-blend-mode:screen;
-  opacity:.72 !important;
-  animation:world-mirror-sheen 11s ease-in-out infinite alternate;
+  opacity:.76;
+  animation:world-mirror-sheen 12s ease-in-out infinite alternate;
 }
 
-.world-page .world-hero-content{position:relative;z-index:3}
-.world-page .world-hero h1{color:#202522 !important;text-shadow:0 14px 30px rgba(75,82,77,.12) !important}
-.world-page .world-hero h1 em{color:#465f51 !important}
-.world-page .world-eyebrow{color:#4c6556 !important}
-.world-page .world-eyebrow::before{background:#657c6d !important}
-.world-page .world-hero-lead{color:#454b47 !important;text-shadow:none !important}
-.world-page .world-hero-meta{color:#59625d !important;border-top-color:rgba(73,88,79,.24) !important}
+.world-page .world-hero-content{position:relative;z-index:4}
+.world-page .world-hero h1{color:#202522 !important;text-shadow:0 10px 24px rgba(45,49,46,.11) !important}
+.world-page .world-hero h1 em{color:#4a6254 !important}
+.world-page .world-eyebrow{color:#5c6e63 !important}
+.world-page .world-eyebrow::before{background:#758278 !important}
+.world-page .world-hero-lead{color:#474c48 !important;text-shadow:none !important}
+.world-page .world-hero-meta{color:#5a615c !important;border-top-color:rgba(61,70,64,.22) !important}
 
-/* Let the products read as physical objects on the reflective environment. */
-.world-page .world-stage-art::before{background:radial-gradient(circle,rgba(255,255,255,.62) 0%,rgba(206,212,207,.26) 34%,transparent 72%) !important}
-.world-page .world-stage::before{border-color:rgba(73,93,82,.25) !important;box-shadow:0 0 110px rgba(104,112,106,.11),inset 0 0 65px rgba(255,255,255,.12) !important}
-.world-page .world-stage::after{background:radial-gradient(ellipse at center,rgba(73,77,74,.28) 0%,rgba(73,77,74,.08) 34%,transparent 72%) !important;opacity:.68 !important}
-.world-page .world-stage-art img{filter:drop-shadow(0 30px 24px rgba(69,75,71,.23)) drop-shadow(0 5px 12px rgba(255,255,255,.24)) !important}
-.world-page .world-stage-particles{opacity:.12 !important}
+/* Product stage sits visually on the reflective plane rather than inside a colored field. */
+.world-page .world-stage{z-index:3}
+.world-page .world-stage::before{border-color:rgba(61,70,64,.2) !important;box-shadow:0 0 100px rgba(255,255,255,.16),inset 0 0 60px rgba(40,46,42,.07) !important}
+.world-page .world-stage::after{background:radial-gradient(ellipse at center,rgba(24,28,26,.36) 0%,rgba(24,28,26,.13) 34%,transparent 72%) !important;opacity:.72 !important}
+.world-page .world-stage-art::before{background:radial-gradient(circle,rgba(255,255,255,.45) 0%,rgba(218,222,218,.18) 38%,transparent 72%) !important}
+.world-page .world-stage-art img{filter:drop-shadow(0 28px 22px rgba(26,30,28,.24)) drop-shadow(0 3px 10px rgba(255,255,255,.16)) !important}
+.world-page .world-stage-particles{opacity:.1 !important}
 
-@keyframes world-mirror-sheen{from{transform:translate3d(-7%,0,0);opacity:.46}to{transform:translate3d(7%,0,0);opacity:.82}}
+@keyframes world-mirror-sheen{from{transform:translate3d(-6%,0,0);opacity:.45}to{transform:translate3d(6%,0,0);opacity:.82}}
 
 @media(max-width:600px){
-  .world-page .world-hero-media{opacity:.25 !important}
-  .world-page .world-hero::before{opacity:.72 !important}
-  .world-page .world-hero::after{opacity:.5 !important}
+  .world-page .world-hero-media{opacity:.28 !important}
+  .world-page .world-hero-reflection{height:42%;opacity:.1}
+  .world-page .world-hero::after{opacity:.5}
 }
