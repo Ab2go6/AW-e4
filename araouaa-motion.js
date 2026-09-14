@@ -5,7 +5,7 @@
   const LIGHT_STYLE_ID = 'araouaa-light-engine';
   const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
   const JOURNAL_STYLE_ID = 'araouaa-journal-final';
-  const VERSION = '20260914d';
+  const VERSION = '20260914e';
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
