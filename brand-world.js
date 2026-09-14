@@ -4,7 +4,7 @@
 
   const heroContrast = document.querySelector('link[data-arraouaa-world-hero-contrast]') || document.createElement('link');
   heroContrast.rel = 'stylesheet';
-  heroContrast.href = 'world-hero-contrast.css?v=20260914a';
+  heroContrast.href = 'world-hero-contrast.css?v=20260914b';
   heroContrast.dataset.arraouaaWorldHeroContrast = 'true';
   if (!heroContrast.parentNode) document.head.appendChild(heroContrast);
 
