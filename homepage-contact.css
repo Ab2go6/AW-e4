@@ -1,11 +1,13 @@
-/* Homepage closing contact CTA — cream field with a deep-green action. */
+/* Homepage closing contact CTA — cream field with readable editorial typography. */
 body:not(.world-page):not(.products-page) .contact{
   background:radial-gradient(circle at 12% 18%,#fffdf8 0,var(--ara-world-cream) 42%,#eee5d7 100%)!important;
   color:#241f1b!important;
 }
 
-/* The section heading itself was inheriting the scroll-reveal opacity. */
-body:not(.world-page):not(.products-page) .contact .section-heading{
+/* Disable the scroll reveal only inside this closing contact section so all content stays visible. */
+body:not(.world-page):not(.products-page) .contact .section-heading,
+body:not(.world-page):not(.products-page) .contact .contact-form,
+body:not(.world-page):not(.products-page) .contact .contact-info{
   opacity:1!important;
   visibility:visible!important;
   transform:none!important;
@@ -14,41 +16,49 @@ body:not(.world-page):not(.products-page) .contact .section-heading{
   animation-timeline:none!important;
 }
 
-/* Force the heading's actual rendered text, including the em accent. */
-body:not(.world-page):not(.products-page) .contact .section-heading .eyebrow{
-  color:#8c6b2c!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-body:not(.world-page):not(.products-page) .contact .section-heading h2{
-  color:#241f1b!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-body:not(.world-page):not(.products-page) .contact .section-heading h2 em{
-  color:#30483d!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-body:not(.world-page):not(.products-page) .contact .section-heading>p:last-child{
-  color:#5f574f!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-
-/* Keep the rest of the contact copy readable too. */
+/* Readable neutral editorial typography — no leftover gold treatment. */
+body:not(.world-page):not(.products-page) .contact .section-heading .eyebrow,
+body:not(.world-page):not(.products-page) .contact .section-heading h2,
+body:not(.world-page):not(.products-page) .contact .section-heading h2 em,
+body:not(.world-page):not(.products-page) .contact .section-heading>p:last-child,
 body:not(.world-page):not(.products-page) .contact label,
 body:not(.world-page):not(.products-page) .contact strong,
 body:not(.world-page):not(.products-page) .contact span,
 body:not(.world-page):not(.products-page) .contact a,
 body:not(.world-page):not(.products-page) .contact p,
-body:not(.world-page):not(.products-page) .contact-info small{
+body:not(.world-page):not(.products-page) .contact-info small,
+body:not(.world-page):not(.products-page) .contact-info .info-block>span{
   color:#241f1b!important;
   opacity:1!important;
   visibility:visible!important;
   text-shadow:none!important;
 }
 
+/* Supporting copy stays slightly softer for hierarchy. */
+body:not(.world-page):not(.products-page) .contact .section-heading>p:last-child,
+body:not(.world-page):not(.products-page) .contact-info small,
+body:not(.world-page):not(.products-page) .contact-info .info-block>span{
+  color:#6f675e!important;
+}
+
+/* Form controls remain visible and aligned with the cream/paper material language. */
+body:not(.world-page):not(.products-page) .contact-form input,
+body:not(.world-page):not(.products-page) .contact-form textarea,
+body:not(.world-page):not(.products-page) .contact-form select{
+  opacity:1!important;
+  visibility:visible!important;
+  color:#241f1b!important;
+  background:#fffdf8!important;
+  border-color:rgba(36,31,27,.16)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form input::placeholder,
+body:not(.world-page):not(.products-page) .contact-form textarea::placeholder{
+  color:#8a8177!important;
+  opacity:1!important;
+}
+
+/* Green action with white typography, as requested. */
 body:not(.world-page):not(.products-page) .contact-form .button-primary,
 body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary{
   background:var(--ara-world-green)!important;
