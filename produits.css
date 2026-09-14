@@ -100,3 +100,9 @@
 .products-page .product-item{position:relative;overflow:hidden}
 .products-page .product-item::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 46%,transparent 58%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
 .products-page .product-item:hover::before{transform:translateX(120%)}
+
+/* Product page refinements. */
+.products-page .spice-note strong{color:#526b59!important}
+.products-page .products-cta .cta-button{background:#f5efe4!important;color:#241f1b!important;border-color:#f5efe4!important;box-shadow:0 12px 30px rgba(23,21,19,.16)!important}
+.products-page .products-cta .cta-button:hover,
+.products-page .products-cta .cta-button:focus-visible{background:#fffaf2!important;color:#171513!important;border-color:#fffaf2!important;box-shadow:0 15px 34px rgba(23,21,19,.22)!important}
