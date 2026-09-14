@@ -1,19 +1,32 @@
 /* Homepage closing contact CTA — cream field with a deep-green action. */
 body:not(.world-page):not(.products-page) .contact{
   background:radial-gradient(circle at 12% 18%,#fffdf8 0,var(--ara-world-cream) 42%,#eee5d7 100%)!important;
-  color:var(--ara-world-ink)!important;
+  color:#241f1b!important;
 }
 
+/* Lock every visible text layer to readable dark ink on the cream field. */
+body:not(.world-page):not(.products-page) .contact,
+body:not(.world-page):not(.products-page) .contact h1,
 body:not(.world-page):not(.products-page) .contact h2,
+body:not(.world-page):not(.products-page) .contact h3,
+body:not(.world-page):not(.products-page) .contact h4,
 body:not(.world-page):not(.products-page) .contact .contact-title,
-body:not(.world-page):not(.products-page) .contact .eyebrow{
-  color:var(--ara-world-ink)!important;
-}
-
+body:not(.world-page):not(.products-page) .contact .eyebrow,
+body:not(.world-page):not(.products-page) .contact label,
+body:not(.world-page):not(.products-page) .contact strong,
+body:not(.world-page):not(.products-page) .contact span,
+body:not(.world-page):not(.products-page) .contact a,
 body:not(.world-page):not(.products-page) .contact p,
 body:not(.world-page):not(.products-page) .contact .contact-intro,
 body:not(.world-page):not(.products-page) .contact-info small{
-  color:var(--ara-world-muted)!important;
+  color:#241f1b!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+
+/* Preserve the premium gold accent on the small section marker. */
+body:not(.world-page):not(.products-page) .contact .eyebrow{
+  color:#8c6b2c!important;
 }
 
 body:not(.world-page):not(.products-page) .contact-form .button-primary,
