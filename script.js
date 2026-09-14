@@ -37,8 +37,8 @@
     const location = footer.querySelector('.footer-contact [aria-label="Localisation"] span');
     const phone = footer.querySelector('.footer-contact [aria-label="Téléphone"] span');
 
-    if (location) location.textContent = 'Localisation — Tassila N° 3-39 Tikiouine, AGADIR';
-    if (phone) phone.textContent = 'Téléphone — 0528264827';
+    if (location) location.textContent = 'Tassila N° 3-39 Tikiouine, AGADIR';
+    if (phone) phone.textContent = '0528264827';
   };
 
   const restoreProductHashPosition = () => {
