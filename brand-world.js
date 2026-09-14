@@ -2,6 +2,12 @@
   const page = document.querySelector('.world-page');
   if (!page) return;
 
+  const heroContrast = document.querySelector('link[data-arraouaa-world-hero-contrast]') || document.createElement('link');
+  heroContrast.rel = 'stylesheet';
+  heroContrast.href = 'world-hero-contrast.css?v=20260914a';
+  heroContrast.dataset.arraouaaWorldHeroContrast = 'true';
+  if (!heroContrast.parentNode) document.head.appendChild(heroContrast);
+
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const links = [
     ['Accueil', 'index.html'], ['Produits', 'produits.html'], ['L’univers', 'origine.html'],
