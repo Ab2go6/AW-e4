@@ -1,24 +1,36 @@
-/* ARAOUAA World Hero — warm smoked mineral direction. Contrasts the green header while keeping the hero cinematic. */
+/* ARAOUAA World Hero — reflective pearl/chrome direction. A neutral mirrored surface, deliberately separated from the green header and prior warm-color experiments. */
 .world-page .world-hero{
   background:
-    radial-gradient(ellipse at 78% 54%,rgba(196,151,83,.18) 0%,rgba(196,151,83,.07) 24%,transparent 48%),
-    radial-gradient(ellipse at 18% 24%,rgba(112,78,47,.18) 0%,transparent 38%),
-    linear-gradient(118deg,#201c19 0%,#332b25 46%,#241f1b 100%) !important;
+    radial-gradient(ellipse at 74% 50%,rgba(255,255,255,.92) 0%,rgba(255,255,255,.48) 19%,transparent 43%),
+    radial-gradient(ellipse at 16% 18%,rgba(255,255,255,.62) 0%,transparent 34%),
+    linear-gradient(112deg,#b8bbb6 0%,#e9eae6 28%,#f7f7f3 48%,#c9ccc7 63%,#eef0eb 79%,#aeb2ad 100%) !important;
+  color:#202522 !important;
+}
+
+/* Treat the supplied architectural/product image as a reflected environment rather than a flat backdrop. */
+.world-page .world-hero-media{
+  opacity:.42 !important;
+  mix-blend-mode:multiply;
+  filter:saturate(.55) contrast(1.08) brightness(1.06) !important;
 }
 .world-page .world-hero-media::before{
-  background:linear-gradient(90deg,rgba(18,15,13,.97) 0%,rgba(18,15,13,.78) 38%,rgba(18,15,13,.26) 72%,rgba(18,15,13,.06) 100%) !important;
+  background:
+    linear-gradient(90deg,rgba(239,240,236,.88) 0%,rgba(239,240,236,.64) 30%,rgba(239,240,236,.28) 57%,rgba(214,216,211,.10) 77%,transparent 100%) !important;
 }
 .world-page .world-hero-media::after{
   background:
-    linear-gradient(90deg,rgba(42,35,29,.94) 0%,rgba(61,48,38,.76) 35%,rgba(91,68,47,.34) 66%,rgba(42,35,29,.10) 100%) !important;
+    linear-gradient(106deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.22) 42%,rgba(120,125,120,.13) 55%,rgba(255,255,255,.04) 68%,rgba(120,125,120,.14) 100%) !important;
 }
+
+/* Mirrored-plane sweep: a restrained vertical reflection with soft horizontal glass depth. */
 .world-page .world-hero::before{
   background-image:
-    linear-gradient(rgba(226,189,105,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(226,189,105,.028) 1px,transparent 1px),
-    radial-gradient(ellipse at 74% 52%,rgba(226,189,105,.09),transparent 44%) !important;
-  background-size:84px 84px,84px 84px,auto !important;
-  opacity:.72 !important;
+    linear-gradient(106deg,transparent 0%,transparent 45%,rgba(255,255,255,.76) 49%,rgba(255,255,255,.24) 51%,rgba(109,116,111,.16) 53%,transparent 60%),
+    repeating-linear-gradient(0deg,rgba(75,82,77,.035) 0 1px,transparent 1px 6px),
+    radial-gradient(ellipse at 76% 48%,rgba(255,255,255,.48) 0%,rgba(255,255,255,.10) 25%,transparent 50%) !important;
+  background-size:auto,auto,auto !important;
+  mask-image:none !important;
+  opacity:.82 !important;
 }
 .world-page .world-hero::after{
   content:"";
@@ -26,18 +38,33 @@
   inset:0;
   z-index:0;
   pointer-events:none;
-  background:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(240,212,165,.05) 55%,rgba(196,151,83,.16) 68%,rgba(196,151,83,.04) 79%,transparent 91%) !important;
+  background:
+    linear-gradient(106deg,transparent 0%,transparent 48%,rgba(255,255,255,.62) 50%,rgba(255,255,255,.10) 53%,transparent 58%),
+    radial-gradient(ellipse at 74% 58%,rgba(161,166,161,.18),transparent 38%) !important;
   mix-blend-mode:screen;
+  opacity:.72 !important;
+  animation:world-mirror-sheen 11s ease-in-out infinite alternate;
 }
-.world-page .world-hero h1,
-.world-page .world-hero-lead,
-.world-page .world-hero-meta,
-.world-page .world-eyebrow{position:relative;z-index:3}
-.world-page .world-hero h1{color:#f7f0e4 !important}
-.world-page .world-hero h1 em,.world-page .world-eyebrow{color:#dfbd7a !important}
-.world-page .world-hero-lead{color:#ddd4c8 !important}
-.world-page .world-hero-meta{color:#bfb4a6 !important;border-top-color:rgba(223,189,122,.24) !important}
-.world-page .world-eyebrow::before{background:#c49a57 !important}
+
+.world-page .world-hero-content{position:relative;z-index:3}
+.world-page .world-hero h1{color:#202522 !important;text-shadow:0 14px 30px rgba(75,82,77,.12) !important}
+.world-page .world-hero h1 em{color:#465f51 !important}
+.world-page .world-eyebrow{color:#4c6556 !important}
+.world-page .world-eyebrow::before{background:#657c6d !important}
+.world-page .world-hero-lead{color:#454b47 !important;text-shadow:none !important}
+.world-page .world-hero-meta{color:#59625d !important;border-top-color:rgba(73,88,79,.24) !important}
+
+/* Let the products read as physical objects on the reflective environment. */
+.world-page .world-stage-art::before{background:radial-gradient(circle,rgba(255,255,255,.62) 0%,rgba(206,212,207,.26) 34%,transparent 72%) !important}
+.world-page .world-stage::before{border-color:rgba(73,93,82,.25) !important;box-shadow:0 0 110px rgba(104,112,106,.11),inset 0 0 65px rgba(255,255,255,.12) !important}
+.world-page .world-stage::after{background:radial-gradient(ellipse at center,rgba(73,77,74,.28) 0%,rgba(73,77,74,.08) 34%,transparent 72%) !important;opacity:.68 !important}
+.world-page .world-stage-art img{filter:drop-shadow(0 30px 24px rgba(69,75,71,.23)) drop-shadow(0 5px 12px rgba(255,255,255,.24)) !important}
+.world-page .world-stage-particles{opacity:.12 !important}
+
+@keyframes world-mirror-sheen{from{transform:translate3d(-7%,0,0);opacity:.46}to{transform:translate3d(7%,0,0);opacity:.82}}
+
 @media(max-width:600px){
-  .world-page .world-hero::after{background:linear-gradient(90deg,transparent 0%,rgba(196,151,83,.10) 60%,transparent 100%) !important}
+  .world-page .world-hero-media{opacity:.25 !important}
+  .world-page .world-hero::before{opacity:.72 !important}
+  .world-page .world-hero::after{opacity:.5 !important}
 }
