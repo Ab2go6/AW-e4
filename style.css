@@ -79,3 +79,43 @@ body:not(.world-page) .values{background:var(--ara-world-green)}
 body:not(.world-page) .values .section-heading-light h2{color:#fff}
 body:not(.world-page) .values .section-heading-light h2 em{color:var(--ara-world-gold)}
 body:not(.world-page) .footer{background:var(--ara-world-cocoa)}
+
+/* Accueil story + partners: matched full-bleed burgundy bands. Keep both logo cards untouched. */
+body:not(.world-page):not(.products-page) .story,
+body:not(.world-page):not(.products-page) .partners{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:110px 6%!important;
+  background:linear-gradient(135deg,#7a0d14 0%,#8b1018 52%,#6a0a11 100%)!important;
+  color:#fff8ed!important;
+}
+body:not(.world-page):not(.products-page) .story-copy h2,
+body:not(.world-page):not(.products-page) .partner-copy h2{
+  color:#fff8ed!important;
+}
+body:not(.world-page):not(.products-page) .story-copy h2 em,
+body:not(.world-page):not(.products-page) .partner-copy h2 em{
+  color:#e2bd69!important;
+}
+body:not(.world-page):not(.products-page) .story-copy>p:not(.eyebrow),
+body:not(.world-page):not(.products-page) .partner-copy>p:not(.eyebrow){
+  color:rgba(255,248,237,.82)!important;
+}
+body:not(.world-page):not(.products-page) .story-copy>.eyebrow,
+body:not(.world-page):not(.products-page) .partner-copy>.eyebrow{
+  color:#e2bd69!important;
+}
+body:not(.world-page):not(.products-page) .story-points div{border-top-color:rgba(226,189,105,.28)!important}
+body:not(.world-page):not(.products-page) .story-points span{color:#fff8ed!important}
+body:not(.world-page):not(.products-page) .story-points small{color:rgba(255,248,237,.64)!important}
+body:not(.world-page):not(.products-page) .story-points strong{color:#e2bd69!important}
+body:not(.world-page):not(.products-page) .story-visual,
+body:not(.world-page):not(.products-page) .partner-card{
+  background-color:var(--ara-world-cream)!important;
+}
+
+@media(max-width:900px){
+  body:not(.world-page):not(.products-page) .story,
+  body:not(.world-page):not(.products-page) .partners{padding:84px 6%!important}
+}
