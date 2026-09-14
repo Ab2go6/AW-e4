@@ -5,7 +5,32 @@
 .language-switcher button:focus-visible{outline:1px solid #d0aa60;outline-offset:2px}
 .language-switcher.is-rtl{direction:ltr}
 @media(max-width:850px){.language-switcher{margin-left:8px}.language-switcher button{padding:6px 6px;font-size:8px}}
-[dir="rtl"] body{font-family:Poppins,"Noto Sans Arabic",Tahoma,sans-serif}
-[dir="rtl"] .language-switcher{margin-left:0;margin-right:8px}
-[dir="rtl"] .announcement-inner,[dir="rtl"] .site-header,[dir="rtl"] .products-header{direction:rtl}
-[dir="rtl"] .language-switcher{direction:ltr}
+
+/* Arabic text direction without flipping the site's existing layout/scroll mechanics. */
+html[dir="rtl"]{direction:ltr!important;overflow-x:hidden}
+html[dir="rtl"] body{direction:ltr;overflow-x:hidden;font-family:Poppins,"Noto Sans Arabic",Tahoma,sans-serif}
+html[dir="rtl"] .announcement-inner,
+html[dir="rtl"] .site-header,
+html[dir="rtl"] .products-header{direction:rtl}
+html[dir="rtl"] .language-switcher{direction:ltr}
+html[dir="rtl"] .main-nav,
+html[dir="rtl"] .products-main-nav{direction:rtl}
+html[dir="rtl"] .hero-copy,
+html[dir="rtl"] .section-heading,
+html[dir="rtl"] .story-copy,
+html[dir="rtl"] .partner-copy,
+html[dir="rtl"] .contact-copy,
+html[dir="rtl"] .contact-form,
+html[dir="rtl"] .footer,
+html[dir="rtl"] .savoir-copy{direction:rtl;text-align:right}
+html[dir="rtl"] .world-page .world-hero-content,
+html[dir="rtl"] .world-page .world-feature-copy,
+html[dir="rtl"] .world-page .world-intro,
+html[dir="rtl"] .world-page .world-hero-lead,
+html[dir="rtl"] .world-page .world-quote,
+html[dir="rtl"] .world-page .world-kicker,
+html[dir="rtl"] .world-page .sf-intro-heading,
+html[dir="rtl"] .world-page .sf-intro-copy,
+html[dir="rtl"] .world-page .sf-process,
+html[dir="rtl"] .world-page .sf-origin-copy,
+html[dir="rtl"] .world-page .sf-closing{direction:rtl;text-align:right}
