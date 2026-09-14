@@ -1,0 +1,39 @@
+/* Homepage closing contact CTA — cream field with a deep-green action. */
+body:not(.world-page):not(.products-page) .contact{
+  background:radial-gradient(circle at 12% 18%,#fffdf8 0,var(--ara-world-cream) 42%,#eee5d7 100%)!important;
+  color:var(--ara-world-ink)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact h2,
+body:not(.world-page):not(.products-page) .contact .contact-title,
+body:not(.world-page):not(.products-page) .contact .eyebrow{
+  color:var(--ara-world-ink)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact p,
+body:not(.world-page):not(.products-page) .contact .contact-intro,
+body:not(.world-page):not(.products-page) .contact-info small{
+  color:var(--ara-world-muted)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form .button-primary,
+body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary{
+  background:var(--ara-world-green)!important;
+  background-image:none!important;
+  background-color:var(--ara-world-green)!important;
+  color:#fff!important;
+  border-color:var(--ara-world-green)!important;
+  box-shadow:0 12px 30px rgba(48,72,61,.22)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form .button-primary:hover,
+body:not(.world-page):not(.products-page) .contact-form .button-primary:focus-visible,
+body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary:hover,
+body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary:focus-visible{
+  background:#1e3028!important;
+  background-image:none!important;
+  background-color:#1e3028!important;
+  color:#fff!important;
+  border-color:#1e3028!important;
+  box-shadow:0 15px 34px rgba(48,72,61,.28)!important;
+}
