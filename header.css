@@ -1,3 +1,5 @@
+@import url("language.css");
+
 /* Shared two-layer header system: creamy announcement + cocoa navigation. */
 .announcement,
 .announcement-inner,
@@ -40,6 +42,12 @@ header.products-header .menu-toggle { order:5; display:none; }
 .header-actions{display:flex;align-items:center;gap:13px;margin-left:auto}.icon-button{border:0;background:transparent;color:#e2bd69;width:40px;height:40px;display:grid;place-items:center;cursor:pointer}.icon-button svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6}.icon-button .fill{fill:currentColor;stroke:none}.cart-link{position:relative}.cart-badge{position:absolute;top:1px;right:1px;width:15px;height:15px;border-radius:50%;background:#e2bd69;color:#57070d;font-size:9px;font-weight:700;display:grid;place-items:center;border:2px solid #171513;line-height:1}.header-contact{border:1px solid rgba(226,189,105,.72);border-radius:30px;padding:11px 19px;color:#f7eddb;font-size:11px;font-weight:600;transition:.25s}.header-contact:hover{background:#e2bd69;color:#171513}
 .menu-toggle{display:none;background:none;border:0;width:40px;height:40px;flex-direction:column;justify-content:center;gap:5px;margin-left:auto}.menu-toggle span{height:2px;width:23px;background:#f7eddb;display:block}
 .search-panel{position:absolute;right:5.8%;top:94px;width:min(500px,90vw);opacity:0;pointer-events:none;transform:translateY(-8px);transition:.25s}.search-panel.open{opacity:1;pointer-events:auto;transform:none}.search-inner{display:flex;align-items:center;gap:10px;background:#fffdf8;border:1px solid rgba(23,21,19,.12);border-radius:14px;padding:10px 12px;box-shadow:0 18px 50px rgba(0,0,0,.2)}.search-inner>svg{width:21px;height:21px;fill:none;stroke:#c79a3b;stroke-width:1.7}.search-inner input{border:0;outline:0;background:transparent;color:#171513;width:100%;font-size:13px}.search-close{border:0;background:none;color:#75695d;font-size:25px;cursor:pointer;line-height:1}
+
+/* Keep the current canonical search control free of legacy floating/badge chrome. */
+.site-header .cart-badge,
+header.products-header .cart-badge,
+header.products-header .products-search-panel,
+.site-header .products-search-panel { display:none!important; }
 
 @media(max-width:1150px){
   header.products-header .products-main-nav { gap:25px; }
