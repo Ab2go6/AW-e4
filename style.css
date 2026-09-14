@@ -146,6 +146,25 @@ body:not(.world-page):not(.products-page) .contact-form .button-primary:focus-vi
   box-shadow:0 15px 34px rgba(23,21,19,.22)!important;
 }
 
+/* Final Accueil CTA lock: eliminate any inherited green/gold background layer. */
+body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary{
+  background:#f5efe4!important;
+  background-image:none!important;
+  background-color:#f5efe4!important;
+  color:#241f1b!important;
+  border-color:#f5efe4!important;
+  box-shadow:0 12px 30px rgba(23,21,19,.16)!important;
+}
+body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary:hover,
+body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary:focus-visible{
+  background:#fffaf2!important;
+  background-image:none!important;
+  background-color:#fffaf2!important;
+  color:#171513!important;
+  border-color:#fffaf2!important;
+  box-shadow:0 15px 34px rgba(23,21,19,.22)!important;
+}
+
 @media(max-width:900px){
   body:not(.world-page):not(.products-page) .story,
   body:not(.world-page):not(.products-page) .partners{padding:84px 6%!important}
