@@ -34,3 +34,23 @@ html[dir="rtl"] .world-page .sf-intro-copy,
 html[dir="rtl"] .world-page .sf-process,
 html[dir="rtl"] .world-page .sf-origin-copy,
 html[dir="rtl"] .world-page .sf-closing{direction:rtl;text-align:right}
+
+/* Canonical World-page navigation: the second link is Products, not About. */
+html[lang="en"] .world-page .products-main-nav a:nth-child(1)::before{content:"Home"}
+html[lang="en"] .world-page .products-main-nav a:nth-child(2)::before{content:"Products"}
+html[lang="en"] .world-page .products-main-nav a:nth-child(3)::before{content:"The Origin"}
+html[lang="en"] .world-page .products-main-nav a:nth-child(4)::before{content:"Collections"}
+html[lang="en"] .world-page .products-main-nav a:nth-child(5)::before{content:"The Journal"}
+html[lang="en"] .world-page .products-main-nav a:nth-child(6)::before{content:"Our know-how"}
+html[lang="en"] .world-page .products-main-nav a:nth-child(7)::before{content:"The Workshop"}
+html[lang="ar"] .world-page .products-main-nav a:nth-child(1)::before{content:"الرئيسية"}
+html[lang="ar"] .world-page .products-main-nav a:nth-child(2)::before{content:"المنتجات"}
+html[lang="ar"] .world-page .products-main-nav a:nth-child(3)::before{content:"الأصل"}
+html[lang="ar"] .world-page .products-main-nav a:nth-child(4)::before{content:"المجموعات"}
+html[lang="ar"] .world-page .products-main-nav a:nth-child(5)::before{content:"المجلة"}
+html[lang="ar"] .world-page .products-main-nav a:nth-child(6)::before{content:"خبرتنا"}
+html[lang="ar"] .world-page .products-main-nav a:nth-child(7)::before{content:"الورشة"}
+html[lang="en"] .world-page .products-main-nav a,
+html[lang="ar"] .world-page .products-main-nav a{font-size:0}
+html[lang="en"] .world-page .products-main-nav a::before,
+html[lang="ar"] .world-page .products-main-nav a::before{font-size:13px;font-weight:500;letter-spacing:.5px}
