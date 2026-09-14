@@ -4,7 +4,7 @@
   const STYLE_ID = 'araouaa-visual-enhancements';
   const LIGHT_STYLE_ID = 'araouaa-light-engine';
   const JOURNAL_STYLE_ID = 'araouaa-journal-final';
-  const VERSION = '20260911h';
+  const VERSION = '20260911i';
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
@@ -23,6 +23,8 @@
         if (!document.body.classList.contains('world-page--journal')) return;
         return loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`);
       });
+
+  loadStyles();
 
   const setupThemeColor = () => {
     let meta = document.querySelector('meta[name="theme-color"]');
@@ -94,7 +96,6 @@
   };
 
   const init = () => {
-    loadStyles();
     setupThemeColor();
     setupProgress();
     setupLightField();
