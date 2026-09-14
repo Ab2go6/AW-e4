@@ -4,39 +4,49 @@ body:not(.world-page):not(.products-page) .contact{
   color:#241f1b!important;
 }
 
-/* Lock the whole contact heading reveal itself, not only its children. */
+/* The section heading itself was inheriting the scroll-reveal opacity. */
 body:not(.world-page):not(.products-page) .contact .section-heading{
   opacity:1!important;
   visibility:visible!important;
   transform:none!important;
   filter:none!important;
   animation:none!important;
+  animation-timeline:none!important;
 }
 
-/* Lock every visible text layer to readable dark ink on the cream field. */
-body:not(.world-page):not(.products-page) .contact,
-body:not(.world-page):not(.products-page) .contact h1,
-body:not(.world-page):not(.products-page) .contact h2,
-body:not(.world-page):not(.products-page) .contact h3,
-body:not(.world-page):not(.products-page) .contact h4,
-body:not(.world-page):not(.products-page) .contact .contact-title,
-body:not(.world-page):not(.products-page) .contact .eyebrow,
+/* Force the heading's actual rendered text, including the em accent. */
+body:not(.world-page):not(.products-page) .contact .section-heading .eyebrow{
+  color:#8c6b2c!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+body:not(.world-page):not(.products-page) .contact .section-heading h2{
+  color:#241f1b!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+body:not(.world-page):not(.products-page) .contact .section-heading h2 em{
+  color:#30483d!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+body:not(.world-page):not(.products-page) .contact .section-heading>p:last-child{
+  color:#5f574f!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+/* Keep the rest of the contact copy readable too. */
 body:not(.world-page):not(.products-page) .contact label,
 body:not(.world-page):not(.products-page) .contact strong,
 body:not(.world-page):not(.products-page) .contact span,
 body:not(.world-page):not(.products-page) .contact a,
 body:not(.world-page):not(.products-page) .contact p,
-body:not(.world-page):not(.products-page) .contact .contact-intro,
 body:not(.world-page):not(.products-page) .contact-info small{
   color:#241f1b!important;
   opacity:1!important;
   visibility:visible!important;
   text-shadow:none!important;
-}
-
-/* Preserve the premium gold accent on the small section marker. */
-body:not(.world-page):not(.products-page) .contact .eyebrow{
-  color:#8c6b2c!important;
 }
 
 body:not(.world-page):not(.products-page) .contact-form .button-primary,
