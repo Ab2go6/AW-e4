@@ -30,6 +30,17 @@
     }).join('');
   };
 
+  const setupFooterContact = () => {
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    const location = footer.querySelector('.footer-contact [aria-label="Localisation"] span');
+    const phone = footer.querySelector('.footer-contact [aria-label="Téléphone"] span');
+
+    if (location) location.textContent = 'Localisation — Tassila N° 3-39 Tikiouine, AGADIR';
+    if (phone) phone.textContent = 'Téléphone — 0528264827';
+  };
+
   const restoreProductHashPosition = () => {
     if (!document.body.classList.contains('products-page') || !window.location.hash || window.location.hash.startsWith('#search=')) return;
     try { document.querySelector(window.location.hash)?.scrollIntoView({ block: 'start' }); } catch {}
@@ -48,6 +59,7 @@
     .then(() => load('araouaa-motion.js'))
     .then(() => {
       setupPrimaryNav();
+      setupFooterContact();
       window.requestAnimationFrame(restoreProductHashPosition);
     })
     .catch(error => console.error('ARAOUAA scripts failed to load:', error));
