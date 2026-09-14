@@ -3,8 +3,9 @@
 
   const STYLE_ID = 'araouaa-visual-enhancements';
   const LIGHT_STYLE_ID = 'araouaa-light-engine';
+  const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
   const JOURNAL_STYLE_ID = 'araouaa-journal-final';
-  const VERSION = '20260911i';
+  const VERSION = '20260914c';
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
@@ -19,6 +20,10 @@
   const loadStyles = () =>
     loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`)
       .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`))
+      .then(() => {
+        if (document.body.classList.contains('world-page') || document.body.classList.contains('products-page')) return;
+        return loadStyle(HOMEPAGE_CONTACT_STYLE_ID, `homepage-contact.css?v=${VERSION}`);
+      })
       .then(() => {
         if (!document.body.classList.contains('world-page--journal')) return;
         return loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`);
