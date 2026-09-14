@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = '20260914a';
+  const VERSION = '20260914b';
 
   const load = src => new Promise((resolve, reject) => {
     const script = document.createElement('script');
@@ -38,6 +38,7 @@
   const isHomepage = () => !document.body.classList.contains('products-page') && !!document.querySelector('#siteHeader.search-toggle, #siteHeader .search-toggle');
 
   load('script-core.js')
+    .then(() => document.body.classList.contains('products-page') ? load('product-expansion.js') : null)
     .then(() => load('language.js'))
     .then(() => load('catalog-language.js'))
     .then(() => load('site-content-language.js'))
