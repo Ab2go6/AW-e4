@@ -52,6 +52,7 @@
 
   load('script-core.js')
     .then(() => document.body.classList.contains('products-page') ? load('product-expansion.js') : null)
+    .then(() => document.body.classList.contains('products-page') ? load('product-focus-mode.js') : null)
     .then(() => document.body.classList.contains('products-page') ? load('product-interactions.js') : null)
     .then(() => load('language.js'))
     .then(() => load('catalog-language.js'))
