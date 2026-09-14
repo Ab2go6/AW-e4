@@ -168,7 +168,7 @@
   // Update only the requested editorial label when it is present in the rendered catalogue.
   const refineEssentialsLabel = () => $$('*').forEach(element => {
     if (element.children.length === 0 && element.textContent.trim() === 'ESSENTIELS DU QUOTIDIEN') {
-      element.textContent = 'ESSENTIELS & INCONTOURNABLES';
+      element.textContent = 'ESSENTIELS DE CUISINE';
     }
   });
   refineEssentialsLabel();
