@@ -1,0 +1,5 @@
+/* ARAOUAA catalogue — focused category mode. */
+.products-page.product-focus-mode main > *:not(.product-category-section.product-section-focus-target){display:none!important}
+.products-page.product-focus-mode .product-category-section.product-section-focus-target{display:block!important}
+.products-page.product-focus-mode .product-section-focus-target .product-items{display:grid!important}
+.products-page.product-focus-mode .product-section-focus-target .product-more-card{display:flex!important}
