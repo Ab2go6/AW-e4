@@ -115,6 +115,20 @@ body:not(.world-page):not(.products-page) .partner-card{
   background-color:var(--ara-world-cream)!important;
 }
 
+/* Refine the Le goût du Maroc CTA without changing the surrounding panel. */
+body:not(.world-page):not(.products-page) .partner-copy .button-primary{
+  margin-top:18px!important;
+  background:#3f604d!important;
+  border-color:#3f604d!important;
+  box-shadow:0 12px 30px rgba(35,58,45,.24)!important;
+}
+body:not(.world-page):not(.products-page) .partner-copy .button-primary:hover,
+body:not(.world-page):not(.products-page) .partner-copy .button-primary:focus-visible{
+  background:#304c3d!important;
+  border-color:#304c3d!important;
+  box-shadow:0 15px 34px rgba(35,58,45,.3)!important;
+}
+
 @media(max-width:900px){
   body:not(.world-page):not(.products-page) .story,
   body:not(.world-page):not(.products-page) .partners{padding:84px 6%!important}
