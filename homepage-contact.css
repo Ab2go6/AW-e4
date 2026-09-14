@@ -1,7 +1,37 @@
 /* Homepage closing contact CTA — cream field with readable editorial typography. */
 body:not(.world-page):not(.products-page) .contact{
+  position:relative!important;
+  padding:112px 6% 118px!important;
   background:radial-gradient(circle at 12% 18%,#fffdf8 0,var(--ara-world-cream) 42%,#eee5d7 100%)!important;
   color:#241f1b!important;
+  overflow:hidden!important;
+}
+
+/* Quiet section rule — part of the original editorial rhythm, kept neutral. */
+body:not(.world-page):not(.products-page) .contact::before{
+  content:""!important;
+  position:absolute!important;
+  left:7%!important;
+  right:7%!important;
+  top:0!important;
+  width:auto!important;
+  height:1px!important;
+  background:linear-gradient(90deg,transparent,rgba(48,72,61,.26),transparent)!important;
+  opacity:1!important;
+  pointer-events:none!important;
+}
+
+/* Subtle paper-light atmosphere, replacing the removed gold glow. */
+body:not(.world-page):not(.products-page) .contact::after{
+  content:""!important;
+  position:absolute!important;
+  width:520px!important;
+  height:520px!important;
+  right:-250px!important;
+  bottom:-300px!important;
+  border:1px solid rgba(48,72,61,.10)!important;
+  border-radius:50%!important;
+  pointer-events:none!important;
 }
 
 /* Disable the scroll reveal only inside this closing contact section so all content stays visible. */
@@ -14,6 +44,14 @@ body:not(.world-page):not(.products-page) .contact .contact-info{
   filter:none!important;
   animation:none!important;
   animation-timeline:none!important;
+}
+
+/* Keep the heading compact so the actual contact architecture follows immediately. */
+body:not(.world-page):not(.products-page) .contact .section-heading{
+  position:relative!important;
+  z-index:2!important;
+  max-width:760px!important;
+  margin:0 auto 54px!important;
 }
 
 /* Readable neutral editorial typography — no leftover gold treatment. */
@@ -34,6 +72,14 @@ body:not(.world-page):not(.products-page) .contact-info .info-block>span{
   text-shadow:none!important;
 }
 
+/* Keep all heading accents neutral/green rather than gold. */
+body:not(.world-page):not(.products-page) .contact .section-heading .eyebrow{
+  color:#30483d!important;
+}
+body:not(.world-page):not(.products-page) .contact .section-heading h2 em{
+  color:#30483d!important;
+}
+
 /* Supporting copy stays slightly softer for hierarchy. */
 body:not(.world-page):not(.products-page) .contact .section-heading>p:last-child,
 body:not(.world-page):not(.products-page) .contact-info small,
@@ -41,15 +87,85 @@ body:not(.world-page):not(.products-page) .contact-info .info-block>span{
   color:#6f675e!important;
 }
 
-/* Form controls remain visible and aligned with the cream/paper material language. */
+/* Rebuild the two-column contact architecture: form on the left, information on the right. */
+body:not(.world-page):not(.products-page) .contact-layout{
+  width:min(1160px,100%)!important;
+  margin:0 auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr)!important;
+  gap:78px!important;
+  align-items:start!important;
+  position:relative!important;
+  z-index:2!important;
+}
+
+/* Form surfaces use lines rather than card chrome. */
+body:not(.world-page):not(.products-page) .contact-form{
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:0!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form .field-row{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:34px!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form label{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:10px!important;
+  padding:0 0 15px!important;
+  margin:0 0 20px!important;
+  border-bottom:1px solid rgba(36,31,27,.17)!important;
+  font-size:9px!important;
+  font-weight:700!important;
+  letter-spacing:2px!important;
+  text-transform:uppercase!important;
+}
+
 body:not(.world-page):not(.products-page) .contact-form input,
 body:not(.world-page):not(.products-page) .contact-form textarea,
 body:not(.world-page):not(.products-page) .contact-form select{
+  width:100%!important;
+  min-width:0!important;
   opacity:1!important;
   visibility:visible!important;
   color:#241f1b!important;
-  background:#fffdf8!important;
-  border-color:rgba(36,31,27,.16)!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:none!important;
+  box-shadow:none!important;
+  padding:5px 0 0!important;
+  font-size:13px!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form input:focus,
+body:not(.world-page):not(.products-page) .contact-form textarea:focus,
+body:not(.world-page):not(.products-page) .contact-form select:focus{
+  border:0!important;
+  outline:none!important;
+  box-shadow:none!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form label:focus-within{
+  border-bottom-color:#30483d!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form textarea{
+  min-height:118px!important;
+  resize:vertical!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form select{
+  appearance:auto!important;
+  cursor:pointer!important;
 }
 
 body:not(.world-page):not(.products-page) .contact-form input::placeholder,
@@ -61,12 +177,19 @@ body:not(.world-page):not(.products-page) .contact-form textarea::placeholder{
 /* Green action with white typography, as requested. */
 body:not(.world-page):not(.products-page) .contact-form .button-primary,
 body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary{
+  align-self:flex-start!important;
+  margin-top:8px!important;
   background:var(--ara-world-green)!important;
   background-image:none!important;
   background-color:var(--ara-world-green)!important;
   color:#fff!important;
   border-color:var(--ara-world-green)!important;
   box-shadow:0 12px 30px rgba(48,72,61,.22)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form .button-primary span,
+body:not(.world-page):not(.products-page) #contactForm > button.button.button-primary span{
+  color:#fff!important;
 }
 
 body:not(.world-page):not(.products-page) .contact-form .button-primary:hover,
@@ -79,4 +202,152 @@ body:not(.world-page):not(.products-page) #contactForm > button.button.button-pr
   color:#fff!important;
   border-color:#1e3028!important;
   box-shadow:0 15px 34px rgba(48,72,61,.28)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-form .form-message{
+  min-height:18px!important;
+  margin-top:12px!important;
+  color:#6f675e!important;
+  font-size:10px!important;
+  line-height:1.6!important;
+}
+
+/* Right column: explicit information rows plus the circular editorial highlight. */
+body:not(.world-page):not(.products-page) .contact-info{
+  position:relative!important;
+  min-width:0!important;
+  padding:7px 0 0 38px!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-info::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  bottom:6px!important;
+  width:1px!important;
+  background:rgba(48,72,61,.18)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-info .info-block{
+  position:relative!important;
+  padding:0 0 18px!important;
+  margin:0 0 18px!important;
+  border-bottom:1px solid rgba(36,31,27,.14)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-info .info-block:last-of-type{
+  margin-bottom:28px!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-info .info-block::before{
+  content:""!important;
+  position:absolute!important;
+  left:-43px!important;
+  top:2px!important;
+  width:8px!important;
+  height:8px!important;
+  border-radius:50%!important;
+  background:#30483d!important;
+  box-shadow:0 0 0 5px rgba(48,72,61,.08)!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-info .info-block>span{
+  display:block!important;
+  margin-bottom:7px!important;
+  font-size:8px!important;
+  font-weight:700!important;
+  letter-spacing:2.2px!important;
+  text-transform:uppercase!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-info .info-block a,
+body:not(.world-page):not(.products-page) .contact-info .info-block p{
+  display:block!important;
+  margin:0!important;
+  color:#241f1b!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-info .info-block a:hover{
+  color:#30483d!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-highlight{
+  width:214px!important;
+  height:214px!important;
+  margin:8px 0 0 auto!important;
+  padding:42px 31px!important;
+  border:1px solid rgba(48,72,61,.24)!important;
+  border-radius:50%!important;
+  background:rgba(255,253,248,.32)!important;
+  box-shadow:inset 0 0 0 12px rgba(48,72,61,.025)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  text-align:center!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-highlight strong{
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-size:28px!important;
+  line-height:1!important;
+  font-weight:600!important;
+  letter-spacing:-.4px!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-highlight p{
+  margin:10px auto 0!important;
+  max-width:150px!important;
+  color:#6f675e!important;
+  font-size:9px!important;
+  line-height:1.6!important;
+}
+
+body:not(.world-page):not(.products-page) .contact-highlight a{
+  margin-top:12px!important;
+  color:#30483d!important;
+  font-size:8px!important;
+  font-weight:700!important;
+  letter-spacing:1px!important;
+}
+
+@media(max-width:900px){
+  body:not(.world-page):not(.products-page) .contact{
+    padding:88px 6% 96px!important;
+  }
+  body:not(.world-page):not(.products-page) .contact-layout{
+    grid-template-columns:1fr!important;
+    gap:52px!important;
+  }
+  body:not(.world-page):not(.products-page) .contact-info{
+    padding:0!important;
+  }
+  body:not(.world-page):not(.products-page) .contact-info::before,
+  body:not(.world-page):not(.products-page) .contact-info .info-block::before{
+    display:none!important;
+  }
+  body:not(.world-page):not(.products-page) .contact-highlight{
+    margin:24px 0 0 auto!important;
+  }
+}
+
+@media(max-width:620px){
+  body:not(.world-page):not(.products-page) .contact .section-heading{
+    margin-bottom:40px!important;
+  }
+  body:not(.world-page):not(.products-page) .contact-form .field-row{
+    grid-template-columns:1fr!important;
+    gap:0!important;
+  }
+  body:not(.world-page):not(.products-page) .contact-highlight{
+    width:190px!important;
+    height:190px!important;
+    padding:35px 27px!important;
+    margin-left:auto!important;
+  }
+  body:not(.world-page):not(.products-page) .contact-highlight strong{
+    font-size:25px!important;
+  }
 }
