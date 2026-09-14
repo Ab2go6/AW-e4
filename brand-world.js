@@ -5,7 +5,7 @@
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const links = [
     ['Accueil', 'index.html'], ['Produits', 'produits.html'], ['L’univers', 'origine.html'],
-    ['Les Collections', 'collections.html'], ['Le Journal', 'journal.html'],
+    ['Collection', 'collections.html'], ['Journal', 'journal.html'],
     ['Notre savoir-faire', 'savoir-faire.html'], ['L’Atelier', 'atelier.html']
   ];
 
