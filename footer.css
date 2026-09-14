@@ -30,3 +30,63 @@
   .footer-contact{grid-column:1/-1}
   .footer-bottom{flex-direction:column;gap:8px}
 }
+
+/* Accueil closing scene — editorial contact finale, without changing the existing markup or form flow. */
+body:not(.world-page):not(.products-page) .contact{width:100%!important;max-width:none!important;margin:0!important;padding:122px 6% 126px!important;position:relative!important;overflow:hidden!important;isolation:isolate!important;background:
+  radial-gradient(circle at 84% 18%,rgba(208,170,96,.13),transparent 24%),
+  radial-gradient(circle at 14% 82%,rgba(64,89,75,.38),transparent 34%),
+  linear-gradient(118deg,#17261f 0%,#263b32 48%,#18261f 100%)!important;color:#f6f0e5!important}
+body:not(.world-page):not(.products-page) .contact:before{content:"";position:absolute;z-index:-1;width:560px;height:560px;right:-190px;top:50%;transform:translateY(-50%);border:1px solid rgba(208,170,96,.22);border-radius:50%;box-shadow:0 0 0 34px rgba(208,170,96,.025),0 0 0 108px rgba(208,170,96,.018);pointer-events:none}
+body:not(.world-page):not(.products-page) .contact:after{content:"";position:absolute;z-index:-1;left:6%;right:6%;top:34px;height:1px;background:linear-gradient(90deg,transparent,rgba(208,170,96,.38) 18%,rgba(208,170,96,.16) 82%,transparent);pointer-events:none}
+body:not(.world-page):not(.products-page) .contact .section-heading{width:min(1380px,100%)!important;max-width:none!important;margin:0 auto 64px!important;text-align:left!important;position:relative}
+body:not(.world-page):not(.products-page) .contact .section-heading:after{content:"";position:absolute;right:5%;top:18px;width:78px;height:1px;background:#d0aa60;opacity:.75;box-shadow:0 0 0 9px rgba(208,170,96,.055)}
+body:not(.world-page):not(.products-page) .contact .eyebrow{color:#d0aa60!important;letter-spacing:3px!important}
+body:not(.world-page):not(.products-page) .contact .section-heading h2{max-width:980px!important;margin:17px 0 22px!important;color:#f7f0e4!important;font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(64px,8.3vw,122px)!important;line-height:.82!important;letter-spacing:-2.6px!important;font-weight:600!important}
+body:not(.world-page):not(.products-page) .contact .section-heading h2 em{color:#d0aa60!important;font-style:normal!important}
+body:not(.world-page):not(.products-page) .contact .section-heading>p:last-child{max-width:560px!important;margin:0!important;color:rgba(247,240,228,.72)!important;font-size:12px!important;line-height:1.85!important}
+body:not(.world-page):not(.products-page) .contact .contact-layout{width:min(1380px,100%)!important;margin:0 auto!important;display:grid!important;grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr)!important;gap:90px!important;align-items:start!important}
+body:not(.world-page):not(.products-page) .contact .contact-form{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;max-width:760px!important}
+body:not(.world-page):not(.products-page) .contact .contact-form label{display:block!important;color:rgba(247,240,228,.68)!important;font-size:9px!important;letter-spacing:1.7px!important;text-transform:uppercase!important;font-weight:600!important}
+body:not(.world-page):not(.products-page) .contact .contact-form input,
+body:not(.world-page):not(.products-page) .contact .contact-form select,
+body:not(.world-page):not(.products-page) .contact .contact-form textarea{width:100%!important;border:0!important;border-bottom:1px solid rgba(247,240,228,.18)!important;border-radius:0!important;background:transparent!important;color:#f7f0e4!important;box-shadow:none!important;padding:12px 0 13px!important;outline:none!important;font-size:12px!important}
+body:not(.world-page):not(.products-page) .contact .contact-form input::placeholder,
+body:not(.world-page):not(.products-page) .contact .contact-form textarea::placeholder{color:rgba(247,240,228,.38)!important}
+body:not(.world-page):not(.products-page) .contact .contact-form input:focus,
+body:not(.world-page):not(.products-page) .contact .contact-form select:focus,
+body:not(.world-page):not(.products-page) .contact .contact-form textarea:focus{border-bottom-color:rgba(208,170,96,.72)!important}
+body:not(.world-page):not(.products-page) .contact .contact-form textarea{min-height:130px!important;resize:vertical!important}
+body:not(.world-page):not(.products-page) .contact .field-row{display:grid!important;grid-template-columns:1fr 1fr!important;gap:34px!important}
+body:not(.world-page):not(.products-page) .contact .field-row>label,
+body:not(.world-page):not(.products-page) .contact .contact-form>label{margin-bottom:30px!important}
+body:not(.world-page):not(.products-page) .contact .contact-form select{appearance:none!important;cursor:pointer!important}
+body:not(.world-page):not(.products-page) .contact .contact-form .button-primary{margin-top:3px!important;background:#d0aa60!important;color:#18231e!important;border-color:#d0aa60!important;box-shadow:none!important;padding:14px 25px!important}
+body:not(.world-page):not(.products-page) .contact .contact-form .button-primary:hover{background:#e2c27f!important;border-color:#e2c27f!important;transform:translateY(-2px)!important}
+body:not(.world-page):not(.products-page) .contact .form-message{color:#d0aa60!important;font-size:10px!important;margin-top:12px!important}
+body:not(.world-page):not(.products-page) .contact .contact-info{align-self:stretch!important;border-left:1px solid rgba(208,170,96,.24)!important;padding:6px 0 0 38px!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;gap:28px!important;background:transparent!important;box-shadow:none!important}
+body:not(.world-page):not(.products-page) .contact .info-block{border:0!important;padding:0!important}
+body:not(.world-page):not(.products-page) .contact .info-block>span{display:block!important;color:#d0aa60!important;font-size:8px!important;letter-spacing:2px!important;font-weight:600!important;margin-bottom:7px!important}
+body:not(.world-page):not(.products-page) .contact .info-block a,
+body:not(.world-page):not(.products-page) .contact .info-block p{color:#f7f0e4!important;font-size:12px!important;line-height:1.7!important}
+body:not(.world-page):not(.products-page) .contact .contact-highlight{margin-top:auto!important;padding:22px 0 0!important;border-top:1px solid rgba(208,170,96,.18)!important;background:transparent!important}
+body:not(.world-page):not(.products-page) .contact .contact-highlight strong{display:block!important;font-family:"Cormorant Garamond",Georgia,serif!important;font-size:31px!important;line-height:1!important;color:#f7f0e4!important;font-weight:600!important;margin-bottom:9px!important}
+body:not(.world-page):not(.products-page) .contact .contact-highlight p{max-width:310px!important;color:rgba(247,240,228,.56)!important;font-size:10px!important;line-height:1.75!important}
+body:not(.world-page):not(.products-page) .contact .contact-highlight a{display:inline-flex!important;margin-top:13px!important;color:#d0aa60!important;font-size:9px!important;letter-spacing:1.2px!important;font-weight:600!important}
+
+@media(max-width:850px){
+  body:not(.world-page):not(.products-page) .contact{padding:92px 6% 96px!important}
+  body:not(.world-page):not(.products-page) .contact .section-heading{margin-bottom:48px!important}
+  body:not(.world-page):not(.products-page) .contact .section-heading h2{font-size:clamp(54px,14vw,86px)!important}
+  body:not(.world-page):not(.products-page) .contact .contact-layout{grid-template-columns:1fr!important;gap:58px!important}
+  body:not(.world-page):not(.products-page) .contact .contact-form{max-width:none!important}
+  body:not(.world-page):not(.products-page) .contact .contact-info{border-left:0!important;border-top:1px solid rgba(208,170,96,.24)!important;padding:28px 0 0!important;display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:26px 30px!important}
+  body:not(.world-page):not(.products-page) .contact .contact-highlight{grid-column:1/-1!important;margin-top:0!important}
+}
+@media(max-width:520px){
+  body:not(.world-page):not(.products-page) .contact{padding:78px 6% 82px!important}
+  body:not(.world-page):not(.products-page) .contact .section-heading h2{letter-spacing:-1.7px!important}
+  body:not(.world-page):not(.products-page) .contact .field-row{grid-template-columns:1fr!important;gap:0!important}
+  body:not(.world-page):not(.products-page) .contact .contact-info{grid-template-columns:1fr!important}
+  body:not(.world-page):not(.products-page) .contact .contact-highlight{grid-column:auto!important}
+  body:not(.world-page):not(.products-page) .contact:before{width:360px;height:360px;right:-200px}
+}
