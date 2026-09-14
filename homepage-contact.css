@@ -4,6 +4,15 @@ body:not(.world-page):not(.products-page) .contact{
   color:#241f1b!important;
 }
 
+/* Lock the whole contact heading reveal itself, not only its children. */
+body:not(.world-page):not(.products-page) .contact .section-heading{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  filter:none!important;
+  animation:none!important;
+}
+
 /* Lock every visible text layer to readable dark ink on the cream field. */
 body:not(.world-page):not(.products-page) .contact,
 body:not(.world-page):not(.products-page) .contact h1,
@@ -21,6 +30,7 @@ body:not(.world-page):not(.products-page) .contact .contact-intro,
 body:not(.world-page):not(.products-page) .contact-info small{
   color:#241f1b!important;
   opacity:1!important;
+  visibility:visible!important;
   text-shadow:none!important;
 }
 
