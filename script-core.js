@@ -165,6 +165,14 @@
   }
   addFamilySections();
 
+  // Update only the requested editorial label when it is present in the rendered catalogue.
+  const refineEssentialsLabel = () => $$('*').forEach(element => {
+    if (element.children.length === 0 && element.textContent.trim() === 'ESSENTIELS DU QUOTIDIEN') {
+      element.textContent = 'ESSENTIELS & INCONTOURNABLES';
+    }
+  });
+  refineEssentialsLabel();
+
   function setupFooterUniverses() {
     $$('.footer-nav > div:last-child').forEach(universe => {
       const heading = $('strong', universe);
