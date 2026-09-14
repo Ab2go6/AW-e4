@@ -36,9 +36,11 @@
 
     const location = footer.querySelector('.footer-contact [aria-label="Localisation"] span');
     const phone = footer.querySelector('.footer-contact [aria-label="Téléphone"] span');
+    const email = footer.querySelector('.footer-contact [aria-label="E-mail"] span');
 
     if (location) location.textContent = 'Tassila N° 3-39 Tikiouine, AGADIR';
     if (phone) phone.textContent = '0528264827';
+    if (email) email.textContent = 'contac.araouaa@gmail.com';
   };
 
   const restoreProductHashPosition = () => {
