@@ -158,12 +158,19 @@
       section.dataset.section = family.id;
       section.innerHTML = `<div class="category-heading"><div class="category-heading-left"><span class="category-number">${family.number}</span><div><span class="product-item-tag">UNIVERS ARAOUAA</span><h2>${family.title} <em>${family.header}</em></h2></div></div><p>${family.description}</p></div><div class="product-items catalog-family-grid"></div>`;
       const grid = $('.product-items', section);
-      family.items.forEach(([name, label, description]) => grid.appendChild(makeProductCard(name, label, family.title.toUpperCase(), description)));
+      family.items.forEach(([name, label, description]) => grid.appendChild(makeProductCard(name, label, family.title.toUpperCase(), description));
       insertAfter.insertAdjacentElement('afterend', section);
       insertAfter = section;
     });
   }
   addFamilySections();
+
+  // Refine the specific editorial label when present without touching other product copy.
+  $$('*').forEach(element => {
+    if (element.children.length === 0 && element.textContent.trim() === 'ESSENTIELS DU QUOTIDIEN') {
+      element.textContent = 'ESSENTIELS & INCONTOURNABLES';
+    }
+  });
 
   function setupFooterUniverses() {
     $$('.footer-nav > div:last-child').forEach(universe => {
@@ -178,150 +185,12 @@
       combined?.remove();
       const links = [['Huiles', `${prefix}huiles`], ['Amlou', `${prefix}amlou`], ['Miel', `${prefix}miel`]];
       links.forEach(([label, href]) => {
-        if ($$('a', universe).some(link => link.getAttribute('href') === href)) return;
-        const link = document.createElement('a');
-        link.href = href;
-        link.textContent = label;
-        universe.appendChild(link);
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = label;
+        universe.appendChild(a);
       });
-      const more = document.createElement('a');
-      more.href = moreHref;
-      more.textContent = '+ Plus';
-      universe.appendChild(more);
     });
   }
   setupFooterUniverses();
-
-  function setupProductPage() {
-    if (!document.body.classList.contains('products-page')) return;
-    const categoryNav = $('.product-category-nav');
-    const extraFamilies = [['huiles', 'Huiles'], ['amlou', 'Amlou'], ['miel', 'Miel']];
-    if (categoryNav && !categoryNav.dataset.extraFamiliesBound) {
-      extraFamilies.forEach(([category, label]) => {
-        if ($$('.catalog-filter', categoryNav).some(button => button.dataset.category === category)) return;
-        const button = document.createElement('button');
-        button.className = 'catalog-filter';
-        button.type = 'button';
-        button.dataset.category = category;
-        button.textContent = label;
-        categoryNav.appendChild(button);
-      });
-      categoryNav.dataset.extraFamiliesBound = 'true';
-    }
-    const productSections = $$('[data-section]');
-    const filters = $$('.catalog-filter');
-    const formatModal = $('#formatModal');
-    const formatInput = $('#customWeight');
-    const formatConfirmation = $('#formatConfirmation');
-    let activeCategory = 'all';
-    const categoryGroups = { plus: ['autres', 'huiles', 'amlou', 'miel'] };
-    const closeFormat = () => { formatModal?.classList.remove('open'); formatModal?.setAttribute('aria-hidden', 'true'); };
-    const getProductName = item => normalize(item.dataset.productName || $('h3', item)?.textContent || '');
-    const renderProducts = queryValue => {
-      const query = normalize(queryValue.trim());
-      const visibleSections = categoryGroups[activeCategory] || [activeCategory];
-      const searching = Boolean(query);
-      productSections.forEach(section => {
-        let visible = 0;
-        $$('.product-item', section).forEach(item => {
-          const name = getProductName(item);
-          const inCategory = searching || activeCategory === 'all' || visibleSections.includes(section.dataset.section);
-          const matchesSearch = !query || name.includes(query);
-          const visibleItem = inCategory && matchesSearch;
-          item.hidden = !visibleItem;
-          visible += visibleItem ? 1 : 0;
-        });
-        section.hidden = visible === 0;
-      });
-    };
-    window.__ARAOUAA_PRODUCT_SEARCH__ = renderProducts;
-    const applyFilter = (category, scroll = false) => {
-      activeCategory = category;
-      filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
-      const searchInput = $('.products-search-panel input');
-      renderProducts(searchInput?.value || '');
-      if (scroll) {
-        const targetCategory = categoryGroups[category]?.[0] || category;
-        productSections.find(section => section.dataset.section === targetCategory)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    };
-    filters.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.category || 'all', button.dataset.category !== 'all')));
-    $$('.format-button:not(.custom-format)').forEach(button => button.addEventListener('click', () => { button.classList.add('selected'); window.setTimeout(() => button.classList.remove('selected'), 650); }));
-    $$('.custom-format').forEach(button => button.addEventListener('click', () => {
-      if (!formatModal) return;
-      formatModal.classList.add('open'); formatModal.setAttribute('aria-hidden', 'false');
-      if (formatInput) { formatInput.value = ''; window.setTimeout(() => formatInput.focus(), 80); }
-      if (formatConfirmation) formatConfirmation.textContent = '';
-    }));
-    $('.format-modal-close')?.addEventListener('click', closeFormat);
-    $('.format-modal-backdrop')?.addEventListener('click', closeFormat);
-    $('#customWeightSubmit')?.addEventListener('click', () => {
-      const value = formatInput?.value.trim();
-      if (!value) { formatInput?.focus(); return; }
-      if (formatConfirmation) formatConfirmation.textContent = `Demande enregistrée : ${value}. Nous pourrons confirmer ce grammage selon vos besoins.`;
-    });
-
-    const productsHeader = $('.products-header');
-    const productSearchToggle = $('.products-header .products-icon-button[aria-label="Rechercher"]');
-    if (productsHeader && productSearchToggle) {
-      const panel = document.createElement('div');
-      panel.className = 'products-search-panel';
-      panel.hidden = true;
-      panel.setAttribute('aria-hidden', 'true');
-      panel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" aria-label="Rechercher un produit" placeholder="Rechercher un produit…" autocomplete="off"><button type="button" class="products-search-close" aria-label="Fermer la recherche">×</button></div>`;
-      productsHeader.appendChild(panel);
-      const input = $('input', panel);
-      const close = $('.products-search-close', panel);
-      const closeSearch = () => {
-        input.value = '';
-        activeCategory = 'all';
-        filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
-        renderProducts('');
-        panel.classList.remove('open');
-        panel.hidden = true;
-        panel.setAttribute('aria-hidden', 'true');
-        productSearchToggle.setAttribute('aria-expanded', 'false');
-      };
-      const search = () => {
-        const query = input.value.trim();
-        if (query) {
-          activeCategory = 'all';
-          filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
-        }
-        renderProducts(query);
-      };
-      productSearchToggle.setAttribute('aria-expanded', 'false');
-      productSearchToggle.addEventListener('click', () => {
-        const open = panel.classList.toggle('open');
-        panel.hidden = !open;
-        panel.setAttribute('aria-hidden', String(!open));
-        productSearchToggle.setAttribute('aria-expanded', String(open));
-        if (open) window.setTimeout(() => input.focus(), 80);
-      });
-      close.addEventListener('click', closeSearch);
-      input.addEventListener('input', search);
-      input.addEventListener('keydown', event => {
-        if (event.key !== 'Enter') return;
-        event.preventDefault();
-        search();
-      });
-    }
-
-    const productMenu = $('.products-header .menu-toggle');
-    const productNav = $('.products-main-nav');
-    if (productMenu && productNav && !productMenu.dataset.bound) {
-      productMenu.dataset.bound = 'true'; productMenu.addEventListener('click', () => { const open = productNav.classList.toggle('open'); productMenu.setAttribute('aria-expanded', String(open)); }); productNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => productNav.classList.remove('open')));
-    }
-    renderProducts('');
-  }
-  setupProductPage();
-
-  document.addEventListener('keydown', event => {
-    if (event.key !== 'Escape') return;
-    setSearch(false); setMenu(false);
-    const productSearch = $('.products-search-panel');
-    const productToggle = $('.products-search-toggle');
-    if (productSearch) { productSearch.hidden = true; productSearch.classList.remove('open'); productSearch.setAttribute('aria-hidden', 'true'); }
-    productToggle?.setAttribute('aria-expanded', 'false');
-  });
 })();
