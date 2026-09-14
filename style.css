@@ -115,18 +115,20 @@ body:not(.world-page):not(.products-page) .partner-card{
   background-color:var(--ara-world-cream)!important;
 }
 
-/* Refine the Le goût du Maroc CTA without changing the surrounding panel. */
+/* Refine the Le goût du Maroc CTA — lower, cream like the logo panel, black typography. */
 body:not(.world-page):not(.products-page) .partner-copy .button-primary{
-  margin-top:18px!important;
-  background:#3f604d!important;
-  border-color:#3f604d!important;
-  box-shadow:0 12px 30px rgba(35,58,45,.24)!important;
+  margin-top:34px!important;
+  background:var(--ara-world-cream)!important;
+  color:var(--ara-world-ink)!important;
+  border-color:var(--ara-world-cream)!important;
+  box-shadow:0 12px 30px rgba(23,21,19,.16)!important;
 }
 body:not(.world-page):not(.products-page) .partner-copy .button-primary:hover,
 body:not(.world-page):not(.products-page) .partner-copy .button-primary:focus-visible{
-  background:#304c3d!important;
-  border-color:#304c3d!important;
-  box-shadow:0 15px 34px rgba(35,58,45,.3)!important;
+  background:#fffaf2!important;
+  color:#171513!important;
+  border-color:#fffaf2!important;
+  box-shadow:0 15px 34px rgba(23,21,19,.22)!important;
 }
 
 @media(max-width:900px){
