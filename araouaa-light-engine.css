@@ -163,7 +163,6 @@ body:not(.world-page) .partner-card{
     radial-gradient(circle at 14% 78%,rgba(82,107,89,.08),transparent 27%),
     linear-gradient(122deg,var(--ara-paper-3),var(--ara-paper-2) 48%,#dacdb9);
 }
-.products-page .products-intro,
 .products-page .origin-section{
   background:linear-gradient(180deg,var(--ara-paper-2),#efe6da);
 }
