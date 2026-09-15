@@ -41,12 +41,6 @@
     meta.content = '#30483d';
   };
 
-  const setupProductIntroSurface = () => {
-    if (!document.body.classList.contains('products-page')) return;
-    const intro = document.querySelector('.products-intro');
-    if (intro) intro.style.setProperty('background', 'transparent', 'important');
-  };
-
   const setupProgress = () => {
     if (document.querySelector('.ara-scroll-progress')) return;
     const progress = document.createElement('div');
@@ -108,7 +102,6 @@
 
   const init = () => {
     setupThemeColor();
-    setupProductIntroSurface();
     setupProgress();
     setupLightField();
     setupExternalPageLinks();
