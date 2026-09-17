@@ -6,7 +6,8 @@
   const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
   const JOURNAL_STYLE_ID = 'araouaa-journal-final';
   const FINAL_STYLE_ID = 'araouaa-final-visual-sync';
-  const VERSION = '20260917a';
+  const LOCK_STYLE_ID = 'araouaa-visual-lock';
+  const VERSION = '20260917b';
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
@@ -29,7 +30,8 @@
         if (!document.body.classList.contains('world-page--journal')) return;
         return loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`);
       })
-      .then(() => loadStyle(FINAL_STYLE_ID, `araouaa-final-visual-sync.css?v=${VERSION}`));
+      .then(() => loadStyle(FINAL_STYLE_ID, `araouaa-final-visual-sync.css?v=${VERSION}`))
+      .then(() => loadStyle(LOCK_STYLE_ID, `araouaa-visual-lock.css?v=${VERSION}`));
 
   loadStyles();
 
