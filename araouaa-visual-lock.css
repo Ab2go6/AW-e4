@@ -1,11 +1,64 @@
 /* Final visual lock: shared source of truth for the approved palette. */
 :root{--ara-g0:#430D11;--ara-g1:#64151A;--ara-g2:#4B1015;--ara-cream:#F8F1E3;--ara-gold:#E2BD69}
 
-/* Product hero: exact approved cream field and wave lines. */
-.products-page .products-hero{position:relative!important;overflow:hidden!important;isolation:isolate!important;background:var(--ara-cream)!important;background-image:none!important}
-.products-page .products-hero::before{content:""!important;position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400 Q200 250 400 380 T800 350 T1200 420' fill='none' stroke='%23E8D9B5' stroke-width='55' stroke-opacity='.55'/%3E%3Cpath d='M0 480 Q250 320 500 460 T1000 430 T1200 500' fill='none' stroke='%23E0CFA3' stroke-width='45' stroke-opacity='.45'/%3E%3Cpath d='M0 320 Q300 180 600 310 T1200 290' fill='none' stroke='%23F0E4C9' stroke-width='40' stroke-opacity='.4'/%3E%3Cpath d='M0 550 Q350 400 700 530 T1200 560' fill='none' stroke='%23D9C48F' stroke-width='35' stroke-opacity='.35'/%3E%3C/svg%3E")!important;background-size:cover!important;background-repeat:no-repeat!important;background-position:center!important;opacity:.9!important}
-.products-page .products-hero-inner{position:relative!important;z-index:2!important}
+/* Product hero + intro: use the exact same layered sand field and contour treatment as the Home hero. */
+.products-page .products-hero,
+.products-page .products-intro{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background-color:#F1E3CC!important;
+  background-image:
+    radial-gradient(72% 86% at 76% 44%,rgba(255,253,246,.92) 0%,rgba(255,248,233,.72) 24%,rgba(231,208,169,.34) 55%,transparent 76%),
+    radial-gradient(58% 70% at 11% 12%,rgba(255,255,251,.98) 0%,rgba(252,244,228,.72) 35%,transparent 70%),
+    radial-gradient(52% 48% at 48% 104%,rgba(196,151,83,.18) 0%,transparent 72%),
+    linear-gradient(135deg,#FBF5E9 0%,#F6E9D4 34%,#EFDDBF 63%,#E5CDAA 100%)!important;
+  background-blend-mode:screen,screen,normal,normal!important;
+}
 
+.products-page .products-hero::before,
+.products-page .products-intro::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  left:-12%!important;
+  right:-8%!important;
+  top:7%!important;
+  bottom:-10%!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(157deg,transparent 0 14%,rgba(186,145,90,.15) 14.2% 15.8%,transparent 16.1% 25.5%,rgba(255,250,239,.44) 25.7% 29.4%,transparent 29.7% 39%,rgba(202,165,112,.18) 39.2% 40.9%,transparent 41.2% 51.5%,rgba(255,252,244,.48) 51.7% 55.8%,transparent 56.1% 66%,rgba(176,132,75,.12) 66.2% 68.2%,transparent 68.5% 100%)!important;
+  transform:skewY(-4deg) scale(1.08)!important;
+  opacity:.92!important;
+}
+
+.products-page .products-hero::after,
+.products-page .products-intro::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:-8%!important;
+  pointer-events:none!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23B38A54' stroke-linecap='round'%3E%3Cpath d='M-80 170 C180 70 330 225 565 145 S970 95 1480 210' stroke-opacity='.23' stroke-width='2.2'/%3E%3Cpath d='M-90 215 C165 115 355 270 600 190 S1020 135 1490 250' stroke-opacity='.17' stroke-width='1.7'/%3E%3Cpath d='M-90 410 C210 285 405 470 690 335 S1110 300 1500 410' stroke-opacity='.20' stroke-width='2'/%3E%3Cpath d='M-100 460 C210 330 420 515 710 390 S1125 350 1510 465' stroke-opacity='.15' stroke-width='1.5'/%3E%3Cpath d='M-100 660 C180 540 420 690 710 555 S1090 535 1510 650' stroke-opacity='.19' stroke-width='2'/%3E%3Cpath d='M-80 710 C220 585 440 735 735 605 S1120 585 1500 705' stroke-opacity='.13' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  mix-blend-mode:multiply!important;
+  opacity:1!important;
+}
+
+.products-page .products-hero-inner,
+.products-page .products-intro>*{
+  position:relative!important;
+  z-index:3!important;
+}
+
+@media(max-width:720px){
+  .products-page .products-hero::after,
+  .products-page .products-intro::after{opacity:.58!important;background-size:auto 118%!important;background-position:58% center!important}
+  .products-page .products-hero::before,
+  .products-page .products-intro::before{opacity:.74!important}
+}
 
 /* Product hierarchy rail: exact navigation garnet, transparent child so parent color is visible. */
 .products-page .product-categories{background:linear-gradient(100deg,var(--ara-g0) 0%,var(--ara-g1) 52%,var(--ara-g2) 100%)!important;color:#FFF8ED!important;border:0!important;box-shadow:0 10px 35px rgba(34,7,9,.22)!important}
