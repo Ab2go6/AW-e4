@@ -83,3 +83,34 @@ header.products-header .products-search-panel,
   75%{transform:rotateY(305deg) rotateZ(1deg) scale(1.01)}
   100%{transform:rotateY(360deg) rotateZ(0deg) scale(1)}
 }
+
+/* Palette test — deep garnet replaces the cool navy/green family while cream and gold remain untouched. */
+header.products-header,
+.site-header,
+.site-header.scrolled{
+  background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;
+  border-bottom-color:rgba(226,189,105,.28) !important;
+}
+header.products-header .products-main-nav a:hover,
+header.products-header .products-main-nav a.active,
+.main-nav a:hover,
+.main-nav a.active{color:#e2bd69 !important}
+header.products-header .products-main-nav a::after,
+.main-nav a:after{background:#e2bd69 !important}
+header.products-header .products-icon-button,
+.icon-button{color:#e2bd69 !important}
+header.products-header .products-header-contact,
+.header-contact{border-color:rgba(226,189,105,.72);color:#fff4df}
+header.products-header .products-header-contact:hover,
+.header-contact:hover{background:#e2bd69;color:#430d11}
+.cart-badge{background:#e2bd69 !important;color:#430d11 !important;border-color:#430d11 !important}
+.menu-toggle span{background:#fff4df}
+
+/* Keep the announcement as the light breathing layer above the new garnet navigation. */
+.announcement{background:#f7f1e7 !important;color:#302a25}
+.announcement .dot{background:#e2bd69}
+.announcement-separator{color:#8b1018}
+.announcement-socials a{color:#64151a}
+
+/* Refined hover sweep for the new palette. */
+.site-header::before,.products-header::before{background:linear-gradient(115deg,transparent 30%,rgba(226,189,105,.16) 46%,transparent 58%)}
