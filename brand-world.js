@@ -2,25 +2,7 @@
   const page = document.querySelector('.world-page');
   if (!page) return;
 
-  const heroContrast = document.querySelector('link[data-arraouaa-world-hero-contrast]') || document.createElement('link');
-  heroContrast.rel = 'stylesheet';
-  heroContrast.href = 'world-hero-contrast.css?v=20260914j';
-  heroContrast.dataset.arraouaaWorldHeroContrast = 'true';
-  if (!heroContrast.parentNode) document.head.appendChild(heroContrast);
-
   const hero = page.querySelector('.world-hero');
-  const heroMedia = hero?.querySelector('.world-hero-media');
-  if (hero && heroMedia) {
-    const heroImage = heroMedia.style.backgroundImage;
-    if (heroImage) hero.style.setProperty('--arraouaa-hero-image', heroImage);
-    let reflection = hero.querySelector('.world-hero-reflection');
-    if (!reflection) {
-      reflection = document.createElement('div');
-      reflection.className = 'world-hero-reflection';
-      reflection.setAttribute('aria-hidden', 'true');
-      hero.appendChild(reflection);
-    }
-  }
 
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const links = [
@@ -72,6 +54,6 @@
 
   Promise.all([
     loadScript('site-search.js?v=20260911f', 'site-search').catch(error => console.error('ARAOUAA world search failed to load:', error)),
-    loadScript('araouaa-motion.js?v=20260911g', 'motion').catch(error => console.error('ARAOUAA motion failed to load:', error))
+    loadScript('araouaa-motion.js?v=20260917h', 'motion').catch(error => console.error('ARAOUAA motion failed to load:', error))
   ]);
 })();
