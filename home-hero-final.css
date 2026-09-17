@@ -1,0 +1,51 @@
+/* Home hero — final cream architectural field. No sand waves. */
+html body:not(.world-page) .hero#accueil{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background-color:#F5EBDD!important;
+  background-image:
+    radial-gradient(62% 82% at 78% 47%,rgba(255,253,247,.98) 0%,rgba(255,250,240,.88) 22%,rgba(238,218,188,.58) 48%,rgba(228,205,170,.14) 67%,transparent 76%),
+    radial-gradient(52% 64% at 13% 17%,rgba(255,255,251,.98) 0%,rgba(255,250,240,.72) 34%,transparent 68%),
+    radial-gradient(46% 58% at 54% 108%,rgba(208,170,96,.18) 0%,transparent 68%),
+    linear-gradient(138deg,#FCF7EE 0%,#F7EBDD 42%,#EEDCC3 72%,#E5CFAD 100%)!important;
+  background-blend-mode:screen,screen,normal,normal!important;
+}
+
+html body:not(.world-page) .hero#accueil::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  width:min(58vw,820px)!important;
+  height:min(58vw,820px)!important;
+  right:-9vw!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  pointer-events:none!important;
+  border:1px solid rgba(176,137,72,.22)!important;
+  border-radius:50%!important;
+  background:
+    radial-gradient(circle at 47% 48%,rgba(255,255,250,.76) 0 34%,rgba(255,255,250,.17) 34.5%,transparent 35.5%),
+    radial-gradient(circle at 47% 48%,transparent 0 47%,rgba(176,137,72,.12) 47.2%,transparent 47.7%),
+    radial-gradient(circle at 47% 48%,transparent 0 62%,rgba(176,137,72,.08) 62.2%,transparent 62.65%),
+    radial-gradient(circle at 47% 48%,rgba(255,255,255,.25),transparent 68%);
+  box-shadow:0 0 120px rgba(255,250,238,.42),inset 0 0 80px rgba(255,255,255,.16)!important;
+  opacity:1!important;
+}
+
+html body:not(.world-page) .hero#accueil::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:-15%!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(ellipse at 70% 15%,rgba(255,255,255,.26) 0%,transparent 36%),
+    radial-gradient(ellipse at 24% 78%,rgba(205,174,126,.13) 0%,transparent 40%),
+    repeating-radial-gradient(ellipse at 63% 48%,rgba(255,255,255,.055) 0 2px,transparent 2px 14px);
+  mix-blend-mode:soft-light!important;
+  opacity:.8!important;
+}
+
+html body:not(.world-page) .hero#accueil .hero-backdrop{display:none!important;background:none!important;opacity:0!important}
+html body:not(.world-page) .hero#accueil .hero-inner{position:relative!important;z-index:3!important}
