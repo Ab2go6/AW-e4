@@ -1,0 +1,27 @@
+/* Final visual lock: shared source of truth for the approved palette. */
+:root{--ara-g0:#430D11;--ara-g1:#64151A;--ara-g2:#4B1015;--ara-cream:#F8F1E3;--ara-gold:#E2BD69}
+
+/* Home + Product hero: exact approved cream field and wave lines. */
+body:not(.world-page) .hero,
+.products-page .products-hero{position:relative!important;overflow:hidden!important;isolation:isolate!important;background:var(--ara-cream)!important;background-image:none!important}
+body:not(.world-page) .hero::before,
+.products-page .products-hero::before{content:""!important;position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400 Q200 250 400 380 T800 350 T1200 420' fill='none' stroke='%23E8D9B5' stroke-width='55' stroke-opacity='.55'/%3E%3Cpath d='M0 480 Q250 320 500 460 T1000 430 T1200 500' fill='none' stroke='%23E0CFA3' stroke-width='45' stroke-opacity='.45'/%3E%3Cpath d='M0 320 Q300 180 600 310 T1200 290' fill='none' stroke='%23F0E4C9' stroke-width='40' stroke-opacity='.4'/%3E%3Cpath d='M0 550 Q350 400 700 530 T1200 560' fill='none' stroke='%23D9C48F' stroke-width='35' stroke-opacity='.35'/%3E%3C/svg%3E")!important;background-size:cover!important;background-repeat:no-repeat!important;background-position:center!important;opacity:.9!important}
+body:not(.world-page) .hero::after{content:none!important;display:none!important}
+body:not(.world-page) .hero-backdrop{display:none!important}
+body:not(.world-page) .hero-inner,.products-page .products-hero-inner{position:relative!important;z-index:2!important}
+
+/* Product hierarchy rail: exact navigation garnet, transparent child so parent color is visible. */
+.products-page .product-categories{background:linear-gradient(100deg,var(--ara-g0) 0%,var(--ara-g1) 52%,var(--ara-g2) 100%)!important;color:#FFF8ED!important;border:0!important;box-shadow:0 10px 35px rgba(34,7,9,.22)!important}
+.products-page .product-category-nav{background:transparent!important}
+.products-page .product-category-nav button{background:transparent!important;color:#F7EDDB!important;border-color:rgba(226,189,105,.34)!important}
+.products-page .product-category-nav button:hover,.products-page .product-category-nav button.active{background:var(--ara-gold)!important;border-color:var(--ara-gold)!important;color:var(--ara-g0)!important}
+
+/* Footer: match navigation garnet; restore strong readable contrast. */
+.footer{background:linear-gradient(100deg,var(--ara-g0) 0%,var(--ara-g1) 52%,var(--ara-g2) 100%)!important;color:#FFF8ED!important}
+.footer-brand>p{color:#FFF8ED!important;font-size:10px!important;line-height:1.35!important;letter-spacing:1.8px!important;font-weight:600!important}
+.footer-nav strong{color:var(--ara-gold)!important;font-size:11px!important;letter-spacing:1.5px!important}
+.footer-nav a{color:#F1DFC4!important;font-size:11px!important;line-height:1.55!important;font-weight:500!important}
+.footer-nav a:hover,.footer-nav a:focus-visible{color:#FFF8ED!important}
+.footer-contact>div,.footer-contact span{color:#F1DFC4!important;font-size:11px!important;line-height:1.55!important;font-weight:500!important}
+.footer-contact svg{stroke:var(--ara-gold)!important;width:18px!important;height:18px!important}
+.footer-bottom{color:#D8C8AF!important;font-size:9px!important;border-top-color:rgba(226,189,105,.22)!important}
