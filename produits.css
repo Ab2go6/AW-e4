@@ -107,3 +107,26 @@
 .products-page .products-cta .cta-button{background:#f5efe4!important;color:#241f1b!important;border-color:#f5efe4!important;box-shadow:0 12px 30px rgba(23,21,19,.16)!important}
 .products-page .products-cta .cta-button:hover,
 .products-page .products-cta .cta-button:focus-visible{background:#fffaf2!important;color:#171513!important;border-color:#fffaf2!important;box-shadow:0 15px 34px rgba(23,21,19,.22)!important}
+
+/* Product category headers — now locked to the exact navigation garnet direction. */
+.products-page .category-heading{
+  background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;
+  box-shadow:0 0 0 100vmax #64151a !important;
+  border-bottom-color:rgba(226,189,105,.28) !important;
+  color:#fff8ed !important;
+}
+.products-page .category-heading h2{color:#fff8ed !important}
+.products-page .category-heading h2 em{color:#e2bd69 !important}
+.products-page .category-heading p{color:#f1dfc4 !important}
+.products-page .category-heading .category-number{
+  background:linear-gradient(145deg,#e2bd69 0%,#b88932 52%,#7e5a20 100%) !important;
+  border-color:rgba(255,244,211,.78) !important;
+  color:#fffaf0 !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 5px 14px rgba(34,7,9,.28) !important;
+}
+.products-page .category-heading .category-number::after{color:#430d11}
+
+/* Keep the product category controls in the same cream / garnet / gold language. */
+.products-page .product-category-nav{background:#f8f1e3}
+.products-page .product-category-nav button.active,
+.products-page .product-category-nav button:hover{border-color:#e2bd69;color:#64151a}
