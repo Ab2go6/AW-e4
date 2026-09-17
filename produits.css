@@ -1,7 +1,7 @@
 @import url("produits-base.css");
-@import url("world-closing.css");
 @import url("footer.css");
 @import url("header.css");
+@import url("araouaa-visual-lock.css?v=20260917n");
 
 /* Product page shell */
 .products-page { position: relative; }
@@ -130,3 +130,7 @@
 .products-page .product-category-nav{background:#f8f1e3}
 .products-page .product-category-nav button.active,
 .products-page .product-category-nav button:hover{border-color:#e2bd69;color:#64151a}
+
+/* Final rail alignment: the navigation is 116px high on desktop. */
+.products-page .product-categories{top:116px!important}
+@media(max-width:850px){.products-page .product-categories{top:78px!important}}
