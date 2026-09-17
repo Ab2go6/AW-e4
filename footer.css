@@ -1,102 +1,33 @@
 @import url("world-closing.css");
 @import url("journal-section-theme.css");
 
-/* Shared footer system for all ARAOUAA pages. */
-.footer{background:radial-gradient(circle at 72% 0,rgba(208,170,96,.08),transparent 24%),linear-gradient(100deg,#121b16,#263b32 50%,#1c2a23 100%) !important;color:#e8e0d4;padding:55px 4% 24px}
-.footer-main{width:100%;margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+/* Shared footer system — matches the canonical navigation garnet. */
+.footer{background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;color:#fff8ed !important;padding:58px 5% 28px !important;font-family:Poppins,Arial,sans-serif}
+.footer-main{width:min(1380px,100%);margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:56px}
 .footer-brand{flex:0 0 250px}
 .footer-logo{display:block;width:130px;height:115px}
 .footer-logo img{width:100%;height:100%;object-fit:contain}
-.footer-brand>p{width:130px;max-width:130px;text-align:center;margin:6px 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:8px;line-height:1.25;letter-spacing:2.2px;font-weight:500;color:#fff}
+.footer-brand>p{width:150px;max-width:150px;text-align:center;margin:9px 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:10px;line-height:1.35;letter-spacing:1.8px;font-weight:600;color:#fff8ed}
 .footer-socials{display:none}
-.footer-nav{display:flex;gap:42px;align-items:flex-start;margin-left:auto}
-.footer-nav>div{display:flex;flex-direction:column;gap:10px;min-width:110px}
-.footer-nav strong{font-size:9px;color:#e2bd69;letter-spacing:2px;margin-bottom:4px}
-.footer-nav a{font-size:9px;color:#c9c1b5}
-.footer-nav a:hover{color:#fff}
-.footer-contact>div{display:flex;align-items:center;gap:9px;min-height:22px;color:#c9c1b5;font-size:9px}
-.footer-contact svg{width:17px;height:17px;flex:0 0 17px;fill:none;stroke:#e2bd69;stroke-width:1.5}
-.footer-contact span{color:#c9c1b5}
-.footer-bottom{width:100%;margin:42px auto 0;border-top:1px solid rgba(226,189,105,.17);padding-top:18px;display:flex;justify-content:space-between;color:#8f887f;font-size:8px;letter-spacing:.3px}
+.footer-nav{display:flex;gap:68px;align-items:flex-start;margin-left:auto}
+.footer-nav>div{display:flex;flex-direction:column;gap:11px;min-width:125px}
+.footer-nav strong{font-size:11px;color:#e2bd69;letter-spacing:1.5px;margin-bottom:5px;line-height:1.2}
+.footer-nav a{font-size:11px;line-height:1.55;font-weight:500;color:#f1dfc4}
+.footer-nav a:hover,.footer-nav a:focus-visible{color:#fff8ed}
+.footer-contact>div{display:flex;align-items:center;gap:10px;min-height:25px;color:#f1dfc4;font-size:11px;line-height:1.55;font-weight:500}
+.footer-contact svg{width:18px;height:18px;flex:0 0 18px;fill:none;stroke:#e2bd69;stroke-width:1.6}
+.footer-contact span{color:#f1dfc4}
+.footer-bottom{width:min(1380px,100%);margin:42px auto 0;border-top:1px solid rgba(226,189,105,.22);padding-top:18px;display:flex;justify-content:space-between;color:#d8c8af;font-size:9px;line-height:1.5;letter-spacing:.45px}
 @media(max-width:850px){
-  .footer{padding:45px 6% 20px}
-  .footer-main{flex-direction:column;gap:45px}
+  .footer{padding:50px 6% 24px}
+  .footer-main{flex-direction:column;gap:42px}
   .footer-brand{flex-basis:auto}
-  .footer-nav{margin-left:0;gap:35px}
+  .footer-nav{margin-left:0;gap:34px}
 }
 @media(max-width:520px){
   .footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:32px 28px;width:100%}
+  .footer-nav>div{min-width:0}
+  .footer-nav a{font-size:11px}
   .footer-contact{grid-column:1/-1}
-  .footer-bottom{flex-direction:column;gap:8px}
+  .footer-bottom{flex-direction:column;gap:8px;font-size:9px}
 }
-
-/* Final shared visual lock: these rules live in a stylesheet loaded by every page. */
-body:not(.world-page):not(.products-page) .hero{
-  position:relative !important;
-  overflow:hidden !important;
-  background:#F8F1E3 !important;
-  background-image:none !important;
-}
-body:not(.world-page):not(.products-page) .hero::before{
-  content:"" !important;
-  position:absolute !important;
-  inset:0 !important;
-  z-index:0 !important;
-  pointer-events:none !important;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400 Q200 250 400 380 T800 350 T1200 420' fill='none' stroke='%23E8D9B5' stroke-width='55' stroke-opacity='0.55'/%3E%3Cpath d='M0 480 Q250 320 500 460 T1000 430 T1200 500' fill='none' stroke='%23E0CFA3' stroke-width='45' stroke-opacity='0.45'/%3E%3Cpath d='M0 320 Q300 180 600 310 T1200 290' fill='none' stroke='%23F0E4C9' stroke-width='40' stroke-opacity='0.4'/%3E%3Cpath d='M0 550 Q350 400 700 530 T1200 560' fill='none' stroke='%23D9C48F' stroke-width='35' stroke-opacity='0.35'/%3E%3C/svg%3E") !important;
-  background-size:cover !important;
-  background-repeat:no-repeat !important;
-  background-position:center !important;
-  opacity:.9 !important;
-}
-body:not(.world-page):not(.products-page) .hero::after{content:none !important;display:none !important}
-body:not(.world-page):not(.products-page) .hero-backdrop{display:none !important}
-body:not(.world-page):not(.products-page) .hero-inner{position:relative !important;z-index:2 !important}
-
-.products-page .product-categories{
-  background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;
-  color:#fff8ed !important;
-  border:0 !important;
-  box-shadow:0 10px 35px rgba(34,7,9,.22) !important;
-}
-.products-page .product-category-nav button{
-  color:#f7eddb !important;
-  border-color:rgba(226,189,105,.34) !important;
-  background:transparent !important;
-}
-.products-page .product-category-nav button:hover,
-.products-page .product-category-nav button.active{
-  background:#e2bd69 !important;
-  border-color:#e2bd69 !important;
-  color:#430d11 !important;
-}
-
-.footer{
-  background:#F8F1E3 !important;
-  color:#241F1B !important;
-  font-family:Poppins,Arial,sans-serif !important;
-  padding:58px 5% 28px !important;
-}
-.footer-main{width:min(1380px,100%) !important;gap:56px !important}
-.footer-brand>p{
-  width:150px !important;
-  max-width:150px !important;
-  margin:9px 0 0 !important;
-  color:#241F1B !important;
-  font-family:"Cormorant Garamond",Georgia,serif !important;
-  font-size:10px !important;
-  line-height:1.35 !important;
-  letter-spacing:1.8px !important;
-  font-weight:600 !important;
-}
-.footer-nav{gap:68px !important}
-.footer-nav>div{gap:11px !important;min-width:125px !important}
-.footer-nav strong{color:#64151A !important;font-size:11px !important;line-height:1.2 !important;letter-spacing:1.5px !important;margin-bottom:5px !important}
-.footer-nav a{color:#3F3932 !important;font-size:11px !important;line-height:1.55 !important;letter-spacing:.2px !important;font-weight:500 !important}
-.footer-nav a:hover,.footer-nav a:focus-visible{color:#64151A !important}
-.footer-contact>div{gap:10px !important;min-height:25px !important;color:#3F3932 !important;font-size:11px !important;line-height:1.55 !important;font-weight:500 !important}
-.footer-contact span{color:#3F3932 !important}
-.footer-contact svg{width:18px !important;height:18px !important;flex:0 0 18px !important;stroke:#D0AA60 !important;stroke-width:1.6 !important}
-.footer-bottom{width:min(1380px,100%) !important;margin:42px auto 0 !important;padding-top:18px !important;border-top:1px solid rgba(97,72,55,.20) !important;color:#746B61 !important;font-size:9px !important;line-height:1.5 !important;letter-spacing:.45px !important}
-@media(max-width:850px){.footer{padding:50px 6% 24px !important}.footer-main{gap:42px !important}.footer-nav{gap:34px !important}}
-@media(max-width:520px){.footer-nav>div{min-width:0 !important}.footer-nav a{font-size:11px !important}.footer-bottom{font-size:9px !important}}
