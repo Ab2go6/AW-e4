@@ -133,3 +133,15 @@ body:not(.world-page) .product-link,
 .products-page .product-story h2,
 .products-page .product-story p{color:#fff8ed !important}
 .products-page .product-categories .format-button.custom-format{border-color:rgba(226,189,105,.55) !important;color:#64151a !important}
+
+/* Final footer color sync: the footer uses the exact approved hero cream, while navigation stays untouched. */
+.footer{
+  background:#F8F1E3 !important;
+  color:#241F1B !important;
+}
+.footer-brand>p{color:#241F1B !important}
+.footer-nav a,.footer-contact>div,.footer-contact span{color:#5A5148 !important}
+.footer-nav a:hover{color:#64151A !important}
+.footer-nav strong{color:#D0AA60 !important}
+.footer-contact svg{stroke:#D0AA60 !important}
+.footer-bottom{color:#746B61 !important;border-top-color:rgba(97,72,55,.18) !important}
