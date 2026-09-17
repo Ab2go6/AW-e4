@@ -6,7 +6,7 @@
   const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
   const JOURNAL_STYLE_ID = 'journal-final';
   const LOCK_STYLE_ID = 'araouaa-visual-lock';
-  const VERSION = '20260917h';
+  const VERSION = '20260917i';
   const isWorldPage = document.body.classList.contains('world-page');
   const isProductsPage = document.body.classList.contains('products-page');
   const isJournalPage = document.body.classList.contains('world-page--journal');
