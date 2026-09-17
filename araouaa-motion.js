@@ -4,9 +4,12 @@
   const STYLE_ID = 'araouaa-visual-enhancements';
   const LIGHT_STYLE_ID = 'araouaa-light-engine';
   const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
-  const JOURNAL_STYLE_ID = 'araouaa-journal-final';
+  const JOURNAL_STYLE_ID = 'journal-final';
   const LOCK_STYLE_ID = 'araouaa-visual-lock';
-  const VERSION = '20260917g';
+  const VERSION = '20260917h';
+  const isWorldPage = document.body.classList.contains('world-page');
+  const isProductsPage = document.body.classList.contains('products-page');
+  const isJournalPage = document.body.classList.contains('world-page--journal');
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
@@ -26,18 +29,28 @@
     ).forEach(link => link.remove());
   };
 
-  const loadStyles = () =>
-    loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`)
-      .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`))
-      .then(() => {
-        if (document.body.classList.contains('world-page') || document.body.classList.contains('products-page')) return;
-        return loadStyle(HOMEPAGE_CONTACT_STYLE_ID, `homepage-contact.css?v=${VERSION}`);
-      })
-      .then(() => {
-        if (!document.body.classList.contains('world-page--journal')) return;
-        return loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`);
-      })
-      .then(() => loadStyle(LOCK_STYLE_ID, `araouaa-visual-lock.css?v=${VERSION}`));
+  const loadStyles = () => {
+    let chain = Promise.resolve();
+
+    // The five World pages use their own stable visual system. Do not load the
+    // large Home/Product visual engines on them; this removes the competing
+    // cascade and prevents page-switch flashes.
+    if (!isWorldPage) {
+      chain = chain
+        .then(() => loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`))
+        .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`));
+    }
+
+    if (!isWorldPage && !isProductsPage) {
+      chain = chain.then(() => loadStyle(HOMEPAGE_CONTACT_STYLE_ID, `homepage-contact.css?v=${VERSION}`));
+    }
+
+    if (isJournalPage) {
+      chain = chain.then(() => loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`));
+    }
+
+    return chain.then(() => loadStyle(LOCK_STYLE_ID, `araouaa-visual-lock.css?v=${VERSION}`));
+  };
 
   cleanupLegacyVisualStyles();
   loadStyles();
@@ -78,7 +91,7 @@
   };
 
   const setupLightField = () => {
-    if (!window.matchMedia('(pointer:fine)').matches) return;
+    if (isWorldPage || !window.matchMedia('(pointer:fine)').matches) return;
     let ticking = false;
     let x = 72;
     let y = 18;
