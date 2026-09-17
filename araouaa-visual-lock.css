@@ -10,6 +10,13 @@ body:not(.world-page) .hero::after{content:none!important;display:none!important
 body:not(.world-page) .hero-backdrop{display:none!important}
 body:not(.world-page) .hero-inner,.products-page .products-hero-inner{position:relative!important;z-index:2!important}
 
+/* World page heroes: exact requested cream gradient, replacing the previous green/photo backdrop. */
+.world-page .world-hero{position:relative!important;overflow:hidden!important;isolation:isolate!important;background:linear-gradient(135deg,#f9f2e6 0%,#f5ebd8 20%,#e8d5b7 40%,#ead9c0 60%,#f5e8d0 80%,#f7f0e3 100%)!important;background-color:#f9f2e6!important;background-image:linear-gradient(135deg,#f9f2e6 0%,#f5ebd8 20%,#e8d5b7 40%,#ead9c0 60%,#f5e8d0 80%,#f7f0e3 100%)!important}
+.world-page .world-hero::before{content:none!important;display:none!important;background:none!important}
+.world-page .world-hero::after{content:none!important;display:none!important;background:none!important}
+.world-page .world-hero-media{opacity:0!important;background-image:none!important;display:none!important}
+.world-page .world-hero-content{position:relative!important;z-index:4!important}
+
 /* Product hierarchy rail: exact navigation garnet, transparent child so parent color is visible. */
 .products-page .product-categories{background:linear-gradient(100deg,var(--ara-g0) 0%,var(--ara-g1) 52%,var(--ara-g2) 100%)!important;color:#FFF8ED!important;border:0!important;box-shadow:0 10px 35px rgba(34,7,9,.22)!important}
 .products-page .product-category-nav{background:transparent!important}
