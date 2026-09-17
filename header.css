@@ -114,3 +114,22 @@ header.products-header .products-header-contact:hover,
 
 /* Refined hover sweep for the new palette. */
 .site-header::before,.products-header::before{background:linear-gradient(115deg,transparent 30%,rgba(226,189,105,.16) 46%,transparent 58%)}
+
+/* Other major non-World dark/green surfaces: bring them into the same garnet family. */
+body:not(.world-page) .quality-strip,
+body:not(.world-page) .values,
+body:not(.world-page) .footer,
+.products-page .product-categories,
+.products-page .product-story{
+  background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;
+}
+body:not(.world-page) .values .section-heading-light h2{color:#fff8ed !important}
+body:not(.world-page) .values .section-heading-light h2 em{color:#e2bd69 !important}
+body:not(.world-page) .product-link,
+.products-page .product-item-content .product-link,
+.products-page .product-item-content a{color:#64151a !important}
+.products-page .product-categories .category-heading h2,
+.products-page .product-categories .category-heading p,
+.products-page .product-story h2,
+.products-page .product-story p{color:#fff8ed !important}
+.products-page .product-categories .format-button.custom-format{border-color:rgba(226,189,105,.55) !important;color:#64151a !important}
