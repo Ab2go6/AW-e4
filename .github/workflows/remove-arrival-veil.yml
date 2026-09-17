@@ -1,0 +1,54 @@
+name: Remove retired arrival veil
+
+on:
+  push:
+    branches: [Aw.5]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: ${{ github.event.head_commit.message != 'Remove retired arrival veil' && github.event.head_commit.message != 'Remove temporary arrival cleanup workflow' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove only the retired page-arrival veil
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+
+          p = Path('araouaa-visual-enhancements.css')
+          s = p.read_text(encoding='utf-8')
+          old = '''/* Quiet page-arrival moment — visual only, never blocks interaction. */
+          html::before{
+            content:"";
+            position:fixed;
+            inset:0;
+            z-index:99999;
+            pointer-events:none;
+            background:var(--ara-cream) url("assets/logo-crystal-4k.png") center / 150px auto no-repeat;
+            animation:ara-page-arrive 900ms cubic-bezier(.77,0,.18,1) forwards;
+          }
+          '''
+          if old not in s:
+              raise SystemExit('Expected page-arrival veil not found; stopping.')
+          s = s.replace(old, '', 1)
+          s2, n = re.subn(r'\n@keyframes ara-page-arrive\{.*?\}\n(?=@keyframes ara-hero-breathe)', '\n', s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('Expected page-arrival keyframe not found; stopping.')
+          p.write_text(s2, encoding='utf-8')
+
+          subprocess.run(['git','config','user.name','github-actions[bot]'], check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'], check=True)
+          subprocess.run(['git','add','araouaa-visual-enhancements.css'], check=True)
+          subprocess.run(['git','commit','-m','Remove retired arrival veil'], check=True)
+          subprocess.run(['git','push','origin','HEAD:Aw.5'], check=True)
+          PY
