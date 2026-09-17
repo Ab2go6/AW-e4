@@ -1,51 +1,52 @@
-/* Home hero — final cream architectural field. No sand waves. */
+/* Home hero — visible layered sand field with refined contour lines. */
 html body:not(.world-page) .hero#accueil{
   position:relative!important;
   overflow:hidden!important;
   isolation:isolate!important;
-  background-color:#F5EBDD!important;
+  background-color:#F1E3CC!important;
   background-image:
-    radial-gradient(62% 82% at 78% 47%,rgba(255,253,247,.98) 0%,rgba(255,250,240,.88) 22%,rgba(238,218,188,.58) 48%,rgba(228,205,170,.14) 67%,transparent 76%),
-    radial-gradient(52% 64% at 13% 17%,rgba(255,255,251,.98) 0%,rgba(255,250,240,.72) 34%,transparent 68%),
-    radial-gradient(46% 58% at 54% 108%,rgba(208,170,96,.18) 0%,transparent 68%),
-    linear-gradient(138deg,#FCF7EE 0%,#F7EBDD 42%,#EEDCC3 72%,#E5CFAD 100%)!important;
+    radial-gradient(72% 86% at 76% 44%,rgba(255,253,246,.92) 0%,rgba(255,248,233,.72) 24%,rgba(231,208,169,.34) 55%,transparent 76%),
+    radial-gradient(58% 70% at 11% 12%,rgba(255,255,251,.98) 0%,rgba(252,244,228,.72) 35%,transparent 70%),
+    radial-gradient(52% 48% at 48% 104%,rgba(196,151,83,.18) 0%,transparent 72%),
+    linear-gradient(135deg,#FBF5E9 0%,#F6E9D4 34%,#EFDDBF 63%,#E5CDAA 100%)!important;
   background-blend-mode:screen,screen,normal,normal!important;
 }
 
+/* Large, unmistakable layered sand deposits. */
 html body:not(.world-page) .hero#accueil::before{
   content:""!important;
   position:absolute!important;
   z-index:0!important;
-  width:min(58vw,820px)!important;
-  height:min(58vw,820px)!important;
-  right:-9vw!important;
-  top:50%!important;
-  transform:translateY(-50%)!important;
+  left:-12%;
+  right:-8%;
+  top:7%;
+  bottom:-10%;
   pointer-events:none!important;
-  border:1px solid rgba(176,137,72,.22)!important;
-  border-radius:50%!important;
   background:
-    radial-gradient(circle at 47% 48%,rgba(255,255,250,.76) 0 34%,rgba(255,255,250,.17) 34.5%,transparent 35.5%),
-    radial-gradient(circle at 47% 48%,transparent 0 47%,rgba(176,137,72,.12) 47.2%,transparent 47.7%),
-    radial-gradient(circle at 47% 48%,transparent 0 62%,rgba(176,137,72,.08) 62.2%,transparent 62.65%),
-    radial-gradient(circle at 47% 48%,rgba(255,255,255,.25),transparent 68%);
-  box-shadow:0 0 120px rgba(255,250,238,.42),inset 0 0 80px rgba(255,255,255,.16)!important;
-  opacity:1!important;
+    linear-gradient(157deg,transparent 0 14%,rgba(186,145,90,.15) 14.2% 15.8%,transparent 16.1% 25.5%,rgba(255,250,239,.44) 25.7% 29.4%,transparent 29.7% 39%,rgba(202,165,112,.18) 39.2% 40.9%,transparent 41.2% 51.5%,rgba(255,252,244,.48) 51.7% 55.8%,transparent 56.1% 66%,rgba(176,132,75,.12) 66.2% 68.2%,transparent 68.5% 100%);
+  transform:skewY(-4deg) scale(1.08)!important;
+  opacity:.92!important;
 }
 
+/* Fine contour lines: visible at desktop, restrained on mobile. */
 html body:not(.world-page) .hero#accueil::after{
   content:""!important;
   position:absolute!important;
   z-index:1!important;
-  inset:-15%!important;
+  inset:-8%!important;
   pointer-events:none!important;
-  background:
-    radial-gradient(ellipse at 70% 15%,rgba(255,255,255,.26) 0%,transparent 36%),
-    radial-gradient(ellipse at 24% 78%,rgba(205,174,126,.13) 0%,transparent 40%),
-    repeating-radial-gradient(ellipse at 63% 48%,rgba(255,255,255,.055) 0 2px,transparent 2px 14px);
-  mix-blend-mode:soft-light!important;
-  opacity:.8!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23B38A54' stroke-linecap='round'%3E%3Cpath d='M-80 170 C180 70 330 225 565 145 S970 95 1480 210' stroke-opacity='.23' stroke-width='2.2'/%3E%3Cpath d='M-90 215 C165 115 355 270 600 190 S1020 135 1490 250' stroke-opacity='.17' stroke-width='1.7'/%3E%3Cpath d='M-90 410 C210 285 405 470 690 335 S1110 300 1500 410' stroke-opacity='.20' stroke-width='2'/%3E%3Cpath d='M-100 460 C210 330 420 515 710 390 S1125 350 1510 465' stroke-opacity='.15' stroke-width='1.5'/%3E%3Cpath d='M-100 660 C180 540 420 690 710 555 S1090 535 1510 650' stroke-opacity='.19' stroke-width='2'/%3E%3Cpath d='M-80 710 C220 585 440 735 735 605 S1120 585 1500 705' stroke-opacity='.13' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  mix-blend-mode:multiply!important;
+  opacity:1!important;
 }
 
 html body:not(.world-page) .hero#accueil .hero-backdrop{display:none!important;background:none!important;opacity:0!important}
 html body:not(.world-page) .hero#accueil .hero-inner{position:relative!important;z-index:3!important}
+
+@media(max-width:720px){
+  html body:not(.world-page) .hero#accueil::after{opacity:.58!important;background-size:auto 118%!important;background-position:58% center!important}
+  html body:not(.world-page) .hero#accueil::before{opacity:.74!important}
+}
