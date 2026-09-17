@@ -16,16 +16,6 @@
 
 html{scroll-behavior:smooth}
 
-/* Quiet page-arrival moment — visual only, never blocks interaction. */
-html::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:99999;
-  pointer-events:none;
-  background:var(--ara-cream) url("assets/logo-crystal-4k.png") center / 150px auto no-repeat;
-  animation:ara-page-arrive 900ms cubic-bezier(.77,0,.18,1) forwards;
-}
 
 /* Fine material grain: deliberately almost invisible and kept behind page content. */
 body::before{
@@ -136,7 +126,6 @@ body:not(.world-page) .values .value-card:hover{transform:translateY(-8px);backg
   .world-page .world-cta .world-title,.world-page .sf-closing h2,.world-page .atelier-manifesto .world-title{opacity:1;transform:none;filter:none}
 }
 
-@keyframes ara-page-arrive{0%{opacity:1;transform:scale(1)}70%{opacity:1}100%{opacity:0;transform:scale(1.018)}}
 @keyframes ara-hero-breathe{from{transform:scale(.98);opacity:.72}to{transform:scale(1.03);opacity:1}}
 @keyframes ara-hero-drift{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.07) translate3d(-.7%,.4%,0)}}
 @keyframes ara-eyebrow-rule{to{width:54px}}
