@@ -6,7 +6,7 @@
   const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
   const JOURNAL_STYLE_ID = 'journal-final';
   const LOCK_STYLE_ID = 'araouaa-visual-lock';
-  const VERSION = '20260917m';
+  const VERSION = '20260917n';
   const isWorldPage = document.body.classList.contains('world-page');
   const isProductsPage = document.body.classList.contains('products-page');
   const isJournalPage = document.body.classList.contains('world-page--journal');
@@ -24,10 +24,9 @@
   const loadStyles = () => {
     let chain = Promise.resolve();
 
-    // The five World pages use their own stable visual system. Do not load the
-    // large Home/Product visual engines on them; this removes the competing
-    // cascade and prevents page-switch flashes.
-    if (!isWorldPage) {
+    // Home owns the large visual engines. Product and World pages use their
+    // dedicated CSS systems so they cannot inherit legacy Home/Product layers.
+    if (!isWorldPage && !isProductsPage) {
       chain = chain
         .then(() => loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`))
         .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`));
@@ -41,6 +40,8 @@
       chain = chain.then(() => loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`));
     }
 
+    // Product/World visual locks are loaded after their page-specific CSS and
+    // are also linked directly in the relevant HTML pages where needed.
     return chain.then(() => loadStyle(LOCK_STYLE_ID, `araouaa-visual-lock.css?v=${VERSION}`));
   };
 
@@ -82,7 +83,7 @@
   };
 
   const setupLightField = () => {
-    if (isWorldPage || !window.matchMedia('(pointer:fine)').matches) return;
+    if (isWorldPage || isProductsPage || !window.matchMedia('(pointer:fine)').matches) return;
     let ticking = false;
     let x = 72;
     let y = 18;
