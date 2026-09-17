@@ -10,12 +10,14 @@ body:not(.world-page) .hero::after{content:none!important;display:none!important
 body:not(.world-page) .hero-backdrop{display:none!important}
 body:not(.world-page) .hero-inner,.products-page .products-hero-inner{position:relative!important;z-index:2!important}
 
-/* World page heroes: exact requested cream gradient, replacing the previous green/photo backdrop. */
+/* World page heroes: exact requested cream gradient + a new soft silk/fabric field. */
 .world-page .world-hero{position:relative!important;overflow:hidden!important;isolation:isolate!important;background:linear-gradient(135deg,#f9f2e6 0%,#f5ebd8 20%,#e8d5b7 40%,#ead9c0 60%,#f5e8d0 80%,#f7f0e3 100%)!important;background-color:#f9f2e6!important;background-image:linear-gradient(135deg,#f9f2e6 0%,#f5ebd8 20%,#e8d5b7 40%,#ead9c0 60%,#f5e8d0 80%,#f7f0e3 100%)!important}
-.world-page .world-hero::before{content:none!important;display:none!important;background:none!important}
-.world-page .world-hero::after{content:none!important;display:none!important;background:none!important}
+.world-page .world-hero::before{content:""!important;display:block!important;position:absolute!important;inset:-12%!important;z-index:1!important;pointer-events:none!important;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 1400 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-80 210 C190 35 360 315 655 150 C885 20 1090 155 1490 45 L1490 225 C1120 335 950 150 695 305 C405 480 180 155 -80 405 Z' fill='%23fffaf1' fill-opacity='.34'/%3E%3Cpath d='M-80 455 C185 280 420 565 700 405 C1005 230 1135 485 1490 320 L1490 500 C1170 630 1015 390 730 565 C430 750 200 450 -80 655 Z' fill='%23e2c79d' fill-opacity='.18'/%3E%3Cpath d='M-80 700 C200 540 435 800 720 635 C1005 470 1170 735 1490 575 L1490 735 C1185 875 985 635 735 790 C440 970 200 680 -80 900 Z' fill='%23fffdf7' fill-opacity='.22'/%3E%3Cpath d='M-30 185 C280 90 470 270 705 170 C975 55 1150 185 1425 115' fill='none' stroke='%23fffdf7' stroke-width='26' stroke-linecap='round' stroke-opacity='.22'/%3E%3C/svg%3E")!important;background-size:120% 120%!important;background-position:center!important;background-repeat:no-repeat!important;opacity:.92!important;transform:translate3d(-1.5%,0,0) scale(1.02)!important;animation:ara-world-silk-drift 18s ease-in-out infinite alternate!important}
+.world-page .world-hero::after{content:""!important;display:block!important;position:absolute!important;inset:-8%!important;z-index:2!important;pointer-events:none!important;background:radial-gradient(ellipse at 72% 34%,rgba(255,250,239,.24) 0%,rgba(255,250,239,.10) 28%,transparent 58%),radial-gradient(ellipse at 18% 76%,rgba(214,182,137,.10) 0%,transparent 44%)!important;mix-blend-mode:soft-light!important;opacity:.9!important}
 .world-page .world-hero-media{opacity:0!important;background-image:none!important;display:none!important}
 .world-page .world-hero-content{position:relative!important;z-index:4!important}
+.world-page .world-stage{position:relative!important;z-index:3!important}
+@keyframes ara-world-silk-drift{0%{transform:translate3d(-1.5%,0,0) scale(1.02)}100%{transform:translate3d(1.8%,.7%,0) scale(1.045)}}
 
 /* Product hierarchy rail: exact navigation garnet, transparent child so parent color is visible. */
 .products-page .product-categories{background:linear-gradient(100deg,var(--ara-g0) 0%,var(--ara-g1) 52%,var(--ara-g2) 100%)!important;color:#FFF8ED!important;border:0!important;box-shadow:0 10px 35px rgba(34,7,9,.22)!important}
