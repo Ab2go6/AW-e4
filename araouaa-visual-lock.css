@@ -102,3 +102,70 @@ html::before{display:none!important;content:none!important;animation:none!import
 .world-page .world-hero{position:relative!important;overflow:hidden!important;isolation:isolate!important;background-color:#F1E3CC!important;background-image:radial-gradient(72% 86% at 76% 44%,rgba(255,253,246,.92) 0%,rgba(255,248,233,.72) 24%,rgba(231,208,169,.34) 55%,transparent 76%),radial-gradient(58% 70% at 11% 12%,rgba(255,255,251,.98) 0%,rgba(252,244,228,.72) 35%,transparent 70%),radial-gradient(52% 48% at 48% 104%,rgba(196,151,83,.18) 0%,transparent 72%),linear-gradient(135deg,#FBF5E9 0%,#F6E9D4 34%,#EFDDBF 63%,#E5CDAA 100%)!important;background-blend-mode:screen,screen,normal,normal!important}
 .world-page .world-hero::before{content:""!important;position:absolute!important;z-index:0!important;left:-12%!important;right:-8%!important;top:7%!important;bottom:-10%!important;pointer-events:none!important;background:linear-gradient(157deg,transparent 0 14%,rgba(186,145,90,.15) 14.2% 15.8%,transparent 16.1% 25.5%,rgba(255,250,239,.44) 25.7% 29.4%,transparent 29.7% 39%,rgba(202,165,112,.18) 39.2% 40.9%,transparent 41.2% 51.5%,rgba(255,252,244,.48) 51.7% 55.8%,transparent 56.1% 66%,rgba(176,132,75,.12) 66.2% 68.2%,transparent 68.5% 100%)!important;transform:skewY(-4deg) scale(1.08)!important;opacity:.92!important}
 .world-page .world-hero::after{content:""!important;position:absolute!important;z-index:1!important;inset:-8%!important;pointer-events:none!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23B38A54' stroke-linecap='round'%3E%3Cpath d='M-80 170 C180 70 330 225 565 145 S970 95 1480 210' stroke-opacity='.23' stroke-width='2.2'/%3E%3Cpath d='M-90 215 C165 115 355 270 600 190 S1020 135 1490 250' stroke-opacity='.17' stroke-width='1.7'/%3E%3Cpath d='M-90 410 C210 285 405 470 690 335 S1110 300 1500 410' stroke-opacity='.20' stroke-width='2'/%3E%3Cpath d='M-100 460 C210 330 420 515 710 390 S1125 350 1510 465' stroke-opacity='.15' stroke-width='1.5'/%3E%3Cpath d='M-100 660 C180 540 420 690 710 555 S1090 535 1510 650' stroke-opacity='.19' stroke-width='2'/%3E%3Cpath d='M-80 710 C220 585 440 735 735 605 S1120 585 1500 705' stroke-opacity='.13' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E")!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;mix-blend-mode:multiply!important;opacity:1!important}
+
+/* VISUAL TEST — warm silk/sand field for every hero surface. */
+html body:not(.world-page) .hero#accueil,
+.products-page .products-hero,
+.products-page .products-intro,
+.world-page .world-hero{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background-color:#F0D9B5!important;
+  background-image:
+    radial-gradient(44% 44% at 94% 5%,rgba(255,255,252,.98) 0%,rgba(255,248,231,.86) 15%,rgba(255,240,213,.46) 33%,transparent 62%),
+    radial-gradient(70% 80% at 18% 88%,rgba(214,181,134,.14) 0%,transparent 70%),
+    linear-gradient(180deg,#F2DDBD 0%,#F0D9B5 48%,#EFD5AE 100%)!important;
+}
+
+html body:not(.world-page) .hero#accueil::before,
+.products-page .products-hero::before,
+.products-page .products-intro::before,
+.world-page .world-hero::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  inset:-6%!important;
+  pointer-events:none!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1800 1000' preserveAspectRatio='none'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-80 95 C180 72 420 120 710 92 S1240 62 1880 108' stroke='%23C8A471' stroke-opacity='.17' stroke-width='1.35'/%3E%3Cpath d='M-80 130 C170 106 430 154 740 128 S1280 96 1880 145' stroke='%23FFF2D9' stroke-opacity='.32' stroke-width='1.15'/%3E%3Cpath d='M-80 185 C250 154 455 215 790 180 S1340 150 1880 205' stroke='%23C6A16F' stroke-opacity='.14' stroke-width='1.25'/%3E%3Cpath d='M-80 235 C220 208 470 267 820 228 S1370 198 1880 250' stroke='%23FFF4DF' stroke-opacity='.27' stroke-width='1.05'/%3E%3Cpath d='M-80 310 C180 282 460 335 760 300 S1320 275 1880 325' stroke='%23C9A574' stroke-opacity='.15' stroke-width='1.3'/%3E%3Cpath d='M-80 360 C230 330 490 392 840 350 S1370 326 1880 378' stroke='%23FFF3DC' stroke-opacity='.24' stroke-width='1.05'/%3E%3Cpath d='M-80 445 C190 412 470 470 760 438 S1300 405 1880 462' stroke='%23C39B68' stroke-opacity='.13' stroke-width='1.25'/%3E%3Cpath d='M-80 495 C230 462 500 525 820 488 S1380 460 1880 515' stroke='%23FFF5E2' stroke-opacity='.23' stroke-width='1'/%3E%3Cpath d='M-80 585 C170 552 440 612 770 578 S1320 548 1880 600' stroke='%23C7A06D' stroke-opacity='.14' stroke-width='1.3'/%3E%3Cpath d='M-80 640 C220 608 475 670 830 632 S1370 605 1880 655' stroke='%23FFF4DE' stroke-opacity='.25' stroke-width='1'/%3E%3Cpath d='M-80 730 C190 696 470 758 800 720 S1350 690 1880 748' stroke='%23BF955E' stroke-opacity='.12' stroke-width='1.2'/%3E%3Cpath d='M-80 785 C250 750 500 812 860 775 S1380 748 1880 805' stroke='%23FFF6E7' stroke-opacity='.22' stroke-width='.95'/%3E%3Cpath d='M-80 885 C180 850 455 910 790 875 S1330 845 1880 900' stroke='%23C49B69' stroke-opacity='.11' stroke-width='1.2'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  mix-blend-mode:soft-light!important;
+  opacity:1!important;
+}
+
+html body:not(.world-page) .hero#accueil::after,
+.products-page .products-hero::after,
+.products-page .products-intro::after,
+.world-page .world-hero::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:-8%!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(46% 40% at 94% 2%,rgba(255,255,255,.68) 0%,rgba(255,250,239,.38) 24%,transparent 62%),
+    linear-gradient(180deg,transparent 0%,rgba(255,250,236,.04) 47%,rgba(184,143,91,.05) 100%)!important;
+  mix-blend-mode:screen!important;
+  opacity:1!important;
+}
+
+html body:not(.world-page) .hero#accueil .hero-inner,
+.products-page .products-hero-inner,
+.products-page .products-intro>* ,
+.world-page .world-hero-content{
+  position:relative!important;
+  z-index:3!important;
+}
+
+@media(max-width:720px){
+  html body:not(.world-page) .hero#accueil::before,
+  .products-page .products-hero::before,
+  .products-page .products-intro::before,
+  .world-page .world-hero::before{opacity:.72!important}
+  html body:not(.world-page) .hero#accueil::after,
+  .products-page .products-hero::after,
+  .products-page .products-intro::after,
+  .world-page .world-hero::after{opacity:.78!important}
+}
