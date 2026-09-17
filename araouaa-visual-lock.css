@@ -29,3 +29,25 @@ body:not(.world-page) .hero#accueil::before{content:""!important;position:absolu
 .footer-contact>div,.footer-contact span{color:#F1DFC4!important;font-size:11px!important;line-height:1.55!important;font-weight:500!important}
 .footer-contact svg{stroke:var(--ara-gold)!important;width:18px!important;height:18px!important}
 .footer-bottom{color:#D8C8AF!important;font-size:9px!important;border-top-color:rgba(226,189,105,.22)!important}
+
+/* World pages: requested layered silk-light field, without altering stage/text geometry. */
+.world-page .world-hero{position:relative!important;overflow:hidden!important;isolation:isolate!important;background-color:#f5ebd8!important;background-image:radial-gradient(ellipse 80% 50% at 15% 25%,rgba(255,248,237,.85) 0%,transparent 55%),radial-gradient(ellipse 70% 60% at 85% 75%,rgba(255,250,240,.7) 0%,transparent 50%),radial-gradient(ellipse 60% 40% at 50% 40%,rgba(249,242,230,.6) 0%,transparent 60%),radial-gradient(ellipse 120% 80% at 30% 60%,rgba(232,213,183,.55) 0%,transparent 65%),radial-gradient(ellipse 100% 70% at 70% 30%,rgba(224,201,160,.45) 0%,transparent 60%),radial-gradient(ellipse 90% 50% at 40% 80%,rgba(234,217,192,.4) 0%,transparent 55%),linear-gradient(125deg,#f9f2e6 0%,#f5ebd8 25%,#ead9c0 50%,#e8d5b7 75%,#f7f0e3 100%)!important}
+.world-page .world-hero::before,.world-page .world-hero::after{content:none!important;display:none!important;background:none!important}
+.world-page .world-hero-media{opacity:0!important;background-image:none!important;display:none!important}
+
+/* Restore the original World stage geometry and motion exactly from brand-world.css. */
+.world-page .world-stage{position:absolute!important;z-index:2!important;top:50%!important;right:5%!important;width:min(48vw,650px)!important;height:min(620px,72vh)!important;transform:translateY(-48%)!important;pointer-events:none!important;isolation:isolate!important}
+.world-page .world-stage::before{inset:12% 7%!important;border:1px solid rgba(226,189,105,.2)!important;border-radius:50%!important;transform:rotate(-13deg) scaleX(.72)!important;box-shadow:0 0 90px rgba(208,170,96,.08),inset 0 0 60px rgba(208,170,96,.04)!important;animation:world-orbit 18s linear infinite!important}
+.world-page .world-stage::after{left:15%!important;right:15%!important;bottom:12%!important;height:16%!important;border-radius:50%!important;animation:world-breathe 5s ease-in-out infinite!important}
+.world-page .world-stage-art{position:absolute!important;inset:0!important;display:grid!important;place-items:center!important;animation:world-float 7s ease-in-out infinite!important}
+.world-page .world-stage-art::before{width:58%!important;height:58%!important;border-radius:50%!important;animation:world-breathe 5s ease-in-out infinite!important}
+.world-page .world-stage-art img{width:min(92%,560px)!important;max-height:520px!important;object-fit:contain!important}
+.world-page--collections .world-stage-art img{width:min(88%,530px)!important}
+.world-page--journal .world-stage-art img{width:min(90%,545px)!important}
+.world-page .world-stage-particles{position:absolute!important;inset:10%!important;animation:world-particles 16s linear infinite!important}
+
+/* Keep the existing World hero content geometry stable. */
+.world-page .world-hero-content{position:relative!important;z-index:3!important;width:min(1280px,88%)!important;margin:0 auto!important;padding:120px 0 110px!important}
+
+/* Remove the generic page-arrival veil that was creating a visual flash on navigation. */
+html::before{display:none!important;content:none!important;animation:none!important;opacity:0!important}
