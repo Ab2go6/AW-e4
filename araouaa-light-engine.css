@@ -74,20 +74,6 @@ header.products-header .products-header-contact{
 }
 
 /* ---------------- HOMEPAGE ATMOSPHERE ---------------- */
-body:not(.world-page) .hero{
-  background:
-    radial-gradient(circle at 76% 30%,rgba(223,189,122,.16),transparent 23%),
-    radial-gradient(circle at 14% 78%,rgba(82,107,89,.10),transparent 29%),
-    linear-gradient(120deg,var(--ara-paper-3) 0%,var(--ara-paper-2) 46%,#ddd0bc 100%);
-}
-body:not(.world-page) .hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:linear-gradient(112deg,rgba(255,255,255,.26),transparent 31%,transparent 68%,rgba(38,59,50,.08));
-  mix-blend-mode:soft-light;
-}
 body:not(.world-page) .hero-backdrop{
   filter:saturate(.96) contrast(1.035) brightness(.985);
 }

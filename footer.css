@@ -1,5 +1,4 @@
 @import url("world-closing.css");
-@import url("journal-section-theme.css");
 
 /* Shared footer system — matches the canonical navigation garnet. */
 .footer{background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;color:#fff8ed !important;padding:58px 5% 28px !important;font-family:Poppins,Arial,sans-serif}
