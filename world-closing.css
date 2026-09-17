@@ -10,184 +10,37 @@
 .world-page main .atelier-manifesto>*{position:relative;z-index:1}
 
 /* Typography sync — Home + Produits only. The five World pages remain the reference system. */
-body:not(.world-page){
-  --ara-type-kicker:10px;
-  --ara-type-kicker-spacing:2.5px;
-  --ara-type-title:clamp(45px,5.5vw,78px);
-  --ara-type-title-line:.95;
-}
-
-/* Same font families and weights as the World pages: Poppins for interface/editorial copy, Cormorant Garamond for display typography. */
-body:not(.world-page),
-.products-page{font-family:Poppins,Arial,sans-serif}
-body:not(.world-page) h1,
-body:not(.world-page) h2,
-body:not(.world-page) h3,
-.products-page h1,
-.products-page h2,
-.products-page h3{
-  font-family:"Cormorant Garamond",Georgia,serif;
-  font-weight:600;
-}
-
-body:not(.world-page) .eyebrow,
-body:not(.world-page) .story-copy>.eyebrow,
-body:not(.world-page) .partner-copy>.eyebrow,
-body:not(.world-page) .contact .eyebrow,
-.products-page .products-hero-eyebrow,
-.products-page .product-story-copy .eyebrow{
-  font-family:Poppins,Arial,sans-serif;
-  font-size:10px!important;
-  line-height:1!important;
-  letter-spacing:2.5px!important;
-  font-weight:600!important;
-  text-transform:uppercase;
-}
-
-body:not(.world-page) .hero h1,
-.products-page .products-hero h1{
-  font-family:"Cormorant Garamond",Georgia,serif!important;
-  font-size:clamp(64px,8vw,118px)!important;
-  line-height:.83!important;
-  letter-spacing:-2px!important;
-  font-weight:600!important;
-  font-style:normal;
-}
-body:not(.world-page) .hero-lead,
-.products-page .products-hero p{
-  font-family:Poppins,Arial,sans-serif!important;
-  font-size:15px!important;
-  line-height:1.9!important;
-  font-weight:400;
-}
+body:not(.world-page){--ara-type-kicker:10px;--ara-type-kicker-spacing:2.5px;--ara-type-title:clamp(45px,5.5vw,78px);--ara-type-title-line:.95}
+body:not(.world-page),.products-page{font-family:Poppins,Arial,sans-serif}
+body:not(.world-page) h1,body:not(.world-page) h2,body:not(.world-page) h3,.products-page h1,.products-page h2,.products-page h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600}
+body:not(.world-page) .eyebrow,body:not(.world-page) .story-copy>.eyebrow,body:not(.world-page) .partner-copy>.eyebrow,body:not(.world-page) .contact .eyebrow,.products-page .products-hero-eyebrow,.products-page .product-story-copy .eyebrow{font-family:Poppins,Arial,sans-serif;font-size:10px!important;line-height:1!important;letter-spacing:2.5px!important;font-weight:600!important;text-transform:uppercase}
+body:not(.world-page) .hero h1,.products-page .products-hero h1{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(64px,8vw,118px)!important;line-height:.83!important;letter-spacing:-2px!important;font-weight:600!important;font-style:normal}
+body:not(.world-page) .hero-lead,.products-page .products-hero p{font-family:Poppins,Arial,sans-serif!important;font-size:15px!important;line-height:1.9!important;font-weight:400}
 body:not(.world-page) .hero-signature{font-family:Poppins,Arial,sans-serif;font-size:9px!important;line-height:1.5!important;letter-spacing:1.4px!important;font-weight:400}
-
-body:not(.world-page) .section-heading h2,
-body:not(.world-page) .story-copy h2,
-body:not(.world-page) .partner-copy h2,
-body:not(.world-page) .contact .section-heading h2,
-.products-page .products-intro h2,
-.products-page .product-story-copy h2,
-.products-page .origin-inner h2,
-.products-page .products-cta h2{
-  font-family:"Cormorant Garamond",Georgia,serif!important;
-  font-size:var(--ara-type-title)!important;
-  line-height:var(--ara-type-title-line)!important;
-  font-weight:600!important;
-  font-style:normal!important;
-  letter-spacing:-1px!important;
-}
-
-body:not(.world-page) .section-heading>p:last-child,
-body:not(.world-page) .story-copy>p:not(.eyebrow),
-body:not(.world-page) .partner-copy>p:not(.eyebrow),
-body:not(.world-page) .contact .section-heading>p:last-child,
-.products-page .products-intro p,
-.products-page .origin-inner>p,
-.products-page .product-story-copy>p{
-  font-family:Poppins,Arial,sans-serif!important;
-  font-size:13px!important;
-  line-height:1.9!important;
-  font-weight:400!important;
-}
-
-body:not(.world-page) .values .section-heading-light h2{
-  font-family:"Cormorant Garamond",Georgia,serif!important;
-  font-size:var(--ara-type-title)!important;
-  line-height:var(--ara-type-title-line)!important;
-  font-weight:600!important;
-  letter-spacing:-1px!important;
-}
-
+body:not(.world-page) .section-heading h2,body:not(.world-page) .story-copy h2,body:not(.world-page) .partner-copy h2,body:not(.world-page) .contact .section-heading h2,.products-page .products-intro h2,.products-page .product-story-copy h2,.products-page .origin-inner h2,.products-page .products-cta h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:var(--ara-type-title)!important;line-height:var(--ara-type-title-line)!important;font-weight:600!important;font-style:normal!important;letter-spacing:-1px!important}
+body:not(.world-page) .section-heading>p:last-child,body:not(.world-page) .story-copy>p:not(.eyebrow),body:not(.world-page) .partner-copy>p:not(.eyebrow),body:not(.world-page) .contact .section-heading>p:last-child,.products-page .products-intro p,.products-page .origin-inner>p,.products-page .product-story-copy>p{font-family:Poppins,Arial,sans-serif!important;font-size:13px!important;line-height:1.9!important;font-weight:400!important}
+body:not(.world-page) .values .section-heading-light h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:var(--ara-type-title)!important;line-height:var(--ara-type-title-line)!important;font-weight:600!important;letter-spacing:-1px!important}
 body:not(.world-page) .value-card h3{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:28px!important;line-height:1!important;font-weight:600!important;letter-spacing:-.2px}
 body:not(.world-page) .value-card p{font-family:Poppins,Arial,sans-serif!important;font-size:10px!important;line-height:1.7!important;font-weight:400}
-
-body:not(.world-page) .product-card .product-kicker,
-.products-page .product-item-tag{
-  font-family:Poppins,Arial,sans-serif!important;
-  font-size:8px!important;
-  line-height:1.2!important;
-  letter-spacing:2px!important;
-  font-weight:600!important;
-}
-body:not(.world-page) .product-content h3,
-.products-page .product-item h3{
-  font-family:"Cormorant Garamond",Georgia,serif!important;
-  font-size:32px!important;
-  line-height:1!important;
-  font-weight:600!important;
-  letter-spacing:-.2px!important;
-}
-body:not(.world-page) .product-content>p:not(.product-kicker),
-.products-page .product-item p{
-  font-family:Poppins,Arial,sans-serif!important;
-  font-size:10px!important;
-  line-height:1.7!important;
-  font-weight:400!important;
-}
-
+body:not(.world-page) .product-card .product-kicker,.products-page .product-item-tag{font-family:Poppins,Arial,sans-serif!important;font-size:8px!important;line-height:1.2!important;letter-spacing:2px!important;font-weight:600!important}
+body:not(.world-page) .product-content h3,.products-page .product-item h3{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:32px!important;line-height:1!important;font-weight:600!important;letter-spacing:-.2px!important}
+body:not(.world-page) .product-content>p:not(.product-kicker),.products-page .product-item p{font-family:Poppins,Arial,sans-serif!important;font-size:10px!important;line-height:1.7!important;font-weight:400!important}
 body:not(.world-page) .story-points strong{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:600!important}
 body:not(.world-page) .story-points span{font-family:Poppins,Arial,sans-serif!important;font-size:11px!important;line-height:1.3!important;font-weight:600!important}
 body:not(.world-page) .story-points small{font-family:Poppins,Arial,sans-serif!important;font-size:9px!important;line-height:1.5!important;font-weight:400!important}
-
-.products-page .category-heading h2{
-  font-family:"Cormorant Garamond",Georgia,serif!important;
-  font-size:clamp(40px,4vw,56px)!important;
-  line-height:.9!important;
-  font-weight:600!important;
-  letter-spacing:-1px!important;
-}
-.products-page .category-heading p,
-.products-page .process-step span{
-  font-family:Poppins,Arial,sans-serif!important;
-  font-size:11px!important;
-  line-height:1.7!important;
-  font-weight:400!important;
-}
+.products-page .category-heading h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(40px,4vw,56px)!important;line-height:.9!important;font-weight:600!important;letter-spacing:-1px!important}
+.products-page .category-heading p,.products-page .process-step span{font-family:Poppins,Arial,sans-serif!important;font-size:11px!important;line-height:1.7!important;font-weight:400!important}
 .products-page .process-step strong{font-family:Poppins,Arial,sans-serif!important;font-size:12px!important;line-height:1.2!important;font-weight:600!important}
 .products-page .formats-label{font-family:Poppins,Arial,sans-serif!important;font-size:7px!important;line-height:1.2!important;letter-spacing:1.2px!important;font-weight:600!important}
 .products-page .format-button{font-family:Poppins,Arial,sans-serif!important;font-size:8px!important;font-weight:500!important}
 .products-page .products-cta p{font-family:Poppins,Arial,sans-serif!important;font-size:12px!important;line-height:1.8!important;font-weight:400!important}
 .products-page .cta-button{font-family:Poppins,Arial,sans-serif!important;font-size:10px!important;font-weight:600!important;letter-spacing:.7px!important;padding:13px 22px}
-
 body:not(.world-page) .button{font-family:Poppins,Arial,sans-serif!important;font-size:10px!important;font-weight:600!important;letter-spacing:.7px!important;padding:13px 22px}
-body:not(.world-page) .filter-chip,
-body:not(.world-page) .filter-discover{font-family:Poppins,Arial,sans-serif!important;font-size:9px!important;letter-spacing:1.4px!important;font-weight:500!important}
+body:not(.world-page) .filter-chip,body:not(.world-page) .filter-discover{font-family:Poppins,Arial,sans-serif!important;font-size:9px!important;letter-spacing:1.4px!important;font-weight:500!important}
 
-/* TEST — creamy hero/intro surfaces only. Navigation, category rail, cards and world pages are untouched. */
-body:not(.world-page):not(.products-page) .hero,
-.products-page .products-hero,
-.products-page .products-intro{
-  position:relative;
-  overflow:hidden;
-  background-color:#F8F1E3!important;
-  background-image:
-    radial-gradient(ellipse at 20% 50%,rgba(245,234,216,.7) 0%,transparent 50%),
-    radial-gradient(ellipse at 80% 20%,rgba(240,228,201,.5) 0%,transparent 50%),
-    radial-gradient(ellipse at 60% 80%,rgba(245,234,216,.6) 0%,transparent 50%),
-    linear-gradient(135deg,#F8F1E3 0%,#F3E9D7 100%)!important;
-}
-body:not(.world-page):not(.products-page) .hero::before,
-.products-page .products-hero::before,
-.products-page .products-intro::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border-radius:0;
-  filter:none;
-  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 300 Q300 200 600 300 T1200 300' fill='none' stroke='%23F0E4C9' stroke-width='40' stroke-opacity='0.4'/%3E%3Cpath d='M0 350 Q300 250 600 350 T1200 350' fill='none' stroke='%23EDE0C5' stroke-width='30' stroke-opacity='0.3'/%3E%3Cpath d='M0 250 Q400 150 800 250 T1200 250' fill='none' stroke='%23F5EAD8' stroke-width='25' stroke-opacity='0.35'/%3E%3C/svg%3E") center/cover no-repeat;
-  opacity:.8;
-  pointer-events:none;
-  z-index:0;
-}
-body:not(.world-page):not(.products-page) .hero-backdrop{
-  background:linear-gradient(90deg,rgba(248,241,227,.94),rgba(248,241,227,.16) 58%,transparent 100%)!important;
-}
-body:not(.world-page):not(.products-page) .hero-inner,
-.products-page .products-hero-inner,
-.products-page .products-intro > *{
-  position:relative;
-  z-index:1;
-}
+/* Cream test: one explicit surface across each requested hero/intro. */
+body:not(.world-page):not(.products-page) .hero,.products-page .products-hero,.products-page .products-intro{position:relative;overflow:hidden;background-color:#F8F1E3!important;background-image:radial-gradient(ellipse at 20% 50%,rgba(245,234,216,.7) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(240,228,201,.5) 0%,transparent 50%),radial-gradient(ellipse at 60% 80%,rgba(245,234,216,.6) 0%,transparent 50%),linear-gradient(135deg,#F8F1E3 0%,#F3E9D7 100%)!important}
+body:not(.world-page):not(.products-page) .hero::before,.products-page .products-hero::before,.products-page .products-intro::before{content:"";position:absolute;inset:0;width:100%;height:100%;border-radius:0;filter:none;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 300 Q300 200 600 300 T1200 300' fill='none' stroke='%23F0E4C9' stroke-width='40' stroke-opacity='0.4'/%3E%3Cpath d='M0 350 Q300 250 600 350 T1200 350' fill='none' stroke='%23EDE0C5' stroke-width='30' stroke-opacity='0.3'/%3E%3Cpath d='M0 250 Q400 150 800 250 T1200 250' fill='none' stroke='%23F5EAD8' stroke-width='25' stroke-opacity='0.35'/%3E%3C/svg%3E") center/cover no-repeat;opacity:.8;pointer-events:none;z-index:0}
+body:not(.world-page):not(.products-page) .hero-backdrop{display:none!important}
+.products-page .products-intro{width:100%!important;max-width:none!important;margin:0!important;padding:90px 6% 55px!important}
+body:not(.world-page):not(.products-page) .hero-inner,.products-page .products-hero-inner,.products-page .products-intro>*{position:relative;z-index:1}
