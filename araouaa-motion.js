@@ -5,9 +5,8 @@
   const LIGHT_STYLE_ID = 'araouaa-light-engine';
   const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
   const JOURNAL_STYLE_ID = 'araouaa-journal-final';
-  const FINAL_STYLE_ID = 'araouaa-final-visual-sync';
   const LOCK_STYLE_ID = 'araouaa-visual-lock';
-  const VERSION = '20260917f';
+  const VERSION = '20260917g';
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
@@ -17,6 +16,14 @@
     link.href = href;
     document.head.appendChild(link);
     return Promise.resolve();
+  };
+
+  const cleanupLegacyVisualStyles = () => {
+    document.querySelectorAll(
+      'link[href*="world-cinema.css"], ' +
+      'link[data-arraouaa-world-hero-contrast], ' +
+      'link[href*="araouaa-final-visual-sync.css"]'
+    ).forEach(link => link.remove());
   };
 
   const loadStyles = () =>
@@ -30,9 +37,9 @@
         if (!document.body.classList.contains('world-page--journal')) return;
         return loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`);
       })
-      .then(() => loadStyle(FINAL_STYLE_ID, `araouaa-final-visual-sync.css?v=${VERSION}`))
       .then(() => loadStyle(LOCK_STYLE_ID, `araouaa-visual-lock.css?v=${VERSION}`));
 
+  cleanupLegacyVisualStyles();
   loadStyles();
 
   const setupThemeColor = () => {
@@ -105,6 +112,7 @@
   };
 
   const init = () => {
+    cleanupLegacyVisualStyles();
     setupThemeColor();
     setupProgress();
     setupLightField();
