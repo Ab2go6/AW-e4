@@ -7,7 +7,7 @@
   const JOURNAL_STYLE_ID = 'araouaa-journal-final';
   const FINAL_STYLE_ID = 'araouaa-final-visual-sync';
   const LOCK_STYLE_ID = 'araouaa-visual-lock';
-  const VERSION = '20260917d';
+  const VERSION = '20260917e';
 
   const loadStyle = (id, href) => {
     if (document.getElementById(id)) return Promise.resolve();
