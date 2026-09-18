@@ -28,7 +28,7 @@ html body:not(.world-page) .hero#accueil::before{
   opacity:.92!important;
 }
 
-/* Fine contour lines: visible at desktop, restrained on mobile. */
+/* Shared organic silk texture — identical to the Product hero + intro. */
 html body:not(.world-page) .hero#accueil::after{
   content:""!important;
   position:absolute!important;
@@ -49,6 +49,6 @@ html body:not(.world-page) .hero#accueil .hero-backdrop{display:none!important;b
 html body:not(.world-page) .hero#accueil .hero-inner{position:relative!important;z-index:3!important}
 
 @media(max-width:720px){
-  html body:not(.world-page) .hero#accueil::after{opacity:.58!important;background-size:auto 118%!important;background-position:58% center!important}
+  html body:not(.world-page) .hero#accueil::after{opacity:.48!important;background-size:auto 120%!important;background-position:58% center!important}
   html body:not(.world-page) .hero#accueil::before{opacity:.74!important}
 }
