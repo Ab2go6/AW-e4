@@ -1,7 +1,7 @@
 @import url("style-base.css");
 @import url("footer.css");
 @import url("header.css");
-@import url("home-hero-final.css");
+@import url("home-hero-final.css?v=20260918silk3");
 
 /* Current homepage visual refinements. */
 .icon-button{color:#fff}
@@ -138,33 +138,3 @@ body:not(.world-page):not(.products-page) .partner-copy .button-primary:focus-vi
 }
 
 
-/* TEST / APPROVED HERO: exact silk-sand wave field — Home only */
-html body:not(.world-page) .hero#accueil{
-  position:relative!important;overflow:hidden!important;isolation:isolate!important;
-  background-color:#F1E3CC!important;
-  background-image:
-    radial-gradient(72% 86% at 76% 44%,rgba(255,253,246,.92) 0%,rgba(255,248,233,.72) 24%,rgba(231,208,169,.34) 55%,transparent 76%),
-    radial-gradient(58% 70% at 11% 12%,rgba(255,255,251,.98) 0%,rgba(252,244,228,.72) 35%,transparent 70%),
-    radial-gradient(52% 48% at 48% 104%,rgba(196,151,83,.18) 0%,transparent 72%),
-    linear-gradient(135deg,#FBF5E9 0%,#F6E9D4 34%,#EFDDBF 63%,#E5CDAA 100%)!important;
-  background-blend-mode:screen,screen,normal,normal!important;
-}
-html body:not(.world-page) .hero#accueil::before{
-  content:""!important;position:absolute!important;z-index:0!important;left:-12%;right:-8%;top:7%;bottom:-10%;pointer-events:none!important;
-  background:linear-gradient(157deg,transparent 0 14%,rgba(186,145,90,.15) 14.2% 15.8%,transparent 16.1% 25.5%,rgba(255,250,239,.44) 25.7% 29.4%,transparent 29.7% 39%,rgba(202,165,112,.18) 39.2% 40.9%,transparent 41.2% 51.5%,rgba(255,252,244,.48) 51.7% 55.8%,transparent 56.1% 66%,rgba(176,132,75,.12) 66.2% 68.2%,transparent 68.5% 100%);
-  transform:skewY(-4deg) scale(1.08)!important;opacity:.92!important;
-}
-html body:not(.world-page) .hero#accueil::after{
-  content:""!important;position:absolute!important;z-index:1!important;inset:-10%!important;pointer-events:none!important;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='silk' x='-15%25' y='-15%25' width='130%25' height='130%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.010 .030' numOctaves='3' seed='19' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='46' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='.25'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke-linecap='round' filter='url(%23silk)'%3E%3Cpath d='M-120 235 C190 105 430 255 720 175 S1240 105 1720 245' stroke='%23fffaf0' stroke-opacity='.38' stroke-width='92'/%3E%3Cpath d='M-120 510 C180 355 430 555 760 415 S1250 340 1720 510' stroke='%23d3ad73' stroke-opacity='.16' stroke-width='72'/%3E%3Cpath d='M-120 765 C200 585 470 790 790 645 S1260 560 1720 735' stroke='%23fffaf1' stroke-opacity='.32' stroke-width='105'/%3E%3C/g%3E%3C/svg%3E")!important;
-  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;mix-blend-mode:soft-light!important;opacity:.72!important;animation:none!important;transform:none!important;
-}
-@media(max-width:720px){html body:not(.world-page) .hero#accueil::after{opacity:.48!important;background-size:auto 120%!important;background-position:58% center!important}html body:not(.world-page) .hero#accueil::before{opacity:.74!important}}
-
-
-/* Final hero lock: prevent legacy motion layer from changing the exact silk artwork. */
-html body:not(.world-page) .hero#accueil::after{
-  animation:none!important;
-  transform:none!important;
-  opacity:1!important;
-}
