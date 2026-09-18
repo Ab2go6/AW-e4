@@ -35,12 +35,14 @@ html body:not(.world-page) .hero#accueil::after{
   z-index:1!important;
   inset:-8%!important;
   pointer-events:none!important;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23B38A54' stroke-linecap='round'%3E%3Cpath d='M-80 170 C180 70 330 225 565 145 S970 95 1480 210' stroke-opacity='.23' stroke-width='2.2'/%3E%3Cpath d='M-90 215 C165 115 355 270 600 190 S1020 135 1490 250' stroke-opacity='.17' stroke-width='1.7'/%3E%3Cpath d='M-90 410 C210 285 405 470 690 335 S1110 300 1500 410' stroke-opacity='.20' stroke-width='2'/%3E%3Cpath d='M-100 460 C210 330 420 515 710 390 S1125 350 1510 465' stroke-opacity='.15' stroke-width='1.5'/%3E%3Cpath d='M-100 660 C180 540 420 690 710 555 S1090 535 1510 650' stroke-opacity='.19' stroke-width='2'/%3E%3Cpath d='M-80 710 C220 585 440 735 735 605 S1120 585 1500 705' stroke-opacity='.13' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='silk' x='-15%25' y='-15%25' width='130%25' height='130%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.010 .030' numOctaves='3' seed='19' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='46' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='.25'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke-linecap='round' filter='url(%23silk)'%3E%3Cpath d='M-120 235 C190 105 430 255 720 175 S1240 105 1720 245' stroke='%23fffaf0' stroke-opacity='.38' stroke-width='92'/%3E%3Cpath d='M-120 510 C180 355 430 555 760 415 S1250 340 1720 510' stroke='%23d3ad73' stroke-opacity='.16' stroke-width='72'/%3E%3Cpath d='M-120 765 C200 585 470 790 790 645 S1260 560 1720 735' stroke='%23fffaf1' stroke-opacity='.32' stroke-width='105'/%3E%3C/g%3E%3C/svg%3E")!important;
   background-size:cover!important;
   background-position:center!important;
   background-repeat:no-repeat!important;
-  mix-blend-mode:multiply!important;
-  opacity:1!important;
+  mix-blend-mode:soft-light!important;
+  opacity:.72!important;
+  animation:none!important;
+  transform:none!important;
 }
 
 html body:not(.world-page) .hero#accueil .hero-backdrop{display:none!important;background:none!important;opacity:0!important}
