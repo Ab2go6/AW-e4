@@ -161,3 +161,11 @@ html body:not(.world-page) .hero#accueil::after{
 }
 html body:not(.world-page) .hero#accueil .hero-inner{position:relative!important;z-index:3!important}
 @media(max-width:720px){html body:not(.world-page) .hero#accueil::after{opacity:.58!important;background-size:auto 118%!important;background-position:58% center!important}html body:not(.world-page) .hero#accueil::before{opacity:.74!important}}
+
+
+/* Final hero lock: prevent legacy motion layer from changing the exact silk artwork. */
+html body:not(.world-page) .hero#accueil::after{
+  animation:none!important;
+  transform:none!important;
+  opacity:1!important;
+}
