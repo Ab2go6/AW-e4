@@ -50,7 +50,6 @@
   .products-page .category-pantry .category-heading p { transform: translateX(3.5cm); }
 }
 @media (max-width: 850px) {
-  .products-search-panel { top: 78px; right: 12px; left: 12px; width: auto; }
   .products-page .category-heading { gap: 28px; }
   .products-page .category-heading .category-heading-left { width: 100%; transform: none; }
   .products-page .category-heading p { flex: 1 1 100%; width: 100%; margin-left: 0; text-align: left; transform: none; }
