@@ -1,6 +1,6 @@
 @import url("language.css");
 
-/* Shared two-layer header system: creamy announcement + midnight navy navigation. */
+/* Shared two-layer header system: creamy announcement + garnet navigation. */
 .announcement,
 .announcement-inner,
 .announcement-socials,
@@ -9,13 +9,13 @@
 
 .announcement { height:40px; background:#f7f1e7; color:#302a25; font-family:Poppins,Arial,sans-serif; font-size:10px; letter-spacing:.35px; border-bottom:1px solid rgba(23,21,19,.12); }
 .announcement-inner { height:100%; width:min(1380px,88%); margin:auto; display:flex; align-items:center; gap:18px; }
-.announcement .dot { width:6px; height:6px; background:#c79a3b; border-radius:50%; display:inline-block; margin-right:7px; }
-.announcement-separator { color:#c79a3b; }
+.announcement .dot { width:6px; height:6px; background:#e2bd69; border-radius:50%; display:inline-block; margin-right:7px; }
+.announcement-separator { color:#8b1018; }
 .announcement-socials { margin-left:auto; display:flex; align-items:center; gap:10px; }
 .announcement-socials a { color:#8b1018; font-weight:600; }
 
-/* One midnight-navy navigation header used by the catalogue, World pages and homepage. */
-header.products-header { height:116px; padding:0 5.8%; display:flex; align-items:center; justify-content:flex-start; gap:0; background:linear-gradient(100deg,#430d11,#64151a 50%,#430d11 100%) !important; border-bottom:1px solid rgba(212,176,106,.22); color:#f7f0e4; backdrop-filter:blur(14px); position:sticky; top:0; z-index:100; }
+/* One shared navigation header used by the catalogue, World pages and homepage. */
+header.products-header { height:116px; padding:0 5.8%; display:flex; align-items:center; justify-content:flex-start; gap:0; background:linear-gradient(100deg,#430d11,#64151a 50%,#430d11 100%) !important; border-bottom:1px solid rgba(226,189,105,.28); color:#f7f0e4; backdrop-filter:blur(14px); position:sticky; top:0; z-index:100; }
 header.products-header .products-logo { position:relative; display:flex; flex:0 0 auto; align-items:center; width:164px; height:94px; margin-right:40px; overflow:visible; background:transparent; border:0; border-radius:0; box-shadow:none; }
 header.products-header .products-logo img { display:block; width:100%; height:100%; object-fit:contain; }
 header.products-header .products-main-nav { order:2; display:flex; flex:1; align-items:center; justify-content:center; gap:42px; font-size:13px; letter-spacing:.5px; text-transform:none; }
@@ -32,7 +32,7 @@ header.products-header .products-icon-button svg circle,
 header.products-header .products-icon-button svg path,
 header.products-header .products-icon-button svg rect { fill:none; stroke:currentColor; }
 header.products-header .products-icon-button .fill { fill:currentColor; stroke:none; }
-header.products-header .products-header-contact { order:4; margin-left:13px; padding:11px 19px; border:1px solid rgba(212,176,106,.72); border-radius:30px; color:#f7eddb; font-size:11px; font-weight:600; }
+header.products-header .products-header-contact { order:4; margin-left:13px; padding:11px 19px; border:1px solid rgba(226,189,105,.72); border-radius:30px; color:#f7eddb; font-size:11px; font-weight:600; }
 header.products-header .menu-toggle { order:5; display:none; }
 
 .site-header { height:116px; position:sticky; top:0; z-index:100; display:flex; align-items:center; padding:0 5.8%; gap:40px; background:linear-gradient(100deg,#430d11,#64151a 50%,#430d11 100%); border-bottom:1px solid rgba(212,176,106,.22); backdrop-filter:blur(14px); transition:.35s; }
@@ -66,7 +66,7 @@ header.products-header .products-search-panel,
 
 /* Shared moving light sweep: hover the navigation header to trigger one refined pass. */
 .site-header,.products-header{overflow:visible}
-.site-header::before,.products-header::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.15) 46%,transparent 58%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
+.site-header::before,.products-header::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(226,189,105,.16) 46%,transparent 58%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
 .site-header:hover::before,.products-header:hover::before{transform:translateX(120%)}
 .site-header .brand-logo,.products-header .products-logo{position:relative;overflow:hidden;isolation:isolate}
 .site-header .brand-logo::after,.products-header .products-logo::after{content:"";position:absolute;inset:-12%;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.38) 48%,transparent 62%);transform:translateX(-145%);transition:transform .75s cubic-bezier(.2,.75,.2,1);overflow:hidden}
