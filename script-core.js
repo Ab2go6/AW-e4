@@ -46,6 +46,45 @@
   }
 
 
+  const searchToggle = $('.search-toggle');
+  const searchPanel = $('.search-panel');
+  const searchInput = $('#siteSearch');
+  const searchClose = $('.search-close');
+  const cards = $$('.product-card');
+  const setSearch = open => {
+    if (!searchPanel) return;
+    searchPanel.classList.toggle('open', open);
+    searchPanel.setAttribute('aria-hidden', String(!open));
+    searchToggle?.setAttribute('aria-expanded', String(open));
+    if (open) window.setTimeout(() => searchInput?.focus(), 80);
+  };
+  searchToggle?.addEventListener('click', () => setSearch(!searchPanel.classList.contains('open')));
+  searchClose?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    cards.forEach(card => {
+      card.classList.remove('search-hidden');
+      card.style.display = '';
+    });
+    setSearch(false);
+  });
+  searchInput?.addEventListener('input', () => {
+    const query = normalize(searchInput.value.trim());
+    cards.forEach(card => {
+      const match = !query || normalize(`${card.dataset.search || ''} ${card.textContent}`).includes(query);
+      card.classList.toggle('search-hidden', !match);
+      card.style.display = match ? '' : 'none';
+    });
+  });
+  $$('.filter-chip').forEach(chip => chip.addEventListener('click', () => {
+    const filter = chip.dataset.filter || 'all';
+    $$('.filter-chip').forEach(item => item.classList.toggle('active', item === chip));
+    cards.forEach(card => {
+      const match = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('search-hidden', !match);
+      card.style.display = match ? '' : 'none';
+    });
+  }));
+
   const homepageFilters = $('.product-filters');
   if (homepageFilters && !$('.filter-discover', homepageFilters)) {
     const discoverLink = document.createElement('a');
@@ -239,5 +278,11 @@
     renderProducts('');
   }
   setupProductPage();
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    setSearch(false);
+    setMenu(false);
+  });
 
 })();
