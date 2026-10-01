@@ -14,7 +14,7 @@
 .footer-nav a:hover,.footer-nav a:focus-visible{color:#fff8ed}
 .footer-contact>div{display:flex;align-items:center;gap:10px;min-height:25px;color:#f1dfc4;font-size:11px;line-height:1.55;font-weight:500}
 .footer-contact svg{width:18px;height:18px;flex:0 0 18px;fill:none;stroke:#e2bd69;stroke-width:1.6}
-.footer-contact span{color:#f1dfc4}
+.footer-contact span{color:#f1dfc4}.footer-contact .footer-email-link{color:inherit;text-decoration:none}
 .footer-bottom{width:min(1380px,100%);margin:42px auto 0;border-top:1px solid rgba(226,189,105,.22);padding-top:18px;display:flex;justify-content:space-between;color:#d8c8af;font-size:9px;line-height:1.5;letter-spacing:.45px}
 @media(max-width:850px){
   .footer{padding:50px 6% 24px}
