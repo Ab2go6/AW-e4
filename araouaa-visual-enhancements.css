@@ -114,7 +114,6 @@ body:not(.world-page) .values .value-card:hover{transform:translateY(-8px);backg
 .world-page--atelier .atelier-manifesto h2{color:#f7f0e4!important;text-shadow:0 18px 40px rgba(0,0,0,.22)!important;opacity:1!important;transform:none!important;filter:none!important}
 .world-page--atelier .atelier-manifesto h2 em{color:var(--ara-gold-light)!important}
 .world-page--atelier .atelier-manifesto .world-kicker{color:var(--ara-gold-light)!important}
-.world-page--atelier .atelier-manifesto + .world-cta{border-top:1px solid rgba(226,189,105,.18)}
 
 /* View-linked motion: progressively reveal visual layers as they enter the viewport. */
 @supports (animation-timeline:view()){
@@ -123,7 +122,7 @@ body:not(.world-page) .values .value-card:hover{transform:translateY(-8px);backg
   .world-page .world-title,.world-page .world-intro,.world-page .world-grid,.world-page .world-feature-copy,.world-page .world-list,.world-page .world-quote,.world-page .sf-process-grid,.world-page .sf-origin-copy,.world-page .sf-closing{animation:ara-rise-in linear both;animation-timeline:view();animation-range:entry 0% cover 24%}
   .world-page .world-stage-art img{animation-name:world-cinema-product,ara-stage-scroll;animation-duration:8s,1ms;animation-timing-function:ease-in-out,linear;animation-iteration-count:infinite,1;animation-fill-mode:both;animation-timeline:auto,view();animation-range:normal,entry 0% cover 55%}
   /* Dark closing panels should never inherit the low-opacity state of editorial reveals. */
-  .world-page .world-cta .world-title,.world-page .sf-closing h2,.world-page .atelier-manifesto .world-title{opacity:1;transform:none;filter:none}
+  .world-page .sf-closing h2,.world-page .atelier-manifesto .world-title{opacity:1;transform:none;filter:none}
 }
 
 @keyframes ara-hero-breathe{from{transform:scale(.98);opacity:.72}to{transform:scale(1.03);opacity:1}}
