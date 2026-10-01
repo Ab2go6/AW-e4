@@ -81,8 +81,8 @@ body:not(.world-page) .values .value-card:hover{transform:translateY(-8px);backg
 
 /* ---------------- WORLD PAGES ---------------- */
 .world-page{background:radial-gradient(circle at 85% 10%,rgba(208,170,96,.06),transparent 22%),var(--world-cream)}
-.world-page .world-section,.world-page .world-feature,.world-page .world-quote,.world-page .world-cta{position:relative}
-.world-page .world-section::before,.world-page .world-feature::before,.world-page .world-quote::before,.world-page .world-cta::before{content:"";position:absolute;left:7%;right:7%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(208,170,96,.28),transparent);opacity:.52;pointer-events:none}
+.world-page .world-section,.world-page .world-feature,.world-page .world-quote{position:relative}
+.world-page .world-section::before,.world-page .world-feature::before,.world-page .world-quote::before{content:"";position:absolute;left:7%;right:7%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(208,170,96,.28),transparent);opacity:.52;pointer-events:none}
 .world-page .world-card,.world-page .world-product,.world-page .journal-card,.world-page .collection-feature,.world-page .collection-small{transition:transform .55s cubic-bezier(.2,.75,.2,1),box-shadow .55s ease,filter .55s ease}
 .world-page .world-card::after,.world-page .journal-card::after,.world-page .collection-feature::after,.world-page .collection-small::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.12) 48%,transparent 62%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
 .world-page .world-card:hover,.world-page .world-product:hover,.world-page .journal-card:hover,.world-page .collection-feature:hover,.world-page .collection-small:hover{transform:translateY(-7px);box-shadow:0 24px 50px rgba(23,21,19,.16);filter:saturate(1.03)}
@@ -92,18 +92,18 @@ body:not(.world-page) .values .value-card:hover{transform:translateY(-8px);backg
 .world-page .world-feature-media{animation:ara-feature-pan 18s ease-in-out infinite alternate;transform-origin:center center}
 .world-page .world-quote{background:linear-gradient(135deg,#ded3c3,#e7ddcd 52%,#d7c8b2)}
 .world-page .world-quote p{text-shadow:0 10px 25px rgba(36,31,27,.06)}
-.world-page .world-cta{background:radial-gradient(circle at 50% 0,rgba(208,170,96,.13),transparent 30%),linear-gradient(135deg,var(--ara-deep),var(--ara-green))}
+
 
 /* Stronger editorial rhythm for the Savoir-faire story. */
 .world-page--savoir-faire .sf-process{background:radial-gradient(circle at 78% 15%,rgba(208,170,96,.11),transparent 24%),linear-gradient(135deg,var(--ara-deep),var(--ara-green))}
 .world-page--savoir-faire .sf-process-grid article{transition:transform .45s ease,background .45s ease,border-color .45s ease}
 .world-page--savoir-faire .sf-process-grid article:hover{transform:translateY(-6px);background:rgba(255,255,255,.025)}
 .world-page--savoir-faire .sf-origin-visual{background:radial-gradient(circle at 50% 48%,rgba(208,170,96,.13),transparent 32%),linear-gradient(145deg,var(--ara-cream),#ded2c0)}
-.world-page--savoir-faire .sf-closing{background:radial-gradient(circle at 50% 0,rgba(208,170,96,.13),transparent 32%),linear-gradient(135deg,var(--ara-deep),var(--ara-green));color:#f7f0e4}
-.world-page--savoir-faire .sf-closing h2,.world-page--savoir-faire .sf-closing .sf-eyebrow,.world-page--savoir-faire .sf-closing .sf-button{color:#f7f0e4}
-.world-page--savoir-faire .sf-closing .sf-eyebrow,.world-page--savoir-faire .sf-closing h2 em{color:var(--ara-gold-light)}
-.world-page--savoir-faire .sf-closing .sf-button{border-color:var(--ara-gold-light)}
-.world-page--savoir-faire .sf-closing .sf-button:hover{background:var(--ara-gold-light);color:#171513;border-color:var(--ara-gold-light)}
+
+
+
+
+
 
 /* Atelier: richer material and light without adding clutter. */
 .world-page--atelier .atelier-process-panel{background:radial-gradient(circle at 72% 26%,rgba(208,170,96,.11),transparent 24%),linear-gradient(135deg,var(--ara-deep),var(--ara-green))}
