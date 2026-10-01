@@ -230,7 +230,7 @@
       const searching = Boolean(query);
       productSections.forEach(section => {
         let visible = 0;
-        $$('.product-item', section).forEach(item => {
+        $('.product-item', section).forEach(item => {
           const name = getProductName(item);
           const inCategory = searching || activeCategory === 'all' || visibleSections.includes(section.dataset.section);
           const matchesSearch = !query || name.includes(query);
@@ -240,6 +240,7 @@
         });
         section.hidden = visible === 0;
       });
+      if (!searching) window.__ARAOUAA_PRODUCT_LIMITS__?.();
     };
     window.__ARAOUAA_PRODUCT_SEARCH__ = renderProducts;
     const applyFilter = (category, scroll = false) => {
