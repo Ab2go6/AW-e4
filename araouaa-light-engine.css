@@ -271,12 +271,6 @@ body:not(.world-page) .partner-card{
 }
 .world-page .journal-grid .journal-card:nth-child(2){background:linear-gradient(145deg,#aa8a60,#765c39)}
 .world-page .journal-grid .journal-card:nth-child(3){background:linear-gradient(145deg,#51453f,#2a2420)}
-.world-page .world-cta{
-  background:
-    radial-gradient(circle at 50% 0,rgba(223,189,122,.14),transparent 30%),
-    linear-gradient(130deg,var(--ara-night-1),var(--ara-forest-0) 55%,var(--ara-forest-1));
-}
-.world-page .world-button{box-shadow:0 12px 30px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.08)}
 
 /* ---------------- SAVOIR-FAIRE / ATELIER ---------------- */
 .world-page--savoir-faire .sf-process,
