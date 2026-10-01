@@ -1,4 +1,4 @@
-/* Canonical editorial closing navigation — one shared system for every World page. */
+/* Canonical World-page closing navigation. Loaded after each World page's own CSS. */
 .world-page main .world-cta,
 .world-page main .sf-closing{
   position:relative;
@@ -45,9 +45,7 @@
   font-weight:600;
   text-transform:uppercase;
 }
-.world-page main .sf-closing .sf-eyebrow::before{
-  background:#8d6a32;
-}
+.world-page main .sf-closing .sf-eyebrow::before{background:#8d6a32}
 .world-page main .world-cta .world-title,
 .world-page main .sf-closing h2{
   grid-column:2;
@@ -136,9 +134,7 @@
     min-width:190px;
   }
   .world-page main .world-cta::before,
-  .world-page main .sf-closing::before{
-    left:7%;
-  }
+  .world-page main .sf-closing::before{left:7%}
 }
 
 /* Typography sync — Home + Produits only. The five World pages remain the reference system. */
