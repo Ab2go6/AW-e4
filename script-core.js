@@ -34,7 +34,6 @@
     updateActiveNav();
   }, { passive: true });
   updateActiveNav();
-  $('.to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -46,44 +45,6 @@
     $$('.reveal').forEach(element => observer.observe(element));
   }
 
-  const searchToggle = $('.search-toggle');
-  const searchPanel = $('.search-panel');
-  const searchInput = $('#siteSearch');
-  const searchClose = $('.search-close');
-  const cards = $$('.product-card');
-  const setSearch = open => {
-    if (!searchPanel) return;
-    searchPanel.classList.toggle('open', open);
-    searchPanel.setAttribute('aria-hidden', String(!open));
-    searchToggle?.setAttribute('aria-expanded', String(open));
-    if (open) window.setTimeout(() => searchInput?.focus(), 80);
-  };
-  searchToggle?.addEventListener('click', () => setSearch(!searchPanel.classList.contains('open')));
-  searchClose?.addEventListener('click', () => {
-    if (searchInput) searchInput.value = '';
-    cards.forEach(card => {
-      card.classList.remove('search-hidden');
-      card.style.display = '';
-    });
-    setSearch(false);
-  });
-  searchInput?.addEventListener('input', () => {
-    const query = normalize(searchInput.value.trim());
-    cards.forEach(card => {
-      const match = !query || normalize(`${card.dataset.search || ''} ${card.textContent}`).includes(query);
-      card.classList.toggle('search-hidden', !match);
-      card.style.display = match ? '' : 'none';
-    });
-  });
-  $$('.filter-chip').forEach(chip => chip.addEventListener('click', () => {
-    const filter = chip.dataset.filter || 'all';
-    $$('.filter-chip').forEach(item => item.classList.toggle('active', item === chip));
-    cards.forEach(card => {
-      const match = filter === 'all' || card.dataset.category === filter;
-      card.classList.toggle('search-hidden', !match);
-      card.style.display = match ? '' : 'none';
-    });
-  }));
 
   const homepageFilters = $('.product-filters');
   if (homepageFilters && !$('.filter-discover', homepageFilters)) {
@@ -269,51 +230,6 @@
       if (formatConfirmation) formatConfirmation.textContent = `Demande enregistrée : ${value}. Nous pourrons confirmer ce grammage selon vos besoins.`;
     });
 
-    const productsHeader = $('.products-header');
-    const productSearchToggle = $('.products-header .products-icon-button[aria-label="Rechercher"]');
-    if (productsHeader && productSearchToggle) {
-      const panel = document.createElement('div');
-      panel.className = 'products-search-panel';
-      panel.hidden = true;
-      panel.setAttribute('aria-hidden', 'true');
-      panel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" aria-label="Rechercher un produit" placeholder="Rechercher un produit…" autocomplete="off"><button type="button" class="products-search-close" aria-label="Fermer la recherche">×</button></div>`;
-      productsHeader.appendChild(panel);
-      const input = $('input', panel);
-      const close = $('.products-search-close', panel);
-      const closeSearch = () => {
-        input.value = '';
-        activeCategory = 'all';
-        filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
-        renderProducts('');
-        panel.classList.remove('open');
-        panel.hidden = true;
-        panel.setAttribute('aria-hidden', 'true');
-        productSearchToggle.setAttribute('aria-expanded', 'false');
-      };
-      const search = () => {
-        const query = input.value.trim();
-        if (query) {
-          activeCategory = 'all';
-          filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
-        }
-        renderProducts(query);
-      };
-      productSearchToggle.setAttribute('aria-expanded', 'false');
-      productSearchToggle.addEventListener('click', () => {
-        const open = panel.classList.toggle('open');
-        panel.hidden = !open;
-        panel.setAttribute('aria-hidden', String(!open));
-        productSearchToggle.setAttribute('aria-expanded', String(open));
-        if (open) window.setTimeout(() => input.focus(), 80);
-      });
-      close.addEventListener('click', closeSearch);
-      input.addEventListener('input', search);
-      input.addEventListener('keydown', event => {
-        if (event.key !== 'Enter') return;
-        event.preventDefault();
-        search();
-      });
-    }
 
     const productMenu = $('.products-header .menu-toggle');
     const productNav = $('.products-main-nav');
@@ -324,12 +240,4 @@
   }
   setupProductPage();
 
-  document.addEventListener('keydown', event => {
-    if (event.key !== 'Escape') return;
-    setSearch(false); setMenu(false);
-    const productSearch = $('.products-search-panel');
-    const productToggle = $('.products-search-toggle');
-    if (productSearch) { productSearch.hidden = true; productSearch.classList.remove('open'); productSearch.setAttribute('aria-hidden', 'true'); }
-    productToggle?.setAttribute('aria-expanded', 'false');
-  });
 })();
