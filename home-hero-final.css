@@ -29,7 +29,7 @@ html body:not(.world-page) .hero#accueil::before{
 }
 
 /* Shared organic silk texture — identical to the Product hero + intro. */
-/* Previous Home hero artwork restored — six contour lines. */
+/* Six-line silk contour texture. */
 html body:not(.world-page) .hero#accueil::after{
   content:""!important;
   position:absolute!important;

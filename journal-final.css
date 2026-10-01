@@ -1,4 +1,4 @@
-/* Final Journal quote-band override. Loaded after the Light Engine so this page-specific color wins the cascade. */
+/* Journal quote-band color treatment. */
 .world-page--journal main .world-quote{
   background:#A65A3A !important;
   background-image:none !important;

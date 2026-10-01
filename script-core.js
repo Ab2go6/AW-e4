@@ -30,11 +30,9 @@
 
   window.addEventListener('scroll', () => {
     header?.classList.toggle('scrolled', window.scrollY > 25);
-    $('.to-top')?.classList.toggle('show', window.scrollY > 650);
     updateActiveNav();
   }, { passive: true });
   updateActiveNav();
-  $('.to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -45,6 +43,7 @@
     }), { threshold: .12 });
     $$('.reveal').forEach(element => observer.observe(element));
   }
+
 
   const searchToggle = $('.search-toggle');
   const searchPanel = $('.search-panel');
@@ -246,7 +245,7 @@
     const applyFilter = (category, scroll = false) => {
       activeCategory = category;
       filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
-      const searchInput = $('.products-search-panel input');
+      const searchInput = $('.site-search-panel input');
       renderProducts(searchInput?.value || '');
       if (scroll) {
         const targetCategory = categoryGroups[category]?.[0] || category;
@@ -269,51 +268,6 @@
       if (formatConfirmation) formatConfirmation.textContent = `Demande enregistrée : ${value}. Nous pourrons confirmer ce grammage selon vos besoins.`;
     });
 
-    const productsHeader = $('.products-header');
-    const productSearchToggle = $('.products-header .products-icon-button[aria-label="Rechercher"]');
-    if (productsHeader && productSearchToggle) {
-      const panel = document.createElement('div');
-      panel.className = 'products-search-panel';
-      panel.hidden = true;
-      panel.setAttribute('aria-hidden', 'true');
-      panel.innerHTML = `<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" aria-label="Rechercher un produit" placeholder="Rechercher un produit…" autocomplete="off"><button type="button" class="products-search-close" aria-label="Fermer la recherche">×</button></div>`;
-      productsHeader.appendChild(panel);
-      const input = $('input', panel);
-      const close = $('.products-search-close', panel);
-      const closeSearch = () => {
-        input.value = '';
-        activeCategory = 'all';
-        filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
-        renderProducts('');
-        panel.classList.remove('open');
-        panel.hidden = true;
-        panel.setAttribute('aria-hidden', 'true');
-        productSearchToggle.setAttribute('aria-expanded', 'false');
-      };
-      const search = () => {
-        const query = input.value.trim();
-        if (query) {
-          activeCategory = 'all';
-          filters.forEach(button => button.classList.toggle('active', button.dataset.category === 'all'));
-        }
-        renderProducts(query);
-      };
-      productSearchToggle.setAttribute('aria-expanded', 'false');
-      productSearchToggle.addEventListener('click', () => {
-        const open = panel.classList.toggle('open');
-        panel.hidden = !open;
-        panel.setAttribute('aria-hidden', String(!open));
-        productSearchToggle.setAttribute('aria-expanded', String(open));
-        if (open) window.setTimeout(() => input.focus(), 80);
-      });
-      close.addEventListener('click', closeSearch);
-      input.addEventListener('input', search);
-      input.addEventListener('keydown', event => {
-        if (event.key !== 'Enter') return;
-        event.preventDefault();
-        search();
-      });
-    }
 
     const productMenu = $('.products-header .menu-toggle');
     const productNav = $('.products-main-nav');
@@ -326,10 +280,8 @@
 
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
-    setSearch(false); setMenu(false);
-    const productSearch = $('.products-search-panel');
-    const productToggle = $('.products-search-toggle');
-    if (productSearch) { productSearch.hidden = true; productSearch.classList.remove('open'); productSearch.setAttribute('aria-hidden', 'true'); }
-    productToggle?.setAttribute('aria-expanded', 'false');
+    setSearch(false);
+    setMenu(false);
   });
+
 })();

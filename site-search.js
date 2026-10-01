@@ -5,6 +5,7 @@
 
   const normalize = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
+
   const loadStyle = () => {
     if (document.querySelector('link[data-arraouaa-site-search-style]')) return;
     const link = document.createElement('link');
@@ -16,16 +17,6 @@
 
   const getHeader = () => document.querySelector('.site-header, .products-header');
   const getButton = header => header?.querySelector('.search-toggle, .products-icon-button[aria-label="Rechercher"]');
-
-  const cleanupLegacyProductSearch = () => {
-    if (!document.body.classList.contains('products-page')) return;
-    document.querySelectorAll('.products-search-panel').forEach(panel => panel.remove());
-  };
-
-  const cleanupLegacyHomeSearch = header => {
-    if (document.body.classList.contains('products-page') || !header) return;
-    header.querySelectorAll('.search-panel:not(.site-search-panel)').forEach(panel => panel.remove());
-  };
 
   const createPanel = header => {
     let panel = header?.querySelector('.site-search-panel');
@@ -117,10 +108,8 @@
 
   const setup = () => {
     loadStyle();
-    cleanupLegacyProductSearch();
     const header = getHeader();
     const button = getButton(header);
-    cleanupLegacyHomeSearch(header);
     const panel = createPanel(header);
     if (!header || !button || !panel) return;
 

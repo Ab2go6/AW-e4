@@ -64,13 +64,6 @@
     'savoir.eyebrow': '.savoir-hero .eyebrow, .savoir-hero-eyebrow', 'savoir.title': '.savoir-hero h1', 'savoir.intro': '.savoir-intro', 'savoir.approach': '.savoir-approach .eyebrow', 'savoir.morocco': '.savoir-origin h2', 'savoir.cta': '.savoir-cta .button-primary'
   };
 
-  function loadStyles() {
-    if ($('#arraouaa-language-css')) return;
-    const link = document.createElement('link');
-    link.id = 'arraouaa-language-css'; link.rel = 'stylesheet'; link.href = 'language.css';
-    document.head.appendChild(link);
-  }
-
   function addSelector() {
     const target = $('.announcement-socials') || $('.announcement-inner') || $('.products-header');
     if (!target || $('.language-switcher')) return;
@@ -132,47 +125,6 @@
     localStorage.setItem(STORAGE_KEY, lang);
   }
 
-  function initProductHeaderSearch() {
-    const toggle = $('.products-icon-button[aria-label="Rechercher"]');
-    if (!toggle || toggle.dataset.searchBound === 'true') return;
-    toggle.dataset.searchBound = 'true';
-    const header = toggle.closest('.products-header');
-    if (!header) return;
-    let panel = $('.products-search-panel', header);
-    if (!panel) {
-      panel = document.createElement('div');
-      panel.className = 'products-search-panel';
-      panel.innerHTML = '<div class="products-search-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4.2 4.2"></path></svg><input type="search" placeholder="Rechercher café, épices, fruits secs…" autocomplete="off"><button class="products-search-close" type="button" aria-label="Fermer la recherche">×</button></div>';
-      header.appendChild(panel);
-    }
-    const input = $('input[type="search"]', panel);
-    const close = $('.products-search-close', panel);
-    const productsPage = document.body.classList.contains('products-page');
-    const setOpen = open => {
-      panel.classList.toggle('open', open);
-      if (open) window.setTimeout(() => input?.focus(), 80);
-    };
-    toggle.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
-    close?.addEventListener('click', () => { if(input) input.value=''; setOpen(false); });
-    input?.addEventListener('input', () => {
-      if (!productsPage) return;
-      const query = normalizeText(input.value.trim());
-      $$('.product-category-section, .catalog-family-section').forEach(section => {
-        const items = $$('.product-item', section);
-        if (!items.length) return;
-        let visible = 0;
-        items.forEach(item => {
-          const match = !query || normalizeText(item.textContent).includes(query);
-          item.hidden = !match;
-          if(match) visible++;
-        });
-        section.hidden = !!query && visible === 0;
-      });
-    });
-  }
-
-  const normalizeText = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
   function setLanguage(lang) {
     if (!LANGUAGES.includes(lang)) return;
     translate(lang);
@@ -180,10 +132,8 @@
   }
 
   function init() {
-    loadStyles();
     addSelector();
     addSavoirFaireLinks();
-    initProductHeaderSearch();
     const saved = localStorage.getItem(STORAGE_KEY);
     setLanguage(LANGUAGES.includes(saved) ? saved : DEFAULT_LANGUAGE);
   }

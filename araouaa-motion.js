@@ -24,24 +24,17 @@
   const loadStyles = () => {
     let chain = Promise.resolve();
 
-    // Home owns the large visual engines. Product and World pages use their
-    // dedicated CSS systems so they cannot inherit legacy Home/Product layers.
     if (!isWorldPage && !isProductsPage) {
       chain = chain
         .then(() => loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`))
-        .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`));
-    }
-
-    if (!isWorldPage && !isProductsPage) {
-      chain = chain.then(() => loadStyle(HOMEPAGE_CONTACT_STYLE_ID, `homepage-contact.css?v=${VERSION}`));
+        .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`))
+        .then(() => loadStyle(HOMEPAGE_CONTACT_STYLE_ID, `homepage-contact.css?v=${VERSION}`));
     }
 
     if (isJournalPage) {
       chain = chain.then(() => loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`));
     }
 
-    // Product/World visual locks are loaded after their page-specific CSS and
-    // are also linked directly in the relevant HTML pages where needed.
     return chain.then(() => loadStyle(LOCK_STYLE_ID, `araouaa-visual-lock.css?v=${VERSION}`));
   };
 
