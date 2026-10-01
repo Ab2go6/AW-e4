@@ -95,7 +95,7 @@
 .products-page .products-cta .cta-button:hover,
 .products-page .products-cta .cta-button:focus-visible{background:#fffaf2!important;color:#171513!important;border-color:#fffaf2!important;box-shadow:0 15px 34px rgba(23,21,19,.22)!important}
 
-/* Product category headers — now locked to the exact navigation garnet direction. */
+/* Canonical product category header treatment. */
 .products-page .category-heading{
   background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;
   box-shadow:0 0 0 100vmax #64151a !important;
@@ -118,7 +118,7 @@
 .products-page .product-category-nav button.active,
 .products-page .product-category-nav button:hover{border-color:#e2bd69;color:#64151a}
 
-/* Final rail alignment: the navigation is 116px high on desktop. */
+/* Category rail alignment follows the shared desktop/mobile header heights. */
 .products-page .product-categories{top:116px!important}
 @media(max-width:850px){.products-page .product-categories{top:78px!important}}
 
