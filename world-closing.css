@@ -16,6 +16,7 @@ body:not(.world-page) h1,body:not(.world-page) h2,body:not(.world-page) h3,.prod
 body:not(.world-page) .eyebrow,body:not(.world-page) .story-copy>.eyebrow,body:not(.world-page) .partner-copy>.eyebrow,body:not(.world-page) .contact .eyebrow,.products-page .products-hero-eyebrow,.products-page .product-story-copy .eyebrow{font-family:Poppins,Arial,sans-serif;font-size:10px!important;line-height:1!important;letter-spacing:2.5px!important;font-weight:600!important;text-transform:uppercase}
 body:not(.world-page) .hero h1,.products-page .products-hero h1{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(64px,8vw,118px)!important;line-height:.83!important;letter-spacing:-2px!important;font-weight:600!important;font-style:normal}
 body:not(.world-page) .hero-lead,.products-page .products-hero p{font-family:Poppins,Arial,sans-serif!important;font-size:15px!important;line-height:1.9!important;font-weight:400}
+body:not(.world-page) .hero-signature{font-family:Poppins,Arial,sans-serif;font-size:9px!important;line-height:1.5!important;letter-spacing:1.4px!important;font-weight:400}
 body:not(.world-page) .section-heading h2,body:not(.world-page) .story-copy h2,body:not(.world-page) .partner-copy h2,body:not(.world-page) .contact .section-heading h2,.products-page .products-intro h2,.products-page .product-story-copy h2,.products-page .origin-inner h2,.products-page .products-cta h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:var(--ara-type-title)!important;line-height:var(--ara-type-title-line)!important;font-weight:600!important;font-style:normal!important;letter-spacing:-1px!important}
 body:not(.world-page) .section-heading>p:last-child,body:not(.world-page) .story-copy>p:not(.eyebrow),body:not(.world-page) .partner-copy>p:not(.eyebrow),body:not(.world-page) .contact .section-heading>p:last-child,.products-page .products-intro p,.products-page .origin-inner>p,.products-page .product-story-copy>p{font-family:Poppins,Arial,sans-serif!important;font-size:13px!important;line-height:1.9!important;font-weight:400!important}
 body:not(.world-page) .values .section-heading-light h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:var(--ara-type-title)!important;line-height:var(--ara-type-title-line)!important;font-weight:600!important;letter-spacing:-1px!important}
@@ -36,3 +37,26 @@ body:not(.world-page) .story-points small{font-family:Poppins,Arial,sans-serif!i
 .products-page .cta-button{font-family:Poppins,Arial,sans-serif!important;font-size:10px!important;font-weight:600!important;letter-spacing:.7px!important;padding:13px 22px}
 body:not(.world-page) .button{font-family:Poppins,Arial,sans-serif!important;font-size:10px!important;font-weight:600!important;letter-spacing:.7px!important;padding:13px 22px}
 body:not(.world-page) .filter-chip,body:not(.world-page) .filter-discover{font-family:Poppins,Arial,sans-serif!important;font-size:9px!important;letter-spacing:1.4px!important;font-weight:500!important}
+
+/* Refined cream wave system — shared by every page hero, including the five World pages. */
+body .hero,.products-page .products-hero,.products-page .products-intro,.world-page .world-hero{position:relative;overflow:hidden;background-color:#F8F1E3!important;background-image:none!important}
+body .hero::before,.products-page .products-hero::before,.products-page .products-intro::before,.world-page .world-hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400 Q200 250 400 380 T800 350 T1200 420' fill='none' stroke='%23E8D9B5' stroke-width='55' stroke-opacity='0.55'/%3E%3Cpath d='M0 480 Q250 320 500 460 T1000 430 T1200 500' fill='none' stroke='%23E0CFA3' stroke-width='45' stroke-opacity='0.45'/%3E%3Cpath d='M0 320 Q300 180 600 310 T1200 290' fill='none' stroke='%23F0E4C9' stroke-width='40' stroke-opacity='0.4'/%3E%3Cpath d='M0 550 Q350 400 700 530 T1200 560' fill='none' stroke='%23D9C48F' stroke-width='35' stroke-opacity='0.35'/%3E%3C/svg%3E");background-size:cover;background-repeat:no-repeat;background-position:center;opacity:.9;pointer-events:none;z-index:0}
+body:not(.world-page):not(.products-page) .hero-backdrop{display:none!important}
+.products-page .products-intro{width:100%!important;max-width:none!important;margin:0!important;padding:90px 6% 55px!important;background-color:#F8F1E3!important;background-image:none!important}
+.products-page .products-intro::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:transparent!important;box-shadow:none!important}
+.products-page .products-intro > *{position:relative;z-index:1}
+body:not(.world-page):not(.products-page) .hero-inner,.products-page .products-hero-inner{position:relative;z-index:1}
+
+/* World heroes keep their scene/product layer, but lose the old split floor/horizon so the cream wave field is continuous. */
+.world-page .world-hero::after{background:transparent!important;mix-blend-mode:normal!important;opacity:0!important}
+.world-page .world-hero-media{opacity:.18!important;filter:saturate(.55) contrast(1.02) brightness(1.04)!important}
+.world-page .world-hero-media::before{background:linear-gradient(90deg,rgba(248,241,227,.92) 0%,rgba(248,241,227,.68) 38%,rgba(248,241,227,.18) 70%,rgba(248,241,227,0) 100%)!important}
+.world-page .world-hero-media::after{background:linear-gradient(180deg,rgba(248,241,227,.08),rgba(248,241,227,.2))!important}
+.world-page .world-hero-content{position:relative;z-index:4}
+.world-page .world-hero-reflection{opacity:.05!important}
+.world-page .world-hero h1{color:#241f1b!important;text-shadow:0 10px 24px rgba(45,49,46,.08)!important}
+.world-page .world-hero h1 em{color:#64151A!important}
+.world-page .world-eyebrow{color:#64151A!important}
+.world-page .world-eyebrow::before{background:#D9C48F!important}
+.world-page .world-hero-lead{color:#47413a!important;text-shadow:none!important}
+.world-page .world-hero-meta{color:#5a5148!important;border-top-color:rgba(97,72,55,.18)!important}
