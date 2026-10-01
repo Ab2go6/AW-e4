@@ -36,21 +36,21 @@
 
     const location = footer.querySelector('.footer-contact [aria-label="Localisation"] span');
     const phone = footer.querySelector('.footer-contact [aria-label="Téléphone"] span');
-    const email = footer.querySelector('.footer-contact [aria-label="E-mail"] span');
+    const emailRow = footer.querySelector('.footer-contact [aria-label="E-mail"]');
 
     if (location) location.textContent = 'Tassila N° 3-39 Tikiouine, AGADIR';
     if (phone) phone.textContent = '0528264827';
-    if (email) {
+    if (emailRow) {
       const address = 'contact.araouaa@gmail.com';
-      let link = email.querySelector('.footer-email-link');
+      let link = emailRow.querySelector('.footer-email-link');
       if (!link) {
-        const span = email.querySelector('span');
+        const span = emailRow.querySelector('span');
         if (span) {
           link = document.createElement('a');
           link.className = 'footer-email-link';
           link.href = `mailto:${address}`;
           link.appendChild(span);
-          email.appendChild(link);
+          emailRow.appendChild(link);
         }
       }
       if (link) {
