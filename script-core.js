@@ -30,7 +30,6 @@
 
   window.addEventListener('scroll', () => {
     header?.classList.toggle('scrolled', window.scrollY > 25);
-    $('.to-top')?.classList.toggle('show', window.scrollY > 650);
     updateActiveNav();
   }, { passive: true });
   updateActiveNav();
@@ -246,7 +245,7 @@
     const applyFilter = (category, scroll = false) => {
       activeCategory = category;
       filters.forEach(button => button.classList.toggle('active', button.dataset.category === category));
-      const searchInput = $('.products-search-panel input');
+      const searchInput = $('.site-search-panel input');
       renderProducts(searchInput?.value || '');
       if (scroll) {
         const targetCategory = categoryGroups[category]?.[0] || category;
