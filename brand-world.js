@@ -4,6 +4,15 @@
 
   const hero = page.querySelector('.world-hero');
 
+  const CTA_STYLE_ID = 'world-cta';
+  if (!document.getElementById(CTA_STYLE_ID)) {
+    const link = document.createElement('link');
+    link.id = CTA_STYLE_ID;
+    link.rel = 'stylesheet';
+    link.href = 'world-cta.css?v=20261001cta2';
+    document.head.appendChild(link);
+  }
+
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const links = [
     ['Accueil', 'index.html'], ['Produits', 'produits.html'], ['L’univers', 'origine.html'],
