@@ -78,6 +78,35 @@
 .footer-contact svg{stroke:var(--ara-gold)!important;width:18px!important;height:18px!important}
 .footer-bottom{color:#D8C8AF!important;font-size:9px!important;border-top-color:rgba(226,189,105,.22)!important}
 
+/* Shared garnet surfaces and interaction states — active palette, not a temporary test layer. */
+body:not(.world-page) .quality-strip,
+body:not(.world-page) .values,
+.products-page .product-story{
+  background:linear-gradient(100deg,var(--ara-g0) 0%,var(--ara-g1) 52%,var(--ara-g2) 100%) !important;
+}
+body:not(.world-page) .values .section-heading-light h2{color:#FFF8ED!important}
+body:not(.world-page) .values .section-heading-light h2 em{color:var(--ara-gold)!important}
+.products-page .product-story h2,
+.products-page .product-story p{color:#FFF8ED!important}
+.products-page .product-story .product-story-copy>p{color:#F1DFC4!important}
+.products-page .product-link,
+.products-page .product-item-content .product-link,
+.products-page .product-item-content a{color:var(--ara-g1)!important}
+.products-page .product-categories .category-heading h2,
+.products-page .product-categories .category-heading p{color:#FFF8ED!important}
+.products-page .product-categories .format-button.custom-format{border-color:rgba(226,189,105,.55)!important;color:var(--ara-g1)!important}
+
+header.products-header .products-main-nav a:hover,
+header.products-header .products-main-nav a.active,
+.main-nav a:hover,
+.main-nav a.active{color:var(--ara-gold)!important}
+header.products-header .products-main-nav a::after,
+.main-nav a::after{background:var(--ara-gold)!important}
+header.products-header .products-header-contact,
+.header-contact{border-color:rgba(226,189,105,.72);color:#FFF4DF}
+header.products-header .products-header-contact:hover,
+.header-contact:hover{background:var(--ara-gold);color:var(--ara-g0)}
+
 /* World hero artwork stays suppressed; the page uses the canonical silk field. */
 .world-page .world-hero-media{opacity:0!important;background-image:none!important;display:none!important}
 
