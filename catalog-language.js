@@ -42,7 +42,6 @@
     epicerie: {
       fr: {
         'Pois chiches': ['Pois chiches', 'POIS CHICHES', 'Une référence essentielle pour les préparations traditionnelles et du quotidien.'],
-        'Lentilles': ['Lentilles', 'LENTILLES', 'Une base polyvalente pour les recettes familiales et professionnelles.'],
         'Haricots blancs': ['Haricots blancs', 'HARICOTS BLANCS', 'Une référence généreuse adaptée à de nombreux usages culinaires.'],
         'Haricots rouges': ['Haricots rouges', 'HARICOTS ROUGES', 'Une référence appréciée pour les préparations salées et professionnelles.'],
         'Pois cassés': ['Pois cassés', 'POIS CASSÉS', 'Une référence polyvalente pour les soupes, plats et préparations.'],
@@ -50,7 +49,6 @@
       },
       en: {
         'Pois chiches': ['Chickpeas', 'CHICKPEAS', 'An essential reference for traditional recipes and everyday preparations.'],
-        'Lentilles': ['Lentils', 'LENTILS', 'A versatile staple for family recipes and professional preparations.'],
         'Haricots blancs': ['White beans', 'WHITE BEANS', 'A generous staple suited to a wide range of culinary uses.'],
         'Haricots rouges': ['Red kidney beans', 'RED KIDNEY BEANS', 'A popular staple for savoury recipes and professional preparations.'],
         'Pois cassés': ['Split peas', 'SPLIT PEAS', 'A versatile staple for soups, dishes and everyday preparations.'],
@@ -58,7 +56,6 @@
       },
       ar: {
         'Pois chiches': ['الحمص', 'الحمص', 'منتج أساسي للتحضيرات التقليدية والاستخدامات اليومية.'],
-        'Lentilles': ['العدس', 'العدس', 'مكوّن متعدد الاستخدامات للوصفات العائلية والتحضيرات المهنية.'],
         'Haricots blancs': ['الفاصوليا البيضاء', 'الفاصوليا البيضاء', 'منتج غني مناسب لمجموعة واسعة من الاستخدامات في الطبخ.'],
         'Haricots rouges': ['الفاصوليا الحمراء', 'الفاصوليا الحمراء', 'منتج محبوب للتحضيرات المالحة والاستخدامات المهنية.'],
         'Pois cassés': ['البازلاء المجروشة', 'البازلاء المجروشة', 'منتج متعدد الاستخدامات للشوربات والأطباق والتحضيرات اليومية.'],
