@@ -7,7 +7,7 @@
   const JOURNAL_STYLE_ID = 'journal-final';
   const LOCK_STYLE_ID = 'araouaa-visual-lock';
   const WORLD_CLOSING_STYLE_ID = 'world-closing';
-  const VERSION = '20260918silk3';
+  const VERSION = '20261001cta1';
   const isWorldPage = document.body.classList.contains('world-page');
   const isProductsPage = document.body.classList.contains('products-page');
   const isJournalPage = document.body.classList.contains('world-page--journal');
