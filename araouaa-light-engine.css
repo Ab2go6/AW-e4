@@ -292,7 +292,6 @@ body:not(.world-page) .partner-card{
     radial-gradient(circle at 80% 18%,rgba(208,170,96,.06),transparent 25%),
     linear-gradient(135deg,#ded2c2,#f0e7dc 55%,#d6c6af);
 }
-.world-page--savoir-faire .sf-closing,
 .world-page--atelier .atelier-manifesto{
   background:
     radial-gradient(circle at 50% 0,rgba(223,189,122,.14),transparent 29%),
@@ -300,7 +299,6 @@ body:not(.world-page) .partner-card{
     linear-gradient(125deg,var(--ara-night-0),var(--ara-forest-0) 56%,var(--ara-forest-1));
   box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
 }
-.world-page--savoir-faire .sf-closing h2,
 .world-page--atelier .atelier-manifesto h2{
   text-shadow:0 24px 52px rgba(0,0,0,.28),0 1px 0 rgba(255,255,255,.04)!important;
 }
@@ -332,7 +330,7 @@ body:not(.world-page) .partner-card{
 body:not(.world-page) .products{box-shadow:inset 0 40px 70px rgba(82,107,89,.025)}
 body:not(.world-page) .story{box-shadow:inset 0 50px 80px rgba(36,31,27,.035),inset 0 -50px 80px rgba(255,255,255,.18)}
 .world-page .world-feature{box-shadow:0 -34px 64px rgba(38,59,50,.05),0 34px 64px rgba(23,21,19,.08)}
-.world-page .world-cta{box-shadow:0 -24px 60px rgba(23,21,19,.10)}
+
 
 /* ---------------- MOTION ---------------- */
 @keyframes ara-light-sweep{
