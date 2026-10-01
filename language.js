@@ -125,9 +125,6 @@
     localStorage.setItem(STORAGE_KEY, lang);
   }
 
-
-  const normalizeText = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
   function setLanguage(lang) {
     if (!LANGUAGES.includes(lang)) return;
     translate(lang);
