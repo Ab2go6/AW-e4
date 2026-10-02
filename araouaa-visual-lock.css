@@ -151,3 +151,12 @@ html::before{display:none!important;content:none!important;animation:none!import
   opacity:.28!important;
   mix-blend-mode:soft-light!important;
 }
+
+
+/* World chrome hydration: keep the JS-built shell from flashing empty or unstyled. */
+.world-page .announcement,
+.world-page .products-header,
+.world-page .footer{visibility:hidden!important}
+.world-page.world-hydrated .announcement,
+.world-page.world-hydrated .products-header,
+.world-page.world-hydrated .footer{visibility:visible!important}
