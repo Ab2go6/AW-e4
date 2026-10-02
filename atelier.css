@@ -477,7 +477,6 @@
 }
 
 /* ---------------- TOOLS / LOGISTICS ---------------- */
-.world-page--atelier .world-section{background:var(--atelier-cocoa)}
 
 .world-page--atelier .atelier-logistics{
   width:100%;
@@ -490,9 +489,11 @@
 }
 
 .world-page--atelier .atelier-logistics .world-kicker,
-.world-page--atelier .atelier-logistics .world-title,
-.world-page--atelier .atelier-logistics .world-intro{
+.world-page--atelier .atelier-logistics .world-title{
   color:var(--atelier-ivory);
+}
+.world-page--atelier .atelier-logistics .world-intro{
+  color:var(--atelier-muted);
 }
 
 .world-page--atelier .atelier-logistics .world-kicker{
