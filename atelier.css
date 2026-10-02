@@ -12,6 +12,9 @@
   --atelier-gold-deep:#d0aa60;
   --atelier-gold-soft:#cdbb9c;
   --atelier-line:rgba(226,189,105,.18);
+  --atelier-cream:#f7f1e7;
+  --atelier-cream-2:#eee5d7;
+  --atelier-cream-ink:#241f1b;
 }
 
 /* L'Atelier uses one coherent material language:
@@ -24,6 +27,76 @@
 
 .world-page--atelier main{
   background:var(--atelier-cocoa);
+}
+
+/* Atelier-only chrome: the announcement joins the dark material language,
+   while the navigation and footer become a quiet creamy frame. */
+.world-page--atelier .announcement{
+  background:linear-gradient(100deg,#171513 0%,#263b32 55%,#211c17 100%);
+  color:var(--atelier-ivory);
+  border-bottom-color:rgba(226,189,105,.18);
+}
+.world-page--atelier .announcement .dot{
+  background:var(--atelier-gold);
+}
+.world-page--atelier .announcement-separator,
+.world-page--atelier .announcement-socials a{
+  color:var(--atelier-gold);
+}
+
+.world-page--atelier header.products-header{
+  background:var(--atelier-cream)!important;
+  color:var(--atelier-cream-ink);
+  border-bottom-color:rgba(48,72,61,.18);
+  box-shadow:0 10px 28px rgba(23,21,19,.10);
+}
+.world-page--atelier header.products-header .products-main-nav a{
+  color:var(--atelier-cream-ink);
+}
+.world-page--atelier header.products-header .products-main-nav a:hover,
+.world-page--atelier header.products-header .products-main-nav a.active{
+  color:#6f5228;
+}
+.world-page--atelier header.products-header .products-main-nav a::after{
+  background:linear-gradient(90deg,var(--atelier-gold-deep),var(--atelier-gold));
+}
+.world-page--atelier header.products-header .products-header-contact{
+  color:var(--atelier-cream-ink);
+  border-color:rgba(48,72,61,.35);
+}
+.world-page--atelier header.products-header .products-icon-button{
+  color:var(--atelier-gold-deep)!important;
+}
+.world-page--atelier header.products-header .menu-toggle{
+  color:var(--atelier-cream-ink);
+}
+
+.world-page--atelier .footer{
+  background:var(--atelier-cream)!important;
+  color:var(--atelier-cream-ink)!important;
+  border-top:1px solid rgba(48,72,61,.14);
+}
+.world-page--atelier .footer-brand>p{
+  color:var(--atelier-cream-ink);
+}
+.world-page--atelier .footer-nav strong{
+  color:#6f5228;
+}
+.world-page--atelier .footer-nav a,
+.world-page--atelier .footer-contact>div,
+.world-page--atelier .footer-contact span{
+  color:#4d4a43;
+}
+.world-page--atelier .footer-nav a:hover,
+.world-page--atelier .footer-nav a:focus-visible{
+  color:var(--atelier-forest-deep);
+}
+.world-page--atelier .footer-contact svg{
+  stroke:var(--atelier-gold-deep);
+}
+.world-page--atelier .footer-bottom{
+  color:#756e63;
+  border-top-color:rgba(48,72,61,.18);
 }
 
 /* ---------------- HERO ---------------- */
@@ -133,7 +206,9 @@
   width:min(1180px,86%);
   margin:0 auto;
   padding:110px 0;
-  background:var(--atelier-cocoa);
+  background:
+    radial-gradient(circle at 84% 12%,rgba(82,107,89,.09),transparent 24%),
+    linear-gradient(145deg,#171513,#211c17);
   color:var(--atelier-ivory);
 }
 
@@ -409,8 +484,8 @@
   margin:0;
   padding:105px 0;
   background:
-    radial-gradient(circle at 78% 20%,rgba(208,170,96,.09),transparent 25%),
-    linear-gradient(145deg,var(--atelier-forest-deep),var(--atelier-cocoa));
+    radial-gradient(circle at 78% 18%,rgba(223,189,122,.12),transparent 25%),
+    linear-gradient(145deg,#263b32,#3d483f);
   color:var(--atelier-ivory);
 }
 
@@ -492,8 +567,8 @@
   position:relative;
   overflow:hidden;
   background:
-    radial-gradient(circle at 50% 0,rgba(208,170,96,.14),transparent 29%),
-    linear-gradient(145deg,var(--atelier-forest),var(--atelier-cocoa));
+    radial-gradient(circle at 50% 0,rgba(208,170,96,.12),transparent 29%),
+    linear-gradient(145deg,#211c17,#171513);
   color:var(--atelier-ivory);
 }
 
