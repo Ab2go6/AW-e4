@@ -14,20 +14,11 @@
     if (!nav) return;
 
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const links = [
-      ['Accueil', 'index.html#accueil', 'index.html'],
-      ['Produits', 'produits.html', 'produits.html'],
-      ['L’univers', 'origine.html', 'origine.html'],
-      ['Collection', 'collections.html', 'collections.html'],
-      ['Journal', 'journal.html', 'journal.html'],
-      ['Notre savoir-faire', 'savoir-faire.html', 'savoir-faire.html'],
-      ['L’Atelier', 'atelier.html', 'atelier.html']
-    ];
-
-    nav.innerHTML = links.map(([label, href, page]) => {
-      const active = currentPage === page || (currentPage === '' && page === 'index.html');
-      return `<a${active ? ' class="active"' : ''} href="${href}">${label}</a>`;
-    }).join('');
+    nav.querySelectorAll('a').forEach(link => {
+      const href = link.getAttribute('href') || '';
+      const page = href.split('#')[0] || 'index.html';
+      link.classList.toggle('active', page === currentPage || (currentPage === '' && page === 'index.html'));
+    });
   };
 
   const setupFooterContact = () => {
