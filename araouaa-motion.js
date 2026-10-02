@@ -60,24 +60,10 @@
     }, { passive: true });
   };
 
-  const setupExternalPageLinks = () => {
-    document.addEventListener('click', event => {
-      const link = event.target.closest('a[href]');
-      if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
-      const href = link.getAttribute('href') || '';
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
-      const url = new URL(href, window.location.href);
-      if (url.origin !== window.location.origin) return;
-      document.documentElement.classList.add('ara-page-leaving');
-      window.setTimeout(() => document.documentElement.classList.remove('ara-page-leaving'), 650);
-    });
-  };
-
   const init = () => {
     setupThemeColor();
     setupProgress();
     setupLightField();
-    setupExternalPageLinks();
   };
 
   if (document.readyState === 'loading') {
