@@ -14,13 +14,52 @@
     if (!nav) return;
 
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    nav.querySelectorAll('a').forEach(link => {
-      const href = link.getAttribute('href') || '';
-      const page = href.split('#')[0] || 'index.html';
-      link.classList.toggle('active', page === currentPage || (currentPage === '' && page === 'index.html'));
-    });
+    const links = [
+      ['Accueil', 'index.html#accueil', 'index.html'],
+      ['Produits', 'produits.html', 'produits.html'],
+      ['L’univers', 'origine.html', 'origine.html'],
+      ['Collection', 'collections.html', 'collections.html'],
+      ['Journal', 'journal.html', 'journal.html'],
+      ['Notre savoir-faire', 'savoir-faire.html', 'savoir-faire.html'],
+      ['L’Atelier', 'atelier.html', 'atelier.html']
+    ];
+
+    nav.innerHTML = links.map(([label, href, page]) => {
+      const active = currentPage === page || (currentPage === '' && page === 'index.html');
+      return `<a${active ? ' class="active"' : ''} href="${href}">${label}</a>`;
+    }).join('');
   };
 
+  const setupFooterContact = () => {
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    const location = footer.querySelector('.footer-contact [aria-label="Localisation"] span');
+    const phone = footer.querySelector('.footer-contact [aria-label="Téléphone"] span');
+    const emailRow = footer.querySelector('.footer-contact [aria-label="E-mail"]');
+
+    if (location) location.textContent = 'Tassila N° 3-39 Tikiouine, AGADIR';
+    if (phone) phone.textContent = '0528264827';
+    if (emailRow) {
+      const address = 'contact.araouaa@gmail.com';
+      let link = emailRow.querySelector('.footer-email-link');
+      if (!link) {
+        const span = emailRow.querySelector('span');
+        if (span) {
+          link = document.createElement('a');
+          link.className = 'footer-email-link';
+          link.href = `mailto:${address}`;
+          link.appendChild(span);
+          emailRow.appendChild(link);
+        }
+      }
+      if (link) {
+        link.href = `mailto:${address}`;
+        const span = link.querySelector('span');
+        if (span) span.textContent = address;
+      }
+    }
+  };
 
   const restoreProductHashPosition = () => {
     if (!document.body.classList.contains('products-page') || !window.location.hash || window.location.hash.startsWith('#search=')) return;
@@ -39,6 +78,7 @@
     .then(() => load('araouaa-motion.js'))
     .then(() => {
       setupPrimaryNav();
+      setupFooterContact();
       window.requestAnimationFrame(restoreProductHashPosition);
     })
     .catch(error => console.error('ARAOUAA scripts failed to load:', error));

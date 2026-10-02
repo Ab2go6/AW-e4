@@ -1,8 +1,44 @@
 (() => {
   'use strict';
 
+  const STYLE_ID = 'araouaa-visual-enhancements';
+  const LIGHT_STYLE_ID = 'araouaa-light-engine';
+  const HOMEPAGE_CONTACT_STYLE_ID = 'araouaa-homepage-contact';
+  const JOURNAL_STYLE_ID = 'journal-final';
+  const LOCK_STYLE_ID = 'araouaa-visual-lock';
+  const VERSION = '20260918silk3';
   const isWorldPage = document.body.classList.contains('world-page');
   const isProductsPage = document.body.classList.contains('products-page');
+  const isJournalPage = document.body.classList.contains('world-page--journal');
+
+  const loadStyle = (id, href) => {
+    if (document.getElementById(id)) return Promise.resolve();
+    const link = document.createElement('link');
+    link.id = id;
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+    return Promise.resolve();
+  };
+
+  const loadStyles = () => {
+    let chain = Promise.resolve();
+
+    if (!isWorldPage && !isProductsPage) {
+      chain = chain
+        .then(() => loadStyle(STYLE_ID, `araouaa-visual-enhancements.css?v=${VERSION}`))
+        .then(() => loadStyle(LIGHT_STYLE_ID, `araouaa-light-engine.css?v=${VERSION}`))
+        .then(() => loadStyle(HOMEPAGE_CONTACT_STYLE_ID, `homepage-contact.css?v=${VERSION}`));
+    }
+
+    if (isJournalPage) {
+      chain = chain.then(() => loadStyle(JOURNAL_STYLE_ID, `journal-final.css?v=${VERSION}`));
+    }
+
+    return chain.then(() => loadStyle(LOCK_STYLE_ID, `araouaa-visual-lock.css?v=${VERSION}`));
+  };
+
+  loadStyles();
 
   const setupThemeColor = () => {
     let meta = document.querySelector('meta[name="theme-color"]');
@@ -60,10 +96,24 @@
     }, { passive: true });
   };
 
+  const setupExternalPageLinks = () => {
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a[href]');
+      if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+      const href = link.getAttribute('href') || '';
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+      const url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      document.documentElement.classList.add('ara-page-leaving');
+      window.setTimeout(() => document.documentElement.classList.remove('ara-page-leaving'), 650);
+    });
+  };
+
   const init = () => {
     setupThemeColor();
     setupProgress();
     setupLightField();
+    setupExternalPageLinks();
   };
 
   if (document.readyState === 'loading') {

@@ -1,19 +1,19 @@
 /* Journal quote-band color treatment. */
 .world-page--journal main .world-quote{
-  background:#A65A3A ;
-  background-image:none ;
-  color:#fffaf0 ;
-  opacity:1 ;
-  filter:none ;
-  transform:none ;
+  background:#A65A3A !important;
+  background-image:none !important;
+  color:#fffaf0 !important;
+  opacity:1 !important;
+  filter:none !important;
+  transform:none !important;
 }
 .world-page--journal main .world-quote p{
-  color:#fffaf0 ;
-  opacity:1 ;
-  text-shadow:0 12px 28px rgba(35,24,17,.18) ;
+  color:#fffaf0 !important;
+  opacity:1 !important;
+  text-shadow:0 12px 28px rgba(35,24,17,.18) !important;
 }
 .world-page--journal main .world-quote span{
-  color:#dfbd7a ;
-  opacity:1 ;
-  text-shadow:0 0 12px rgba(223,189,122,.18) ;
+  color:#dfbd7a !important;
+  opacity:1 !important;
+  text-shadow:0 0 12px rgba(223,189,122,.18) !important;
 }

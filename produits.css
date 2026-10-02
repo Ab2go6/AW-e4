@@ -1,150 +1,125 @@
 @import url("produits-base.css");
 @import url("footer.css");
 @import url("header.css");
-@import url("world-closing.css");
 
-/* Product page shell. */
-.products-page{position:relative}
+/* Product page shell */
+.products-page { position: relative; }
 
-/* Category heading layout. */
-.products-page .category-heading{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:80px;
-  padding:22px 28px;
-  border-bottom-color:rgba(226,189,105,.22);
-  border-radius:0;
-  box-shadow:0 0 0 100vmax #171513;
-  clip-path:inset(0 -100vmax);
+
+/* Category headings */
+.products-page .category-heading { display: flex; align-items: center; justify-content: space-between; gap: 80px; padding: 22px 28px; background: #171513; border-bottom-color: rgba(226, 189, 105, .22); border-radius: 0; box-shadow: 0 0 0 100vmax #171513; clip-path: inset(0 -100vmax); color: #f7f0e4; }
+.products-page .category-heading .category-heading-left { display: flex; flex: 1 1 auto; align-items: center; justify-content: flex-start; min-width: 0; gap: 17px; transform: translateX(-4.5cm); }
+.products-page .category-heading .category-number { display: grid; flex: 0 0 44px; place-items: center; width: 44px; height: 38px; border: 1px solid rgba(246, 224, 166, .72); border-radius: 9px; background: linear-gradient(145deg, #d7b35b 0%, #b88932 48%, #8f6722 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .42), 0 4px 12px rgba(0, 0, 0, .18); color: #fff; font-size: 11px; font-weight: 700; line-height: 1; letter-spacing: .4px; text-shadow: 0 1px 2px rgba(54, 38, 10, .32); }
+.products-page .category-heading h2 { color: #f7f0e4; }
+.products-page .category-heading p { flex: 0 1 480px; align-self: center; margin-left: auto; color: #d5cfc4; text-align: center; transform: translateX(5.2cm); }
+.products-page .product-category-section .category-heading h2 em { color: var(--p-gold-light); font-style: normal; }
+
+/* Category-specific surfaces */
+.products-page .category-spices { background: var(--p-cream); }
+.category-pantry { width: 100%; padding: 60px 0 100px; background: var(--p-cream); }
+.category-pantry .category-heading { width: min(1380px, 88%); margin: 0 auto 32px; }
+.category-pantry .category-heading p { color: #d5cfc4; text-align: right; transform: translateX(5.2cm); }
+.category-pantry .product-items,.category-pantry .pantry-intro { width: min(1380px, 88%); margin-right: auto; margin-left: auto; }
+.category-pantry .pantry-intro { margin-bottom: 28px; }
+#noix-graines .category-heading .category-number { order: -1; }
+.products-hero { background: linear-gradient(90deg, var(--p-cream) 0%, var(--p-cream-2) 58%, #d8c5a8 100%); }
+.product-story-visual { position: relative; display: grid; place-items: center; background: var(--p-cream); border: 1px solid rgba(199, 154, 59, .55); }
+.product-story-visual::before { content: ""; position: absolute; inset: 0; z-index: 2; background: var(--p-cream) url("assets/logo-crystal-4k.png") center / 48% auto no-repeat; }
+.product-story-visual img,.product-story-visual .product-story-overlay { display: none; }
+.product-story-label { z-index: 3; display:none; }
+
+/* Product filtering */
+.product-category-section[hidden],.product-item[hidden] { display: none !important; }
+.product-category-nav .catalog-filter[data-category="plus"] { order: 999; }
+
+/* Responsive */
+@media (max-width: 1150px) {
+  .products-page .category-heading .category-heading-left { transform: translateX(-3cm); }
+  .products-page .category-heading p { transform: translateX(3.5cm); }
+  .products-page .category-pantry .category-heading p { transform: translateX(3.5cm); }
 }
-.products-page .category-heading .category-heading-left{
-  display:flex;
-  flex:1 1 auto;
-  align-items:center;
-  justify-content:flex-start;
-  min-width:0;
-  gap:17px;
-  transform:translateX(-4.5cm);
+@media (max-width: 850px) {
+  .products-page .category-heading { gap: 28px; }
+  .products-page .category-heading .category-heading-left { width: 100%; transform: none; }
+  .products-page .category-heading p { flex: 1 1 100%; width: 100%; margin-left: 0; text-align: left; transform: none; }
+  .product-story-visual::before { background-size: 62% auto; }
 }
-.products-page .category-heading .category-number{
-  display:grid;
-  flex:0 0 44px;
-  place-items:center;
-  width:44px;
-  height:38px;
-  border-radius:9px;
-  line-height:1;
-}
-.products-page .category-heading p{
-  flex:0 1 480px;
-  align-self:center;
-  margin-left:auto;
-  text-align:center;
-  transform:translateX(5.2cm);
+@media (max-width: 560px) {
+  .product-category-section { width: 90%; padding: 48px 0 72px; }
+  .category-heading { padding-bottom: 16px; }
+  .category-heading h2 { font-size: 34px; }
+  .category-heading p { font-size: 10px; }
+  .product-items { grid-template-columns: 1fr; }
+  .product-item-image { height: 205px; }
+  .product-item-content { padding: 15px; }
+  .product-category-nav { gap: 6px; }
+  .product-category-nav button { padding: 8px 12px; font-size: 9px; }
+  .products-intro { padding: 70px 0 42px; }
+  .products-intro h2 { font-size: 40px; }
+  .product-story { padding: 70px 0; }
+  .origin-section { padding: 70px 0; }
+  .footer { padding: 45px 7% 22px; }
 }
 
-/* Category surfaces and unique product-story treatment. */
-.products-page .category-spices{background:var(--p-cream)}
-.category-pantry{
-  width:100%;
-  padding:60px 0 100px;
-  background:var(--p-cream);
-}
-.category-pantry .category-heading{width:min(1380px,88%);margin:0 auto 32px}
-.category-pantry .category-heading p{color:#d5cfc4;text-align:right;transform:translateX(5.2cm)}
-.category-pantry .product-items,
-.category-pantry .pantry-intro{width:min(1380px,88%);margin-right:auto;margin-left:auto}
-.category-pantry .pantry-intro{margin-bottom:28px}
-#noix-graines .category-heading .category-number{order:-1}
+/* ARAOUAA luxury direction — same palette family as the newer world pages. */
+.products-page{background:#f5efe4;color:#241f1b}
+.products-page .products-hero{background:linear-gradient(90deg,#f5efe4 0%,#eee5d7 58%,#d9cbb7 100%)}
+.products-page .category-spices,.products-page .category-pantry{background:#f5efe4}
+.products-page .category-heading{background:#171513;box-shadow:0 0 0 100vmax #171513}
+.products-page .category-heading .category-number{background:linear-gradient(145deg,#d0aa60 0%,#a98246 48%,#6d532e 100%)}
+.products-page .category-heading h2 em{color:#dfbd7a}
+.products-page .products-hero h1 em{color:#d0aa60}
+.products-page .products-intro h2 em{color:#d0aa60}
+.products-page .products-intro strong{color:#d0aa60}
+.products-page .product-category-section .format-button.custom-format,.products-page .category-spices .format-button.custom-format{border-color:rgba(82,107,89,.55);color:#526b59}
+.products-page .product-story{background:#30483d}
+.products-page .product-story-visual{background:#f5efe4;border-color:rgba(208,170,96,.5)}
+.products-page .product-story-visual::before{background-color:#f5efe4}
+.products-page .product-item{background:#eee5d7;border-color:rgba(36,31,27,.1);box-shadow:0 12px 38px rgba(35,24,17,.09)}
+.products-page .product-item:hover{border-color:rgba(208,170,96,.55);box-shadow:0 24px 55px rgba(35,24,17,.14)}
+.products-page .product-item-content{background:#eee5d7;color:#241f1b}
+.products-page .product-item-content h3{color:#241f1b}
+.products-page .product-item-content .product-link,.products-page .product-item-content a{color:#30483d}
 
-.product-story-visual{
-  position:relative;
-  display:grid;
-  place-items:center;
-}
-.product-story-visual::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:2;
-  background:var(--p-cream) url("assets/logo-crystal-4k.png") center / 48% auto no-repeat;
-}
-.product-story-visual img,
-.product-story-visual .product-story-overlay{display:none}
-.product-story-label{z-index:3;display:none}
+/* Shared category rail direction. */
+.products-page .product-categories{background:linear-gradient(100deg,#121b16,#263b32 50%,#1c2a23 100%)}
 
-/* Product filtering and unique interactions. */
-.product-category-section[hidden],
-.product-item[hidden]{display:none}
-.product-category-nav .catalog-filter[data-category="plus"]{order:999}
-
-.products-page .product-item{
-  position:relative;
-  overflow:hidden;
-}
-.products-page .product-item::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:3;
-  pointer-events:none;
-  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 46%,transparent 58%);
-  transform:translateX(-120%);
-  transition:transform .9s cubic-bezier(.2,.75,.2,1);
-}
+/* Reuse the homepage's existing moving light sweep on catalogue cards. */
+.products-page .product-item{position:relative;overflow:hidden}
+.products-page .product-item::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 46%,transparent 58%);transform:translateX(-120%);transition:transform .9s cubic-bezier(.2,.75,.2,1)}
 .products-page .product-item:hover::before{transform:translateX(120%)}
 
-.products-page .spice-note strong{color:#526b59}
-.products-page .products-cta .cta-button{
-  background:#f5efe4;
-  color:#241f1b;
-  border-color:#f5efe4;
-  box-shadow:0 12px 30px rgba(23,21,19,.16);
-}
+/* Product page refinements. */
+.products-page .spice-note strong{color:#526b59!important}
+.products-page .products-cta .cta-button{background:#f5efe4!important;color:#241f1b!important;border-color:#f5efe4!important;box-shadow:0 12px 30px rgba(23,21,19,.16)!important}
 .products-page .products-cta .cta-button:hover,
-.products-page .products-cta .cta-button:focus-visible{
-  background:#fffaf2;
-  color:#171513;
-  border-color:#fffaf2;
-  box-shadow:0 15px 34px rgba(23,21,19,.22);
-}
+.products-page .products-cta .cta-button:focus-visible{background:#fffaf2!important;color:#171513!important;border-color:#fffaf2!important;box-shadow:0 15px 34px rgba(23,21,19,.22)!important}
 
-/* Shared category rail follows the final header height. */
-.products-page .product-categories{top:116px}
-@media(max-width:850px){.products-page .product-categories{top:78px}}
+/* Canonical product category header treatment. */
+.products-page .category-heading{
+  background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;
+  box-shadow:0 0 0 100vmax #64151a !important;
+  border-bottom-color:rgba(226,189,105,.28) !important;
+  color:#fff8ed !important;
+}
+.products-page .category-heading h2{color:#fff8ed !important}
+.products-page .category-heading h2 em{color:#e2bd69 !important}
+.products-page .category-heading p{color:#f1dfc4 !important}
+.products-page .category-heading .category-number{
+  background:linear-gradient(145deg,#e2bd69 0%,#b88932 52%,#7e5a20 100%) !important;
+  border-color:rgba(255,244,211,.78) !important;
+  color:#fffaf0 !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 5px 14px rgba(34,7,9,.28) !important;
+}
+.products-page .category-heading .category-number::after{color:#430d11}
 
-/* Responsive. */
-@media(max-width:1150px){
-  .products-page .category-heading .category-heading-left{transform:translateX(-3cm)}
-  .products-page .category-heading p{transform:translateX(3.5cm)}
-  .products-page .category-pantry .category-heading p{transform:translateX(3.5cm)}
-}
-@media(max-width:850px){
-  .products-page .category-heading{gap:28px}
-  .products-page .category-heading .category-heading-left{width:100%;transform:none}
-  .products-page .category-heading p{
-    flex:1 1 100%;
-    width:100%;
-    margin-left:0;
-    text-align:left;
-    transform:none;
-  }
-  .product-story-visual::before{background-size:62% auto}
-}
-@media(max-width:560px){
-  .product-category-section{width:90%;padding:48px 0 72px}
-  .category-heading{padding-bottom:16px}
-  .category-heading h2{font-size:34px}
-  .category-heading p{font-size:10px}
-  .product-items{grid-template-columns:1fr}
-  .product-item-image{height:205px}
-  .product-item-content{padding:15px}
-  .product-category-nav{gap:6px}
-  .product-category-nav button{padding:8px 12px;font-size:9px}
-  .products-intro{padding:70px 0 42px}
-  .products-intro h2{font-size:40px}
-  .product-story{padding:70px 0}
-  .origin-section{padding:70px 0}
-  .footer{padding:45px 7% 22px}
-}
+/* Keep the product category controls in the same cream / garnet / gold language. */
+.products-page .product-category-nav{background:#f8f1e3}
+.products-page .product-category-nav button.active,
+.products-page .product-category-nav button:hover{border-color:#e2bd69;color:#64151a}
+
+/* Category rail alignment follows the shared desktop/mobile header heights. */
+.products-page .product-categories{top:116px!important}
+@media(max-width:850px){.products-page .product-categories{top:78px!important}}
+
+

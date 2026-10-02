@@ -2,7 +2,6 @@
 @import url("footer.css");
 @import url("header.css");
 @import url("home-hero-final.css?v=20260918silk3");
-@import url("world-closing.css");
 
 /* Current homepage visual refinements. */
 .icon-button{color:#fff}
@@ -21,7 +20,7 @@
 .products .section-heading{margin-bottom:34px}
 .quality-mark:before{background:var(--cream)}
 .quality-mark img{filter:drop-shadow(0 12px 22px rgba(23,21,19,.18))}
-.partner-card:before,.partner-card:after{content:none;display:none}
+.partner-card:before,.partner-card:after{content:none!important;display:none!important}
 .partner-card img{width:260px;height:260px;object-fit:contain;display:block;position:relative;z-index:2;filter:drop-shadow(0 14px 24px rgba(23,21,19,.16))}
 
 /* Homepage product cards use the current product-page visual language. */
@@ -57,13 +56,13 @@
 /* ARAOUAA luxury visual direction — shared DNA with the newer world pages. */
 :root{--ara-world-cream:#f5efe4;--ara-world-paper:#eee5d7;--ara-world-ink:#241f1b;--ara-world-muted:#746b61;--ara-world-cocoa:#171513;--ara-world-gold:#d0aa60;--ara-world-green:#30483d}
 body:not(.world-page){background:var(--ara-world-cream);color:var(--ara-world-ink)}
-
-
+body:not(.world-page) .hero{background:radial-gradient(circle at 15% 10%,#fffdf8 0,var(--ara-world-cream) 42%,#dfd2bf 100%)}
+body:not(.world-page) .hero-backdrop{background:linear-gradient(90deg,rgba(245,239,228,.94),rgba(245,239,228,.16) 58%,transparent 100%)}
 body:not(.world-page) .button-primary{background:var(--ara-world-green);box-shadow:0 12px 30px rgba(48,72,61,.22)}
 body:not(.world-page) .button-primary:hover{background:#1e3028}
 body:not(.world-page) .hero h1 em,body:not(.world-page) .section-heading h2 em,body:not(.world-page) .story-copy h2 em,body:not(.world-page) .partner-copy h2 em{color:var(--ara-world-gold)}
 body:not(.world-page) .products{background:var(--ara-world-cream)}
-body:not(.world-page) .story{background:linear-gradient(135deg,#7a0d14 0%,#8b1018 52%,#6a0a11 100%);color:#fff8ed}
+body:not(.world-page) .story{background:linear-gradient(135deg,#7a0d14 0%,#8b1018 52%,#6a0a11 100%)!important;color:#fff8ed}
 body:not(.world-page) .story-visual{background-color:var(--ara-world-cream);border-color:rgba(208,170,96,.5)}
 body:not(.world-page) .story-copy h2,body:not(.world-page) .partner-copy h2,body:not(.world-page) .section-heading h2{color:var(--ara-world-ink)}
 body:not(.world-page) .filter-chip:hover,body:not(.world-page) .filter-chip.active{background:var(--ara-world-green);border-color:var(--ara-world-green)}
@@ -82,57 +81,57 @@ body:not(.world-page) .footer{background:var(--ara-world-cocoa)}
 /* Accueil story + partners: matched full-bleed burgundy bands. Keep both logo cards untouched. */
 body:not(.world-page):not(.products-page) .story,
 body:not(.world-page):not(.products-page) .partners{
-  width:100%;
-  max-width:none;
-  margin:0;
-  padding:110px 6%;
-  background:linear-gradient(135deg,#7a0d14 0%,#8b1018 52%,#6a0a11 100%);
-  color:#fff8ed;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:110px 6%!important;
+  background:linear-gradient(135deg,#7a0d14 0%,#8b1018 52%,#6a0a11 100%)!important;
+  color:#fff8ed!important;
 }
 body:not(.world-page):not(.products-page) .story-copy h2,
 body:not(.world-page):not(.products-page) .partner-copy h2{
-  color:#fff8ed;
+  color:#fff8ed!important;
 }
 body:not(.world-page):not(.products-page) .story-copy h2 em,
 body:not(.world-page):not(.products-page) .partner-copy h2 em{
-  color:#e2bd69;
+  color:#e2bd69!important;
 }
 body:not(.world-page):not(.products-page) .story-copy>p:not(.eyebrow),
 body:not(.world-page):not(.products-page) .partner-copy>p:not(.eyebrow){
-  color:rgba(255,248,237,.82);
+  color:rgba(255,248,237,.82)!important;
 }
 body:not(.world-page):not(.products-page) .story-copy>.eyebrow,
 body:not(.world-page):not(.products-page) .partner-copy>.eyebrow{
-  color:#e2bd69;
+  color:#e2bd69!important;
 }
-body:not(.world-page):not(.products-page) .story-points div{border-top-color:rgba(226,189,105,.28)}
-body:not(.world-page):not(.products-page) .story-points span{color:#fff8ed}
-body:not(.world-page):not(.products-page) .story-points small{color:rgba(255,248,237,.64)}
-body:not(.world-page):not(.products-page) .story-points strong{color:#e2bd69}
+body:not(.world-page):not(.products-page) .story-points div{border-top-color:rgba(226,189,105,.28)!important}
+body:not(.world-page):not(.products-page) .story-points span{color:#fff8ed!important}
+body:not(.world-page):not(.products-page) .story-points small{color:rgba(255,248,237,.64)!important}
+body:not(.world-page):not(.products-page) .story-points strong{color:#e2bd69!important}
 body:not(.world-page):not(.products-page) .story-visual,
 body:not(.world-page):not(.products-page) .partner-card{
-  background-color:var(--ara-world-cream);
+  background-color:var(--ara-world-cream)!important;
 }
 
 /* Refine the Le goût du Maroc CTA — lower, cream like the logo panel, black typography. */
 body:not(.world-page):not(.products-page) .partner-copy .button-primary{
-  margin-top:34px;
-  background:var(--ara-world-cream);
-  color:var(--ara-world-ink);
-  border-color:var(--ara-world-cream);
-  box-shadow:0 12px 30px rgba(23,21,19,.16);
+  margin-top:34px!important;
+  background:var(--ara-world-cream)!important;
+  color:var(--ara-world-ink)!important;
+  border-color:var(--ara-world-cream)!important;
+  box-shadow:0 12px 30px rgba(23,21,19,.16)!important;
 }
 body:not(.world-page):not(.products-page) .partner-copy .button-primary:hover,
 body:not(.world-page):not(.products-page) .partner-copy .button-primary:focus-visible{
-  background:#fffaf2;
-  color:#171513;
-  border-color:#fffaf2;
-  box-shadow:0 15px 34px rgba(23,21,19,.22);
+  background:#fffaf2!important;
+  color:#171513!important;
+  border-color:#fffaf2!important;
+  box-shadow:0 15px 34px rgba(23,21,19,.22)!important;
 }
 
 @media(max-width:900px){
   body:not(.world-page):not(.products-page) .story,
-  body:not(.world-page):not(.products-page) .partners{padding:84px 6%}
+  body:not(.world-page):not(.products-page) .partners{padding:84px 6%!important}
 }
 
 
