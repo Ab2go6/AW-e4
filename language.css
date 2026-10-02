@@ -7,7 +7,7 @@
 @media(max-width:850px){.language-switcher{margin-left:8px}.language-switcher button{padding:6px 6px;font-size:8px}}
 
 /* Arabic text direction without flipping the site's existing layout/scroll mechanics. */
-html[dir="rtl"]{direction:ltr;overflow-x:hidden}
+html[dir="rtl"]{direction:ltr!important;overflow-x:hidden}
 html[dir="rtl"] body{direction:ltr;overflow-x:hidden;font-family:Poppins,"Noto Sans Arabic",Tahoma,sans-serif}
 html[dir="rtl"] .announcement-inner,
 html[dir="rtl"] .site-header,
