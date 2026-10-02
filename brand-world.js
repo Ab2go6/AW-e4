@@ -9,7 +9,7 @@
     const link = document.createElement('link');
     link.id = CTA_STYLE_ID;
     link.rel = 'stylesheet';
-    link.href = 'world-cta.css?v=20261001cta2';
+    link.href = 'world-cta.css?v=20261002cta3';
     document.head.appendChild(link);
   }
 
