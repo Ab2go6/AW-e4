@@ -1,7 +1,7 @@
 /* ARAOUAA canonical visual theme — loaded after page/shared CSS. */
 :root{--ara-g0:#430D11;--ara-g1:#64151A;--ara-g2:#4B1015;--ara-cream:#F8F1E3;--ara-gold:#E2BD69}
 
-/* Product hero + intro: use the exact same layered sand field and contour treatment as the Home hero. */
+/* Product hero + intro: one continuous sand/silk field. */
 .products-page .products-hero,
 .products-page .products-intro{
   position:relative;
@@ -15,7 +15,6 @@
     linear-gradient(135deg,#FBF5E9 0%,#F6E9D4 34%,#EFDDBF 63%,#E5CDAA 100%);
   background-blend-mode:screen,screen,normal,normal;
 }
-
 .products-page .products-hero::before{
   content:"";
   position:absolute;
@@ -30,7 +29,7 @@
   transform:skewY(-4deg) scale(1.08);
   opacity:.92;
 }
-
+.products-page .products-intro::before{display:none;content:none}
 .products-page .products-hero::after,
 .products-page .products-intro::after{
   content:"";
@@ -43,22 +42,16 @@
   background-position:center;
   background-repeat:no-repeat;
   mix-blend-mode:soft-light;
-  opacity:1;
-  animation:none;
-  transform:none;
+  opacity:.28;
 }
-
 .products-page .products-hero-inner,
 .products-page .products-intro>*{
   position:relative;
   z-index:3;
 }
-
 @media(max-width:720px){
   .products-page .products-hero::after,
   .products-page .products-intro::after{opacity:.48;background-size:auto 120%;background-position:58% center}
-  .products-page .products-hero::before,
-  .products-page .products-intro::before{opacity:.74}
 }
 
 /* Product hierarchy rail: exact navigation garnet, transparent child so parent color is visible. */
@@ -66,16 +59,6 @@
 .products-page .product-category-nav{background:transparent}
 .products-page .product-category-nav button{background:transparent;color:#F7EDDB;border-color:rgba(226,189,105,.34)}
 .products-page .product-category-nav button:hover,.products-page .product-category-nav button.active{background:var(--ara-gold);border-color:var(--ara-gold);color:var(--ara-g0)}
-
-/* Footer: match the navigation garnet with stable contrast. */
-.footer{background:linear-gradient(100deg,var(--ara-g0) 0%,var(--ara-g1) 52%,var(--ara-g2) 100%);color:#FFF8ED}
-.footer-brand>p{color:#FFF8ED;font-size:10px;line-height:1.35;letter-spacing:1.8px;font-weight:600}
-.footer-nav strong{color:var(--ara-gold);font-size:11px;letter-spacing:1.5px}
-.footer-nav a{color:#F1DFC4;font-size:11px;line-height:1.55;font-weight:500}
-.footer-nav a:hover,.footer-nav a:focus-visible{color:#FFF8ED}
-.footer-contact>div,.footer-contact span{color:#F1DFC4;font-size:11px;line-height:1.55;font-weight:500}
-.footer-contact svg{stroke:var(--ara-gold);width:18px;height:18px}
-.footer-bottom{color:#D8C8AF;font-size:9px;border-top-color:rgba(226,189,105,.22)}
 
 /* Shared garnet surfaces and interaction states — active palette, not a temporary test layer. */
 body:not(.world-page) .quality-strip,
@@ -99,13 +82,6 @@ header.products-header .products-main-nav a:hover,
 header.products-header .products-main-nav a.active,
 .main-nav a:hover,
 .main-nav a.active{color:var(--ara-gold)}
-header.products-header .products-main-nav a::after,
-.main-nav a::after{background:var(--ara-gold)}
-header.products-header .products-header-contact,
-.header-contact{border-color:rgba(226,189,105,.72);color:#FFF4DF}
-header.products-header .products-header-contact:hover,
-.header-contact:hover{background:var(--ara-gold);color:var(--ara-g0)}
-
 /* World hero artwork stays suppressed; the page uses the canonical silk field. */
 .world-page .world-hero-media{opacity:0;background-image:none;display:none}
 
@@ -122,9 +98,6 @@ header.products-header .products-header-contact:hover,
 
 /* Keep the existing World hero content geometry stable. */
 .world-page .world-hero-content{position:relative;z-index:3;width:min(1280px,88%);margin:0 auto;padding:120px 0 110px}
-
-/* Remove the generic page-arrival veil that was creating a visual flash on navigation. */
-html::before{display:none;content:none;animation:none;opacity:0}
 
 /* World hero uses the current Home/Product layered sand field. */
 .world-page .world-hero{position:relative;overflow:hidden;isolation:isolate;background-color:#F1E3CC;background-image:radial-gradient(72% 86% at 76% 44%,rgba(255,253,246,.92) 0%,rgba(255,248,233,.72) 24%,rgba(231,208,169,.34) 55%,transparent 76%),radial-gradient(58% 70% at 11% 12%,rgba(255,255,251,.98) 0%,rgba(252,244,228,.72) 35%,transparent 70%),radial-gradient(52% 48% at 48% 104%,rgba(196,151,83,.18) 0%,transparent 72%),linear-gradient(135deg,#FBF5E9 0%,#F6E9D4 34%,#EFDDBF 63%,#E5CDAA 100%);background-blend-mode:screen,screen,normal,normal}
