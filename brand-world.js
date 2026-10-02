@@ -2,8 +2,6 @@
   const page = document.querySelector('.world-page');
   if (!page) return;
 
-  const hero = page.querySelector('.world-hero');
-
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const links = [
     ['Accueil', 'index.html'], ['Produits', 'produits.html'], ['L’univers', 'origine.html'],
@@ -35,27 +33,4 @@
     nav.addEventListener('click', event => { if (!event.target.closest('a')) return; toggle.setAttribute('aria-expanded','false'); nav.classList.remove('world-nav-open'); });
   }
 
-  const loadScript = (src, marker) => new Promise((resolve, reject) => {
-    const selector = marker === 'language' ? 'script[data-arraouaa-language]' : marker === 'world-language' ? 'script[data-arraouaa-world-language]' : marker === 'site-search' ? 'script[data-arraouaa-site-search]' : 'script[data-arraouaa-motion]';
-    if (document.querySelector(selector)) { resolve(); return; }
-    const script=document.createElement('script');
-    script.src=src;
-    if (marker === 'language') script.dataset.arraouaaLanguage='true';
-    if (marker === 'world-language') script.dataset.arraouaaWorldLanguage='true';
-    if (marker === 'site-search') script.dataset.arraouaaSiteSearch='true';
-    if (marker === 'motion') script.dataset.arraouaaMotion='true';
-    script.onload=resolve;
-    script.onerror=reject;
-    document.body.appendChild(script);
-  });
-
-  const isSavoirFaire = page.classList.contains('world-page--savoir-faire');
-  loadScript('language.js', 'language')
-    .then(() => isSavoirFaire ? Promise.resolve() : loadScript('world-language.js', 'world-language'))
-    .catch(error => console.error('ARAOUAA world language scripts failed to load:', error));
-
-  Promise.all([
-    loadScript('site-search.js?v=20260911f', 'site-search').catch(error => console.error('ARAOUAA world search failed to load:', error)),
-    loadScript('araouaa-motion.js?v=20260917h', 'motion').catch(error => console.error('ARAOUAA motion failed to load:', error))
-  ]);
 })();
