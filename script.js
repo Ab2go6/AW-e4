@@ -21,36 +21,6 @@
     });
   };
 
-  const setupFooterContact = () => {
-    const footer = document.querySelector('.footer');
-    if (!footer) return;
-
-    const location = footer.querySelector('.footer-contact [aria-label="Localisation"] span');
-    const phone = footer.querySelector('.footer-contact [aria-label="Téléphone"] span');
-    const emailRow = footer.querySelector('.footer-contact [aria-label="E-mail"]');
-
-    if (location) location.textContent = 'Tassila N° 3-39 Tikiouine, AGADIR';
-    if (phone) phone.textContent = '0528264827';
-    if (emailRow) {
-      const address = 'contact.araouaa@gmail.com';
-      let link = emailRow.querySelector('.footer-email-link');
-      if (!link) {
-        const span = emailRow.querySelector('span');
-        if (span) {
-          link = document.createElement('a');
-          link.className = 'footer-email-link';
-          link.href = `mailto:${address}`;
-          link.appendChild(span);
-          emailRow.appendChild(link);
-        }
-      }
-      if (link) {
-        link.href = `mailto:${address}`;
-        const span = link.querySelector('span');
-        if (span) span.textContent = address;
-      }
-    }
-  };
 
   const restoreProductHashPosition = () => {
     if (!document.body.classList.contains('products-page') || !window.location.hash || window.location.hash.startsWith('#search=')) return;
@@ -69,7 +39,6 @@
     .then(() => load('araouaa-motion.js'))
     .then(() => {
       setupPrimaryNav();
-      setupFooterContact();
       window.requestAnimationFrame(restoreProductHashPosition);
     })
     .catch(error => console.error('ARAOUAA scripts failed to load:', error));
