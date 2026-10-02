@@ -1,5 +1,5 @@
 /* Shared footer system — matches the canonical navigation garnet. */
-.footer{background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%) !important;color:#fff8ed !important;padding:58px 5% 28px !important;font-family:Poppins,Arial,sans-serif}
+.footer{background:linear-gradient(100deg,#430d11 0%,#64151a 52%,#4b1015 100%);color:#fff8ed;padding:58px 5% 28px;font-family:Poppins,Arial,sans-serif}
 .footer-main{width:min(1380px,100%);margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:56px}
 .footer-brand{flex:0 0 250px}
 .footer-logo{display:block;width:130px;height:115px}
