@@ -76,7 +76,7 @@
 
 /* Product filtering and unique interactions. */
 .product-category-section[hidden],
-.product-item[hidden]{display:none !important}
+.product-item[hidden]{display:none}
 .product-category-nav .catalog-filter[data-category="plus"]{order:999}
 
 .products-page .product-item{
@@ -111,8 +111,8 @@
 }
 
 /* Shared category rail follows the final header height. */
-.products-page .product-categories{top:116px !important}
-@media(max-width:850px){.products-page .product-categories{top:78px !important}}
+.products-page .product-categories{top:116px}
+@media(max-width:850px){.products-page .product-categories{top:78px}}
 
 /* Responsive. */
 @media(max-width:1150px){
