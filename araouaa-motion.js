@@ -1,6 +1,9 @@
 (() => {
   'use strict';
 
+  const isWorldPage = document.body.classList.contains('world-page');
+  const isProductsPage = document.body.classList.contains('products-page');
+
   const setupThemeColor = () => {
     let meta = document.querySelector('meta[name="theme-color"]');
     if (!meta) {
