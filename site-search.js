@@ -6,15 +6,6 @@
   const normalize = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 
-  const loadStyle = () => {
-    if (document.querySelector('link[data-arraouaa-site-search-style]')) return;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'site-search.css?v=20260911d';
-    link.dataset.arraouaaSiteSearchStyle = 'true';
-    document.head.appendChild(link);
-  };
-
   const getHeader = () => document.querySelector('.site-header, .products-header');
   const getButton = header => header?.querySelector('.search-toggle, .products-icon-button[aria-label="Rechercher"]');
 
@@ -107,7 +98,6 @@
   };
 
   const setup = () => {
-    loadStyle();
     const header = getHeader();
     const button = getButton(header);
     const panel = createPanel(header);
